@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.santander-padding-top-1{
+    padding-top: 30px!important;
+}
+
+.santander-padding-top-2{
+    padding-top: 60px!important;
+}
+
+.santander-padding-top-3{
+    padding-top: 90px!important;
+}
