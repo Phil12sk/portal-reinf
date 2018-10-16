@@ -13,12 +13,30 @@
     <div class="col-12 santander-padding-top-1">
       <nav>
         <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Eventos Pendentes de Envio</a>
-          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Controle de Integrações</a>
-          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Controle de Envios á RFB</a>
-          <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">Solicitar Envio á RFB</a>
+          <a 
+            class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+            routerLinkActive="detail-active" [routerLink]="['eventos-pendentes']" 
+            role="tab" aria-controls="nav-home" 
+            aria-selected="true">Eventos Pendentes de Envio</a>
+          <a 
+            class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+            routerLinkActive="detail-active" [routerLink]="['controle-integracoes']" 
+            role="tab" aria-controls="nav-profile"
+            aria-selected="false">Controle de Integrações</a>
+          <a 
+            class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+            routerLinkActive="detail-active" [routerLink]="['controle-envio']"
+            role="tab" aria-controls="nav-contact" 
+            aria-selected="false">Controle de Envios á RFB</a>
+          <a 
+            class="nav-item nav-link" id="nav-about-tab" data-toggle="tab"
+            routerLinkActive="detail-active" [routerLink]="['solicitar-envio']" 
+            role="tab" aria-controls="nav-about" aria-selected="false">Solicitar Envio á RFB</a>
         </div>
       </nav>
     </div>
+  </div>
+  <div class="row">
+    <router-outlet></router-outlet>
   </div>
 </div>
