@@ -1,0 +1,19 @@
+<h4 class="santander-padding-top-1"><strong>CHECK-LIST</strong></h4>
+<div class="row santander-padding-top-1" *ngFor="let option of options">
+  <div class="col-2">
+    <p>{{option.documentContr | mask: '00.000.000/0000-00'}}</p>
+  </div>
+  <div class="col-2">
+    <p>{{option.layout}}</p>
+  </div>
+  <div class="col-2">
+    <p>{{option.tipoSolicitacao}}</p>
+  </div>
+  <div class="col-2">
+    <p>{{option.periodo | mask: '0000-00'}}</p>
+  </div>
+  <div class="col-2">&nbsp;</div>
+  <div class="col-2">
+    <strong><a (click)="emitRemove(option)">X</a></strong>
+  </div>
+</div>

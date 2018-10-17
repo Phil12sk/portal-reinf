@@ -1,61 +1,76 @@
 <div class="container-fluid">
-    <div class="row santander-padding-top-1">
-        <div class="col-12">
-            <p>Selecione os Dados de Envio á Receita Federal:</p>
-        </div>
-        <div class="col-3">
-            <div class="form-group">
-                <select class="form-control" id="exampleSelect1">
-                <option selected>CNPJ Contribuinte</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                </select>
+    <form [formGroup]="consultForm" novalidate>
+        <div class="row santander-padding-top-1">
+            <div class="col-12">
+                <p>Selecione os Dados de Envio á Receita Federal:</p>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <select formControlName="documentContr" class="form-control" id="exampleSelect1">
+                        <option selected value="">CNPJ Contribuinte</option>
+                        <option *ngFor="let document of documents" value="{{document.value}}">{{document.label | mask: '00.000.000/0000-00'}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <select formControlName="layout" class="form-control" id="exampleSelect1">
+                        <option selected value="">Layouts</option>
+                        <option *ngFor="let layout of layouts" value="{{layout.value}}">{{layout.label}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <select formControlName="tipoSolicitacao" class="form-control" id="exampleSelect1">
+                        <option selected value="">Tipos de Solicitação</option>
+                        <option *ngFor="let tipoSolicitacao of tiposSolicitacao" value="{{tipoSolicitacao.label}}">{{tipoSolicitacao.label}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <input 
+                    type="text" 
+                    class="form-control"
+                    mask="0000-00"
+                    placeholder="AAAA-MM"
+                    formControlName="periodo">
+                </div>
+            </div>
+            <div class="col-2">
+                <button 
+                    type="button" 
+                    class="btn" 
+                    style="background-color: rgb(118, 113, 113); color: white;"
+                    (click)="solicitar(false);"
+                    [disabled]="!consultForm.valid"
+                    >SOLICITAR</button>
             </div>
         </div>
+    </form>
+    <div class="row">
+        <div class="col-12" *ngIf="items.length > 0">
+            <app-lista-envio (remove)="remove($event)" [options]="items" [hidden]="hasSelected"></app-lista-envio>
+        </div>
+    </div>
+    <div class="row" *ngIf="items.length > 0">
+        <div class="col-8">&nbsp;</div>
         <div class="col-2">
-            <div class="form-group">
-                <select class="form-control" id="exampleSelect1">
-                <option selected>Layouts</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="form-group">
-                <select class="form-control" id="exampleSelect1">
-                <option selected>Tipos de Solicitação</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="form-group">
-                <input 
-                type="text" 
-                class="form-control" 
-                id="periodoCons"
-                mask="0000-00"
-                placeholder="AAAA-MM">
-            </div>
+            <button 
+            type="button" 
+            class="btn" 
+            style="background-color: rgb(118, 113, 113); color: white;"
+            (click)="removeAll($event);"
+            >CANCELAR</button>
         </div>
         <div class="col-2">
             <button 
-                type="button" 
-                class="btn" 
-                style="background-color: rgb(118, 113, 113); color: white;"
-                [routerLink]="['R2010']"
-                >SOLICITAR</button>
+            type="button" 
+            class="btn" 
+            style="background-color: rgb(118, 113, 113); color: white;"
+            (click)="enviar($event);"
+            >CONFIRMAR</button>
         </div>
     </div>
 </div>

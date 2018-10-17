@@ -1,64 +1,63 @@
 <div class="container-fluid">
-  <div class="row santander-padding-top-1">
-    <div class="col-2">
-      <div class="form-group">
-        <label for="exampleInputPassword1">Digite o Período:</label>
-        <input 
-          type="text" 
-          class="form-control" 
-          id="periodoCons"
-          mask="0000-00"
-          placeholder="AAAA-MM">
+  <form [formGroup]="consultForm" novalidate>
+    <div class="row santander-padding-top-1">
+      <div class="col-2">
+        <div class="form-group">
+          <label for="periodoCons">Digite o Período:</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="periodoCons"
+            mask="0000-00"
+            placeholder="AAAA-MM"
+            formControlName="periodo">
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-group">
+          <label for="exampleSelect1">Example select</label>
+          <select 
+            formControlName="layout" 
+            class="form-control" 
+            id="exampleSelect1" 
+            (change)="layoutValidation($event);">
+            <option selected value="">Layouts</option>
+            <option *ngFor="let layout of layouts" value="{{layout.value}}">{{layout.label}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group" *ngIf="consultForm.value.layout === 'R2010'">
+          <label for="exampleSelect1">Example select</label>
+          <select formControlName="documentContr" class="form-control" id="exampleSelect2">
+            <option selected value="">CNPJ Contribuinte</option>
+            <option *ngFor="let document of documents" value="{{document.value}}">{{document.label | mask: '00.000.000/0000-00'}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group" *ngIf="consultForm.value.layout === 'R2010'">
+          <label for="exampleSelect1">Example select</label>
+          <select 
+            formControlName="documentPrest" 
+            class="form-control" 
+            id="exampleSelect3">
+            <option selected value="">CNPJ Prestador</option>
+            <option *ngFor="let document of documents1" value="{{document.value}}">{{document.label | mask: '00.000.000/0000-00'}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-2 santander-padding-top-1">
+        <button 
+          type="button" 
+          class="btn" 
+          style="background-color: rgb(118, 113, 113); color: white;"
+          (click)="teste($event);"
+          [disabled]="!consultForm.valid || layoutType"
+          >CONSULTAR</button>
       </div>
     </div>
-    <div class="col-2">
-      <div class="form-group">
-        <label for="exampleSelect1">Example select</label>
-        <select class="form-control" id="exampleSelect1">
-          <option selected>Layouts</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="form-group">
-        <label for="exampleSelect1">Example select</label>
-        <select class="form-control" id="exampleSelect1">
-          <option selected>CNPJ Contribuinte</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="form-group">
-        <label for="exampleSelect1">Example select</label>
-        <select class="form-control" id="exampleSelect1">
-          <option selected>CNPJ Prestador</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-    </div>
-    <div class="col-2 santander-padding-top-1">
-      <button 
-        type="button" 
-        class="btn" 
-        style="background-color: rgb(118, 113, 113); color: white;"
-        [routerLink]="['R2010']"
-        >CONSULTAR</button>
-    </div>
-  </div>
+  </form>
   <div class="row santander-padding-top-1">
     <div class="col-12">
       <router-outlet></router-outlet>
