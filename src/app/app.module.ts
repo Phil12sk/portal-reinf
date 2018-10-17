@@ -11,6 +11,7 @@ import { EventosPendentesComponent } from './eventos-pendentes/eventos-pendentes
 import { ControleIntegracoesComponent } from './controle-integracoes/controle-integracoes.component';
 import { ControleEnvioComponent } from './controle-envio/controle-envio.component';
 import { SolicitarEnvioComponent } from './solicitar-envio/solicitar-envio.component';
+import { R2010Component } from './r2010/r2010.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SolicitarEnvioComponent } from './solicitar-envio/solicitar-envio.compo
     EventosPendentesComponent,
     ControleIntegracoesComponent,
     ControleEnvioComponent,
-    SolicitarEnvioComponent
+    SolicitarEnvioComponent,
+    R2010Component
   ],
   imports: [
     BrowserModule,

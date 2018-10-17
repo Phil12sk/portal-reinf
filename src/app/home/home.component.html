@@ -14,29 +14,31 @@
       <nav>
         <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
           <a 
-            class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
-            routerLinkActive="detail-active" [routerLink]="['eventos-pendentes']" 
+            class="nav-item nav-link" id="nav-home-tab" data-toggle="tab"
+            routerLinkActive="active show" [routerLink]="['eventos-pendentes']" 
             role="tab" aria-controls="nav-home" 
             aria-selected="true">Eventos Pendentes de Envio</a>
           <a 
             class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
-            routerLinkActive="detail-active" [routerLink]="['controle-integracoes']" 
+            routerLinkActive="active show" [routerLink]="['controle-integracoes']" 
             role="tab" aria-controls="nav-profile"
             aria-selected="false">Controle de Integrações</a>
           <a 
             class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
-            routerLinkActive="detail-active" [routerLink]="['controle-envio']"
+            routerLinkActive="active show" [routerLink]="['controle-envio']"
             role="tab" aria-controls="nav-contact" 
             aria-selected="false">Controle de Envios á RFB</a>
           <a 
             class="nav-item nav-link" id="nav-about-tab" data-toggle="tab"
-            routerLinkActive="detail-active" [routerLink]="['solicitar-envio']" 
+            routerLinkActive="active show" [routerLink]="['solicitar-envio']" 
             role="tab" aria-controls="nav-about" aria-selected="false">Solicitar Envio á RFB</a>
         </div>
       </nav>
     </div>
   </div>
   <div class="row">
-    <router-outlet></router-outlet>
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

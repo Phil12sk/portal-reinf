@@ -1,18 +1,21 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
+  <div class="row santander-padding-top-1">
+    <div class="col-2">
       <div class="form-group">
-        <label for="exampleInputPassword1">Digite o Período a ser consultado:</label>
+        <label for="exampleInputPassword1">Digite o Período:</label>
         <input 
           type="text" 
           class="form-control" 
-          id="periodoCons">
+          id="periodoCons"
+          mask="0000-00"
+          placeholder="AAAA-MM">
       </div>
     </div>
-    <div class="col-sm">
+    <div class="col-2">
       <div class="form-group">
         <label for="exampleSelect1">Example select</label>
         <select class="form-control" id="exampleSelect1">
+          <option selected>Layouts</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -20,6 +23,45 @@
           <option>5</option>
         </select>
       </div>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <label for="exampleSelect1">Example select</label>
+        <select class="form-control" id="exampleSelect1">
+          <option selected>CNPJ Contribuinte</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <label for="exampleSelect1">Example select</label>
+        <select class="form-control" id="exampleSelect1">
+          <option selected>CNPJ Prestador</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-2 santander-padding-top-1">
+      <button 
+        type="button" 
+        class="btn" 
+        style="background-color: rgb(118, 113, 113); color: white;"
+        [routerLink]="['R2010']"
+        >CONSULTAR</button>
+    </div>
+  </div>
+  <div class="row santander-padding-top-1">
+    <div class="col-12">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
