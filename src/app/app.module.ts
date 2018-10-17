@@ -26,9 +26,11 @@ import { SolicitarEnvioComponent } from './solicitar-envio/solicitar-envio.compo
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
-    //NgxMaskModule.forRoot(options)
+    NgxMaskModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    NgxMaskModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
