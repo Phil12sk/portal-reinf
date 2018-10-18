@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DocumentModel } from '../core/_model/document.model';
-import { LayoutModel } from '../core/_model/layout.model';
-import { TipoSolicitacaoModel } from '../core/_model/tipoSolicitacao.model';
+import { DocumentModel } from '../../core/_model/document.model';
+import { LayoutModel } from '../../core/_model/layout.model';
+import { TipoSolicitacaoModel } from '../../core/_model/tipoSolicitacao.model';
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormArray } from '@angular/forms';
 
 

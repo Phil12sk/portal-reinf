@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LayoutModel } from '../core/_model/layout.model';
-import { DocumentModel } from '../core/_model/document.model';
+import { LayoutModel } from '../../core/_model/layout.model';
+import { DocumentModel } from '../../core/_model/document.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
