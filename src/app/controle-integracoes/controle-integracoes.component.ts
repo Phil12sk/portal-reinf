@@ -32,20 +32,24 @@ export class ControleIntegracoesComponent implements OnInit {
   
 
   teste($event){
-    console.log(this.evtValue)
     this.router.navigate([`/home/controle-integracoes/${this.evtValue}`])
-    this.hasSelected = false
-    console.log(this.consultForm.value)
+  }
+
+  teste2(){
+    console.log('teste')
+    this.layoutType = false
   }
 
   layoutValidation($event){
     if($event.target.value === 'R2099'){
       this.layoutType = false
+      this.evtValue = 'no-integration'
     }
     else if($event.target.value === 'R2010'){
       this.layoutType = true
+      this.evtValue = $event.target.value
     }
-    this.evtValue = $event.target.value
+    
   }
 
   ngOnInit() {
@@ -60,5 +64,4 @@ export class ControleIntegracoesComponent implements OnInit {
       ])
     })
   }
-
 }

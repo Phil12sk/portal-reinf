@@ -13,6 +13,8 @@ import { ControleEnvioComponent } from './controle-envio/controle-envio.componen
 import { SolicitarEnvioComponent } from './solicitar-envio/solicitar-envio.component';
 import { R2010Component } from './r2010/r2010.component';
 import { ListaEnvioComponent } from './shared/lista-envio/lista-envio.component';
+import { NoIntegrationComponent } from './no-integration/no-integration.component';
+import { TableEnviosComponent } from './table-envios/table-envios.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ListaEnvioComponent } from './shared/lista-envio/lista-envio.component'
     ControleEnvioComponent,
     SolicitarEnvioComponent,
     R2010Component,
-    ListaEnvioComponent
+    ListaEnvioComponent,
+    NoIntegrationComponent,
+    TableEnviosComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,42 @@
-<p>
-  controle-envio works!
-</p>
+<div class="container-fluid">
+  <form [formGroup]="consultForm" novalidate>
+    <div class="row santander-padding-top-1">
+      <div class="col-2">
+        <div class="form-group">
+          <label for="periodoCons">Digite o Período:</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="periodoCons"
+            mask="0000-00"
+            placeholder="AAAA-MM"
+            formControlName="periodo">
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="exampleSelect1">Example select</label>
+          <select formControlName="document" class="form-control" id="exampleSelect2">
+            <option selected value="">CNPJ Contribuinte</option>
+            <option *ngFor="let document of documents" value="{{document.value}}">{{document.label | mask: '00.000.000/0000-00'}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-1">&nbsp;</div>
+      <div class="col-2 santander-padding-top-1">
+        <button 
+          type="button" 
+          class="btn" 
+          style="background-color: rgb(118, 113, 113); color: white;"
+          [disabled]="!consultForm.valid"
+          (click)="teste($event);"
+          >CONSULTAR</button>
+      </div>
+    </div>
+  </form>
+  <div class="row santander-padding-top-1">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

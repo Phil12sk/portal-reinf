@@ -41,7 +41,8 @@
           <select 
             formControlName="documentPrest" 
             class="form-control" 
-            id="exampleSelect3">
+            id="exampleSelect3"
+            (change)="teste2();">
             <option selected value="">CNPJ Prestador</option>
             <option *ngFor="let document of documents1" value="{{document.value}}">{{document.label | mask: '00.000.000/0000-00'}}</option>
           </select>
@@ -53,7 +54,7 @@
           class="btn" 
           style="background-color: rgb(118, 113, 113); color: white;"
           (click)="teste($event);"
-          [disabled]="!consultForm.valid || layoutType"
+          [disabled]="!consultForm.valid"
           >CONSULTAR</button>
       </div>
     </div>
