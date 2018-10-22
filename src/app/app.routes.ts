@@ -18,7 +18,7 @@ export const ROUTES: Routes = [
             {path: 'R1000', component: R1000Component},
             {path: 'R1070', component: R1070Component},
             {path: 'R2010', component: R2010Component},
-            {path: 'R2060', component: R2060Component},
+            {path: 'R2060', component: R2060Component}
         ]},
         {path: 'controle-integracoes', component: ControleIntegracoesComponent, children: [
             {path: 'R1000', component: R1000Component},

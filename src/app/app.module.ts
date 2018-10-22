@@ -9,7 +9,19 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { EventosPendentesComponent } from './eventos-pendentes/eventos-pendentes.component';
 import { SharedModule } from './shared/shared.module';
+import { CurrencyMaskModule } from "ngx-currency-mask";
+import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency-mask/src/currency-mask.config";
 
+export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+  align: "right",
+  allowNegative: true,
+  allowZero: true,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: "."
+};
 
 @NgModule({
   declarations: [
@@ -24,10 +36,12 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     SharedModule.forRoot(),
     NgxMaskModule.forRoot(),
+    CurrencyMaskModule,
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
   providers: [
-    NgxMaskModule
+    NgxMaskModule,
+    {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig}
   ],
   bootstrap: [AppComponent]
 })

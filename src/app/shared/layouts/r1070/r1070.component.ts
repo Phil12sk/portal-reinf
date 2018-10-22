@@ -11,7 +11,7 @@ export class R1070Component implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
   isLoaded: boolean = true
-  r1000Form: FormGroup
+  r1070Form: FormGroup
 
   consultLayout(){
     /* 
@@ -43,55 +43,36 @@ export class R1070Component implements OnInit {
         })
       })
     */
-    this.r1000Form.setValue({
-      TP_OPER: 'TESTE',
-      NM_LAYOUT: 'TESTE',
-      DT_MOVIMENT: 'TESTE',
-      DT_INI_VAL: 'TESTE',
-      DT_FIM_VAL: 'TESTE',
-      CD_CLASSTRIB: 'TESTE',
-      IN_ESCRITUR: 'TESTE',
-      IN_DESONERA: 'Teste',
-      IN_ACO_MULT: 'Teste',
-      IN_SIT_PJ: 'Teste',
-      NM_RESP_CON: 'Teste',
-      CD_CPF_CON: 'Teste',
-      CD_TEL_CON: 'Teste',
-      CD_CEL_CON: 'Teste',
-      NM_EMAIL_CON: 'Teste',
-      NM_RAZAO_EMP: 'Teste',
-      NM_CON_EMP: 'Teste',
-      CD_TEL_EMP: 'Teste',
-      NM_EMAIL_EMP: 'Teste',
-      ID_EFR: 'Teste',
-      CD_CNPJ_EFR: 'Teste',
-      FILLER: 'Teste'
-    })
+    
   }
 
   ngOnInit() {
-    this.r1000Form = this.formBuilder.group({
+    this.r1070Form = this.formBuilder.group({
       TP_OPER: this.formBuilder.control(''),
       NM_LAYOUT: this.formBuilder.control(''),
+      CD_SIS_ORIG: this.formBuilder.control(''),
       DT_MOVIMENT: this.formBuilder.control(''),
+      TP_INSCRI: this.formBuilder.control(''),
+      NR_INSCRI: this.formBuilder.control(''),
+      TP_PROCES: this.formBuilder.control(''),
+      NR_PROCES: this.formBuilder.control(''),
       DT_INI_VAL: this.formBuilder.control(''),
       DT_FIM_VAL: this.formBuilder.control(''),
-      CD_CLASSTRIB: this.formBuilder.control(''),
-      IN_ESCRITUR: this.formBuilder.control(''),
-      IN_DESONERA: this.formBuilder.control(''),
-      IN_ACO_MULT: this.formBuilder.control(''),
-      IN_SIT_PJ: this.formBuilder.control(''),
-      NM_RESP_CON: this.formBuilder.control(''),
-      CD_CPF_CON: this.formBuilder.control(''),
-      CD_TEL_CON: this.formBuilder.control(''),
-      CD_CEL_CON: this.formBuilder.control(''),
-      NM_EMAIL_CON: this.formBuilder.control(''),
-      NM_RAZAO_EMP: this.formBuilder.control(''),
-      NM_CON_EMP: this.formBuilder.control(''),
-      CD_TEL_EMP: this.formBuilder.control(''),
-      NM_EMAIL_EMP: this.formBuilder.control(''),
-      ID_EFR: this.formBuilder.control(''),
-      CD_CNPJ_EFR: this.formBuilder.control(''),
+      IN_AUTORIA: this.formBuilder.control(''),
+      CD_SUSPEN: this.formBuilder.control(''),
+      IN_SUSPEN: this.formBuilder.control(''),
+      DT_DECISAO: this.formBuilder.control(''),
+      IN_DEPOSIT: this.formBuilder.control(''),
+      CD_UF: this.formBuilder.control(''),
+      CD_MUNIC: this.formBuilder.control(''),
+      CD_VARA: this.formBuilder.control(''),
+      IND_PROCES: this.formBuilder.control(''),
+      REG_INCONS: this.formBuilder.control(''),
+      BATE_INCONS: this.formBuilder.control(''),
+      CD_ITGR: this.formBuilder.control(''),
+      NR_SEQU_ITGR: this.formBuilder.control(''),
+      CD_SITU_ITGR: this.formBuilder.control(''),
+      DT_CTRL_ITGR: this.formBuilder.control(''),
       FILLER: this.formBuilder.control('')
     });
     this.consultLayout();

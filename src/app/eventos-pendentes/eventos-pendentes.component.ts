@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EvtPendente } from '../core/_model/evtPendente.mode';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CurrencyMaskModule } from "ngx-currency-mask";
 declare var $: any;
 
 
@@ -88,7 +89,7 @@ export class EventosPendentesComponent implements OnInit {
 
 
   redirect(evtPendente: EvtPendente ){
-    this.router.navigate([`/home/controle-integracoes/${evtPendente.layout.value}`])
+    this.router.navigate([`/home/eventos-pendentes/${evtPendente.layout.value}`])
   }
 
 }
