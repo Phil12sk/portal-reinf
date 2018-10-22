@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EvtPendente } from '../core/_model/evtPendente.mode';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+declare var $: any;
+
 
 @Component({
   selector: 'app-eventos-pendentes',
@@ -8,7 +12,7 @@ import { EvtPendente } from '../core/_model/evtPendente.mode';
 })
 export class EventosPendentesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   // evtPendentes: EvtPendente[] = [
   //   {
@@ -39,7 +43,7 @@ export class EventosPendentesComponent implements OnInit {
   //     }
   //   } 
   // ]
-
+    prestadores: String[] = ['72345678000100','62345678000100'];
     evtPendentes: EvtPendente[] = [
     {
       month: 'janeiro', 
@@ -77,8 +81,14 @@ export class EventosPendentesComponent implements OnInit {
     } 
   ]
 
+  
 
   ngOnInit() {
+  }
+
+
+  redirect(evtPendente: EvtPendente ){
+    this.router.navigate([`/home/controle-integracoes/${evtPendente.layout.value}`])
   }
 
 }
