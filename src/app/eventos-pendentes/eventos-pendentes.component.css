@@ -1,7 +1,12 @@
-.btn-text-white{
+.btn-text-gray{
     color: white!important;
+    margin-top: 0.5%;
+   
 }
 
-.btn-text-gray{
-    color: gray!important;
+.card-body-gray{
+    padding: 0.5rem;
+    border: 1px solid rgba(0,0,0,.125);
+    border-collapse: collapse;
+    height: 50px;
 }

@@ -6,39 +6,53 @@
       </select>
     </div>
   </div>
-  <div class="row santander-padding-top-1">
+  <div class="row santander-padding-top-1" style="    margin-bottom: 80px;">
     <div class="col-12">
       <div id="accordion">
-        <div class="card" *ngFor="let evtPendente of evtPendentes">
-          <div class="card-header" [id]="'head' + evtPendente.month">
+        <div class="card" *ngFor="let evtPendente of evtPendentes" >
+          <div class="card-header" [id]="'head' + evtPendente.month" style=" background-color: rgb(175, 171, 171);    padding: 0rem 0.75rem;">
             <h5 class="mb-0 text-center">
               <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
                 <circle cx="10" cy="10" r="10" fill="#F00000" />
               </svg>
-              <button 
-                class="btn btn-link btn-text-gray" 
-                data-toggle="collapse" 
-                [attr.data-target]="'#'+evtPendente.month" 
-                aria-expanded="true" 
+              <button class="btn btn-link btn-text-gray" data-toggle="collapse" [attr.data-target]="'#'+evtPendente.month" aria-expanded="true"
                 [attr.aria-controls]="evtPendente.month">
                 {{evtPendente.month | uppercase}}
               </button>
             </h5>
           </div>
-          <div 
-            [id]="evtPendente.month" 
-            class="collapse" 
-            [attr.aria-labelledby]="'head' + evtPendente.month" 
-            data-parent="#accordion">
-            <div class="card-body">
+          <div [id]="evtPendente.month" class="collapse" [attr.aria-labelledby]="'head' + evtPendente.month" data-parent="#accordion">
+            <!-- <div class="card-body card-body-gray" ><p><strong>Contribuinte</strong></p> </div> -->
+            <div class="card-body card-body-gray" style="background-color: rgba(0,0,0,.125);">
+              <div class="col-6 text-left" style="display: inline-block; ">
+                <!-- <p><strong>Contribuinte</strong></p> -->
+                <p style="margin-top: 0.5rem; margin-bottom: 1rem;    margin-left: -15px;"><strong>Contribuinte</strong></p>
+              </div>
+              <div class="col-6 text-center" style="display: inline-block;           width: 40%;">
+                <p><strong>Evento layout</strong></p>
+              </div>
+            </div>
+            <div class="card-body card-body-gray" *ngFor="let contrib of evtPendente.contribuinte">
               <div class="row">
                 <div class="col-6 text-left">
-                  <p><strong>Contribuinte</strong></p>
-                  <p>{{evtPendente.contribuinte.label | mask: '00.000.000/0000-00'}}</p>
+                  <!-- <p><strong>Contribuinte</strong></p> -->
+                  <p>{{contrib.label | mask: '00.000.000/0000-00'}}</p>
                 </div>
-                <div class="col-6 text-right">
-                  <p><strong>Evento layout</strong></p>
-                  <p>{{evtPendente.layout.label}}</p>
+                <div class="col-6 text-center">
+                  <!-- <p><strong>Evento layout</strong></p> -->
+                  <!--<p>{{evtPendente.layout.label}}</p>-->
+                  <p><button class="btn btn-link btn-text-white" data-toggle="modal" data-target="#R1000Modal">
+                    R1000
+                  </button>
+                    <button class="btn btn-link btn-text-white" data-toggle="modal" data-target="#R1070Modal">
+                  R1070
+                </button>
+                    <button class="btn btn-link btn-text-white" data-toggle="modal" data-target="#R2010Modal">
+                R2010
+              </button>
+                    <button class="btn btn-link btn-text-white" data-toggle="modal" data-target="#R2060Modal">
+              R2060
+            </button></p>
                 </div>
               </div>
             </div>
@@ -48,3 +62,25 @@
     </div>
   </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="R1000Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
