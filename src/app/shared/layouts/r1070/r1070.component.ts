@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-declare var $:  any
+declare var $: any;
 
 @Component({
-  selector: 'app-r2010',
-  templateUrl: './r2010.component.html',
-  styleUrls: ['./r2010.component.css']
+  selector: 'app-r1070',
+  templateUrl: './r1070.component.html',
+  styleUrls: ['./r1070.component.css']
 })
-export class R2010Component implements OnInit {
+export class R1070Component implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
   isLoaded: boolean = true
