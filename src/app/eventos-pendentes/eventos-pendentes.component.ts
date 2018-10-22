@@ -10,35 +10,73 @@ export class EventosPendentesComponent implements OnInit {
 
   constructor() { }
 
-  evtPendentes: EvtPendente[] = [
+  // evtPendentes: EvtPendente[] = [
+  //   {
+  //     month: 'janeiro', 
+  //     contribuinte: {
+  //       label: '12345678000100', value: '12345678000100'
+  //     },
+  //     layout: {
+  //       label: 'R2010', value: 'R2010'
+  //     }
+  //   },
+  //   {
+  //     month: 'março', 
+  //     contribuinte: {
+  //       label: '1838066500013', value: '1838066500013'
+  //     },
+  //     layout: {
+  //       label: 'R2010', value: 'R2010'
+  //     }
+  //   },
+  //   {
+  //     month: 'setembro', 
+  //     contribuinte: {
+  //       label: '45113756000185', value: '45113756000185'
+  //     },
+  //     layout: {
+  //       label: 'R2099', value: 'R2099'
+  //     }
+  //   } 
+  // ]
+
+    evtPendentes: EvtPendente[] = [
     {
       month: 'janeiro', 
-      contribuinte: {
+      contribuinte: [
+        {
         label: '12345678000100', value: '12345678000100'
       },
+      {
+        label: '92345678000100', value: '92345678000100'
+      }
+    ],
       layout: {
         label: 'R2010', value: 'R2010'
       }
     },
     {
       month: 'março', 
-      contribuinte: {
+      contribuinte: [
+        {
         label: '1838066500013', value: '1838066500013'
-      },
+      }
+    ],
       layout: {
         label: 'R2010', value: 'R2010'
       }
     },
     {
       month: 'setembro', 
-      contribuinte: {
+      contribuinte: [{
         label: '45113756000185', value: '45113756000185'
-      },
+      }],
       layout: {
         label: 'R2099', value: 'R2099'
       }
     } 
   ]
+
 
   ngOnInit() {
   }
