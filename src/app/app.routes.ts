@@ -14,7 +14,12 @@ import { R2060Component } from './shared/layouts/r2060/r2060.component';
 export const ROUTES: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent, children: [
-        {path: 'eventos-pendentes', component: EventosPendentesComponent},
+        {path: 'eventos-pendentes', component: EventosPendentesComponent, children: [
+            {path: 'R1000', component: R1000Component},
+            {path: 'R1070', component: R1070Component},
+            {path: 'R2010', component: R2010Component},
+            {path: 'R2060', component: R2060Component},
+        ]},
         {path: 'controle-integracoes', component: ControleIntegracoesComponent, children: [
             {path: 'R1000', component: R1000Component},
             {path: 'R1070', component: R1070Component},
