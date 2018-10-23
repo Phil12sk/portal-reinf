@@ -10,3 +10,19 @@
     border-collapse: collapse;
     height: 50px;
 }
+
+.flag-red{
+    color: red;
+}
+
+.flag-green{
+    color: green;
+}
+
+.flag-yellow{
+    color: yellow;
+}
+
+.flag-gray{
+    color: gray;
+}

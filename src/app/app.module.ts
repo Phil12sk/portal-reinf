@@ -9,6 +9,9 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { EventosPendentesComponent } from './eventos-pendentes/eventos-pendentes.component';
 import { SharedModule } from './shared/shared.module';
+import { DadosService } from './core/_service/dados.service';
+
+
 import { CurrencyMaskModule } from "ngx-currency-mask";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency-mask/src/currency-mask.config";
 
@@ -41,6 +44,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   ],
   providers: [
     NgxMaskModule,
+    DadosService,
     {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig}
   ],
   bootstrap: [AppComponent]
