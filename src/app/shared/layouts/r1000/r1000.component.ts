@@ -69,15 +69,11 @@ export class R1000Component implements OnInit {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
-    console.log(this.ola)
-=======
 
     this.contribuinte = this.dadosService.objDados.contribuinte;
     console.log("Contribuinte: " + this.contribuinte);
 
 
->>>>>>> c4648d8f031e9b45407bddfd08581daf93eb322a
     this.r1000Form = this.formBuilder.group({
       TP_OPER: this.formBuilder.control(''),
       NM_LAYOUT: this.formBuilder.control(''),
