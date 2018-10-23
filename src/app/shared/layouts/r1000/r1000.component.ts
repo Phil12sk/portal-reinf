@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+////////
+import { DadosService } from '../../../core/_service/dados.service';
+///////////////
 declare var $: any;
 
 @Component({
@@ -11,7 +14,12 @@ export class R1000Component implements OnInit {
   isLoaded: boolean = true
   r1000Form: FormGroup
 
-  constructor(private formBuilder: FormBuilder) { }
+
+  ////////////
+  contribuinte: any;
+  ///////////
+
+  constructor(private formBuilder: FormBuilder, private dadosService: DadosService) { }
 
   consultLayout(){
     /* 
@@ -70,6 +78,11 @@ export class R1000Component implements OnInit {
   }
 
   ngOnInit() {
+
+    this.contribuinte = this.dadosService.objDados.contribuinte;
+    console.log("Contribuinte: " + this.contribuinte);
+
+
     this.r1000Form = this.formBuilder.group({
       TP_OPER: this.formBuilder.control(''),
       NM_LAYOUT: this.formBuilder.control(''),

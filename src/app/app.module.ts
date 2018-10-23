@@ -9,6 +9,9 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { EventosPendentesComponent } from './eventos-pendentes/eventos-pendentes.component';
 import { SharedModule } from './shared/shared.module';
+import { DadosService } from './core/_service/dados.service';
+
+
 
 
 @NgModule({
@@ -27,7 +30,8 @@ import { SharedModule } from './shared/shared.module';
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
   providers: [
-    NgxMaskModule
+    NgxMaskModule,
+    DadosService
   ],
   bootstrap: [AppComponent]
 })
