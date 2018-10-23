@@ -100,17 +100,12 @@ export class EventosPendentesComponent implements OnInit {
   }
 
 
-<<<<<<< HEAD
   redirect(layout: String) {
     console.log("redirect - layout: " + layout);
 
     this.dadosService.objDados = {"contribuinte": 'XXX.XXXX.XXXX-XX'};
 
     this.router.navigate([`/home/eventos-pendentes/${layout}`])
-=======
-  redirect(evtPendente: EvtPendente ){
-    this.router.navigate([`/home/eventos-pendentes/${evtPendente.layout.value}`])
->>>>>>> b57ba5e87a386be7c04cc1b1dcacd52d563948f1
   }
 
   
