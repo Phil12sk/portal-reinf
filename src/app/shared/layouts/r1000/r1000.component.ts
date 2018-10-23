@@ -21,6 +21,20 @@ export class R1000Component implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private dadosService: DadosService) { }
 
+  updateLayout(){
+    /*this.r1000Service.updateInfos()
+    .subscribe(resp => {
+      this.router.navigate(['/home/controle-integracoes/'])
+    }) */
+  }
+
+  deleteLayout(){
+    /*this.r1000Service.deleteInfos()
+    .subscribe(resp => {
+      this.router.navigate(['/home/controle-integracoes/'])
+    }) */
+  }
+
   consultLayout(){
     /* 
       this.r1000Service.getInfos()
@@ -51,30 +65,6 @@ export class R1000Component implements OnInit {
         })
       })
     */
-    this.r1000Form.setValue({
-      TP_OPER: 'TESTE',
-      NM_LAYOUT: 'TESTE',
-      DT_MOVIMENT: 'TESTE',
-      DT_INI_VAL: 'TESTE',
-      DT_FIM_VAL: 'TESTE',
-      CD_CLASSTRIB: 'TESTE',
-      IN_ESCRITUR: 'TESTE',
-      IN_DESONERA: 'Teste',
-      IN_ACO_MULT: 'Teste',
-      IN_SIT_PJ: 'Teste',
-      NM_RESP_CON: 'Teste',
-      CD_CPF_CON: 'Teste',
-      CD_TEL_CON: 'Teste',
-      CD_CEL_CON: 'Teste',
-      NM_EMAIL_CON: 'Teste',
-      NM_RAZAO_EMP: 'Teste',
-      NM_CON_EMP: 'Teste',
-      CD_TEL_EMP: 'Teste',
-      NM_EMAIL_EMP: 'Teste',
-      ID_EFR: 'Teste',
-      CD_CNPJ_EFR: 'Teste',
-      FILLER: 'Teste'
-    })
   }
 
   ngOnInit() {

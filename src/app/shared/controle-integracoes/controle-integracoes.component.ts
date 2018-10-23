@@ -14,7 +14,7 @@ export class ControleIntegracoesComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router) { }
   datePattern = /([12]\d{3}(0[1-9]|1[0-2]))/
-  evtValue: any = 'R1000'
+  hasValue: boolean = false
   consultForm: FormGroup
   arrayTeste: any = {
     cnpj: 'xx.xxx.xxx/xxxx-xx',
@@ -22,16 +22,26 @@ export class ControleIntegracoesComponent implements OnInit {
       label: 'R1000', value: 'R1000'
     },
     {
+      label: 'R1070', value: 'R1070'
+    },
+    {
       label: 'R2010', value: 'R2010'
+    },
+    {
+      label: 'R2060', value: 'R2060'
     }]
-  }
-  
-  redirect(){
-    this.router.navigate([`/home/controle-integracoes/${this.evtValue}`])
   }
 
   consult($event){
-    
+    /*this.layoutsService.getInfos()
+      .subscribe(resp => {
+        this.infos = resp
+        this.hasValue = true
+      },
+      error => {
+        this.router.navigate(['/home/controle-integracoes/no-integration'])
+      }
+    }) */
   }
 
   ngOnInit() {

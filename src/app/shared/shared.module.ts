@@ -19,17 +19,13 @@ import { R2060Component } from './layouts/r2060/r2060.component';
 
 @NgModule({
     declarations: [ControleEnvioComponent, ControleIntegracoesComponent, ListaEnvioComponent, 
-                   SolicitarEnvioComponent, NoIntegrationComponent, R2010Component,
-                   TableEnviosComponent,
-                   R1000Component,
-                   R1070Component,
-                   R2060Component],
+                   SolicitarEnvioComponent, NoIntegrationComponent, TableEnviosComponent,
+                   R1000Component, R1070Component, R2010Component, R2060Component],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxMaskModule.forRoot(),
               RouterModule.forRoot(ROUTES)],
     exports: [ControleEnvioComponent, ControleIntegracoesComponent, ListaEnvioComponent, 
-            SolicitarEnvioComponent, NoIntegrationComponent, R2010Component, TableEnviosComponent,R1000Component,
-            R1070Component,
-            R2060Component,
+            SolicitarEnvioComponent, NoIntegrationComponent, TableEnviosComponent,
+            R1000Component, R1070Component, R2010Component, R2060Component,
             FormsModule, ReactiveFormsModule ],
     providers: [NgxMaskModule]
 })
