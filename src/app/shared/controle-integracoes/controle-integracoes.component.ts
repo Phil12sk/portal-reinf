@@ -16,6 +16,7 @@ export class ControleIntegracoesComponent implements OnInit {
   datePattern = /([12]\d{3}(0[1-9]|1[0-2]))/
   hasValue: boolean = false
   consultForm: FormGroup
+  olas = "Hellooooo";
   arrayTeste: any = {
     cnpj: 'xx.xxx.xxx/xxxx-xx',
     layouts: [{
@@ -33,6 +34,8 @@ export class ControleIntegracoesComponent implements OnInit {
   }
 
   consult($event){
+    this.router.navigate(['/home/controle-integracoes/no-integration'])
+    this.hasValue = true
     /*this.layoutsService.getInfos()
       .subscribe(resp => {
         this.infos = resp

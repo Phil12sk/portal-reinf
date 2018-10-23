@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 declare var $: any;
 
@@ -10,6 +10,7 @@ declare var $: any;
 export class R1000Component implements OnInit {
   isLoaded: boolean = true
   r1000Form: FormGroup
+  @Input() ola: any
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -60,6 +61,7 @@ export class R1000Component implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.ola)
     this.r1000Form = this.formBuilder.group({
       TP_OPER: this.formBuilder.control(''),
       NM_LAYOUT: this.formBuilder.control(''),
