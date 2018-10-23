@@ -43,7 +43,7 @@
                     mask=""
                     maxlength="3"
                     placeholder="Sistema de Origem"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="CD_SIS_ORIG"/>
 
                   <label for="DT_MOVIMENT">Data Movimentação</label>
@@ -62,7 +62,7 @@
                     class="form-control" 
                     id=""
                     mask="0"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)"
                     formControlName="TP_INSCRI"/>
                   
@@ -73,7 +73,7 @@
                     id=""
                     mask=""
                     maxlength="14"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Número Inscrição do Contribuinte"
                     formControlName="NR_INSCRI"/>
                 </div>
@@ -86,7 +86,7 @@
                     class="form-control" 
                     id=""
                     mask="0"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Tipo de Processo (1-Adm / 2-Judicial)"
                     formControlName="TP_PROCES"/>
 
@@ -95,7 +95,7 @@
                     type="text" 
                     class="form-control" 
                     id=""
-                    disabled
+                    [attr.disabled]="true"
                     maxlength="21"
                     placeholder="Número de Processo"
                     formControlName="NR_PROCES"/>
@@ -133,7 +133,7 @@
                     class="form-control" 
                     id=""
                     mask="00000000000000"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Susp. Adicional - CodSup"
                     formControlName="CD_SUSPEN"/>
                 </div>

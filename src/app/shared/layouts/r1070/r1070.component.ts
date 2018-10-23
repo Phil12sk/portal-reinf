@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { DadosService } from '../../../core/_service/dados.service';
 declare var $: any;
 
 @Component({
@@ -9,73 +10,42 @@ declare var $: any;
 })
 export class R1070Component implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private dadosService: DadosService) { }
   isLoaded: boolean = true
   r1070Form: FormGroup
 
-  consultLayout(){
-    /* 
-      this.r1000Service.getInfos()
-      .subscribe(resp => {
-        this.r1000Form.setValue({
-          TP_OPER: resp.TP_OPER,
-          NM_LAYOUT: resp.NM_LAYOUT,
-          DT_MOVIMENT: resp.DT_MOVIMENT,
-          DT_INI_VAL: resp.DT_INI_VAL,
-          DT_FIM_VAL: resp.DT_FIM_VAL,
-          CD_CLASSTRIB: resp.CD_CLASSTRIB,
-          IN_ESCRITUR: resp.IN_ESCRITUR,
-          IN_DESONERA: resp.IN_DESONERA,
-          IN_ACO_MULT: resp.IN_ACO_MULT,
-          IN_SIT_PJ: resp.IN_SIT_PJ,
-          NM_RESP_CON: resp.NM_RESP_CON,
-          CD_CPF_CON: resp.CD_CPF_CON,
-          CD_TEL_CON: resp.CD_TEL_CON,
-          CD_CEL_CON: resp.CD_CEL_CON,
-          NM_EMAIL_CON: resp.NM_EMAIL_CON,
-          NM_RAZAO_EMP: resp.NM_RAZAO_EMP,
-          NM_CON_EMP: resp.NM_CON_EMP,
-          CD_TEL_EMP: resp.CD_TEL_EMP,
-          NM_EMAIL_EMP: resp.NM_EMAIL_EMP,
-          ID_EFR: resp.ID_EFR,
-          CD_CNPJ_EFR: resp.CD_CNPJ_EFR,
-          FILLER: resp.FILLER
-        })
-      })
-    */
-    
-  }
-
   ngOnInit() {
     this.r1070Form = this.formBuilder.group({
-      TP_OPER: this.formBuilder.control(''),
-      NM_LAYOUT: this.formBuilder.control(''),
-      CD_SIS_ORIG: this.formBuilder.control(''),
-      DT_MOVIMENT: this.formBuilder.control(''),
-      TP_INSCRI: this.formBuilder.control(''),
-      NR_INSCRI: this.formBuilder.control(''),
-      TP_PROCES: this.formBuilder.control(''),
-      NR_PROCES: this.formBuilder.control(''),
-      DT_INI_VAL: this.formBuilder.control(''),
-      DT_FIM_VAL: this.formBuilder.control(''),
-      IN_AUTORIA: this.formBuilder.control(''),
-      CD_SUSPEN: this.formBuilder.control(''),
-      IN_SUSPEN: this.formBuilder.control(''),
-      DT_DECISAO: this.formBuilder.control(''),
-      IN_DEPOSIT: this.formBuilder.control(''),
-      CD_UF: this.formBuilder.control(''),
-      CD_MUNIC: this.formBuilder.control(''),
-      CD_VARA: this.formBuilder.control(''),
-      IND_PROCES: this.formBuilder.control(''),
-      REG_INCONS: this.formBuilder.control(''),
-      BATE_INCONS: this.formBuilder.control(''),
-      CD_ITGR: this.formBuilder.control(''),
-      NR_SEQU_ITGR: this.formBuilder.control(''),
-      CD_SITU_ITGR: this.formBuilder.control(''),
-      DT_CTRL_ITGR: this.formBuilder.control(''),
-      FILLER: this.formBuilder.control('')
+      TP_OPER: this.formBuilder.control(this.dadosService.objDados.TP_OPER),
+      NM_LAYOUT: this.formBuilder.control(this.dadosService.objDados.NM_LAYOUT),
+      CD_SIS_ORIG: this.formBuilder.control(this.dadosService.objDados.CD_SIS_ORIG),
+      DT_MOVIMENT: this.formBuilder.control(this.dadosService.objDados.DT_MOVIMENT),
+      TP_INSCRI: this.formBuilder.control(this.dadosService.objDados.TP_INSCRI),
+      NR_INSCRI: this.formBuilder.control(this.dadosService.objDados.NR_INSCRI),
+      TP_PROCES: this.formBuilder.control(this.dadosService.objDados.TP_PROCES),
+      NR_PROCES: this.formBuilder.control(this.dadosService.objDados.NR_PROCES),
+      DT_INI_VAL: this.formBuilder.control(this.dadosService.objDados.DT_INI_VAL),
+      DT_FIM_VAL: this.formBuilder.control(this.dadosService.objDados.DT_FIM_VAL),
+      IN_AUTORIA: this.formBuilder.control(this.dadosService.objDados.IN_AUTORIA),
+      CD_SUSPEN: this.formBuilder.control(this.dadosService.objDados.CD_SUSPEN),
+      IN_SUSPEN: this.formBuilder.control(this.dadosService.objDados.IN_SUSPEN),
+      DT_DECISAO: this.formBuilder.control(this.dadosService.objDados.DT_DECISAO),
+      IN_DEPOSIT: this.formBuilder.control(this.dadosService.objDados.CD_UF),
+      CD_UF: this.formBuilder.control(this.dadosService.objDados.CD_UF),
+      CD_MUNIC: this.formBuilder.control(this.dadosService.objDados.CD_MUNIC),
+      CD_VARA: this.formBuilder.control(this.dadosService.objDados.CD_VARA),
+      IND_PROCES: this.formBuilder.control(this.dadosService.objDados.IND_PROCES),
+      REG_INCONS: this.formBuilder.control(this.dadosService.objDados.REG_INCONS),
+      BATE_INCONS: this.formBuilder.control(this.dadosService.objDados.BATE_INCONS),
+      CD_ITGR: this.formBuilder.control(this.dadosService.objDados.CD_ITGR),
+      NR_SEQU_ITGR: this.formBuilder.control(this.dadosService.objDados.NR_SEQU_ITGR),
+      CD_SITU_ITGR: this.formBuilder.control(this.dadosService.objDados.CD_SITU_ITGR),
+      DT_CTRL_ITGR: this.formBuilder.control(this.dadosService.objDados.DT_CTRL_ITGR),
+      FILLER: this.formBuilder.control(this.dadosService.objDados.FILLER)
     });
-    this.consultLayout();
+
     $('#xxx').click();
   }
 }

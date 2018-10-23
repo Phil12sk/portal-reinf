@@ -43,6 +43,7 @@
             <td>
               <a
                 *ngFor="let layout of arrayTeste.layouts"
+                (click)="getInfoByDocument(arrayTeste.cnpj, layout.value);"
                 [routerLink]="['/home/controle-integracoes/'+layout.value]">
                 {{layout.label}} /
               </a>

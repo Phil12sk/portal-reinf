@@ -25,6 +25,16 @@
                     placeholder="Tipo de Operação"
                     formControlName="TP_OPER"/>
 
+                  <label for="CD_SIS_ORIG">Sistema de Origem</label>
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="CD_SIS_ORIG"
+                    maxlength="3"
+                    [attr.disabled]="true"
+                    placeholder="Sistema de Origem"
+                    formControlName="CD_SIS_ORIG"/>
+
                   <label for="NM_LAYOUT">Layout REINF</label>
                   <input 
                     type="text" 
@@ -42,6 +52,26 @@
                     mask="0000.00.00"
                     placeholder="Data Movimentação"
                     formControlName="DT_MOVIMENT"/>
+
+                  <label for="TP_INSCRI">Tipo Inscrição (1-CNPJ / 2-CPF)</label>
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="TP_INSCRI"
+                    mask="0"
+                    [attr.disabled]="true"
+                    placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)"
+                    formControlName="TP_INSCRI"/>
+
+                  <label for="NR_INSCRI">Número Inscrição do Contribuinte</label>
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="NR_INSCRI"
+                    mask="00.000.000/0000-00"
+                    [attr.disabled]="true"
+                    placeholder="Número Inscrição do Contribuinte"
+                    formControlName="NR_INSCRI"/>
 
                   <label for="DT_INI_VAL">Data Início de Validade</label>
                   <input 
@@ -62,28 +92,27 @@
                     maxlength="7"
                     placeholder="Data Fim de Validade"
                     formControlName="DT_FIM_VAL"/>
-
-                  <label for="CD_CNPJ_EFR">Código CNPJ EFR</label>
-                  <input 
-                    type="text" 
-                    class="form-control" 
-                    id=""
-                    mask="00.000.000/0000.00"
-                    placeholder="Código CNPJ EFR"
-                    formControlName="CD_CNPJ_EFR"/>
-                  
-                    <label for="FILLER">Filler</label>
-                  <input 
-                    type="text" 
-                    class="form-control" 
-                    id=""
-                    mask=""
-                    placeholder="Filler"
-                    formControlName="FILLER"/>
                 </div>
               </div>
               <div class="col-3">
                 <div class="form-group">
+                    <label for="CD_CNPJ_EFR">Código CNPJ EFR</label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id=""
+                      mask="00.000.000/0000.00"
+                      placeholder="Código CNPJ EFR"
+                      formControlName="CD_CNPJ_EFR"/>
+                    
+                      <label for="FILLER">Filler</label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id=""
+                      mask=""
+                      placeholder="Filler"
+                      formControlName="FILLER"/>
                   <label for="CD_CLASSTRIB">Código Classificação Tributo - Tabela 8</label>
                   <input 
                     type="text" 
@@ -156,7 +185,7 @@
                     type="text" 
                     class="form-control" 
                     id=""
-                    mask="(00)0000-0000"
+                    mask="+00 00 0000-0000"
                     placeholder="Código Telefone Contato da Empresa"
                     formControlName="CD_TEL_CON"/>
 
@@ -165,7 +194,7 @@
                     type="text" 
                     class="form-control" 
                     id=""
-                    mask="(00)00000-0000"
+                    mask="+00 00 00000-0000"
                     placeholder="Código Celular Contato da Empresa"
                     formControlName="CD_CEL_CON"/>
 
@@ -178,6 +207,16 @@
                     maxlength="60"
                     placeholder="Nome Email Contato da Empresa"
                     formControlName="NM_EMAIL_CON">
+
+                  <label for="CD_CNPJ_EMP">Código CNPJ Empresa de Software</label>
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="CD_CNPJ_EMP"
+                    mask="00.000.000/0000-00"
+                    [disabled]="true"
+                    placeholder="Código CNPJ Empresa de Software"
+                    formControlName="CD_CNPJ_EMP"/>
                 </div>
               </div>
               <div class="col-3">
@@ -207,7 +246,7 @@
                     type="text" 
                     class="form-control" 
                     id=""
-                    mask=""
+                    mask="+00 00 00000-0000"
                     maxlength="13"
                     placeholder="Código Telefone Empresa de Software"
                     formControlName="CD_TEL_EMP"/>
