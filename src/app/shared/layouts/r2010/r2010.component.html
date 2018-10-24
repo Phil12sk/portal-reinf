@@ -41,7 +41,7 @@
                     id=""
                     maxlength="3"
                     placeholder="Sistema de Origem"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="CD_SIS_ORIG"/>
                     
                   <label for="CD_PRODUTO">Código Produto</label>
@@ -50,7 +50,7 @@
                     class="form-control" 
                     id=""
                     mask="0000"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Código Produto"
                     formControlName="CD_PRODUTO"/>
                     
@@ -61,7 +61,7 @@
                     id=""
                     mask="00000"
                     placeholder="Código Retenção"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="CD_RETENCAO"/>
                     
                   <label for="DT_MOVIMENT">Data Movimentaçaõ</label>
@@ -80,7 +80,7 @@
                     id=""
                     mask="0"
                     placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="TP_INSCRI"/>
                     
                   <label for="NR_INSCRI">Número Inscrição do Contribuinte</label>
@@ -98,7 +98,7 @@
                     class="form-control" 
                     id=""
                     mask="0"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Tipo de Inscrição Estabelecimento (1-CNPJ / 4-CNO)"
                     formControlName="TP_INSC_EST"/>
                     
@@ -108,7 +108,7 @@
                     class="form-control" 
                     id=""
                     mask="00.000.000/0000-00"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Número de Inscrição Estabelecimento"
                     formControlName="NR_INSC_EST"/>
 
@@ -127,7 +127,7 @@
                     class="form-control" 
                     id=""
                     mask="00.000.000/0000-00"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="CNPJ Prestador"
                     formControlName="NR_CNPJ_PRE"/>
                   <label for="VL_TOT_BRUTO">Valor Total Bruto NF(s)</label>
@@ -207,7 +207,7 @@
                     class="form-control" 
                     id=""
                     maxlength="5"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Série NF"
                     formControlName="NR_SERIE"/>
                     
@@ -253,7 +253,7 @@
                     class="form-control" 
                     id=""
                     maxlength="9"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Tipo Serviço - Tabela 6"
                     formControlName="TP_SERVICO"/>
                 </div>
@@ -349,7 +349,7 @@
                     class="form-control" 
                     id=""
                     mask="0"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Tipo de Processo (1-Administrativo / 2-Judicial)"
                     formControlName="TP_PROC_RET"/>
                     
@@ -359,7 +359,7 @@
                     class="form-control" 
                     id=""
                     maxlength="21"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Número do Processo"
                     formControlName="NR_PROC_RET"/>
                     
@@ -369,7 +369,7 @@
                     class="form-control" 
                     id=""
                     maxlength="14"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Código Susp. Principal - codSuspPrinc"
                     formControlName="CD_SUSP_PRIN"/>
                 </div>
@@ -392,7 +392,7 @@
                     id=""
                     mask="0"
                     placeholder="Tipo Processo Adicional (1-Administrativo / 2-Judicial) - tpProcRetAdic"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="TP_PROC_ADIC"/>
                     
                   <label for="NR_PROC_ADIC">Número do Processo Adicional - nrProcRetAdic</label>
@@ -402,7 +402,7 @@
                     id=""
                     maxlength="21"
                     placeholder="Número do Processo Adicional - nrProcRetAdic"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="NR_PROC_ADIC"/>
                     
                   <label for="CD_SUSP_ADIC">Código Susp. Adicional - codSuspAdic</label>
@@ -412,7 +412,7 @@
                     id=""
                     mask="00000000000000"
                     placeholder="Código Susp. Adicional - codSuspAdic"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="CD_SUSP_ADIC"/>
                     
                   <label for="VL_ADIC">Valor Retenção Susp. Adicional</label>

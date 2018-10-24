@@ -42,7 +42,7 @@
                     id=""
                     maxlength="3"
                     placeholder="Sistema de Origem"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="CD_SIS_ORIG"/>
 
                   <label for="CD_PRODUTO">Código Produto</label>
@@ -52,7 +52,7 @@
                     id=""
                     mask="0000"
                     placeholder="Código Produto"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="CD_PRODUTO"/>
 
                   <label for="CD_RETENCAO">Código Retenção</label>
@@ -62,7 +62,7 @@
                     id=""
                     mask="00000"
                     placeholder="Código Retenção"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="CD_RETENCAO"/>
 
                   <label for="DT_MOVIMENT">Data Movimentação</label>
@@ -79,7 +79,7 @@
                     class="form-control"
                     mask="0"
                     placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="TP_INSCRI"/>
 
                   <label for="NR_INSCRI">Número Inscrição do Contribuinte</label>
@@ -89,7 +89,7 @@
                     id=""
                     maxlength="14"
                     placeholder="Número Inscrição do Contribuinte"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="NR_INSCRI"/>
 
                   <label for="TP_INSC_EST">Tipo Inscrição Estadual (1-CNPJ / 4-CNO)</label>
@@ -147,7 +147,7 @@
                     id=""
                     mask="00000000"
                     placeholder="Código Atividade Económica - tabela 9"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="CD_ATI_ECON"/>
 
                   <label for="VL_REC_ATIV">Valor Total da Receita Ativ.</label>
@@ -156,7 +156,7 @@
                     class="form-control" 
                     id=""
                     maxlength="14"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Valor Total da Receita Ativ."
                     formControlName="VL_REC_ATIV"/>
 
@@ -166,7 +166,7 @@
                     class="form-control" 
                     id=""
                     maxlength="14"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Valor Total das Exclusões Receita Bruta"
                     formControlName="VL_EXC_REC"/>
 
@@ -176,7 +176,7 @@
                     class="form-control" 
                     id=""
                     maxlength="14"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Valor Total das Adições Receita Bruta"
                     formControlName="VL_ADI_REC"/>
 
@@ -186,7 +186,7 @@
                     class="form-control" 
                     id=""
                     maxlength="14"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Valor Base CPRB"
                     formControlName="VL_BASE_CALC"/>
                 </div>
@@ -199,7 +199,7 @@
                     class="form-control" 
                     id=""
                     maxlength="14"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Valor CPRB Apur."
                     formControlName="VL_PREV_REC"/>
 
@@ -209,7 +209,7 @@
                     class="form-control" 
                     id=""
                     maxlength="14"
-                    disabled
+                    [attr.disabled]="true"
                     placeholder="Valor CPRB Susp."
                     formControlName="VL_PROC_SUSP"/>
 
@@ -220,7 +220,7 @@
                     id=""
                     mask="0"
                     placeholder="Tipo Processo (1-Administrativo / 2-Judicial)"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="TP_PROCESSO"/>
 
                   <label for="NR_PROCESSO">Número Processo</label>
@@ -230,7 +230,7 @@
                     id=""
                     maxlength="21"
                     placeholder="Número Processo"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="NR_PROCESSO"/>
 
                   <label for="CD_IND_SUSP">Código Ind Susp. - CodSup</label>
@@ -249,7 +249,7 @@
                     id=""
                     maxlength="1"
                     placeholder="Tipo Ajuste (0-Redução / 1-Acréscimo)"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="TP_AJUSTE"/>
 
                   <label for="CD_AJUSTE">Código Ajuste</label>
@@ -259,7 +259,7 @@
                     id=""
                     maxlength="2"
                     placeholder="Código Ajuste"
-                    disabled
+                    [attr.disabled]="true"
                     formControlName="CD_AJUSTE"/>
 
                   <label for="VL_AJUSTE">Valor Ajuste</label>
