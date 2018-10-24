@@ -38,7 +38,8 @@
                   <p>{{contrib.contribuinte | mask: '00.000.000/0000-00'}}</p>
                 </div>
                 <div class="col-6 text-center" >
-                  <p  *ngFor="let layout2 of contrib.layout" style="    display: inline;"><button class="btn btn-link btn-text-white" (click)="redirect('R1000')" [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray'}">
+                  <p  *ngFor="let layout2 of contrib.layout" style="    display: inline;">
+                    <button class="btn btn-link btn-text-white" (click)="redirect(layout2.label,contrib.contribuinte,contribuintePainelControle.periodo.value)" [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray'}">
                     {{layout2.label}} <i class="fas fa-flag"></i>
                   </button>
                  </p>

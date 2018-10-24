@@ -14,6 +14,13 @@ import { DadosService } from './core/_service/dados.service';
 
 import { CurrencyMaskModule } from "ngx-currency-mask";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency-mask/src/currency-mask.config";
+import { PainelDeControleComponent } from './core/_modal/painel-de-controle/painel-de-controle.component';
+
+import { registerLocaleData } from '@angular/common';
+import localePtBr from '@angular/common/locales/br';
+import { PainelDeControleR1000Component } from './core/_modal/painel-de-controle-r1000/painel-de-controle-r1000.component';
+registerLocaleData(localePtBr,'pt-BR');
+
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -32,6 +39,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     HomeComponent,
     HeaderComponent,
     EventosPendentesComponent,
+    PainelDeControleComponent,
+    PainelDeControleR1000Component,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +54,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   providers: [
     NgxMaskModule,
     DadosService,
+    // {provide: LOCALE_ID, useValue: 'pt-BR'},
     {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig}
   ],
   bootstrap: [AppComponent]
