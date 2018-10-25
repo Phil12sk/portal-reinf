@@ -1,0 +1,135 @@
+.modal-header-pop-up{    
+    background-color: #FE0000;
+    height: 50px;
+    padding-bottom: 40px;
+    color: white;
+}
+
+.btn-search{
+    font-weight: 400;
+    color: black;
+    background-color: transparent;
+    float: right;
+}
+
+.table-nfs{
+    overflow-y: hidden;
+    /* max-width: 00px; */
+    margin: 0 auto!important;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+
+/**********************************************/
+
+/* .table-fixed thead {
+    width: 97%;
+  }
+  .table-fixed tbody {
+    height: 230px;
+    overflow-y: auto;
+    width: 100%;
+  }
+  .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+    display: block;
+  }
+  .table-fixed tbody td, .table-fixed thead > tr> th {
+    float: left;
+    border-bottom-width: 0;
+  } */
+
+  .header-fixed {
+    width: 100% 
+}
+
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
+    display: block;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.header-fixed > tbody {
+    /* overflow-y: auto; */
+     overflow: auto;
+    height: 150px;
+}
+
+.header-fixed > tbody > tr > td,
+.header-fixed > thead > tr > th {
+    width: 20%;
+    float: left;
+}
+
+
+
+/*////////////////////////*/
+
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font: 14px/1 Arial, sans-serif;
+  }
+  .table-nfs {
+    border-collapse: collapse;
+    background: white;
+    /* table-layout: fixed; */
+    
+  }
+  .linha {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    /* width: 160px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:400px;
+    text-align: center;
+  }
+  
+  .pane {
+    background: #eee;
+  }
+  .pane-hScroll {
+    overflow: auto;
+    /* width: 400px; */
+    background: green;
+  }
+  .pane-vScroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 200px;
+    background: red;
+  }
+  
+  .pane--table2 {
+    /* width: 400px; */
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-top: 30px;
+  }
+  .pane--table2 th, .pane--table2 td {
+    /* width: auto; */
+    /* min-width: 160px; */
+  }
+  .pane--table2 tbody {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: block;
+    height: 400px;
+  }
+  .pane--table2 thead {
+      /* display: table-row; */
+  }

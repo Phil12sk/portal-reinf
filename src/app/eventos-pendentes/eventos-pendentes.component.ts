@@ -33,7 +33,7 @@ export class EventosPendentesComponent implements OnInit {
           { label: 'R1070', value: 'green' },
           { label: 'R2010', value: 'red' },
           { label: 'R2060', value: 'green' },
-        
+
         ]
       },
       {
@@ -43,7 +43,7 @@ export class EventosPendentesComponent implements OnInit {
           { label: 'R1070', value: 'green' },
           { label: 'R2010', value: 'red' },
           { label: 'R2060', value: 'green' },
-        
+
         ]
       }]
 
@@ -57,7 +57,7 @@ export class EventosPendentesComponent implements OnInit {
           { label: 'R1070', value: 'gray' },
           { label: 'R2010', value: 'yellow' },
           { label: 'R2060', value: 'gray' },
-        
+
         ]
       }]
 
@@ -65,7 +65,7 @@ export class EventosPendentesComponent implements OnInit {
 
   ];
 
- 
+
 
   flagColor: String;
 
@@ -74,14 +74,23 @@ export class EventosPendentesComponent implements OnInit {
   }
 
 
-  redirect(layout: String) {
+  redirect(layout: any, contribuinte: any, periodo: any) {
     console.log("redirect - layout: " + layout);
 
-    this.dadosService.objDados = {"contribuinte": 'XXX.XXXX.XXXX-XX'};
+    this.dadosService.objDados = {
+      "contribuinte": contribuinte,
+      "periodo": periodo
+    };
 
-    this.router.navigate([`/home/eventos-pendentes/${layout}`])
+    // this.router.navigate([`/home/eventos-pendentes/${layout}`])
+    if (layout == 'R1000') {
+      this.router.navigate(['/home/eventos-pendentes/Painel-controle-R1000'])
+    }
+    if (layout == 'R2010') {
+      this.router.navigate(['/home/eventos-pendentes/Painel-controle'])
+    }
   }
 
-  
+
 
 }
