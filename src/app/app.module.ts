@@ -11,13 +11,13 @@ import { EventosPendentesComponent } from './eventos-pendentes/eventos-pendentes
 import { SharedModule } from './shared/shared.module';
 import { DadosService } from './core/_service/dados.service';
 import { registerLocaleData } from '@angular/common';
-import localePtBr from '@angular/common/locales/pt';
+import localePtBr from '@angular/common/locales/br';
 
 
 import { CurrencyMaskModule } from "ngx-currency-mask";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency-mask/src/currency-mask.config";
 
-registerLocaleData(localePtBr);
+registerLocaleData(localePtBr, 'pt-BR');
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
