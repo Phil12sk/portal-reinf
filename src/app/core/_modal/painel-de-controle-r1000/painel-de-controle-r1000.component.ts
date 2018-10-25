@@ -21,7 +21,6 @@ export class PainelDeControleR1000Component implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private dadosService: DadosService) { }
 
   r1000: R1000Model;
-
   contribuinte: any;
   periodo: any;
 
