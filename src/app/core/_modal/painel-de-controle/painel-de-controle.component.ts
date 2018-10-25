@@ -19,7 +19,6 @@ export class PainelDeControleComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private dadosService: DadosService) { }
 
   ableNFTable: boolean;
-
   contribuinte: any;
   periodo: any;
 
