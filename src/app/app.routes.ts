@@ -12,6 +12,7 @@ import { R1070Component } from './shared/layouts/r1070/r1070.component';
 import { R2060Component } from './shared/layouts/r2060/r2060.component';
 import { PainelDeControleComponent } from './core/_modal/painel-de-controle/painel-de-controle.component';
 import { PainelDeControleR1000Component } from './core/_modal/painel-de-controle-r1000/painel-de-controle-r1000.component';
+import { PainelDeControleR2060Component } from './core/_modal/painel-de-controle-r2060/painel-de-controle-r2060.component';
 
 export const ROUTES: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -22,7 +23,8 @@ export const ROUTES: Routes = [
             {path: 'R2010', component: R2010Component},
             {path: 'R2060', component: R2060Component},
             {path: 'Painel-controle', component: PainelDeControleComponent},
-            {path: 'Painel-controle-R1000', component: PainelDeControleR1000Component}
+            {path: 'Painel-controle-R1000', component: PainelDeControleR1000Component},
+            {path: 'Painel-controle-R2060', component: PainelDeControleR2060Component}
         ]},
         {path: 'controle-integracoes', component: ControleIntegracoesComponent, children: [
             {path: 'R1000', component: R1000Component},

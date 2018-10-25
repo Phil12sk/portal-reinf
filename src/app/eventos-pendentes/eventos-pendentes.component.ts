@@ -89,6 +89,9 @@ export class EventosPendentesComponent implements OnInit {
     if (layout == 'R2010') {
       this.router.navigate(['/home/eventos-pendentes/Painel-controle'])
     }
+    if (layout == 'R2060') {
+      this.router.navigate(['/home/eventos-pendentes/Painel-controle-R2060'])
+    }
   }
 
 

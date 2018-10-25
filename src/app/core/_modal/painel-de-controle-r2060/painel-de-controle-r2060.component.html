@@ -1,0 +1,96 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" [hidden]="isLoaded"
+  id="xxx">Large modal
+</button>
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-header-pop-up">
+        <h5 class="modal-title" id="exampleModalLabel">Layout R2060</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+        <p style="    display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
+        <p style="    display: inline;    float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
+        <button class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">ENVIAR <i class="fas fa-share-square"></i></button>
+        <div class="row santander-padding-top-1" style="    width: 100%;">
+          <div class="col-12" style="    overflow: scroll;">
+            <table class="table-bordered text-center">
+              <thead class="santander-thead" style="    background-color: gray;">
+                <tr>
+                  <th scope="col">TipodeOperação(1-I/2-A/3-E/4-R)</th>
+                  <th scope="col">LayoutREINF</th>
+                  <th scope="col">SistemadeOrigem</th>
+                  <th scope="col">CódigoProduto</th>
+                  <th scope="col">CódigoRetenção</th>
+                  <th scope="col">DataMovimentação</th>
+                  <th scope="col">TipoInscrição(1-CNPJ/2-CPF)</th>
+                  <th scope="col">NúmeroInscriçãodoContribuinte</th>
+                  <th scope="col">TipoInscriçãoEstadual(1-CNPJ/4-CNO)</th>
+                  <th scope="col">NúmeroInscriçãoEstadualEstabelecimento</th>
+                  <th scope="col">ValordaReceitaBrutaTotaldoEstabelecimento</th>
+                  <th scope="col">ValorTotalCPRBdoEstabelecimento</th>
+                  <th scope="col">ValorCPRBSusp.Total</th>
+                  <th scope="col">CódigoAtividadeEconômica-tabela9</th>
+                  <th scope="col">ValorTotaldaReceitaAtiv.</th>
+                  <th scope="col">ValorTotaldasExclusõesReceitaBruta</th>
+                  <th scope="col">ValorTotaldasAdiçõesReceitaBruta</th>
+                  <th scope="col">ValorBaseCPRB</th>
+                  <th scope="col">ValorCPRBApur.</th>
+                  <th scope="col">ValorCPRBSusp.</th>
+                  <th scope="col">TipoProcesso(1-Administrativo/2-Judicial)</th>
+                  <th scope="col">NúmeroProcesso</th>
+                  <th scope="col">CódigoIndSusp.-CodSup</th>
+                  <th scope="col">TipoAjuste(0-Redução/1-Acréscimo)</th>
+                  <th scope="col">CódigoAjuste</th>
+                  <th scope="col">ValorAjuste</th>
+                  <th scope="col">DescriçãoAjuste</th>
+                  <th scope="col">DataAjuste</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="col">{{r2060.TP_OPER}}</td>
+                  <td scope="col">{{r2060.NM_LAYOUT}}</td>
+                  <td scope="col">{{r2060.CD_SIS_ORIG}}</td>
+                  <td scope="col">{{r2060.CD_PRODUTO}}</td>
+                  <td scope="col">{{r2060.CD_RETENCAO}}</td>
+                  <td scope="col">{{r2060.DT_MOVIMENT}}</td>
+                  <td scope="col">{{r2060.TP_INSCRI}}</td>
+                  <td scope="col">{{r2060.NR_INSCRI}}</td>
+                  <td scope="col">{{r2060.TP_INSC_EST}}</td>
+                  <td scope="col">{{r2060.NR_INSC_EST}}</td>
+                  <td scope="col">{{r2060.VL_TOT_RECBRUTA}}</td>
+                  <td scope="col">{{r2060.VL_TOT_APUESTAB}}</td>
+                  <td scope="col">{{r2060.VL_TOT_EXIGSUSP}}</td>
+                  <td scope="col">{{r2060.CD_ATI_ECON	}}</td>
+                  <td scope="col">{{r2060.VL_REC_ATIV}}</td>
+                  <td scope="col">{{r2060.VL_EXC_REC}}</td>
+                  <td scope="col">{{r2060.VL_ADI_REC}}</td>
+                  <td scope="col">{{r2060.VL_BASE_CALC}}</td>
+                  <td scope="col">{{r2060.VL_PREV_REC}}</td>
+                  <td scope="col">{{r2060.VL_PROC_SUSP}}</td>
+                  <td scope="col">{{r2060.TP_PROCESSO	}}</td>
+                  <td scope="col">{{r2060.NR_PROCESSO	}}</td>
+                  <td scope="col">{{r2060.CD_IND_SUSP	}}</td>
+                  <td scope="col">{{r2060.TP_AJUSTE}}</td>
+                  <td scope="col">{{r2060.CD_AJUSTE}}</td>
+                  <td scope="col">{{r2060.VL_AJUSTE}}</td>
+                  <td scope="col">{{r2060.DESC_AJUSTE}}</td>
+                  <td scope="col">{{r2060.DT_AJUSTE}}</td>                
+                  <td scope="col"><button class="btn" style="background-color: rgb(118, 113, 113); color: white;    float: right;" type="button"
+                      disabled="">EDITAR</button></td>
+                </tr>
+              </tbody>
+            </table>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

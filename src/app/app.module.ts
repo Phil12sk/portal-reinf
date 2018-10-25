@@ -20,6 +20,8 @@ import { registerLocaleData } from '@angular/common';
 import localePtBr from '@angular/common/locales/br';
 import { PainelDeControleR1000Component } from './core/_modal/painel-de-controle-r1000/painel-de-controle-r1000.component';
 import { TabelaDinamicaComponent } from './core/_modal/tabela-dinamica/tabela-dinamica.component';
+import { PainelDeControleR2060Component } from './core/_modal/painel-de-controle-r2060/painel-de-controle-r2060.component';
+import { PainelDeControleR1070Component } from './core/_modal/painel-de-controle-r1070/painel-de-controle-r1070.component';
 registerLocaleData(localePtBr,'pt-BR');
 
 
@@ -45,6 +47,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     PainelDeControleComponent,
     PainelDeControleR1000Component,
     TabelaDinamicaComponent,
+    PainelDeControleR2060Component,
+    PainelDeControleR1070Component,
   ],
   imports: [
     BrowserModule,
