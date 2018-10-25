@@ -56,11 +56,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   providers: [
     NgxMaskModule,
     DadosService,
-<<<<<<< HEAD
-    // {provide: LOCALE_ID, useValue: 'pt-BR'},
-=======
     {provide: LOCALE_ID, useValue: 'pt-BR'},
->>>>>>> 49df71d4506cc9c05412765f9f905647521c08ac
     {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig}
   ],
   bootstrap: [AppComponent]
