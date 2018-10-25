@@ -1,5 +1,5 @@
 .modal-header-pop-up{    
-    background-color: #FE0000;
+  background-color: #FE0000;
     height: 50px;
     padding-bottom: 40px;
     color: white;
@@ -132,4 +132,8 @@
   }
   .pane--table2 thead {
       /* display: table-row; */
+  }
+
+  .flag-red{
+    background-color: red;
   }

@@ -4,7 +4,7 @@
 
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog" style="    max-width: 1200px!important;" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header modal-header-pop-up">
         <h5 class="modal-title" id="exampleModalLabel">Layout R2010</h5>
@@ -15,81 +15,97 @@
       <div class="modal-body" *ngIf="ableNFTable==false">
         <p style="    display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
         <p style="    display: inline;    float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
-        <table class="table-bordered text-center" style="    margin-top: 20px;    margin-bottom: 20px;">
-          <thead class="santander-thead">
-            <tr>
-              <th scope="col" style="padding: 1rem;    background-color: rgba(0,0,0,.125);">Prestador</th>
-              <th scope="col" style="padding: 1rem;    background-color: rgba(0,0,0,.125);">Valor Total Bruto NF(s)</th>
-              <th scope="col" style="padding: 1rem;    background-color: rgba(0,0,0,.125);">Soma Valor Total Base Ret. NF(s)</th>
-              <th scope="col" style="padding: 1rem;    background-color: rgba(0,0,0,.125);">Valor Total Principal Ret. NF(s)</th>
-              <th scope="col" style="padding: 1rem;    background-color: rgba(0,0,0,.125);">Valor Total Adicional Ret. NF(s)</th>
-              <th scope="col" style="padding: 1rem;    background-color: rgba(0,0,0,.125);">Valor Total Principal Não Ret. NF(s)</th>
-              <th scope="col" style="padding: 1rem;    background-color: rgba(0,0,0,.125);">Valor Total Adicional Não Ret. NF(s)</th>
-              <th scope="col" style="padding: 1rem;     background-color: rgba(0,0,0,.125);">Quantidade de NF´s</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let prestador of prestadores">
-              <td style="padding: 1rem;    width: 200px;">{{prestador.cnpj | mask: '00.000.000/0000-00'}}</td>
-              <td style="padding: 1rem;">{{prestador.valorTotalNFs | currency:'BRL' }}</td>
-              <td style="padding: 1rem;">{{prestador.somaValoTotalBaseRet | currency:'BRL'}}</td>
-              <td style="padding: 1rem;">{{prestador.valorTotalPrincRet | currency:'BRL'}}</td>
-              <td style="padding: 1rem;">{{prestador.valorTotalAdicRet | currency:'BRL'}}</td>
-              <td style="padding: 1rem;">{{prestador.valorTotalPrincNRet | currency:'BRL'}}</td>
-              <td style="padding: 1rem;">{{prestador.valorTotalAdicNRet | currency:'BRL'}}</td>
+        <button class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">ENVIAR <i class="fas fa-share-square"></i></button>
+        <div class="row santander-padding-top-1" style="    width: 100%;    margin: 0 auto;">
+          <div class="col-12" style="    overflow: scroll;">
+            <table class="table-bordered text-center">
+              <thead class="santander-thead" style="    background-color: gray;">
+                <tr>
+                  <th scope="col">Prestador</th>
+                  <th scope="col">Valor Total Bruto NF(s)</th>
+                  <th scope="col">Soma Valor Total Base Ret. NF(s)</th>
+                  <th scope="col">Valor Total Principal Ret. NF(s)</th>
+                  <th scope="col">Valor Total Adicional Ret. NF(s)</th>
+                  <th scope="col">Valor Total Principal Não Ret. NF(s)</th>
+                  <th scope="col">Valor Total Adicional Não Ret. NF(s)</th>
+                  <th scope="col">Quantidade de NF´s</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let prestador of prestadores" [ngClass]="{'flag-red': prestador.status=='retificar'}">
+                  <td>{{prestador.cnpj | mask: '00.000.000/0000-00'}}</td>
+                  <td>{{prestador.valorTotalNFs | currency:'BRL' }}</td>
+                  <td>{{prestador.somaValoTotalBaseRet | currency:'BRL'}}</td>
+                  <td>{{prestador.valorTotalPrincRet | currency:'BRL'}}</td>
+                  <td>{{prestador.valorTotalAdicRet | currency:'BRL'}}</td>
+                  <td>{{prestador.valorTotalPrincNRet | currency:'BRL'}}</td>
+                  <td>{{prestador.valorTotalAdicNRet | currency:'BRL'}}</td>
 
-              <td style="padding: 0.3rem;">{{prestador.qtdNf}}
-                <button class="btn btn-link btn-search" (click)=redirectNf(prestador.cnpj)><i class="fas fa-search"></i></button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                  <td>{{prestador.qtdNf}}
+                    <button class="btn btn-link btn-search" (click)=redirectNf(prestador.cnpj)><i class="fas fa-search"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+        
+
       </div>
-      <div class="modal-body" *ngIf="ableNFTable==true">
-        <p style="    display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
-        <p style="    display: inline;font-size: 18px;margin-left: 30px;"><strong>Prestador:</strong> {{prestador| mask: '00.000.000/0000-00'}}</p>
-        <p style="    display: inline;    float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
-        <div class="pane pane--table2">
-          <table class="table-nfs">
-            <thead style="display: block;">
-              <th class="linha" style=" background-color: rgba(0,0,0,.125);">Série NF</th>
-              <th class="linha" style=" background-color: rgba(0,0,0,.125);">Número da NF</th>
-              <th class="linha" style=" background-color: rgba(0,0,0,.125);">Data Emissão NF</th>
-              <th class="linha" style=" background-color: rgba(0,0,0,.125);">Valor Bruto da NF</th>
-              <th class="linha" style=" background-color: rgba(0,0,0,.125);">Tipo Serviço - Tabela 6</th>
-              <th class="linha" style=" background-color: rgba(0,0,0,.125);">Valor Base Retenção da NF</th>
-              <th class="linha" style="  background-color: rgba(0,0,0,.125);">Valor Retenção da NF</th>
-              <th class="linha" style=" background-color: rgba(0,0,0,.125);">Valor Retenção dos Serviços Subcontratados</th>
-              <th class="linha" style="  background-color: rgba(0,0,0,.125);">Valor Principal Não Ret. NF(s)</th>
-              <th class="linha" style=" background-color: rgba(0,0,0,.125);">Valor Serviços Prestados após 15 anos</th>
-              <th class="linha" style="  background-color: rgba(0,0,0,.125);">Valor Serviços Prestados após 20 anos</th>
-              <th class="linha" style="  background-color: rgba(0,0,0,.125);">Valor Serviços Prestados após 25 anos</th>
-              <th class="linha" style=" background-color: rgba(0,0,0,.125);">Valor Adicional Serviços Prestados após 15, 20 ou 25 anos</th>
-              <th class="linha" style=" background-color: rgba(0,0,0,.125);">Valor Adicional Não Ret. NF(s)</th>
-            </thead>
-            <tbody>
-              <tr *ngFor="let nf of nfs">
-                <td class="linha">{{nf.serie}}</td>
-                <td class="linha">{{nf.numero}}</td>
-                <td class="linha">{{nf.dataEmissao}}</td>
-                <td class="linha">{{nf.valorBruto | currency:'BRL'}}</td>
-                <td class="linha">{{nf.tipoServico}}</td>
-                <td class="linha">{{nf.valorBaseRetNF | currency:'BRL'}}</td>
-                <td class="linha">{{nf.valorRetNF | currency:'BRL'}}</td>
-                <td class="linha">{{nf.valorRetServicosSubcontratados | currency:'BRL'}}</td>
-                <td class="linha">{{nf.valorPrincNRetNF | currency:'BRL'}}</td>
-                <td class="linha">{{nf.valorServicosPrestApos15anos | currency:'BRL'}}</td>
-                <td class="linha">{{nf.valorServicosPrestApos20anos | currency:'BRL'}}</td>
-                <td class="linha">{{nf.valorServicosPrestApos25anos | currency:'BRL'}}</td>
-                <td class="linha">{{nf.valorAdicionalServicosPrestApos152025Anos | currency:'BRL'}}</td>
-                <td class="linha">{{nf.valorAdicNRetNF | currency:'BRL'}}
-                  <button class="btn" style="background-color: rgb(118, 113, 113); color: white;    float: right;" type="button" disabled="">EDITAR</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+
+
+        <div class="modal-body" *ngIf="ableNFTable==true">
+            <p style="    display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
+            <p style="    display: inline;font-size: 18px;margin-left: 30px;"><strong>Prestador:</strong> {{prestador| mask: '00.000.000/0000-00'}}</p>
+            <p style="    display: inline;    float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
+            <button class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">ENVIAR <i class="fas fa-share-square"></i></button>
+            <div class="row santander-padding-top-1" style="    width: 100%;">
+            <div class="col-12" style="    overflow: scroll;">
+              <table class="table-bordered text-center">
+                <thead class="santander-thead" style="    background-color: gray;">
+                  <tr>
+                    <th scope="col">Série NF</th>
+                    <th scope="col">Número da NF</th>
+                    <th scope="col">Data Emissão NF</th>
+                    <th scope="col">Valor Bruto da NF</th>
+                    <th scope="col">Tipo Serviço - Tabela 6</th>
+                    <th scope="col">Valor Base Retenção da NF</th>
+                    <th scope="col">Valor Retenção da NF</th>
+                    <th scope="col">Valor Retenção dos Serviços Subcontratados</th>
+                    <th scope="col">Valor Principal Não Ret. NF(s)</th>
+                    <th scope="col">Valor Serviços Prestados após 15 anos</th>
+                    <th scope="col">Valor Serviços Prestados após 20 anos</th>
+                    <th scope="col">Valor Serviços Prestados após 25 anos</th>
+                    <th scope="col">Valor Adicional Serviços Prestados após 15, 20 ou 25 anos</th>
+                    <th scope="col">Valor Adicional Não Ret. NF(s)</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let nf of nfs" [ngClass]="{'flag-red': nf.status=='retificar'}">
+                    <td>{{nf.serie}}</td>
+                    <td>{{nf.numero}}</td>
+                    <td>{{nf.dataEmissao}}</td>
+                    <td>{{nf.valorBruto | currency:'BRL'}}</td>
+                    <td>{{nf.tipoServico}}</td>
+                    <td>{{nf.valorBaseRetNF | currency:'BRL'}}</td>
+                    <td>{{nf.valorRetNF | currency:'BRL'}}</td>
+                    <td>{{nf.valorRetServicosSubcontratados | currency:'BRL'}}</td>
+                    <td>{{nf.valorPrincNRetNF | currency:'BRL'}}</td>
+                    <td>{{nf.valorServicosPrestApos15anos | currency:'BRL'}}</td>
+                    <td>{{nf.valorServicosPrestApos20anos | currency:'BRL'}}</td>
+                    <td>{{nf.valorServicosPrestApos25anos | currency:'BRL'}}</td>
+                    <td>{{nf.valorAdicionalServicosPrestApos152025Anos | currency:'BRL'}}</td>
+                    <td>{{nf.valorAdicNRetNF | currency:'BRL'}}</td>
+                    <td><button class="btn" style="background-color: rgb(118, 113, 113); color: white;    float: right;" type="button" disabled="">EDITAR</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <router-outlet></router-outlet>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   </div>
 </div>

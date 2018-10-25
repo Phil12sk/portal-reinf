@@ -20,6 +20,7 @@ import { PainelDeControleComponent } from './core/_modal/painel-de-controle/pain
 import { registerLocaleData } from '@angular/common';
 import localePtBr from '@angular/common/locales/br';
 import { PainelDeControleR1000Component } from './core/_modal/painel-de-controle-r1000/painel-de-controle-r1000.component';
+import { TabelaDinamicaComponent } from './core/_modal/tabela-dinamica/tabela-dinamica.component';
 registerLocaleData(localePtBr,'pt-BR');
 
 
@@ -44,6 +45,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     EventosPendentesComponent,
     PainelDeControleComponent,
     PainelDeControleR1000Component,
+    TabelaDinamicaComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,11 +59,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   providers: [
     NgxMaskModule,
     DadosService,
-<<<<<<< HEAD
-    // {provide: LOCALE_ID, useValue: 'pt-BR'},
-=======
     {provide: LOCALE_ID, useValue: 'pt-BR'},
->>>>>>> 49df71d4506cc9c05412765f9f905647521c08ac
     {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig}
   ],
   bootstrap: [AppComponent]
