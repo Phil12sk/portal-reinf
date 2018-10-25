@@ -12,7 +12,6 @@ import { SharedModule } from './shared/shared.module';
 import { DadosService } from './core/_service/dados.service';
 
 
-
 import { CurrencyMaskModule } from "ngx-currency-mask";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency-mask/src/currency-mask.config";
 import { PainelDeControleComponent } from './core/_modal/painel-de-controle/painel-de-controle.component';
@@ -24,7 +23,7 @@ import { TabelaDinamicaComponent } from './core/_modal/tabela-dinamica/tabela-di
 registerLocaleData(localePtBr,'pt-BR');
 
 
-registerLocaleData(localePtBr);
+registerLocaleData(localePtBr, 'pt-BR');
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
