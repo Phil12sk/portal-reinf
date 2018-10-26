@@ -22,7 +22,10 @@ export class SolicitarEnvioComponent implements OnInit {
   items = []
 
   layouts: LayoutModel[] = [
+    {label: 'R1000', value: 'R1000'},
+    {label: 'R1070', value: 'R1070'},
     {label: 'R2010', value: 'R2010'},
+    {label: 'R2060', value: 'R2060'},
     {label: 'R2099', value: 'R2099'}
   ]
   documents: DocumentModel[] = [
@@ -31,6 +34,8 @@ export class SolicitarEnvioComponent implements OnInit {
   ]
   tiposSolicitacao: TipoSolicitacaoModel[] = [
     {label: 'I-Inclusão', value: 'inclusao'},
+    {label: 'A-Alteração', value: 'alteracao'},
+    {label: 'E-Exclusão', value: 'exclusao'},
     {label: 'F-Fechamento', value: 'fechamento'}
   ]
 

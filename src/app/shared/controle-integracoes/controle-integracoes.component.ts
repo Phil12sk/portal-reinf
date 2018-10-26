@@ -18,6 +18,7 @@ export class ControleIntegracoesComponent implements OnInit {
     private formBuilder: FormBuilder, 
     private router: Router,
     private dadosService: DadosService) { }
+  
   datePattern = /([12]\d{3}(0[1-9]|1[0-2]))/
   hasValue: boolean = false
   consultForm: FormGroup
@@ -53,7 +54,7 @@ export class ControleIntegracoesComponent implements OnInit {
   }
 
   consult($event){
-    this.router.navigate(['/home/controle-integracoes/no-integration'])
+    // this.router.navigate(['/home/controle-integracoes/no-integration'])
     this.hasValue = true
     /*this.layoutsService.getInfos()
       .subscribe(resp => {
@@ -66,7 +67,17 @@ export class ControleIntegracoesComponent implements OnInit {
     }) */
   }
 
+  documents: DocumentModel[] = [
+    {label: 'REINF - Movimento R1000', value: 'R1000'},
+    {label: 'REINF - Movimento R1070', value: 'R1000'},
+    {label: 'REINF - Movimento R2010', value: 'R1000'},
+    {label: 'REINF - Movimento R2060', value: 'R1000'},
+  ]
+
   ngOnInit() {
+
+    this.hasValue = false;
+
     this.r1000Model = {
       TP_OPER: '1',
       NM_LAYOUT: 'R1000',
@@ -98,7 +109,16 @@ export class ControleIntegracoesComponent implements OnInit {
 
     this.dadosService.objDados = this.r1000Model
     this.router.navigate(['/home/controle-integracoes'])
+    // this.consultForm = this.formBuilder.group({
+    //   periodo: this.formBuilder.control('', [
+    //     Validators.required, Validators.minLength(6),
+    //     Validators.pattern(this.datePattern)
+    //   ])
+    // })
+
     this.consultForm = this.formBuilder.group({
+      integracao: this.formBuilder.control('', [Validators.required]),
+      situacao: this.formBuilder.control('', [Validators.required]),
       periodo: this.formBuilder.control('', [
         Validators.required, Validators.minLength(6),
         Validators.pattern(this.datePattern)

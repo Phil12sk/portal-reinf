@@ -1,0 +1,12 @@
+.modal-header-pop-up{    
+    background-color: #FE0000;
+    height: 50px;
+    padding-bottom: 40px;
+    color: white;
+}
+
+
+table-bordered thead td, .table-bordered thead th {
+    border-bottom-width: 2px;
+    padding: 0.5rem;
+}

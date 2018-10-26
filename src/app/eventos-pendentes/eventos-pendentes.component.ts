@@ -17,8 +17,8 @@ declare var $: any;
 export class EventosPendentesComponent implements OnInit {
 
   constructor(
-    private formBuilder: FormBuilder, 
-    private router: Router, 
+    private formBuilder: FormBuilder,
+    private router: Router,
     private dadosService: DadosService) { }
 
   prestadores: String[] = ['72345678000100', '62345678000100'];
@@ -29,7 +29,7 @@ export class EventosPendentesComponent implements OnInit {
       infoContribuintes: [{
         contribuinte: '12345678000100',
         layout: [
-          { label: 'R1000', value: 'gray' },
+          { label: 'R1000', value: 'green' },
           { label: 'R1070', value: 'green' },
           { label: 'R2010', value: 'red' },
           { label: 'R2060', value: 'green' },
@@ -40,9 +40,9 @@ export class EventosPendentesComponent implements OnInit {
         contribuinte: '87345678000100',
         layout: [
           { label: 'R1000', value: 'gray' },
-          { label: 'R1070', value: 'green' },
+          { label: 'R1070', value: 'gray' },
           { label: 'R2010', value: 'red' },
-          { label: 'R2060', value: 'green' },
+          { label: 'R2060', value: 'gray' },
 
         ]
       }]
@@ -74,23 +74,29 @@ export class EventosPendentesComponent implements OnInit {
   }
 
 
-  redirect(layout: any, contribuinte: any, periodo: any) {
+  redirect(layout: any, flag: any, contribuinte: any, periodo: any) {
     console.log("redirect - layout: " + layout);
-
+    console.log("redirect - flag: " + flag);
     this.dadosService.objDados = {
       "contribuinte": contribuinte,
       "periodo": periodo
     };
 
-    // this.router.navigate([`/home/eventos-pendentes/${layout}`])
-    if (layout == 'R1000') {
-      this.router.navigate(['/home/eventos-pendentes/Painel-controle-R1000'])
-    }
-    if (layout == 'R2010') {
-      this.router.navigate(['/home/eventos-pendentes/Painel-controle'])
-    }
-    if (layout == 'R2060') {
-      this.router.navigate(['/home/eventos-pendentes/Painel-controle-R2060'])
+    if (flag != 'gray') {
+
+      // this.router.navigate([`/home/eventos-pendentes/${layout}`])
+      if (layout == 'R1000') {
+        this.router.navigate(['/home/eventos-pendentes/Painel-controle-R1000'])
+      }
+      if (layout == 'R1070') {
+        this.router.navigate(['/home/eventos-pendentes/Painel-controle-R1070'])
+      }
+      if (layout == 'R2010') {
+        this.router.navigate(['/home/eventos-pendentes/Painel-controle'])
+      }
+      if (layout == 'R2060') {
+        this.router.navigate(['/home/eventos-pendentes/Painel-controle-R2060'])
+      }
     }
   }
 
