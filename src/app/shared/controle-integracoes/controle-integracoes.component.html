@@ -27,7 +27,7 @@
         </div>
         <div class="col-3">
             <div class="form-group">
-              <label for="periodoCons">Tipo de Integração:</label>
+              <label for="periodoCons">Tipo de Layout:</label>
               <select formControlName="integracao" class="form-control" id="exampleSelect2">
                   <option selected value="">Selecione --</option>
                   <option *ngFor="let document of documents" value="{{document.value}}">{{document.label}} </option>
@@ -39,8 +39,8 @@
                 <label for="periodoCons">Situação:</label>
                 <select formControlName="situacao" class="form-control" id="exampleSelect3">
                     <option selected value="">Selecione --</option>
-                    <option value="ok">Movimentos Integrados </option>
-                    <option value="nok">Movimentos Rejeitados </option>
+                    <option value="ok">Registros Integrados </option>
+                    <option value="nok">Registros Rejeitados </option>
                   </select>
               </div>
             </div>
