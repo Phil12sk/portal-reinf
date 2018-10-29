@@ -88,7 +88,7 @@
                       class="btn btn-link btn-text-white" 
                       (click)="redirect(layout2.label,layout2.value,contrib.contribuinte,contribuintePainelControle.periodo.value)"
                       [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray'}"
-                      data-toggle="modal" data-target=".bd-example-modal-lg2">
+                      data-toggle="modal" data-target=".bd-example-modal-lg">
                         {{layout2.label}} 
                         <i class="fas fa-flag"></i>
                     </button>
@@ -112,20 +112,21 @@
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-      <app-transmissao [contribuintePainelControle]="contribuintePainelControle" style="    padding-bottom: 20px;"></app-transmissao>
-      </div>
+      <app-transmissao *ngIf="mod==1" [contribuintePainelControle]="contribuintePainelControle" style="    padding-bottom: 20px;"></app-transmissao>
+      <app-painel-de-controle-r1000 *ngIf="mod==2" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r1000>
+    </div>
     </div>
   </div>
 
 
-  <div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <!-- <div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
         <app-painel-de-controle-r1000 [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r1000>
-        <!-- <app-painel-de-controle-r1000 [contribuinte,periodo,flag]="contribuinte,periodo,flag"  style="    padding-bottom: 20px;"></app-painel-de-controle-r1000>   -->
+        
       </div>
       </div>
-    </div>
+    </div> -->
 
  
  

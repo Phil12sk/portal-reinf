@@ -30,7 +30,7 @@ contribuinteSelecionado: any;
 contribuinte: any;
 periodo: any;
 flag: any;
-
+mod:any;
 
   contribuintesPainelControle: ContribuintePainelControle[] = [
     {
@@ -148,8 +148,10 @@ flag: any;
     this.contribuinte= contribuinte;
     this.periodo= periodo;
     this.flag= flag;
+    this.mod='';
 
     if (flag != 'gray') {
+      this.mod=2;
     // this.contribuinte= contribuinte;
     // this.periodo= periodo;
     // this.flag= flag;
@@ -176,6 +178,7 @@ flag: any;
   }
 
   transmitir(contribuintePainelControle: any){
+    this.mod=1;
    
     // console.log("contribuintePainelControle: " + JSON.stringify(contribuintePainelControle));
     
