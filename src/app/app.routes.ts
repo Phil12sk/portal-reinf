@@ -25,11 +25,11 @@ export const ROUTES: Routes = [
             {path: 'R1070', component: R1070Component},
             {path: 'R2010', component: R2010Component},
             {path: 'R2060', component: R2060Component},
-            {path: 'Painel-controle-R1000', component: PainelDeControleR1000Component},
+            // {path: 'Painel-controle-R1000', component: PainelDeControleR1000Component},
             {path: 'Painel-controle-R1070', component: PainelDeControleR1070Component},
             {path: 'Painel-controle', component: PainelDeControleComponent},
             {path: 'Painel-controle-R2060', component: PainelDeControleR2060Component},
-            {path: 'Transmissao', component: TransmissaoComponent}
+            // {path: 'Transmissao', component: TransmissaoComponent}
         ]},
         {path: 'controle-de-registros', component: ControleIntegracoesComponent, children: [
             {path: 'controle-de-registros-R1070', component: ControleRegistrosR1070Component},
