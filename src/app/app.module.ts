@@ -24,9 +24,8 @@ import { TabelaDinamicaComponent } from './core/_modal/tabela-dinamica/tabela-di
 import { PainelDeControleR2060Component } from './core/_modal/painel-de-controle-r2060/painel-de-controle-r2060.component';
 import { PainelDeControleR1070Component } from './core/_modal/painel-de-controle-r1070/painel-de-controle-r1070.component';
 import { TransmissaoComponent } from './core/_modal/transmissao/transmissao.component';
-import { ControleRegistrosR1070Component } from './core/_modal/controle-registros/controle-registros-r1070/controle-registros-r1070.component';
-registerLocaleData(localePtBr,'pt-BR');
 
+registerLocaleData(localePtBr,'pt-BR');
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -50,8 +49,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     TabelaDinamicaComponent,
     PainelDeControleR2060Component,
     PainelDeControleR1070Component,
-    TransmissaoComponent,
-    ControleRegistrosR1070Component,
+    TransmissaoComponent
   ],
   imports: [
     BrowserModule,
