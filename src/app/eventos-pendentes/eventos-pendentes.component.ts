@@ -23,8 +23,9 @@ export class EventosPendentesComponent implements OnInit {
 
   prestadores: String[] = ['72345678000100', '62345678000100'];
 
-  teste='ssssss';
-
+  // contribuintePainelControle='ssssss';
+teste='testeeeee';
+contribuintePainelControle: any;
   contribuintesPainelControle: ContribuintePainelControle[] = [
     {
       periodo: { label: 'MAIO', value: '2018-05', status: 'green' },
@@ -157,9 +158,14 @@ export class EventosPendentesComponent implements OnInit {
   }
 
   transmitir(contribuintePainelControle: any){
-    this.dadosService.objDados = {
-      "contribuintePainelControle": contribuintePainelControle
-    };
-    this.router.navigate(['/home/painel-de-controle/Transmissao'])
+   
+    // console.log("contribuintePainelControle: " + JSON.stringify(contribuintePainelControle));
+    
+    // this.dadosService.objDados = {
+    //   "contribuintePainelControle": contribuintePainelControle
+    // };
+
+    // this.router.navigate(['/home/painel-de-controle/Transmissao'])
+    this.contribuintePainelControle=contribuintePainelControle;
   }
 }

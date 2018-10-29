@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 import { DadosService } from '../../../core/_service/dados.service';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -13,22 +13,21 @@ declare var $: any;
 })
 export class TabelaDinamicaComponent implements OnInit {
 
-  titulo: any[];
-  conteudo: any[];
+  // contribuintePainelControle: any;
 
   constructor(
     private formBuilder: FormBuilder, 
     private router: Router, 
     private dadosService: DadosService) { }
 
+    @Input() contribuintePainelControle: any;
+
   ngOnInit() {
+    console.log("TESTE: " + JSON.stringify(this.contribuintePainelControle);
 
-    this.titulo = this.dadosService.objDados.titulo;
-    this.conteudo = this.dadosService.objDados.conteudo;
-
-    $('.pane-hScroll').scroll(function () {
-      $('.pane-vScroll').width($('.pane-hScroll').width() + $('.pane-hScroll').scrollLeft());
-    });
+    // this.contribuintePainelControle = this.dadosService.objDados.contribuintePainelControle;
+    // console.log("contribuintePainelControle-Modal:" + JSON.stringify(this.contribuintePainelControle));
+    
 
   }
 

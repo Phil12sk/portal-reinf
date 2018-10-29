@@ -41,7 +41,7 @@
                 aria-expanded="true" [attr.aria-controls]="contribuintePainelControle.periodo.label" style="    font-weight: 700; font-size: 18px;">
                 {{contribuintePainelControle.periodo.label | uppercase}}
               </button>
-              <button 
+              <!-- <button 
                 *ngIf="contribuintePainelControle.periodo.status=='green'" 
                 class="btn" 
                 style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;" 
@@ -56,7 +56,9 @@
                 (click)="transmitir(contribuintePainelControle)">
                   TRANSMITIR 
                   <i class="fas fa-share-square"></i>
-              </button>
+              </button> -->
+              <button (click)="transmitir(contribuintePainelControle)" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+             
             </h5>
           </div>
           <div 
@@ -100,12 +102,12 @@
   </div>
 
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+  
   
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-          <app-transmissao [teste]="teste"></app-transmissao>
+      <app-tabela-dinamica [contribuintePainelControle]="contribuintePainelControle"></app-tabela-dinamica>
       </div>
     </div>
   </div>

@@ -16,15 +16,17 @@ export class TransmissaoComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private dadosService: DadosService) { }
 
   contribuintePainelControle: any;
-  @Input() teste:any;
+  
 
   ngOnInit() {
 
-    this.contribuintePainelControle = this.dadosService.objDados.contribuintePainelControle;
-    console.log("contribuintePainelControle:" + JSON.stringify(this.contribuintePainelControle));
     
-    // $('#xxx').click();
-    console.log("TESTS: " + this.teste);
+
+    this.contribuintePainelControle = this.dadosService.objDados.contribuintePainelControle;
+    console.log("contribuintePainelControle-Modal:" + JSON.stringify(this.contribuintePainelControle));
+    
+    $('#xxx').click();
+ 
 
 
   }
