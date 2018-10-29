@@ -20,7 +20,7 @@
     <div class="modal-body">
         <p style="    display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
         <p style="    display: inline;    float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
-        <button class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">ENVIAR <i class="fas fa-share-square"></i></button>
+        <button *ngIf="flag!='green'" class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">TRANSMITIR<i class="fas fa-share-square"></i></button>
         <div class="row santander-padding-top-1" style="    width: 100%;">
           <div class="col-12" style="    overflow: scroll;">
             <table class="table-bordered text-center">

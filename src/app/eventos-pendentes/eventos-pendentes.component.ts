@@ -130,7 +130,8 @@ export class EventosPendentesComponent implements OnInit {
     console.log("redirect - flag: " + flag);
     this.dadosService.objDados = {
       "contribuinte": contribuinte,
-      "periodo": periodo
+      "periodo": periodo,
+      "flag": flag
     };
 
     if (flag != 'gray') {

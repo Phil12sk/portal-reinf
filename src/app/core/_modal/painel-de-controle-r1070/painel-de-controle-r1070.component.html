@@ -1,69 +1,68 @@
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header modal-header-pop-up">
-        <h5 class="modal-title" id="exampleModalLabel">Layout R1070</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      </div>
-      <div class="modal-body">
-        <p style="    display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
-        <p style="    display: inline;    float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
-        <button class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">ENVIAR <i class="fas fa-share-square"></i></button>
-        <div class="row santander-padding-top-1" style="    width: 100%;">
-          <div class="col-12" style="    overflow: scroll;">
-            <table class="table-bordered text-center">
-              <thead class="santander-thead" style="    background-color: gray;">
-                <tr>
-                  <th scope="col">Tipo de Operação (1-I / 2-A / 3-E)</th>
-                  <th scope="col">Layout REINF</th>	
-                  <th scope="col">Sistema de Origem</th>	
-                  <th scope="col">Data Movimentação</th>
-                  <th scope="col">Tipo Inscrição (1-CNPJ / 2-CPF)</th>	
-                  <th scope="col">Número Inscrição do Contribuinte</th>	
-                  <th scope="col">Tipo de Processo (1-Adm / 2-Judicial)</th>  
-                  <th scope="col">Número de Processo</th>	
-                  <th scope="col">Data Início de Validade</th>	
-                  <th scope="col">Data Final de validade</th>	
-                  <th scope="col">Ind. Autoria Judicial (1-Próprio / 2-Outra)</th>  
-                  <th scope="col">Susp. Adicional - CodSup</th>	
-                  <th scope="col">Ind.  Susp . exigibilidade - indSusp</th>	
-                  <th scope="col">Data da Decisão</th>	
-                  <th scope="col">Ind. Depósito (S-Sim / N-Não)</th>	
-                  <th scope="col">UF da Vara</th>	
-                  <th scope="col">Cód. do Município da Vara</th>	
-                  <th scope="col">Cód. de Ident. da Vara</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="col">{{r1070.TP_OPER}}</td>
-                  <td scope="col">{{r1070.NM_LAYOUT}}</td>
-                  <td scope="col">{{r1070.CD_SIS_ORIG}}</td>
-                  <td scope="col">{{r1070.DT_MOVIMENT}}</td>
-                  <td scope="col">{{r1070.TP_INSCRI}}</td>
-                  <td scope="col">{{r1070.NR_INSCRI}}</td>
-                  <td scope="col">{{r1070.TP_PROCES}}</td>
-                  <td scope="col">{{r1070.NR_PROCES}}</td>
-                  <td scope="col">{{r1070.DT_INI_VAL}}</td>
-                  <td scope="col">{{r1070.DT_FIM_VAL}}</td>
-                  <td scope="col">{{r1070.IN_AUTORIA}}</td>
-                  <td scope="col">{{r1070.CD_SUSPEN}}</td>
-                  <td scope="col">{{r1070.IN_SUSPEN}}</td>
-                  <td scope="col">{{r1070.DT_DECISAO}}</td>
-                  <td scope="col">{{r1070.IN_DEPOSIT}}</td>
-                  <td scope="col">{{r1070.CD_UF}}</td>
-                  <td scope="col">{{r1070.CD_MUNIC}}</td>
-                  <td scope="col">{{r1070.CD_VARA}}</td>               
-                  <td scope="col"><button class="btn" style="background-color: rgb(118, 113, 113); color: white;    float: right;" type="button"
-                      disabled="">EDITAR</button></td>
-                </tr>
-              </tbody>
-            </table>
-            <router-outlet></router-outlet>
-          </div>
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header modal-header-pop-up">
+      <h5 class="modal-title" id="exampleModalLabel">Layout R1070</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+      <p style="    display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
+      <p style="    display: inline;    float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
+      <button *ngIf="flag!='green'" class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">TRANSMITIR <i class="fas fa-share-square"></i></button>
+      <div class="row santander-padding-top-1" style="    width: 100%;">
+        <div class="col-12" style="    overflow: scroll;">
+          <table class="table-bordered text-center">
+            <thead class="santander-thead" style="    background-color: gray;">
+              <tr>
+                <th scope="col">Tipo de Operação (1-I / 2-A / 3-E)</th>
+                <th scope="col">Layout REINF</th>	
+                <th scope="col">Sistema de Origem</th>	
+                <th scope="col">Data Movimentação</th>
+                <th scope="col">Tipo Inscrição (1-CNPJ / 2-CPF)</th>	
+                <th scope="col">Número Inscrição do Contribuinte</th>	
+                <th scope="col">Tipo de Processo (1-Adm / 2-Judicial)</th>  
+                <th scope="col">Número de Processo</th>	
+                <th scope="col">Data Início de Validade</th>	
+                <th scope="col">Data Final de validade</th>	
+                <th scope="col">Ind. Autoria Judicial (1-Próprio / 2-Outra)</th>  
+                <th scope="col">Susp. Adicional - CodSup</th>	
+                <th scope="col">Ind.  Susp . exigibilidade - indSusp</th>	
+                <th scope="col">Data da Decisão</th>	
+                <th scope="col">Ind. Depósito (S-Sim / N-Não)</th>	
+                <th scope="col">UF da Vara</th>	
+                <th scope="col">Cód. do Município da Vara</th>	
+                <th scope="col">Cód. de Ident. da Vara</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="col">{{r1070.TP_OPER}}</td>
+                <td scope="col">{{r1070.NM_LAYOUT}}</td>
+                <td scope="col">{{r1070.CD_SIS_ORIG}}</td>
+                <td scope="col">{{r1070.DT_MOVIMENT}}</td>
+                <td scope="col">{{r1070.TP_INSCRI}}</td>
+                <td scope="col">{{r1070.NR_INSCRI}}</td>
+                <td scope="col">{{r1070.TP_PROCES}}</td>
+                <td scope="col">{{r1070.NR_PROCES}}</td>
+                <td scope="col">{{r1070.DT_INI_VAL}}</td>
+                <td scope="col">{{r1070.DT_FIM_VAL}}</td>
+                <td scope="col">{{r1070.IN_AUTORIA}}</td>
+                <td scope="col">{{r1070.CD_SUSPEN}}</td>
+                <td scope="col">{{r1070.IN_SUSPEN}}</td>
+                <td scope="col">{{r1070.DT_DECISAO}}</td>
+                <td scope="col">{{r1070.IN_DEPOSIT}}</td>
+                <td scope="col">{{r1070.CD_UF}}</td>
+                <td scope="col">{{r1070.CD_MUNIC}}</td>
+                <td scope="col">{{r1070.CD_VARA}}</td>               
+                <td scope="col"><button class="btn" style="background-color: rgb(118, 113, 113); color: white;    float: right;" type="button"
+                    disabled="">EDITAR</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <router-outlet></router-outlet>
         </div>
       </div>
     </div>

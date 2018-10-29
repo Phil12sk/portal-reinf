@@ -23,11 +23,13 @@ export class PainelDeControleR1070Component implements OnInit {
   r1070: R1070Model;
   contribuinte: any;
   periodo: any;
+  flag: any;
 
   ngOnInit() {
 
     this.contribuinte = this.dadosService.objDados.contribuinte;
     this.periodo = this.dadosService.objDados.periodo;
+    this.flag = this.dadosService.objDados.flag;
 
 
     this.r1070 = {

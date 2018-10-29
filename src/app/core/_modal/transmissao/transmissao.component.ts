@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
+
 declare var $: any;
 @Component({
   selector: 'app-transmissao',
@@ -22,6 +23,13 @@ export class TransmissaoComponent implements OnInit {
     console.log("contribuintePainelControle:" + JSON.stringify(this.contribuintePainelControle));
     
     $('#xxx').click();
+    
+
   }
+
+  
+
+
+
 
 }
