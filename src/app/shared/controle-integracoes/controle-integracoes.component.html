@@ -33,6 +33,12 @@
           (click)="consult($event);"
           [disabled]="!consultForm.valid"
           >CONSULTAR</button>
+          <button 
+            
+            type="button" 
+            class="btn btn-primary" 
+            data-toggle="modal" 
+            data-target=".bd-example-modal-lg">Large modal</button>
       </div>
     </div>
   </form>
@@ -68,4 +74,11 @@
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <app-controle-registros-r1070></app-controle-registros-r1070>      
+    </div>
+  </div>
+</div>
