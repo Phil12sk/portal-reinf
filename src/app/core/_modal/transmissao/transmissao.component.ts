@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DadosService } from '../../../core/_service/dados.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,14 +16,16 @@ export class TransmissaoComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private dadosService: DadosService) { }
 
   contribuintePainelControle: any;
+  @Input() teste:any;
 
   ngOnInit() {
 
     this.contribuintePainelControle = this.dadosService.objDados.contribuintePainelControle;
     console.log("contribuintePainelControle:" + JSON.stringify(this.contribuintePainelControle));
     
-    $('#xxx').click();
-    
+    // $('#xxx').click();
+    console.log("TESTS: " + this.teste);
+
 
   }
 

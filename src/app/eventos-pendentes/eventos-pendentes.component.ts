@@ -23,6 +23,8 @@ export class EventosPendentesComponent implements OnInit {
 
   prestadores: String[] = ['72345678000100', '62345678000100'];
 
+  teste='ssssss';
+
   contribuintesPainelControle: ContribuintePainelControle[] = [
     {
       periodo: { label: 'MAIO', value: '2018-05', status: 'green' },
@@ -123,6 +125,8 @@ export class EventosPendentesComponent implements OnInit {
 
   ngOnInit() {
     this.flagColor = 'green';
+
+    //  $('#xxx').click();
   }
 
   redirect(layout: any, flag: any, contribuinte: any, periodo: any) {
