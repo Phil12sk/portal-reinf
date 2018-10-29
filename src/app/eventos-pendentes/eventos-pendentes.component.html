@@ -41,7 +41,7 @@
                 <circle *ngIf="contribuintePainelControle.periodo.status=='red'" cx="10" cy="10" r="10" fill="#F00000" />
               </svg>
               <button class="btn btn-link btn-text-gray" data-toggle="collapse" [attr.data-target]="'#'+contribuintePainelControle.periodo.label"
-                aria-expanded="true" [attr.aria-controls]="contribuintePainelControle.periodo.label">
+                aria-expanded="true" [attr.aria-controls]="contribuintePainelControle.periodo.label" style="    font-weight: 700; font-size: 18px;">
                 {{contribuintePainelControle.periodo.label | uppercase}}
               </button>
               <button *ngIf="contribuintePainelControle.periodo.status=='green'" class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;float: right;    margin-top: 7px;" disabled>TRANSMITIR <i class="fas fa-share-square"></i></button>

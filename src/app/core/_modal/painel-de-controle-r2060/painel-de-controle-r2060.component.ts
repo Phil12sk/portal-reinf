@@ -24,11 +24,13 @@ export class PainelDeControleR2060Component implements OnInit {
   
     contribuinte: any;
     periodo: any;
+    flag: any;
   
     ngOnInit() {
   
       this.contribuinte = this.dadosService.objDados.contribuinte;
       this.periodo = this.dadosService.objDados.periodo;
+      this.flag = this.dadosService.objDados.flag;
   
   
       this.r2060 = {
