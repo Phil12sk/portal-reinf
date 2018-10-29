@@ -92,6 +92,13 @@
                         {{layout2.label}} 
                         <i class="fas fa-flag"></i>
                     </button>
+                    <!-- <button 
+                    class="btn btn-link btn-text-white" 
+                    (click)="redirect(layout2.label,layout2.value,contrib.contribuinte,contribuintePainelControle.periodo.value)"
+                    [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray'}">
+                      {{layout2.label}} 
+                      <i class="fas fa-flag"></i> 
+                  </button> -->
                   </p>
                 </div>
               </div>
@@ -101,9 +108,6 @@
       </div>
     </div>
   </div>
-
-
-  
   
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -117,12 +121,12 @@
   <div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-        <app-transmissao [contribuintePainelControle]="contribuintePainelControle" style="    padding-bottom: 20px;"></app-transmissao>
+        <app-painel-de-controle-r1000 [teste]="teste" style="    padding-bottom: 20px;"></app-painel-de-controle-r1000>
         </div>
       </div>
     </div>
 
  
-
+ 
 </div>
 <router-outlet></router-outlet>

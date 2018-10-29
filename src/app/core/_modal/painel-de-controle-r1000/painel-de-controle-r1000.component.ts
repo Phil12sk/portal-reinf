@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { EvtPendente } from '../../../core/_model/evtPendente.mode';
 import { ContribuintePainelControle } from '../../../core/_model/contribuintePainelControle.model';
@@ -21,15 +21,24 @@ export class PainelDeControleR1000Component implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private dadosService: DadosService) { }
 
   r1000: R1000Model;
+  // @Input() contribuinteSelecionado: any;
+  @Input() teste:any;
+  
   contribuinte: any;
   periodo: any;
   flag: any;
 
   ngOnInit() {
+    console.log("to aqui porra");
+    // console.log("contribuinteSelecionado: " + JSON.stringify(this.contribuinteSelecionado));
 
-    this.contribuinte = this.dadosService.objDados.contribuinte;
-    this.periodo = this.dadosService.objDados.periodo;
-    this.flag = this.dadosService.objDados.flag;
+    // this.contribuinte= this.contribuinteSelecionado.contribuinte;
+    // this.periodo= this.contribuinteSelecionado.periodo;
+    // this.flag= this.contribuinteSelecionado.flag;
+
+    // this.contribuinte = this.dadosService.objDados.contribuinte;
+    // this.periodo = this.dadosService.objDados.periodo;
+    // this.flag = this.dadosService.objDados.flag;
 
 
     this.r1000 = {

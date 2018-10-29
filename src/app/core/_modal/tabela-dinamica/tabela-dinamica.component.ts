@@ -23,7 +23,7 @@ export class TabelaDinamicaComponent implements OnInit {
     @Input() contribuintePainelControle: any;
 
   ngOnInit() {
-    console.log("TESTE: " + JSON.stringify(this.contribuintePainelControle);
+    console.log("TESTE: " + JSON.stringify(this.contribuintePainelControle))
 
     // this.contribuintePainelControle = this.dadosService.objDados.contribuintePainelControle;
     // console.log("contribuintePainelControle-Modal:" + JSON.stringify(this.contribuintePainelControle));

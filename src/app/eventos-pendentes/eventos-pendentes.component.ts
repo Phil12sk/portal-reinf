@@ -26,6 +26,9 @@ export class EventosPendentesComponent implements OnInit {
   // contribuintePainelControle='ssssss';
 teste='testeeeee';
 contribuintePainelControle: any;
+contribuinteSelecionado: any;
+
+
   contribuintesPainelControle: ContribuintePainelControle[] = [
     {
       periodo: { label: 'MAIO', value: '2018-05', status: 'green' },
@@ -125,7 +128,7 @@ contribuintePainelControle: any;
   flagColor: String;
 
   ngOnInit() {
-    this.flagColor = 'green';
+    // this.flagColor = 'green';
 
     //  $('#xxx').click();
   }
@@ -141,19 +144,30 @@ contribuintePainelControle: any;
 
     if (flag != 'gray') {
 
-      // this.router.navigate([`/home/eventos-pendentes/${layout}`])
-      if (layout == 'R1000') {
-        this.router.navigate(['/home/painel-de-controle/Painel-controle-R1000'])
-      }
-      if (layout == 'R1070') {
-        this.router.navigate(['/home/painel-de-controle/Painel-controle-R1070'])
-      }
-      if (layout == 'R2010') {
-        this.router.navigate(['/home/painel-de-controle/Painel-controle'])
-      }
-      if (layout == 'R2060') {
-        this.router.navigate(['/home/painel-de-controle/Painel-controle-R2060'])
-      }
+      this.contribuinteSelecionado= {
+        "layout":layout,
+        "contribuinte" :contribuinte,
+        "periodo": periodo,
+        "flag": flag
+      };
+   
+
+      console.log("contribuinteSelecionado - : " + JSON.stringify(this.contribuinteSelecionado));
+      
+
+    //   this.router.navigate([`/home/eventos-pendentes/${layout}`])
+    //   if (layout == 'R1000') {
+    //     this.router.navigate(['/home/painel-de-controle/Painel-controle-R1000'])
+    //   }
+    //   if (layout == 'R1070') {
+    //     this.router.navigate(['/home/painel-de-controle/Painel-controle-R1070'])
+    //   }
+    //   if (layout == 'R2010') {
+    //     this.router.navigate(['/home/painel-de-controle/Painel-controle'])
+    //   }
+    //   if (layout == 'R2060') {
+    //     this.router.navigate(['/home/painel-de-controle/Painel-controle-R2060'])
+    //   }
     }
   }
 
