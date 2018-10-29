@@ -137,16 +137,16 @@ export class EventosPendentesComponent implements OnInit {
 
       // this.router.navigate([`/home/eventos-pendentes/${layout}`])
       if (layout == 'R1000') {
-        this.router.navigate(['/home/eventos-pendentes/Painel-controle-R1000'])
+        this.router.navigate(['/home/painel-de-controle/Painel-controle-R1000'])
       }
       if (layout == 'R1070') {
-        this.router.navigate(['/home/eventos-pendentes/Painel-controle-R1070'])
+        this.router.navigate(['/home/painel-de-controle/Painel-controle-R1070'])
       }
       if (layout == 'R2010') {
-        this.router.navigate(['/home/eventos-pendentes/Painel-controle'])
+        this.router.navigate(['/home/painel-de-controle/Painel-controle'])
       }
       if (layout == 'R2060') {
-        this.router.navigate(['/home/eventos-pendentes/Painel-controle-R2060'])
+        this.router.navigate(['/home/painel-de-controle/Painel-controle-R2060'])
       }
     }
   }
@@ -155,6 +155,6 @@ export class EventosPendentesComponent implements OnInit {
     this.dadosService.objDados = {
       "contribuintePainelControle": contribuintePainelControle
     };
-    this.router.navigate(['/home/eventos-pendentes/Transmissao'])
+    this.router.navigate(['/home/painel-de-controle/Transmissao'])
   }
 }

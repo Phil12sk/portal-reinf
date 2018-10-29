@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePtBr from '@angular/common/locales/br';
 import { NgxMaskModule } from 'ngx-mask'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
@@ -16,17 +18,15 @@ import { CurrencyMaskModule } from "ngx-currency-mask";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency-mask/src/currency-mask.config";
 import { PainelDeControleComponent } from './core/_modal/painel-de-controle/painel-de-controle.component';
 
-import { registerLocaleData } from '@angular/common';
-import localePtBr from '@angular/common/locales/br';
+
 import { PainelDeControleR1000Component } from './core/_modal/painel-de-controle-r1000/painel-de-controle-r1000.component';
 import { TabelaDinamicaComponent } from './core/_modal/tabela-dinamica/tabela-dinamica.component';
 import { PainelDeControleR2060Component } from './core/_modal/painel-de-controle-r2060/painel-de-controle-r2060.component';
 import { PainelDeControleR1070Component } from './core/_modal/painel-de-controle-r1070/painel-de-controle-r1070.component';
 import { TransmissaoComponent } from './core/_modal/transmissao/transmissao.component';
+import { ControleRegistrosR1070Component } from './core/_modal/controle-registros/controle-registros-r1070/controle-registros-r1070.component';
 registerLocaleData(localePtBr,'pt-BR');
 
-
-registerLocaleData(localePtBr, 'pt-BR');
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -51,6 +51,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     PainelDeControleR2060Component,
     PainelDeControleR1070Component,
     TransmissaoComponent,
+    ControleRegistrosR1070Component,
   ],
   imports: [
     BrowserModule,

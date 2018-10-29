@@ -53,9 +53,16 @@ export class ControleIntegracoesComponent implements OnInit {
     this.hasValue = true
   }
 
+  redirect(layout: any, flag: any, contribuinte: any) {
+    this.dadosService.objDados = {
+      "contribuinte": contribuinte
+    };  
+    this.router.navigate([`/home/controle-de-registros/controle-de-registros-${layout}`])
+  }
+
   ngOnInit() {
     this.flagColor = 'red';
-    this.router.navigate(['/home/controle-integracoes'])
+    this.router.navigate(['/home/controle-de-registros'])
     this.consultForm = this.formBuilder.group({
       dateInit: this.formBuilder.control('', [
         Validators.required, Validators.minLength(8),

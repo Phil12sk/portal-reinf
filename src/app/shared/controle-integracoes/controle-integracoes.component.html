@@ -56,7 +56,7 @@
               style="display: inline;">
               <button 
                 class="btn btn-link btn-text-white" 
-                (click)="redirect(layout2.label,layout2.value,contrib.contribuinte,contribuintePainelControle.periodo.value)"
+                (click)="redirect(layout2.label,contribuintePainelControle.contribuinte)"
                 [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray'}">
                   {{layout2.label}} 
                   <i class="fas fa-flag"></i>
@@ -68,3 +68,4 @@
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
