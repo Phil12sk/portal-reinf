@@ -137,3 +137,8 @@
   .flag-red{
     background-color: red;
   }
+
+
+  .totais{
+    display: inline-block;
+  }

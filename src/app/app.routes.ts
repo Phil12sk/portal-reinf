@@ -14,6 +14,7 @@ import { PainelDeControleComponent } from './core/_modal/painel-de-controle/pain
 import { PainelDeControleR1000Component } from './core/_modal/painel-de-controle-r1000/painel-de-controle-r1000.component';
 import { PainelDeControleR1070Component } from './core/_modal/painel-de-controle-r1070/painel-de-controle-r1070.component';
 import { PainelDeControleR2060Component } from './core/_modal/painel-de-controle-r2060/painel-de-controle-r2060.component';
+import { TransmissaoComponent } from './core/_modal/transmissao/transmissao.component';
 
 export const ROUTES: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -26,7 +27,8 @@ export const ROUTES: Routes = [
             {path: 'Painel-controle-R1000', component: PainelDeControleR1000Component},
             {path: 'Painel-controle-R1070', component: PainelDeControleR1070Component},
             {path: 'Painel-controle', component: PainelDeControleComponent},
-            {path: 'Painel-controle-R2060', component: PainelDeControleR2060Component}
+            {path: 'Painel-controle-R2060', component: PainelDeControleR2060Component},
+            {path: 'Transmissao', component: TransmissaoComponent}
         ]},
         {path: 'controle-integracoes', component: ControleIntegracoesComponent, children: [
             {path: 'R1000', component: R1000Component},

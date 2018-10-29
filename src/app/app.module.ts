@@ -22,6 +22,7 @@ import { PainelDeControleR1000Component } from './core/_modal/painel-de-controle
 import { TabelaDinamicaComponent } from './core/_modal/tabela-dinamica/tabela-dinamica.component';
 import { PainelDeControleR2060Component } from './core/_modal/painel-de-controle-r2060/painel-de-controle-r2060.component';
 import { PainelDeControleR1070Component } from './core/_modal/painel-de-controle-r1070/painel-de-controle-r1070.component';
+import { TransmissaoComponent } from './core/_modal/transmissao/transmissao.component';
 registerLocaleData(localePtBr,'pt-BR');
 
 
@@ -49,6 +50,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     TabelaDinamicaComponent,
     PainelDeControleR2060Component,
     PainelDeControleR1070Component,
+    TransmissaoComponent,
   ],
   imports: [
     BrowserModule,

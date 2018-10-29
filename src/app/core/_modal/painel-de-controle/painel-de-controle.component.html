@@ -20,7 +20,44 @@
       <div class="modal-body" *ngIf="ableNFTable==false">
         <p style="    display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
         <p style="    display: inline;    float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
-        <button class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">ENVIAR <i class="fas fa-share-square"></i></button>
+        <!-- <div>
+          <div class=totais>Valor Total Bruto NF(s): R$80.000,00</div>
+          <div class=totais>Soma Valor Total Base Ret. NF(s): R$800.000,00</div>
+          <div class=totais>Valor Total Principal Ret. NF(s): R$800.000,00</div>
+          <div class=totais>Valor Total Adicional Ret. NF(s): R$80.000,00</div>
+          <div class=totais>Valor Total Principal Não Ret. NF(s): R$800.000,00</div>
+          <div class=totais>Valor Total Adicional Não Ret. NF(s): R$800.000,00</div>
+        </div> -->
+
+        <div class="row santander-padding-top-1" style="    width: 100%;    margin: 0 auto;">
+          <div class="col-12">
+            <table class="table-bordered text-center">
+              <thead class="santander-thead" style="    background-color: gray;">
+                <tr>
+                  <th scope="col">Valor Total Bruto NF(s)</th>
+                  <th scope="col">Soma Valor Total Base Ret. NF(s)</th>
+                  <th scope="col">Valor Total Principal Ret. NF(s)</th>
+                  <th scope="col">Valor Total Adicional Ret. NF(s)</th>
+                  <th scope="col">Valor Total Principal Não Ret. NF(s)</th>
+                  <th scope="col">Valor Total Adicional Não Ret. NF(s)</th>                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>R$ 80.0000,00</td>
+                  <td>R$ 800.0000,00</td>
+                  <td>R$ 800.0000,00</td>
+                  <td>R$ 800.0000,00</td>
+                  <td>R$ 800.0000,00</td>
+                  <td>R$ 80.0000,00</td>                  
+                </tr>
+              </tbody>
+            </table>
+              
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+        
         <div class="row santander-padding-top-1" style="    width: 100%;    margin: 0 auto;">
           <div class="col-12" style="    overflow: scroll;">
             <table class="table-bordered text-center">
@@ -52,10 +89,11 @@
                 </tr>
               </tbody>
             </table>
+            
             <router-outlet></router-outlet>
           </div>
         </div>
-
+        <button class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">TRANSMITIR <i class="fas fa-share-square"></i></button>
 
       </div>
 
@@ -64,7 +102,14 @@
         <p style="    display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
         <p style="    display: inline;font-size: 18px;margin-left: 30px;"><strong>Prestador:</strong> {{prestador| mask: '00.000.000/0000-00'}}</p>
         <p style="    display: inline;    float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
-        <button class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">ENVIAR <i class="fas fa-share-square"></i></button>
+        <div>
+          <div>Valor Total Bruto NF(s): R$80.000,00</div>
+          <div>Soma Valor Total Base Ret. NF(s): R$800.000,00</div>
+          <div>Valor Total Principal Ret. NF(s): R$800.000,00</div>
+          <div>Valor Total Adicional Ret. NF(s): R$80.000,00</div>
+          <div>Valor Total Principal Não Ret. NF(s): R$800.000,00</div>
+          <div>Valor Total Adicional Não Ret. NF(s): R$800.000,00</div>
+        </div>
         <div class="row santander-padding-top-1" style="    width: 100%;">
           <div class="col-12" style="    overflow: scroll;">
             <table class="table-bordered text-center">
@@ -108,6 +153,7 @@
                 </tr>
               </tbody>
             </table>
+            <button class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">TRANSMITIR <i class="fas fa-share-square"></i></button>
             <router-outlet></router-outlet>
           </div>
         </div>

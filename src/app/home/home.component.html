@@ -2,10 +2,10 @@
 <div class="container">
   <div class="row">
     <div class="col-1" style="padding-top: 30px!important;">
-      <input type="text" class="form-control" style="width: 70%!important; background-color: white;" value="29" disabled/>
+      <input type="text" class="form-control" style="width: 70%!important; background-color: white;" value="2" disabled/>
     </div>
-    <div class="col-11" style="padding-top: 30px!important;">
-      <p>dias para a data limite de 15/11/2018 para envio das informações á Receita Federal</p>
+    <div class="col-11" style="padding-top: 35px!important;    margin-left: -40px;">
+      <p>dias para a data limite de 15/10/2018 para envio das informações á Receita Federal</p>
       <p style="color: #F00000">Data de envio <strong>{{limitDate}}</strong> expirada</p>
     </div>
   </div>
@@ -27,16 +27,16 @@
             class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
             routerLinkActive="active show" [routerLink]="['controle-integracoes']" 
             role="tab" aria-controls="nav-profile"
-            aria-selected="false">Controle de Registros</a>
+            aria-selected="false">Controle de Registros Inconsistentes</a>
           <a 
             class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
             routerLinkActive="active show" [routerLink]="['controle-envio']"
             role="tab" aria-controls="nav-contact" 
             aria-selected="false">Controle de Envios á RFB</a>
-          <a 
+          <!-- <a 
             class="nav-item nav-link" id="nav-about-tab" data-toggle="tab"
             routerLinkActive="active show" [routerLink]="['solicitar-envio']" 
-            role="tab" aria-controls="nav-about" aria-selected="false">Solicitar Envio á RFB</a>
+            role="tab" aria-controls="nav-about" aria-selected="false">Solicitar Envio á RFB</a> -->
         </div>
       </nav>
     </div>

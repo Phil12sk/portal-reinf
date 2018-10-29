@@ -25,19 +25,33 @@ export class EventosPendentesComponent implements OnInit {
 
   contribuintesPainelControle: ContribuintePainelControle[] = [
     {
-      periodo: { label: 'JANEIRO', value: '2018-01' },
+      periodo: { label: 'MAIO', value: '2018-05', status: 'green' },
       infoContribuintes: [{
         contribuinte: '12345678000100',
         layout: [
           { label: 'R1000', value: 'green' },
           { label: 'R1070', value: 'green' },
-          { label: 'R2010', value: 'red' },
+          { label: 'R2010', value: 'green' },
           { label: 'R2060', value: 'green' },
 
         ]
       },
       {
         contribuinte: '87345678000100',
+        layout: [
+          { label: 'R1000', value: 'green' },
+          { label: 'R1070', value: 'green' },
+          { label: 'R2010', value: 'green' },
+          { label: 'R2060', value: 'green' },
+
+        ]
+      }]
+
+    },
+    {
+      periodo: { label: 'JUNHO', value: '2018-06' ,status: 'red'},
+      infoContribuintes: [{
+        contribuinte: '92345678000100',
         layout: [
           { label: 'R1000', value: 'gray' },
           { label: 'R1070', value: 'gray' },
@@ -49,7 +63,49 @@ export class EventosPendentesComponent implements OnInit {
 
     },
     {
-      periodo: { label: 'FEVEREIRO', value: '2018-02' },
+      periodo: { label: 'JULHO', value: '2018-07' ,status: 'red'},
+      infoContribuintes: [{
+        contribuinte: '92345678000100',
+        layout: [
+          { label: 'R1000', value: 'gray' },
+          { label: 'R1070', value: 'gray' },
+          { label: 'R2010', value: 'red' },
+          { label: 'R2060', value: 'gray' },
+
+        ]
+      }]
+
+    },
+    {
+      periodo: { label: 'AGOSTO', value: '2018-08' ,status: 'red'},
+      infoContribuintes: [{
+        contribuinte: '92345678000100',
+        layout: [
+          { label: 'R1000', value: 'gray' },
+          { label: 'R1070', value: 'gray' },
+          { label: 'R2010', value: 'red' },
+          { label: 'R2060', value: 'gray' },
+
+        ]
+      }]
+
+    },
+    {
+      periodo: { label: 'SETEMBRO', value: '2018-09' ,status: 'red'},
+      infoContribuintes: [{
+        contribuinte: '92345678000100',
+        layout: [
+          { label: 'R1000', value: 'gray' },
+          { label: 'R1070', value: 'gray' },
+          { label: 'R2010', value: 'red' },
+          { label: 'R2060', value: 'gray' },
+
+        ]
+      }]
+
+    },
+    {
+      periodo: { label: 'OUTUBRO', value: '2018-02' ,status: 'yellow'},
       infoContribuintes: [{
         contribuinte: '92345678000100',
         layout: [
@@ -98,6 +154,16 @@ export class EventosPendentesComponent implements OnInit {
         this.router.navigate(['/home/eventos-pendentes/Painel-controle-R2060'])
       }
     }
+  }
+
+  transmitir(contribuintePainelControle: any){
+
+    this.dadosService.objDados = {
+      "contribuintePainelControle": contribuintePainelControle
+    };
+
+    this.router.navigate(['/home/eventos-pendentes/Transmissao'])
+
   }
 
 

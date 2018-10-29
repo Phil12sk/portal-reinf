@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   constructor(private router: Router) { }
-  limitDate: string = "15/10/2018"
+  limitDate: string = "15/09/2018"
   ngOnInit() {
     this.router.navigate(['/home/eventos-pendentes'])
   }

@@ -1,0 +1,15 @@
+.modal-header-pop-up{    
+    background-color: #FE0000;
+      height: 50px;
+      padding-bottom: 40px;
+      color: white;
+  }
+
+  .titulo{      
+    background-color: rgb(118, 113, 113);
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+  }

@@ -1,9 +1,32 @@
 <div class="container">
   <div class="row santander-padding-top-1">
-    <div class="col-2">
+    <div class="col-12">
+        <div class="col-2" style="display:inline-block;">
       <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" style="width:100px">
         <option selected>2018</option>
       </select>
+    </div>
+    <div class="col-3" style="display:inline-block;float: right;">
+      <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">      
+        <circle  cx="10" cy="10" r="10" fill="#F00000" />
+      
+      </svg>
+      <div>Existe(m) Evento(s) para Retificação</div>
+    </div>
+    <div class="col-3" style="display:inline-block;float: right;">
+      <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">      
+        <circle  cx="10" cy="10" r="10" fill="yellow" />
+       
+      </svg>
+      <div>Mês de Envio Vigente com Evento(s) a Transmitir</div>
+    </div>
+    <div class="col-3" style="display:inline-block;float: right;">
+      <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
+        <circle  cx="10" cy="10" r="10" fill="green" />
+  
+      </svg>
+      <div>Evento(s) Transmitidos com Sucesso</div>
+    </div>
     </div>
   </div>
   <div class="row santander-padding-top-1" style="    margin-bottom: 80px;">
@@ -13,12 +36,16 @@
           <div class="card-header" [id]="'head' + contribuintePainelControle.periodo.label" style=" background-color: rgb(175, 171, 171);    padding: 0rem 0.75rem;">
             <h5 class="mb-0 text-center">
               <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
-                <circle cx="10" cy="10" r="10" fill="#F00000" />
+                <circle *ngIf="contribuintePainelControle.periodo.status=='green'" cx="10" cy="10" r="10" fill="green" />
+                <circle *ngIf="contribuintePainelControle.periodo.status=='yellow'" cx="10" cy="10" r="10" fill="yellow" />
+                <circle *ngIf="contribuintePainelControle.periodo.status=='red'" cx="10" cy="10" r="10" fill="#F00000" />
               </svg>
               <button class="btn btn-link btn-text-gray" data-toggle="collapse" [attr.data-target]="'#'+contribuintePainelControle.periodo.label"
                 aria-expanded="true" [attr.aria-controls]="contribuintePainelControle.periodo.label">
                 {{contribuintePainelControle.periodo.label | uppercase}}
               </button>
+              <button *ngIf="contribuintePainelControle.periodo.status=='green'" class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;float: right;    margin-top: 7px;" disabled>TRANSMITIR <i class="fas fa-share-square"></i></button>
+              <button *ngIf="contribuintePainelControle.periodo.status!='green'" class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;float: right;    margin-top: 7px;" (click)="transmitir(contribuintePainelControle)">TRANSMITIR <i class="fas fa-share-square"></i></button>
             </h5>
           </div>
           <div [id]="contribuintePainelControle.periodo.label" class="collapse" [attr.aria-labelledby]="'head' + contribuintePainelControle.periodo.label"
@@ -38,7 +65,7 @@
                 <div class="col-6 text-left">
                   <p>{{contrib.contribuinte | mask: '00.000.000/0000-00'}}</p>
                 </div>
-                <div class="col-6 text-center">
+                <div class="col-6 text-right">
                   <p *ngFor="let layout2 of contrib.layout" style="    display: inline;">
                     <button class="btn btn-link btn-text-white" (click)="redirect(layout2.label,layout2.value,contrib.contribuinte,contribuintePainelControle.periodo.value)"
                       [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray'}">
@@ -50,11 +77,12 @@
                   {{layout2.label}} <i class="fas fa-flag"></i>
                 </button>
                </p> -->
-
+               
 
 
 
                 </div>
+       
               </div>
             </div>
           </div>

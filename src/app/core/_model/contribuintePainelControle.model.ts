@@ -1,7 +1,7 @@
-import { DocumentModel } from "./document.model";
+import { PeriodoModel } from "./periodo.model";
 import { InfoContribuintesPainelControle } from "./infoContribuintesPainelControle.model";
 export class ContribuintePainelControle{
-    constructor(public periodo:  DocumentModel, public infoContribuintes: InfoContribuintesPainelControle[]){}
+    constructor(public periodo:  PeriodoModel, public infoContribuintes: InfoContribuintesPainelControle[]){}
 
     
 }
