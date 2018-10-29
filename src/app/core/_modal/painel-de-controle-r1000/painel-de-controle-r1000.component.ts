@@ -22,14 +22,15 @@ export class PainelDeControleR1000Component implements OnInit {
 
   r1000: R1000Model;
   // @Input() contribuinteSelecionado: any;
-  @Input() teste:any;
+  // @Input() teste:any;
   
-  contribuinte: any;
-  periodo: any;
-  flag: any;
+  @Input() contribuinte: any;
+  @Input() periodo: any;
+  @Input()  flag: any;
 
   ngOnInit() {
     console.log("to aqui porra");
+    console.log("contribuinte: " + this.contribuinte);
     // console.log("contribuinteSelecionado: " + JSON.stringify(this.contribuinteSelecionado));
 
     // this.contribuinte= this.contribuinteSelecionado.contribuinte;
@@ -69,7 +70,7 @@ export class PainelDeControleR1000Component implements OnInit {
       CD_CNPJ_EFR: '00123456000167',     
     };
 
-    $('#xxx').click();
+    // $('#xxx').click();
 
     $('.pane-hScroll').scroll(function() {
       $('.pane-vScroll').width($('.pane-hScroll').width() + $('.pane-hScroll').scrollLeft());

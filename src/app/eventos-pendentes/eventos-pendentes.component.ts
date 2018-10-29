@@ -27,6 +27,9 @@ export class EventosPendentesComponent implements OnInit {
 teste='testeeeee';
 contribuintePainelControle: any;
 contribuinteSelecionado: any;
+contribuinte: any;
+periodo: any;
+flag: any;
 
 
   contribuintesPainelControle: ContribuintePainelControle[] = [
@@ -142,17 +145,18 @@ contribuinteSelecionado: any;
       "flag": flag
     };
 
-    if (flag != 'gray') {
+    this.contribuinte= contribuinte;
+    this.periodo= periodo;
+    this.flag= flag;
 
-      this.contribuinteSelecionado= {
-        "layout":layout,
-        "contribuinte" :contribuinte,
-        "periodo": periodo,
-        "flag": flag
-      };
+    if (flag != 'gray') {
+    // this.contribuinte= contribuinte;
+    // this.periodo= periodo;
+    // this.flag= flag;
+   
    
 
-      console.log("contribuinteSelecionado - : " + JSON.stringify(this.contribuinteSelecionado));
+      // console.log("contribuinteSelecionado - : " + JSON.stringify(this.contribuinteSelecionado));
       
 
     //   this.router.navigate([`/home/eventos-pendentes/${layout}`])
