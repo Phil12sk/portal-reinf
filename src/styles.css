@@ -22,3 +22,48 @@
 .santander-padding-bottom-3{
     padding-bottom: 90px!important;
 }
+
+.flag-red{
+    color: red;
+}
+
+.flag-red:hover{
+    color: red;
+}
+
+.flag-green{
+    color: green;
+}
+
+.flag-green:hover{
+    color: green;
+}
+
+.flag-yellow{
+    color: yellow;
+}
+
+.flag-yellow:hover{
+    color: yellow;
+}
+
+.flag-gray{
+    color: gray;
+}
+
+.flag-gray:hover{
+    color: gray;
+}
+
+.btn-text-gray{
+    color: white!important;
+    margin-top: 0.5%;
+   
+}
+
+.card-body-gray{
+    padding: 0.5rem;
+    border: 1px solid rgba(0,0,0,.125);
+    border-collapse: collapse;
+    height: 50px;
+}

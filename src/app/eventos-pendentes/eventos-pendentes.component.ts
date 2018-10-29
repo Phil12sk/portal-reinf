@@ -46,7 +46,6 @@ export class EventosPendentesComponent implements OnInit {
 
         ]
       }]
-
     },
     {
       periodo: { label: 'JUNHO', value: '2018-06' ,status: 'red'},
@@ -118,17 +117,13 @@ export class EventosPendentesComponent implements OnInit {
       }]
 
     }
-
   ];
-
-
 
   flagColor: String;
 
   ngOnInit() {
     this.flagColor = 'green';
   }
-
 
   redirect(layout: any, flag: any, contribuinte: any, periodo: any) {
     console.log("redirect - layout: " + layout);
@@ -158,15 +153,9 @@ export class EventosPendentesComponent implements OnInit {
   }
 
   transmitir(contribuintePainelControle: any){
-
     this.dadosService.objDados = {
       "contribuintePainelControle": contribuintePainelControle
     };
-
     this.router.navigate(['/home/eventos-pendentes/Transmissao'])
-
   }
-
-
-
 }
