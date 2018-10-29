@@ -1,32 +1,29 @@
 <div class="container">
   <div class="row santander-padding-top-1">
     <div class="col-12">
-        <div class="col-2" style="display:inline-block;">
-      <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" style="width:100px">
-        <option selected>2018</option>
-      </select>
-    </div>
-    <div class="col-3" style="display:inline-block;float: right;">
-      <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">      
-        <circle  cx="10" cy="10" r="10" fill="#F00000" />
-      
-      </svg>
-      <div>Existe(m) Evento(s) para Retificação</div>
-    </div>
-    <div class="col-3" style="display:inline-block;float: right;">
-      <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">      
-        <circle  cx="10" cy="10" r="10" fill="yellow" />
-       
-      </svg>
-      <div>Mês de Envio Vigente com Evento(s) a Transmitir</div>
-    </div>
-    <div class="col-3" style="display:inline-block;float: right;">
-      <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
-        <circle  cx="10" cy="10" r="10" fill="green" />
-  
-      </svg>
-      <div>Evento(s) Transmitidos com Sucesso</div>
-    </div>
+      <div class="col-2" style="display:inline-block;">
+        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" style="width:100px">
+          <option selected>2018</option>
+        </select>
+      </div>
+      <div class="col-3" style="display:inline-block; float: right;">
+        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">      
+          <circle  cx="10" cy="10" r="10" fill="#F00000" />
+        </svg>
+        <div>Existe(m) Evento(s) para Retificação</div>
+      </div>
+      <div class="col-3" style="display:inline-block; float: right;">
+        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">      
+          <circle  cx="10" cy="10" r="10" fill="yellow" />
+        </svg>
+        <div>Mês de Envio Vigente com Evento(s) a Transmitir</div>
+      </div>
+      <div class="col-3" style="display:inline-block; float: right;">
+        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
+          <circle  cx="10" cy="10" r="10" fill="green" />
+        </svg>
+        <div>Evento(s) Transmitidos com Sucesso</div>
+      </div>
     </div>
   </div>
   <div class="row santander-padding-top-1" style="    margin-bottom: 80px;">
@@ -44,45 +41,56 @@
                 aria-expanded="true" [attr.aria-controls]="contribuintePainelControle.periodo.label">
                 {{contribuintePainelControle.periodo.label | uppercase}}
               </button>
-              <button *ngIf="contribuintePainelControle.periodo.status=='green'" class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;float: right;    margin-top: 7px;" disabled>TRANSMITIR <i class="fas fa-share-square"></i></button>
-              <button *ngIf="contribuintePainelControle.periodo.status!='green'" class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;float: right;    margin-top: 7px;" (click)="transmitir(contribuintePainelControle)">TRANSMITIR <i class="fas fa-share-square"></i></button>
+              <button 
+                *ngIf="contribuintePainelControle.periodo.status=='green'" 
+                class="btn" 
+                style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;" 
+                disabled>
+                  TRANSMITIR 
+                  <i class="fas fa-share-square"></i>
+              </button>
+              <button 
+                *ngIf="contribuintePainelControle.periodo.status!='green'" 
+                class="btn" 
+                style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;" 
+                (click)="transmitir(contribuintePainelControle)">
+                  TRANSMITIR 
+                  <i class="fas fa-share-square"></i>
+              </button>
             </h5>
           </div>
-          <div [id]="contribuintePainelControle.periodo.label" class="collapse" [attr.aria-labelledby]="'head' + contribuintePainelControle.periodo.label"
+          <div 
+            [id]="contribuintePainelControle.periodo.label" 
+            class="collapse" 
+            [attr.aria-labelledby]="'head' + contribuintePainelControle.periodo.label"
             data-parent="#accordion">
-            <!-- <div class="card-body card-body-gray" ><p><strong>Contribuinte</strong></p> </div> -->
             <div class="card-body card-body-gray" style="background-color: rgba(0,0,0,.125);">
-              <div class="col-6 text-left" style="display: inline-block; ">
-                <!-- <p><strong>Contribuinte</strong></p> -->
+              <div class="col-6 text-left" style="display: inline-block;">
                 <p style="margin-top: 0.5rem; margin-bottom: 1rem;    margin-left: -15px;"><strong>Contribuinte</strong></p>
               </div>
-              <div class="col-6 text-center" style="display: inline-block;           width: 40%;">
+              <div class="col-6 text-center" style="display: inline-block; width: 40%;">
                 <p><strong>Evento layout</strong></p>
               </div>
             </div>
-            <div class="card-body card-body-gray" *ngFor="let contrib of contribuintePainelControle.infoContribuintes">
+            <div 
+              class="card-body card-body-gray" 
+              *ngFor="let contrib of contribuintePainelControle.infoContribuintes">
               <div class="row">
                 <div class="col-6 text-left">
                   <p>{{contrib.contribuinte | mask: '00.000.000/0000-00'}}</p>
                 </div>
                 <div class="col-6 text-right">
-                  <p *ngFor="let layout2 of contrib.layout" style="    display: inline;">
-                    <button class="btn btn-link btn-text-white" (click)="redirect(layout2.label,layout2.value,contrib.contribuinte,contribuintePainelControle.periodo.value)"
+                  <p *ngFor="let layout2 of contrib.layout" 
+                    style="display: inline;">
+                    <button 
+                      class="btn btn-link btn-text-white" 
+                      (click)="redirect(layout2.label,layout2.value,contrib.contribuinte,contribuintePainelControle.periodo.value)"
                       [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray'}">
-                    {{layout2.label}} <i class="fas fa-flag"></i>
-                  </button>
+                        {{layout2.label}} 
+                        <i class="fas fa-flag"></i>
+                    </button>
                   </p>
-                  <!-- <p  *ngFor="let layout2 of contrib.layout" style="    display: inline;">
-                   <button class="btn btn-link btn-text-white" data-toggle="modal" [attr.data-target]="'#'+layout2.label+'Modal'" [attr.data-whatever]="contrib.contribuinte" [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray'}">
-                  {{layout2.label}} <i class="fas fa-flag"></i>
-                </button>
-               </p> -->
-               
-
-
-
                 </div>
-       
               </div>
             </div>
           </div>
@@ -90,87 +98,5 @@
       </div>
     </div>
   </div>
-
-
-  <!-- <div style="width:800px;height: 600px; background-color: green;    overflow-x: scroll;  overflow-y: hidden;">
-    <div style="width:1200px;background-color: red;height: 100px;">
-      
-            <thead class="santander-thead" style="    background-color: gray;">
-              <tr>
-                <th scope="col">TipodeOperação(1-I/2-A/3-E/4-R)</th>
-                <th scope="col">LayoutREINF</th>
-                <th scope="col">SistemadeOrigem</th>
-                <th scope="col">CódigoProduto</th>
-                <th scope="col">CódigoRetenção</th>
-                <th scope="col">DataMovimentação</th>
-                <th scope="col">TipoInscrição(1-CNPJ/2-CPF)</th>
-                <th scope="col">NúmeroInscriçãodoContribuinte</th>
-                <th scope="col">TipoInscriçãoEstadual(1-CNPJ/4-CNO)</th>
-                <th scope="col">NúmeroInscriçãoEstadualEstabelecimento</th>
-                <th scope="col">ValordaReceitaBrutaTotaldoEstabelecimento</th>
-                <th scope="col">ValorTotalCPRBdoEstabelecimento</th>
-                <th scope="col">ValorCPRBSusp.Total</th>
-                <th scope="col">CódigoAtividadeEconômica-tabela9</th>
-                <th scope="col">ValorTotaldaReceitaAtiv.</th>
-                <th scope="col">ValorTotaldasExclusõesReceitaBruta</th>
-                <th scope="col">ValorTotaldasAdiçõesReceitaBruta</th>
-                <th scope="col">ValorBaseCPRB</th>
-                <th scope="col">ValorCPRBApur.</th>
-                <th scope="col">ValorCPRBSusp.</th>
-                <th scope="col">TipoProcesso(1-Administrativo/2-Judicial)</th>
-                <th scope="col">NúmeroProcesso</th>
-                <th scope="col">CódigoIndSusp.-CodSup</th>
-                <th scope="col">TipoAjuste(0-Redução/1-Acréscimo)</th>
-                <th scope="col">CódigoAjuste</th>
-                <th scope="col">ValorAjuste</th>
-                <th scope="col">DescriçãoAjuste</th>
-                <th scope="col">DataAjuste</th>
-                <th></th>
-              </tr>
-            </thead>
-    </div>
-    <div style="width:1200px;background-color: blue;height: 500px;">
-      <div style="width:1200px;background-color: pink;height: 700px;overflow-x: hidden;  overflow-y: scroll;">
-
-          <tbody>
-              <tr>
-                <td scope="col">TP_OPER</td>
-                <td scope="col">NM_LAYOUT</td>
-                <td scope="col">CD_SIS_ORIG</td>
-                <td scope="col">CD_PRODUTO</td>
-                <td scope="col">CD_RETENCAO</td>
-                <td scope="col">DT_MOVIMENT</td>
-                <td scope="col">TP_INSCRI</td>
-                <td scope="col">NR_INSCRI</td>
-                <td scope="col">TP_INSC_EST</td>
-                <td scope="col">NR_INSC_EST</td>
-                <td scope="col">VL_TOT_RECBRUTA</td>
-                <td scope="col">VL_TOT_APUESTAB</td>
-                <td scope="col">VL_TOT_EXIGSUSP</td>
-                <td scope="col">CD_ATI_ECON</td>
-                <td scope="col">VL_REC_ATIV</td>
-                <td scope="col">VL_EXC_REC</td>
-                <td scope="col">VL_ADI_REC</td>
-                <td scope="col">VL_BASE_CALC</td>
-                <td scope="col">VL_PREV_REC</td>
-                <td scope="col">VL_PROC_SUSP</td>
-                <td scope="col">TP_PROCESSO</td>
-                <td scope="col">NR_PROCESSO</td>
-                <td scope="col">CD_IND_SUSP</td>
-                <td scope="col">TP_AJUSTE</td>
-                <td scope="col">CD_AJUSTE</td>
-                <td scope="col">VL_AJUSTE</td>
-                <td scope="col">DESC_AJUSTE</td>
-                <td scope="col">DT_AJUSTE</td>                
-                <td scope="col"><button class="btn" style="background-color: rgb(118, 113, 113); color: white;    float: right;" type="button"
-                    disabled="">EDITAR</button></td>
-              </tr>
-            </tbody>
-      </div>
-    </div>
-  </div>
- -->
-
-
 </div>
 <router-outlet></router-outlet>

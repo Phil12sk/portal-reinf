@@ -10,40 +10,21 @@
             id="periodoCons"
             mask="00/00/0000"
             placeholder="DD/MM/AAAA"
-            formControlName="periodo">
+            formControlName="dateInit">
         </div>
       </div>
       <div class="col-2">
-          <div class="form-group">
-            <label for="periodoCons">Até:</label>
-            <input 
-              type="text" 
-              class="form-control" 
-              id="periodoCons"
-              mask="00/00/0000"
-              placeholder="DD/MM/AAAA"
-              formControlName="periodo">
-          </div>
+        <div class="form-group">
+          <label for="periodoCons">Até:</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="periodoCons"
+            mask="00/00/0000"
+            placeholder="DD/MM/AAAA"
+            formControlName="dateEnd">
         </div>
-        <div class="col-3">
-            <div class="form-group">
-              <label for="periodoCons">Tipo de Layout:</label>
-              <select formControlName="integracao" class="form-control" id="exampleSelect2">
-                  <option selected value="">Selecione --</option>
-                  <option *ngFor="let document of documents" value="{{document.value}}">{{document.label}} </option>
-                </select>
-            </div>
-          </div>
-          <div class="col-3">
-              <div class="form-group">
-                <label for="periodoCons">Situação:</label>
-                <select formControlName="situacao" class="form-control" id="exampleSelect3">
-                    <option selected value="">Selecione --</option>
-                    <option value="ok">Registros Integrados </option>
-                    <option value="nok">Registros Rejeitados </option>
-                  </select>
-              </div>
-            </div>
+      </div>
       <div class="col-2 santander-padding-top-1">
         <button 
           type="button" 
@@ -55,95 +36,35 @@
       </div>
     </div>
   </form>
-  <div class="row santander-padding-top-1">
-    <div class="col-12" style="    overflow: scroll;    margin-bottom: 50px;    margin-top: 20px;" [hidden]="!hasValue">
-      <!-- <table class="table-bordered text-center" [hidden]="!hasValue">
-        <thead class="santander-thead">
-          <tr>
-            <th scope="col">** NOME DA COLUNA **</th>
-            <th scope="col">** NOME DA COLUNA **</th>
-            <th scope="col">** NOME DA COLUNA **</th>
-            <th scope="col">** NOME DA COLUNA **</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>** SEM DADOS **</td>
-            <td>** SEM DADOS **</td>
-            <td>** SEM DADOS **</td>
-            <td>
-              <a
-                *ngFor="let layout of arrayTeste.layouts"
-                (click)="getInfoByDocument(arrayTeste.cnpj, layout.value);"
-                [routerLink]="['/home/controle-integracoes/'+layout.value]">
-                {{layout.label}} /
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table> -->
-      <table class="table-bordered text-center" [hidden]="!hasValue">
-        <thead class="santander-thead" style="    background-color: gray;">
-          <tr>
-            <th scope="col">Tipo de Operação (1-I / 2-A / 3-E)</th>
-            <th scope="col">Layout REINF</th>
-            <th scope="col">Sistema de Origem</th>
-            <th scope="col">Data Movimentação</th>
-            <!-- <th scope="col">Tipo Inscrição (1-CNPJ / 2-CPF)</th>
-            <th scope="col">Número Inscrição do Contribuinte</th> -->
-            <th scope="col">Data Início de Validade</th>
-            <th scope="col">Data Fim de Validade</th>
-            <th scope="col">Código Classificação Tributo - Tabela 8</th>
-            <th scope="col">Inscrição escrituração ECD (0-Não faz / 1-Faz ECD)</th>
-            <th scope="col">Inscrição Desoneração (0-Não Aplicável / 1-Aplicável)</th>
-            <th scope="col">Ind. Acordo Intern. Isen. Multa (0-Sem acordo / 1-Com acordo)</th>
-            <th scope="col">Ind. Sit. (0-Sit.Normal / 1-Extinção / 2-Fusão / 3-Cisão / 4-Incorporação)</th>
-            <th scope="col">Nome Responsável Contato da Empresa</th>
-            <th scope="col">Código CPF Contato da Empresa</th>
-            <th scope="col">Código Telefone Contato da Empresa</th>
-            <th scope="col">Código Celular Contato da Empresa</th>
-            <th scope="col">Nome Email Contato da Empresa</th>
-            <th scope="col">Código CNPJ Empresa de Software</th>
-            <th scope="col">Nome Razão Social Empresa de Software</th>
-            <th scope="col">Nome Contato Empresa de Software</th>
-            <th scope="col">Código Telefone Empresa de Software</th>
-            <th scope="col">Nome Email Empresa de Software</th>
-            <th scope="col">Ident. EFR</th>
-            <th scope="col">Código CNPJ EFR</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td scope="col">{{r1000Model.TP_OPER}}</td>
-            <td scope="col">{{r1000Model.NM_LAYOUT}}</td>
-            <td scope="col">{{r1000Model.CD_SIS_ORIG}}</td>
-            <td scope="col">{{r1000Model.DT_MOVIMENT}}</td>
-            <td scope="col">{{r1000Model.DT_INI_VAL}}</td>
-            <td scope="col">{{r1000Model.DT_FIM_VAL}}</td>
-            <td scope="col">{{r1000Model.CD_CLASSTRIB}}</td>
-            <td scope="col">{{r1000Model.IN_ESCRITUR}}</td>
-            <td scope="col">{{r1000Model.IN_DESONERA}}</td>
-            <td scope="col">{{r1000Model.IN_ACO_MULT}}</td>
-            <td scope="col">{{r1000Model.IN_SIT_PJ}}</td>
-            <td scope="col">{{r1000Model.NM_RESP_CON}}</td>
-            <td scope="col">{{r1000Model.CD_CPF_CON}}</td>
-            <td scope="col">{{r1000Model.CD_TEL_CON}}</td>
-            <td scope="col">{{r1000Model.CD_CEL_CON}}</td>
-            <td scope="col">{{r1000Model.NM_EMAIL_CON}}</td>
-            <td scope="col">{{r1000Model.CD_CNPJ_EMP}}</td>
-            <td scope="col">{{r1000Model.NM_RAZAO_EMP}}</td>
-            <td scope="col">{{r1000Model.NM_CON_EMP}}</td>
-            <td scope="col">{{r1000Model.CD_TEL_EMP}}</td>
-            <td scope="col">{{r1000Model.NM_EMAIL_EMP}}</td>
-            <td scope="col">{{r1000Model.ID_EFR}}</td>
-            <td scope="col">{{r1000Model.CD_CNPJ_EFR}}</td>
-            <td scope="col"><button class="btn" style="background-color: rgb(118, 113, 113); color: white;    float: right;" type="button"
-                disabled="">EDITAR</button></td>
-          </tr>
-        </tbody>
-      </table>
-      <router-outlet></router-outlet>
+  <div class="row santander-padding-top-1" *ngIf="hasValue">
+    <div class="col-12" style="margin-bottom: 50px; margin-top: 20px;">
+      <div class="card-body card-body-gray" style="background-color: rgba(0,0,0,.125);">
+        <div class="col-6 text-left" style="display: inline-block;">
+          <p style="margin-top: 0.5rem; margin-bottom: 1rem;    margin-left: -15px;"><strong>Contribuinte</strong></p>
+        </div>
+        <div class="col-6 text-center" style="display: inline-block; width: 40%;">
+          <p><strong>Evento layout</strong></p>
+        </div>
+      </div>
+      <div class="card-body card-body-gray" *ngFor="let contribuintePainelControle of contribuintesPainelControle">
+        <div class="row">
+          <div class="col-5 text-left">
+            <p>{{contribuintePainelControle.contribuinte | mask: '00.000.000/0000-00'}}</p>
+          </div>
+          <div class="col-6 text-right">
+            <p *ngFor="let layout2 of contribuintePainelControle.layout" 
+              style="display: inline;">
+              <button 
+                class="btn btn-link btn-text-white" 
+                (click)="redirect(layout2.label,layout2.value,contrib.contribuinte,contribuintePainelControle.periodo.value)"
+                [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray'}">
+                  {{layout2.label}} 
+                  <i class="fas fa-flag"></i>
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
