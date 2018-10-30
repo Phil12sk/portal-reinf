@@ -1,13 +1,10 @@
 <div class="modal-header modal-header-pop-up">
-  <h5 class="modal-title" id="exampleModalLabel">Transmissão EFD-Reinf</h5>
+  <h5 class="modal-title" id="exampleModalLabel">Controle de Registro R1070</h5>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body">
-  <p style="display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
-  <p style="display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
-  <button *ngIf="flag!='green'" class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">TRANSMITIR <i class="fas fa-share-square"></i></button>
+<div class="modal-body" *ngIf="ableTab">
   <div class="row santander-padding-top-1" style="    width: 100%;">
     <div class="col-12" style="    overflow: scroll;">
       <table class="table-bordered text-center">
@@ -54,11 +51,304 @@
             <td scope="col">{{r1070.CD_UF}}</td>
             <td scope="col">{{r1070.CD_MUNIC}}</td>
             <td scope="col">{{r1070.CD_VARA}}</td>               
-            <td scope="col"><button class="btn" style="background-color: rgb(118, 113, 113); color: white;    float: right;" type="button"
-                disabled="">EDITAR</button></td>
+            <td scope="col">
+              <button 
+                class="btn" 
+                style="background-color: rgb(118, 113, 113); color: white; float: right;" 
+                type="button"
+                (click)="changeModal();">EDITAR
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+</div>
+<div class="modal-body" *ngIf="!ableTab">
+  <div class="container-fluid">
+    <form [formGroup]="r1070Form" novalidate>
+      <div class="row santander-padding-top-1">
+        <div class="col-3">
+          <div class="form-group">
+            <label for="TP_OPER">Tipo de Operação (1-I / 2-A / 3-E)</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Tipo de Operação (1-I / 2-A / 3-E)"
+              formControlName="TP_OPER"/>
+
+            <label for="NM_LAYOUT">Layout REINF</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="5"
+              placeholder="Layout REINF"
+              formControlName="NM_LAYOUT"/>
+
+            <label for="CD_SIS_ORIG">Sistema de Origem</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask=""
+              maxlength="3"
+              placeholder="Sistema de Origem"
+              disabled
+              formControlName="CD_SIS_ORIG"/>
+
+            <label for="DT_MOVIMENT">Data Movimentação</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000.00.00"
+              maxlength="60"
+              placeholder="Data Movimentação"
+              formControlName="DT_MOVIMENT"/>
+
+            <label for="TP_INSCRI">Tipo Inscrição (1-CNPJ / 2-CPF)</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              disabled
+              placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)"
+              formControlName="TP_INSCRI"/>
+            
+            <label for="NR_INSCRI">Número Inscrição do Contribuinte</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00.000.000/0000-00"
+              disabled
+              placeholder="Número Inscrição do Contribuinte"
+              formControlName="NR_INSCRI"/>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <label for="TP_PROCES">Tipo de Processo (1-Adm / 2-Judicial)</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              disabled
+              placeholder="Tipo de Processo (1-Adm / 2-Judicial)"
+              formControlName="TP_PROCES"/>
+
+            <label for="NR_PROCES">Número de Processo</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              disabled
+              maxlength="21"
+              placeholder="Número de Processo"
+              formControlName="NR_PROCES"/>
+
+            <label for="DT_INI_VAL">Data Início de Validade</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000-00"
+              placeholder="Data Início de Validade"
+              formControlName="DT_INI_VAL"/>
+
+            <label for="DT_FIM_VAL">Data Final de validade</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000-00"
+              placeholder="Data Final de validade"
+              formControlName="DT_FIM_VAL"/>
+
+            <label for="IN_AUTORIA">Ind. Autoria Judicial (1-Próprio / 2-Outra)</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Ind. Autoria Judicial (1-Próprio / 2-Outra)"
+              formControlName="IN_AUTORIA"/>
+
+            <label for="CD_SUSPEN">Susp. Adicional - CodSup</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00000000000000"
+              disabled
+              placeholder="Susp. Adicional - CodSup"
+              formControlName="CD_SUSPEN"/>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <label for="IN_SUSPEN">Ind.  Susp . exigibilidade - indSusp</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00"
+              placeholder="Ind. Susp. exigibilidade - indSusp"
+              formControlName="IN_SUSPEN"/>
+
+            <label for="DT_DECISAO">Data da Decisão</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000.00.00"
+              placeholder="Data da Decisão"
+              formControlName="DT_DECISAO"/>
+
+            <label for="IN_DEPOSIT">Ind. Depósito (S-Sim / N-Não)</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="1"
+              placeholder="Ind. Depósito (S-Sim / N-Não)"
+              formControlName="IN_DEPOSIT"/>
+
+            <label for="CD_UF">UF da Vara</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="2"
+              placeholder="UF da Vara"
+              formControlName="CD_UF"/>
+
+            <label for="CD_MUNIC">Cód. do Município da Vara</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="000"
+              placeholder="Cód. do Município da Vara"
+              formControlName="CD_MUNIC"/>
+
+            <label for="CD_VARA">Cód. de Ident. da Vara</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="2"
+              placeholder="Cód. de Ident. da Vara"
+              formControlName="CD_VARA"/>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <label for="IND_PROCES">IND_PROCES</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="1"
+              placeholder="IND_PROCES"
+              formControlName="IND_PROCES"/>
+
+            <label for="REG_INCONS">REG_INCONS</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="1"
+              placeholder="REG_INCONS"
+              formControlName="REG_INCONS"/>
+
+            <label for="BATE_INCONS">BATE_INCONS</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="1"
+              placeholder="BATE_INCONS"
+              formControlName="BATE_INCONS"/>
+
+            <label for="CD_ITGR">CD_ITGR</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="4"
+              placeholder="CD_ITGR"
+              formControlName="CD_ITGR"/>
+
+            <label for="NR_SEQU_ITGR">NR_SEQU_ITGR</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="4"
+              placeholder="NR_SEQU_ITGR"
+              formControlName="NR_SEQU_ITGR"/>
+
+            <label for="CD_SITU_ITGR">CD_SITU_ITGR</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="4"
+              placeholder="CD_SITU_ITGR"
+              formControlName="CD_SITU_ITGR"/>
+
+            <label for="DT_CTRL_ITGR">DT_CTRL_ITGR</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="10"
+              placeholder="DT_CTRL_ITGR"
+              formControlName="DT_CTRL_ITGR"/>
+
+            <label for="FILLER">FILLER</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              placeholder="FILLER"
+              formControlName="FILLER"/>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal-footer" *ngIf="!ableTab">
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >FINALIZAR
+  </button>
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >CANCELAR
+  </button>
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >EXCLUIR
+  </button>
 </div>

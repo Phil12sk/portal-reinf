@@ -16,6 +16,8 @@ import { PainelDeControleR1070Component } from './core/_modal/painel-de-controle
 import { PainelDeControleR2060Component } from './core/_modal/painel-de-controle-r2060/painel-de-controle-r2060.component';
 import { TransmissaoComponent } from './core/_modal/transmissao/transmissao.component';
 import { ControleRegistrosR1070Component } from './core/_modal/controle-registros/controle-registros-r1070/controle-registros-r1070.component';
+import { ControleRegistrosR2010Component } from './core/_modal/controle-registros/controle-registros-r2010/controle-registros-r2010.component';
+import { ControleRegistrosR2060Component } from './core/_modal/controle-registros/controle-registros-r2060/controle-registros-r2060.component';
 
 export const ROUTES: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -25,14 +27,15 @@ export const ROUTES: Routes = [
             {path: 'R1070', component: R1070Component},
             {path: 'R2010', component: R2010Component},
             {path: 'R2060', component: R2060Component},
-            // {path: 'Painel-controle-R1000', component: PainelDeControleR1000Component},
             {path: 'Painel-controle-R1070', component: PainelDeControleR1070Component},
             {path: 'Painel-controle', component: PainelDeControleComponent},
-            {path: 'Painel-controle-R2060', component: PainelDeControleR2060Component},
-            // {path: 'Transmissao', component: TransmissaoComponent}
+            {path: 'Painel-controle-R2060', component: PainelDeControleR2060Component}
         ]},
         {path: 'controle-de-registros', component: ControleIntegracoesComponent, children: [
             {path: 'controle-de-registros-R1070', component: ControleRegistrosR1070Component},
+            {path: 'controle-de-registros-R2010', component: ControleRegistrosR2010Component},
+            {path: 'controle-de-registros-R2060', component: ControleRegistrosR2060Component},
+            {path: 'R1070', component: R1070Component},
             {path: 'R2010', component: R2010Component},
             {path: 'R2060', component: R2060Component},
             {path: 'no-integration', component: NoIntegrationComponent}

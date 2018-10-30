@@ -33,12 +33,6 @@
           (click)="consult($event);"
           [disabled]="!consultForm.valid"
           >CONSULTAR</button>
-          <button 
-            
-            type="button" 
-            class="btn btn-primary" 
-            data-toggle="modal" 
-            data-target=".bd-example-modal-lg">Large modal</button>
       </div>
     </div>
   </form>
@@ -52,17 +46,19 @@
           <p><strong>Evento layout</strong></p>
         </div>
       </div>
-      <div class="card-body card-body-gray" *ngFor="let contribuintePainelControle of contribuintesPainelControle">
+      <div class="card-body card-body-gray" *ngFor="let contribuinte of contribuintes">
         <div class="row">
           <div class="col-5 text-left">
-            <p>{{contribuintePainelControle.contribuinte | mask: '00.000.000/0000-00'}}</p>
+            <p>{{contribuinte.document | mask: '00.000.000/0000-00'}}</p>
           </div>
           <div class="col-6 text-right">
-            <p *ngFor="let layout2 of contribuintePainelControle.layout" 
+            <p *ngFor="let layout2 of contribuinte.layout" 
               style="display: inline;">
               <button 
+                data-toggle="modal" 
+                [attr.data-target]="'.modal-'+layout2.label"
                 class="btn btn-link btn-text-white" 
-                (click)="redirect(layout2.label,contribuintePainelControle.contribuinte)"
+                (click)="redirect(layout2.label,contribuinte.contribuinte)"
                 [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray'}">
                   {{layout2.label}} 
                   <i class="fas fa-flag"></i>
@@ -74,11 +70,42 @@
     </div>
   </div>
 </div>
-
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        
+<div 
+  class="modal fade modal-R1070" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="myR1070ModalLabel" 
+  aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <app-controle-registros-r1070></app-controle-registros-r1070>      
+    </div>
+  </div>
+</div>
+
+<div 
+  class="modal fade modal-R2010" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="myR2010ModalLabel" 
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <app-controle-registros-r2010></app-controle-registros-r2010>
+    </div>
+  </div>
+</div>
+
+<div 
+  class="modal fade modal-R2060" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="myR2060ModalLabel" 
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <app-controle-registros-r2060></app-controle-registros-r2060>
     </div>
   </div>
 </div>

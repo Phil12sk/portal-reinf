@@ -15,6 +15,8 @@ import { R1070Component } from './layouts/r1070/r1070.component';
 import { R2010Component } from './layouts/r2010/r2010.component';
 import { R2060Component } from './layouts/r2060/r2060.component';
 import { ControleRegistrosR1070Component } from '../core/_modal/controle-registros/controle-registros-r1070/controle-registros-r1070.component';
+import { ControleRegistrosR2010Component } from '../core/_modal/controle-registros/controle-registros-r2010/controle-registros-r2010.component';
+import { ControleRegistrosR2060Component } from '../core/_modal/controle-registros/controle-registros-r2060/controle-registros-r2060.component';
 
 
 
@@ -22,7 +24,8 @@ import { ControleRegistrosR1070Component } from '../core/_modal/controle-registr
     declarations: [ControleEnvioComponent, ControleIntegracoesComponent, ListaEnvioComponent, 
                    SolicitarEnvioComponent, NoIntegrationComponent, TableEnviosComponent,
                    R1000Component, R1070Component, R2010Component, R2060Component,
-                   ControleRegistrosR1070Component],
+                   ControleRegistrosR1070Component, ControleRegistrosR2010Component,
+                   ControleRegistrosR2060Component],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxMaskModule.forRoot(),
               RouterModule.forRoot(ROUTES)],
     exports: [ControleEnvioComponent, ControleIntegracoesComponent, ListaEnvioComponent, 

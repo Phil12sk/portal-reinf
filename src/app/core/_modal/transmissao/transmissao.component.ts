@@ -18,7 +18,7 @@ export class TransmissaoComponent implements OnInit {
   @Input() contribuintePainelControle: any;
   
     ngOnInit() {
-      console.log("TESTE: " + JSON.stringify(this.contribuintePainelControle));  
+      console.log('valor: '+this.contribuintePainelControle)
     }
 
   

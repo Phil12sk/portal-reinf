@@ -1,0 +1,395 @@
+<div class="modal-header modal-header-pop-up">
+  <h5 class="modal-title" id="exampleModalLabel">Controle de Registro R2060</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" *ngIf="ableTab">
+  <div class="row santander-padding-top-1" style="    width: 100%;">
+    <div class="col-12" style="    overflow: scroll;">
+      <table class="table-bordered text-center">
+        <thead class="santander-thead" style="background-color: gray;">
+          <tr>
+            <th scope="col">Tipo de Operação (1-I / 2-A / 3-E / 4-R)</th>
+            <th scope="col">Layout REINF</th>
+            <th scope="col">Sistema de Origem</th>
+            <th scope="col">Código Produto</th>
+            <th scope="col">Código Retenção</th>
+            <th scope="col">Data Movimentação</th>
+            <th scope="col">Tipo Inscrção (1-CNPJ / 2-CPF)</th>
+            <th scope="col">Número Inscrção do Contribuinte</th>
+            <th scope="col">Tipo Inscrção Estadual (1-CNPJ / 4-CNO)</th>
+            <th scope="col">Número Inscrção Estadual Estabelecimento</th>
+            <th scope="col">Valor da Receita Bruta Total do Estabelecimento</th>
+            <th scope="col">Valor Total CPRB do Estabelecimento</th>
+            <th scope="col">Valor CPRB Susp. Total</th>
+            <th scope="col">Código Atividade Econômica - tabela 9</th>
+            <th scope="col">Valor Total da Receita Ativ.</th>
+            <th scope="col">Valor Total das Exclusões Receita Bruta</th>
+            <th scope="col">Valor Total das Adições Receita Bruta</th>
+            <th scope="col">Valor Base CPRB</th>
+            <th scope="col">Valor CPRB Apur.</th>
+            <th scope="col">Valor CPRB Susp.</th>
+            <th scope="col">Tipo Processo (1-Administrativo / 2-Judicial)</th>
+            <th scope="col">Número Processo</th>
+            <th scope="col">Código Ind Susp. - CodSup</th>
+            <th scope="col">Tipo Ajuste (0-Redução / 1-Acréscimo)</th>
+            <th scope="col">Código Ajuste</th>
+            <th scope="col">Valor Ajuste</th>
+            <th scope="col">Descrição Ajuste</th>
+            <th scope="col">Data Ajuste</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="col">{{r2060?.TP_OPER}}</td>
+            <td scope="col">{{r2060?.NM_LAYOUT}}</td>
+            <td scope="col">{{r2060?.CD_SIS_ORIG}}</td>
+            <td scope="col">{{r2060?.CD_PRODUTO}}</td>
+            <td scope="col">{{r2060?.CD_RETENCAO}}</td>
+            <td scope="col">{{r2060?.DT_MOVIMENT}}</td>
+            <td scope="col">{{r2060?.TP_INSCRI}}</td>
+            <td scope="col">{{r2060?.NR_INSCRI}}</td>
+            <td scope="col">{{r2060?.TP_INSC_EST}}</td>
+            <td scope="col">{{r2060?.NR_INSC_EST}}</td>
+            <td scope="col">{{r2060?.VL_TOT_RECBRUTA}}</td>
+            <td scope="col">{{r2060?.VL_TOT_APUESTAB}}</td>
+            <td scope="col">{{r2060?.VL_TOT_EXIGSUSP}}</td>
+            <td scope="col">{{r2060?.CD_ATI_ECON}}</td>
+            <td scope="col">{{r2060?.VL_REC_ATIV}}</td>
+            <td scope="col">{{r2060?.VL_EXC_REC}}</td>
+            <td scope="col">{{r2060?.VL_ADI_REC}}</td>
+            <td scope="col">{{r2060?.VL_BASE_CALC}}</td>
+            <td scope="col">{{r2060?.VL_PREV_REC}}</td>
+            <td scope="col">{{r2060?.VL_PROC_SUSP}}</td>
+            <td scope="col">{{r2060?.TP_PROCESSO}}</td>
+            <td scope="col">{{r2060?.NR_PROCESSO}}</td>
+            <td scope="col">{{r2060?.CD_IND_SUSP}}</td>
+            <td scope="col">{{r2060?.TP_AJUSTE}}</td>
+            <td scope="col">{{r2060?.CD_AJUSTE}}</td>
+            <td scope="col">{{r2060?.VL_AJUSTE}}</td>
+            <td scope="col">{{r2060?.DESC_AJUSTE}}</td>
+            <td scope="col">{{r2060?.DT_AJUSTE}}</td>
+            <td scope="col">
+              <button class="btn" style="background-color: rgb(118, 113, 113); color: white;    float: right;" type="button"
+              (click)="changeModal();">EDITAR</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="modal-body" *ngIf="!ableTab">
+  <div class="container-fluid">
+    <form [formGroup]="r2060Form" novalidate>
+      <div class="row santander-padding-top-1">
+        <div class="col-3">
+          <div class="form-group">
+            <label for="TP_OPER">Tipo de Operação (1-I / 2-A / 3-E / 4-R)</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Tipo de Operação (1-I / 2-A / 3-E / 4-R)"
+              formControlName="TP_OPER"/>
+
+            <label for="NM_LAYOUT">Layout REINF</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="5"
+              placeholder="Layout REINF"
+              formControlName="NM_LAYOUT"/>
+
+            <label for="CD_SIS_ORIG">Sistema de Origem</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="3"
+              placeholder="Sistema de Origem"
+              disabled
+              formControlName="CD_SIS_ORIG"/>
+
+            <label for="CD_PRODUTO">Código Produto</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000"
+              placeholder="Código Produto"
+              disabled
+              formControlName="CD_PRODUTO"/>
+
+            <label for="CD_RETENCAO">Código Retenção</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00000"
+              placeholder="Código Retenção"
+              disabled
+              formControlName="CD_RETENCAO"/>
+
+            <label for="DT_MOVIMENT">Data Movimentação</label>
+            <input 
+              type="text" 
+              class="form-control"
+              mask="0000.00.00"
+              placeholder="AAAA.MM.DD"
+              formControlName="DT_MOVIMENT"/>
+
+            <label for="TP_INSCRI">Tipo Inscrição (1-CNPJ / 2-CPF)</label>
+            <input 
+              type="text" 
+              class="form-control"
+              mask="0"
+              placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)"
+              disabled
+              formControlName="TP_INSCRI"/>
+
+            <label for="NR_INSCRI">Número Inscrição do Contribuinte</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00.000.000/0000-00"
+              placeholder="Número Inscrição do Contribuinte"
+              disabled
+              formControlName="NR_INSCRI"/>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <label for="TP_INSC_EST">Tipo Inscrição Estadual (1-CNPJ / 4-CNO)</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Tipo Inscrição Estadual (1-CNPJ / 4-CNO)"
+              formControlName="TP_INSC_EST"/>
+
+            <label for="NR_INSC_EST">Número Inscrição Estadual Estabelecimento</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00.000.000/0000-00"
+              placeholder="Número Inscrição Estadual Estabelecimento"
+              formControlName="NR_INSC_EST"/>
+
+            <label for="VL_TOT_RECBRUTA">Valor da Receita Bruta Total do Estabelecimento</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              placeholder="Valor da Receita Bruta Total do Estabelecimento"
+              formControlName="VL_TOT_RECBRUTA"/>
+
+            <label for="VL_TOT_APUESTAB">Valor Total CPRB do Estabelecimento</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              placeholder="Valor Total CPRB do Estabelecimento"
+              formControlName="VL_TOT_APUESTAB"/>
+
+            <label for="VL_TOT_EXIGSUSP">Valor CPRB Susp. Total</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              placeholder="Valor CPRB Susp. Total"
+              formControlName="VL_TOT_EXIGSUSP"/>
+
+            <label for="CD_ATI_ECON">Código Atividade Económica - tabela 9</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00000000"
+              placeholder="Código Atividade Económica - tabela 9"
+              disabled
+              formControlName="CD_ATI_ECON"/>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <label for="VL_REC_ATIV">Valor Total da Receita Ativ.</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              disabled
+              placeholder="Valor Total da Receita Ativ."
+              formControlName="VL_REC_ATIV"/>
+
+            <label for="VL_EXC_REC">Valor Total das Exclusões Receita Bruta</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              disabled
+              placeholder="Valor Total das Exclusões Receita Bruta"
+              formControlName="VL_EXC_REC"/>
+              
+            <label for="VL_ADI_REC">Valor Total das Adições Receita Bruta</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              disabled
+              placeholder="Valor Total das Adições Receita Bruta"
+              formControlName="VL_ADI_REC"/>
+
+            <label for="VL_BASE_CALC">Valor Base CPRB</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              disabled
+              placeholder="Valor Base CPRB"
+              formControlName="VL_BASE_CALC"/>
+
+            <label for="VL_PREV_REC">Valor CPRB Apur.</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              disabled
+              placeholder="Valor CPRB Apur."
+              formControlName="VL_PREV_REC"/>
+
+            <label for="VL_PROC_SUSP">Valor CPRB Susp.</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              disabled
+              placeholder="Valor CPRB Susp."
+              formControlName="VL_PROC_SUSP"/>
+
+            <label for="TP_PROCESSO">Tipo Processo (1-Administrativo / 2-Judicial)</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Tipo Processo (1-Administrativo / 2-Judicial)"
+              disabled
+              formControlName="TP_PROCESSO"/>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <label for="NR_PROCESSO">Número Processo</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="21"
+              placeholder="Número Processo"
+              disabled
+              formControlName="NR_PROCESSO"/>
+
+            <label for="CD_IND_SUSP">Código Ind Susp. - CodSup</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00000000000000"
+              placeholder="Código Ind Susp. - CodSup"
+              formControlName="CD_IND_SUSP"/>
+
+            <label for="TP_AJUSTE">Tipo Ajuste (0-Redução / 1-Acréscimo)</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="1"
+              placeholder="Tipo Ajuste (0-Redução / 1-Acréscimo)"
+              disabled
+              formControlName="TP_AJUSTE"/>
+
+            <label for="CD_AJUSTE">Código Ajuste</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="2"
+              placeholder="Código Ajuste"
+              disabled
+              formControlName="CD_AJUSTE"/>
+
+            <label for="VL_AJUSTE">Valor Ajuste</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              placeholder="Valor Ajuste"
+              formControlName="VL_AJUSTE"/>
+
+            <label for="DESC_AJUSTE">Descrição Ajuste</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="20"
+              placeholder="Descrição Ajuste"
+              formControlName="DESC_AJUSTE"/>
+
+            <label for="DT_AJUSTE">Data Ajuste</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="0000.00"
+              placeholder="Data Ajuste"
+              formControlName="DT_AJUSTE"/>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal-footer" *ngIf="!ableTab">
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >FINALIZAR
+  </button>
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >CANCELAR
+  </button>
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >EXCLUIR
+  </button>
+</div>

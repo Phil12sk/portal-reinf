@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DadosService } from '../../../_service/dados.service';
 import { R1070Model } from '../../../_model/r1070.model';
@@ -13,37 +13,64 @@ declare var $: any
 export class ControleRegistrosR1070Component implements OnInit {
 
   constructor(
-    private formBuilder: FormBuilder, 
+    private fb: FormBuilder, 
     private router: Router, 
     private dadosService: DadosService) { }
 
+  @Input() receber: any;
+  ableTab: boolean = true
+  r1070Form: FormGroup
   r1070: R1070Model = {
-    TP_OPER: 'xxxxxxxxx',
-    NM_LAYOUT: 'xxxxxxxxx',
-    CD_SIS_ORIG: 'xxxxxxxxx',
-    DT_MOVIMENT: 'xxxxxxxxx',
-    TP_INSCRI: 'xxxxxxxxx',
-    NR_INSCRI: 'xxxxxxxxx',
-    TP_PROCES: 'xxxxxxxxx',
-    NR_PROCES: 'xxxxxxxxx',
-    DT_INI_VAL: 'xxxxxxxxx',
-    DT_FIM_VAL: 'xxxxxxxxx',
-    IN_AUTORIA: 'xxxxxxxxx',
-    CD_SUSPEN: 'xxxxxxxxx',
-    IN_SUSPEN: 'xxxxxxxxx',
-    DT_DECISAO: 'xxxxxxxxx',
-    IN_DEPOSIT: 'xxxxxxxxx',
-    CD_UF: 'xxxxxxxxx',
-    CD_MUNIC: 'xxxxxxxxx',
-    CD_VARA: 'xxxxxxxxx'
+    TP_OPER: '1',
+    NM_LAYOUT: 'R1070',
+    CD_SIS_ORIG: 'XXX',
+    DT_MOVIMENT: '20181230',
+    TP_INSCRI: '1',
+    NR_INSCRI: '30450997000142',
+    TP_PROCES: '2',
+    NR_PROCES: '123456789012345678901',
+    DT_INI_VAL: '201809',
+    DT_FIM_VAL: '201810',
+    IN_AUTORIA: '1',
+    CD_SUSPEN: '12345678901234',
+    IN_SUSPEN: '01',
+    DT_DECISAO: '2018-10-30',
+    IN_DEPOSIT: 'S',
+    CD_UF: 'SP',
+    CD_MUNIC: '001',
+    CD_VARA: '001'
   };
-  contribuinte: any;
-  periodo: any;
+
+  changeModal(){
+    this.ableTab = false
+  }
+
+  changeVar(){
+    this.ableTab = true;
+  }
 
   ngOnInit() {
-
+    this.r1070Form = this.fb.group({
+      TP_OPER: this.fb.control(this.r1070.TP_OPER),
+      NM_LAYOUT: this.fb.control(this.r1070.NM_LAYOUT),
+      CD_SIS_ORIG: this.fb.control(this.r1070.CD_SIS_ORIG),
+      DT_MOVIMENT: this.fb.control(this.r1070.DT_MOVIMENT),
+      TP_INSCRI: this.fb.control(this.r1070.TP_INSCRI),
+      NR_INSCRI: this.fb.control(this.r1070.NR_INSCRI),
+      TP_PROCES: this.fb.control(this.r1070.TP_PROCES),
+      NR_PROCES: this.fb.control(this.r1070.NR_PROCES),
+      DT_INI_VAL: this.fb.control(this.r1070.DT_INI_VAL),
+      DT_FIM_VAL: this.fb.control(this.r1070.DT_FIM_VAL),
+      IN_AUTORIA: this.fb.control(this.r1070.IN_AUTORIA),
+      CD_SUSPEN: this.fb.control(this.r1070.CD_SUSPEN),
+      IN_SUSPEN: this.fb.control(this.r1070.IN_SUSPEN),
+      DT_DECISAO: this.fb.control(this.r1070.DT_DECISAO),
+      IN_DEPOSIT: this.fb.control(this.r1070.IN_DEPOSIT),
+      CD_UF: this.fb.control(this.r1070.CD_UF),
+      CD_MUNIC: this.fb.control(this.r1070.CD_MUNIC),
+      CD_VARA: this.fb.control(this.r1070.CD_VARA)
+    })
     $('#xxx').click();
-
     $('.pane-hScroll').scroll(function () {
       $('.pane-vScroll').width($('.pane-hScroll').width() + $('.pane-hScroll').scrollLeft());
     });

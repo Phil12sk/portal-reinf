@@ -24,9 +24,10 @@ export class ControleIntegracoesComponent implements OnInit {
   hasValue: boolean = false
   consultForm: FormGroup
   flagColor: String;
-  contribuintesPainelControle: any = [
+  enviar: any = "Marina";
+  contribuintes: any = [
     {
-      contribuinte: '12345678000100',
+      document: '12345678000100',
       layout: [
         { label: 'R1070', value: 'red' },
         { label: 'R2010', value: 'red' },
@@ -34,7 +35,7 @@ export class ControleIntegracoesComponent implements OnInit {
       ]
     },
     {
-      contribuinte: '87345678000100',
+      document: '87345678000100',
       layout: [
         { label: 'R1070', value: 'red' },
         { label: 'R2010', value: 'red' },

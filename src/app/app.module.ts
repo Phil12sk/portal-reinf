@@ -25,6 +25,7 @@ import { PainelDeControleR2060Component } from './core/_modal/painel-de-controle
 import { PainelDeControleR1070Component } from './core/_modal/painel-de-controle-r1070/painel-de-controle-r1070.component';
 import { TransmissaoComponent } from './core/_modal/transmissao/transmissao.component';
 
+
 registerLocaleData(localePtBr,'pt-BR');
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
