@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row santander-padding-top-1">
     <div class="col-12">
-      <div class="col-2" style="display:inline-block;">
+      <div class="col-4" style="display:inline-block;">
         <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" style="width:100px">
           <option selected>2018</option>
         </select>
-        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect2" style="width:205px; margin-top: 15px;">
+        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect2" style="width:205px;">
             <option selected>Todos os Contribuintes</option>
             <option *ngFor="let contr of prestadores">{{contr | mask: '00.000.000/0000-00'}}</option>
           </select>
@@ -22,7 +22,7 @@
         </svg>
         <div>Mês de Envio Vigente com Evento(s) a Transmitir</div>
       </div>
-      <div class="col-3" style="display:inline-block; float: right;">
+      <div class="col-2" style="display:inline-block; float: right;">
         <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
           <circle  cx="10" cy="10" r="10" fill="green" />
         </svg>
