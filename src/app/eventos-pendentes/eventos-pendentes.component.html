@@ -5,6 +5,10 @@
         <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" style="width:100px">
           <option selected>2018</option>
         </select>
+        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect2" style="width:205px; margin-top: 15px;">
+            <option selected>Todos os Contribuintes</option>
+            <option *ngFor="let contr of prestadores">{{contr | mask: '00.000.000/0000-00'}}</option>
+          </select>
       </div>
       <div class="col-3" style="display:inline-block; float: right;">
         <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">      
@@ -114,6 +118,9 @@
       <div class="modal-content">
       <app-transmissao *ngIf="mod==1" [contribuintePainelControle]="contribuintePainelControle" style="    padding-bottom: 20px;"></app-transmissao>
       <app-painel-de-controle-r1000 *ngIf="mod==2" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r1000>
+      <app-painel-de-controle-r1070 *ngIf="mod==3" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r1070>
+      <app-painel-de-controle *ngIf="mod==4" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle>
+      <app-painel-de-controle-r2060 *ngIf="mod==5" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r2060>
     </div>
     </div>
   </div>
