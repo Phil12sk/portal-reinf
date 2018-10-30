@@ -15,7 +15,7 @@
       </div>
       <div class="col-3">
         <div class="form-group">
-          <label for="exampleSelect1">Example select</label>
+          <label for="exampleSelect1">Selecione o Contribuinte:</label>
           <select formControlName="document" class="form-control" id="exampleSelect2">
             <option selected value="">CNPJ Contribuinte</option>
             <option *ngFor="let document of documents" value="{{document.value}}">{{document.label | mask: '00.000.000/0000-00'}}</option>
