@@ -17,8 +17,20 @@ import { R2060Component } from './layouts/r2060/r2060.component';
 import { ControleRegistrosR1070Component } from '../core/_modal/controle-registros/controle-registros-r1070/controle-registros-r1070.component';
 import { ControleRegistrosR2010Component } from '../core/_modal/controle-registros/controle-registros-r2010/controle-registros-r2010.component';
 import { ControleRegistrosR2060Component } from '../core/_modal/controle-registros/controle-registros-r2060/controle-registros-r2060.component';
+import { NgxCurrencyModule } from "ngx-currency";
+import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency/src/currency-mask.config";
 
-
+export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+  align: "right",
+  allowNegative: true,
+  allowZero: true,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: ".",
+  nullable: true
+};
 
 @NgModule({
     declarations: [ControleEnvioComponent, ControleIntegracoesComponent, ListaEnvioComponent, 
@@ -27,12 +39,12 @@ import { ControleRegistrosR2060Component } from '../core/_modal/controle-registr
                    ControleRegistrosR1070Component, ControleRegistrosR2010Component,
                    ControleRegistrosR2060Component],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxMaskModule.forRoot(),
-              RouterModule.forRoot(ROUTES)],
+              RouterModule.forRoot(ROUTES), NgxCurrencyModule],
     exports: [ControleEnvioComponent, ControleIntegracoesComponent, ListaEnvioComponent, 
             SolicitarEnvioComponent, NoIntegrationComponent, TableEnviosComponent,
             R1000Component, R1070Component, R2010Component, R2060Component,
             FormsModule, ReactiveFormsModule ],
-    providers: [NgxMaskModule]
+    providers: [NgxMaskModule, {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig},]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

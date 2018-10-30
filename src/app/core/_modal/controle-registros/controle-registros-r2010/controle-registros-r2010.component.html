@@ -239,7 +239,7 @@
               type="text" 
               class="form-control" 
               id=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Total Bruto NF(s)"
               formControlName="VL_TOT_BRUTO"/>
           </div>
@@ -251,8 +251,7 @@
               type="text" 
               class="form-control" 
               id=""
-              mask=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Soma Valor Total Base Ret. NF(s)"
               formControlName="VL_TOT_BASERET"/>
               
@@ -261,8 +260,7 @@
               type="text" 
               class="form-control" 
               id=""
-              mask=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Total Principal Ret. NF(s)"
               formControlName="VL_TOT_RETPRINC"/>
               
@@ -271,8 +269,7 @@
               type="text" 
               class="form-control" 
               id=""
-              mask=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Total Adicional Ret. NF(s)"
               formControlName="VL_TOT_RETADIC"/>
               
@@ -281,8 +278,7 @@
               type="text" 
               class="form-control" 
               id=""
-              mask=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Total Principal Não Ret. NF(s)"
               formControlName="VL_TOT_NRETPRI"/>
               
@@ -291,8 +287,7 @@
               type="text" 
               class="form-control" 
               id=""
-              mask=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Total Adicional Não Ret. NF(s)"
               formControlName="VL_TOT_NRETADIC"/>
               
@@ -338,7 +333,7 @@
               type="text" 
               class="form-control" 
               id=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Bruto da NF"
               formControlName="VL_BRUTO"/>
               
@@ -369,7 +364,7 @@
               type="text" 
               class="form-control" 
               id=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Base Retenção da NF"
               formControlName="VL_BASERET"/>
               
@@ -378,7 +373,7 @@
               type="text" 
               class="form-control" 
               id=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Retenção da NF"
               formControlName="VL_RETENCAO"/>
               
@@ -387,8 +382,7 @@
               type="text" 
               class="form-control" 
               id=""
-              mask=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Retenção dos Serviços Subcontratados"
               formControlName="VL_RETSUB"/>
               
@@ -397,8 +391,7 @@
               type="text" 
               class="form-control" 
               id=""
-              mask=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Principal Não Ret. NF(s)"
               formControlName="VL_NRETPRINC"/>
               
@@ -406,8 +399,7 @@
             <input 
               type="text" 
               class="form-control" 
-              id=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Serviços Prestados após 15 anos"
               formControlName="VL_SERVICOS15"/>
               
@@ -415,8 +407,7 @@
             <input 
               type="text" 
               class="form-control" 
-              id=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Serviços Prestados após 20 anos"
               formControlName="VL_SERVICOS20"/>
               
@@ -425,7 +416,7 @@
               type="text" 
               class="form-control" 
               id=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Serviços Prestados após 25 anos"
               formControlName="VL_SERVICOS25"/>
               
@@ -434,7 +425,7 @@
               type="text" 
               class="form-control" 
               id=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Adicional Serviços Prestados após 15, 20 ou 25 anos"
               formControlName="VL_ADICIONAL"/>
               
@@ -443,7 +434,7 @@
               type="text" 
               class="form-control" 
               id=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Adicional Não Ret. NF(s)"
               formControlName="VL_NRETADIC"/>
               
@@ -485,7 +476,7 @@
               type="text" 
               class="form-control" 
               id=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Retenção Susp. Principal"
               formControlName="VL_PRINC"/>
               
@@ -524,7 +515,7 @@
               type="text" 
               class="form-control" 
               id=""
-              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Retenção Susp. Adicional"
               formControlName="VL_ADIC"/>
           </div>

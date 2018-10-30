@@ -189,6 +189,7 @@
               class="form-control" 
               id=""
               maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor da Receita Bruta Total do Estabelecimento"
               formControlName="VL_TOT_RECBRUTA"/>
 
@@ -198,6 +199,7 @@
               class="form-control" 
               id=""
               maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Total CPRB do Estabelecimento"
               formControlName="VL_TOT_APUESTAB"/>
 
@@ -207,6 +209,7 @@
               class="form-control" 
               id=""
               maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor CPRB Susp. Total"
               formControlName="VL_TOT_EXIGSUSP"/>
 
@@ -229,6 +232,7 @@
               class="form-control" 
               id=""
               maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               disabled
               placeholder="Valor Total da Receita Ativ."
               formControlName="VL_REC_ATIV"/>
@@ -239,16 +243,18 @@
               class="form-control" 
               id=""
               maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               disabled
               placeholder="Valor Total das Exclusões Receita Bruta"
               formControlName="VL_EXC_REC"/>
-              
+
             <label for="VL_ADI_REC">Valor Total das Adições Receita Bruta</label>
             <input 
               type="text" 
               class="form-control" 
               id=""
               maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               disabled
               placeholder="Valor Total das Adições Receita Bruta"
               formControlName="VL_ADI_REC"/>
@@ -259,6 +265,7 @@
               class="form-control" 
               id=""
               maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               disabled
               placeholder="Valor Base CPRB"
               formControlName="VL_BASE_CALC"/>
@@ -269,6 +276,7 @@
               class="form-control" 
               id=""
               maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               disabled
               placeholder="Valor CPRB Apur."
               formControlName="VL_PREV_REC"/>
@@ -279,6 +287,7 @@
               class="form-control" 
               id=""
               maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               disabled
               placeholder="Valor CPRB Susp."
               formControlName="VL_PROC_SUSP"/>
@@ -341,6 +350,7 @@
               class="form-control" 
               id=""
               maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Ajuste"
               formControlName="VL_AJUSTE"/>
 

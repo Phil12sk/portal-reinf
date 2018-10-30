@@ -12,10 +12,8 @@ import { ROUTES } from './app.routes';
 import { EventosPendentesComponent } from './eventos-pendentes/eventos-pendentes.component';
 import { SharedModule } from './shared/shared.module';
 import { DadosService } from './core/_service/dados.service';
-
-
-import { CurrencyMaskModule } from "ngx-currency-mask";
-import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency-mask/src/currency-mask.config";
+import { NgxCurrencyModule } from "ngx-currency";
+import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency/src/currency-mask.config";
 import { PainelDeControleComponent } from './core/_modal/painel-de-controle/painel-de-controle.component';
 
 
@@ -36,7 +34,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   precision: 2,
   prefix: "R$ ",
   suffix: "",
-  thousands: "."
+  thousands: ".",
+  nullable: true
 };
 
 @NgModule({
@@ -58,14 +57,14 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     ReactiveFormsModule,
     SharedModule.forRoot(),
     NgxMaskModule.forRoot(),
-    CurrencyMaskModule,
+    NgxCurrencyModule,
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
   providers: [
     NgxMaskModule,
     DadosService,
-    {provide: LOCALE_ID, useValue: 'pt-BR'},
-    {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig}
+    {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig},
+    {provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent]
 })
