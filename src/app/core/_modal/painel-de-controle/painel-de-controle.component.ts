@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { EvtPendente } from '../../../core/_model/evtPendente.mode';
 import { ContribuintePainelControle } from '../../../core/_model/contribuintePainelControle.model';
@@ -19,8 +19,7 @@ export class PainelDeControleComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private dadosService: DadosService) { }
 
   ableNFTable: boolean;
-  contribuinte: any;
-  periodo: any;
+
 
   prestadores: any[];
 
@@ -28,15 +27,18 @@ export class PainelDeControleComponent implements OnInit {
 
   nfs: any[];
 
-  flag: any;
+  @Input() contribuinte: any;
+  @Input() periodo: any;
+  @Input()  flag: any;
+
 
   ngOnInit() {
 
     this.ableNFTable = false;
 
-    this.contribuinte = this.dadosService.objDados.contribuinte;
-    this.periodo = this.dadosService.objDados.periodo;
-    this.flag = this.dadosService.objDados.flag;
+    // this.contribuinte = this.dadosService.objDados.contribuinte;
+    // this.periodo = this.dadosService.objDados.periodo;
+    // this.flag = this.dadosService.objDados.flag;
 
     if (this.flag == 'red') {
 

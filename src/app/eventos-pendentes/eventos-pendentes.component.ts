@@ -21,7 +21,7 @@ export class EventosPendentesComponent implements OnInit {
     private router: Router,
     private dadosService: DadosService) { }
 
-  prestadores: String[] = ['72345678000100', '62345678000100'];
+  prestadores: String[] = ['72345678000100', '62345678000100','87345678000100','92345678000100'];
 
   // contribuintePainelControle='ssssss';
 teste='testeeeee';
@@ -30,8 +30,9 @@ contribuinteSelecionado: any;
 contribuinte: any;
 periodo: any;
 flag: any;
+mod:any;
 
-
+    contribuintes: any[] = ['12345678000100',];
   contribuintesPainelControle: ContribuintePainelControle[] = [
     {
       periodo: { label: 'MAIO', value: '2018-05', status: 'green' },
@@ -148,8 +149,10 @@ flag: any;
     this.contribuinte= contribuinte;
     this.periodo= periodo;
     this.flag= flag;
+    this.mod='';
 
     if (flag != 'gray') {
+     
     // this.contribuinte= contribuinte;
     // this.periodo= periodo;
     // this.flag= flag;
@@ -160,22 +163,27 @@ flag: any;
       
 
     //   this.router.navigate([`/home/eventos-pendentes/${layout}`])
-    //   if (layout == 'R1000') {
-    //     this.router.navigate(['/home/painel-de-controle/Painel-controle-R1000'])
-    //   }
-    //   if (layout == 'R1070') {
-    //     this.router.navigate(['/home/painel-de-controle/Painel-controle-R1070'])
-    //   }
-    //   if (layout == 'R2010') {
-    //     this.router.navigate(['/home/painel-de-controle/Painel-controle'])
-    //   }
-    //   if (layout == 'R2060') {
-    //     this.router.navigate(['/home/painel-de-controle/Painel-controle-R2060'])
-    //   }
+      if (layout == 'R1000') {
+        this.mod=2;
+        // this.router.navigate(['/home/painel-de-controle/Painel-controle-R1000'])
+      }
+      if (layout == 'R1070') {
+        this.mod=3;
+        // this.router.navigate(['/home/painel-de-controle/Painel-controle-R1070'])
+      }
+      if (layout == 'R2010') {
+        this.mod=4;
+        // this.router.navigate(['/home/painel-de-controle/Painel-controle'])
+      }
+      if (layout == 'R2060') {
+        this.mod=5;
+        // this.router.navigate(['/home/painel-de-controle/Painel-controle-R2060'])
+      }
     }
   }
 
   transmitir(contribuintePainelControle: any){
+    this.mod=1;
    
     // console.log("contribuintePainelControle: " + JSON.stringify(contribuintePainelControle));
     

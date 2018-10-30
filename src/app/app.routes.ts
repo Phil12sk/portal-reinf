@@ -27,9 +27,17 @@ export const ROUTES: Routes = [
             {path: 'R1070', component: R1070Component},
             {path: 'R2010', component: R2010Component},
             {path: 'R2060', component: R2060Component},
+<<<<<<< HEAD
             {path: 'Painel-controle-R1070', component: PainelDeControleR1070Component},
             {path: 'Painel-controle', component: PainelDeControleComponent},
             {path: 'Painel-controle-R2060', component: PainelDeControleR2060Component}
+=======
+            // {path: 'Painel-controle-R1000', component: PainelDeControleR1000Component},
+            // {path: 'Painel-controle-R1070', component: PainelDeControleR1070Component},
+            // {path: 'Painel-controle', component: PainelDeControleComponent},
+            // {path: 'Painel-controle-R2060', component: PainelDeControleR2060Component},
+            // {path: 'Transmissao', component: TransmissaoComponent}
+>>>>>>> 95d4673c0a08bde9b2fe936f0a320cf374e20bb5
         ]},
         {path: 'controle-de-registros', component: ControleIntegracoesComponent, children: [
             {path: 'controle-de-registros-R1070', component: ControleRegistrosR1070Component},

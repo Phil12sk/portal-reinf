@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { EvtPendente } from '../../../core/_model/evtPendente.mode';
 import { ContribuintePainelControle } from '../../../core/_model/contribuintePainelControle.model';
@@ -21,15 +21,15 @@ export class PainelDeControleR1070Component implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private dadosService: DadosService) { }
 
   r1070: R1070Model;
-  contribuinte: any;
-  periodo: any;
-  flag: any;
+  @Input() contribuinte: any;
+  @Input() periodo: any;
+  @Input()  flag: any;
 
   ngOnInit() {
 
-    this.contribuinte = this.dadosService.objDados.contribuinte;
-    this.periodo = this.dadosService.objDados.periodo;
-    this.flag = this.dadosService.objDados.flag;
+    // this.contribuinte = this.dadosService.objDados.contribuinte;
+    // this.periodo = this.dadosService.objDados.periodo;
+    // this.flag = this.dadosService.objDados.flag;
 
 
     this.r1070 = {
