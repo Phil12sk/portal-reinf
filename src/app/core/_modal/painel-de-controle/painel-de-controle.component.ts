@@ -16,7 +16,10 @@ declare var $: any;
 })
 export class PainelDeControleComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private dadosService: DadosService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private router: Router, 
+    private dadosService: DadosService) { }
 
   ableNFTable: boolean;
 

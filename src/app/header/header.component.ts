@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DadosService } from '../core/_service/dados.service';
+declare var $: any
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   today: number = Date.now();
-  constructor() { }
+  constructor(private dadosService: DadosService) { }
 
   ngOnInit() {
   }
