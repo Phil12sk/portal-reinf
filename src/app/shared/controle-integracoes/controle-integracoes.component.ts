@@ -25,6 +25,8 @@ export class ControleIntegracoesComponent implements OnInit {
   consultForm: FormGroup
   flagColor: String;
   enviar: any = "Marina";
+  today = new Date()
+  previousFiveDays: any
   contribuintes: any = [
     {
       document: '12345678000100',
@@ -62,17 +64,26 @@ export class ControleIntegracoesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.today;
+    const newDate = new Date(this.today);
+
+    newDate.setDate(newDate.getDate() - 5);
+    
+    var dd = newDate.getDate();
+    var mm = newDate.getMonth() + 1;
+    var y = newDate.getFullYear();
+
+    this.previousFiveDays = (dd + '/' + mm + '/' + + y);
     this.flagColor = 'red';
     this.router.navigate(['/home/controle-de-registros'])
     this.consultForm = this.formBuilder.group({
-      dateInit: this.formBuilder.control('', [
-        Validators.required, Validators.minLength(8),
-        Validators.pattern(this.datePattern)
+      dateInit: this.formBuilder.control(this.previousFiveDays.toLocaleString(), [
+        Validators.required, Validators.minLength(8)
       ]),
-      dateEnd: this.formBuilder.control('', [
-        Validators.required, Validators.minLength(8),
-        Validators.pattern(this.datePattern)
+      dateEnd: this.formBuilder.control(this.today.toLocaleString(), [
+        Validators.required, Validators.minLength(8)
       ])
     })
+    console.log(this.consultForm)
   }
 }

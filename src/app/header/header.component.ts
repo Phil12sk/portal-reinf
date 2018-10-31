@@ -10,7 +10,7 @@ declare var $: any
 export class HeaderComponent implements OnInit {
 
   today: number = Date.now();
-  constructor(private dadosService: DadosService) { }
+  constructor() { }
 
   ngOnInit() {
   }
