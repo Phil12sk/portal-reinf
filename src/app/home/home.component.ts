@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router) { }
   limitDate: string = "15/09/2018"
   ngOnInit() {
-    this.router.navigate(['/home/painel-de-controle'])
+    // this.router.navigate(['/home/painel-de-controle'])
+    this.router.navigate(['/home/painel-consulta'])
   }
 }

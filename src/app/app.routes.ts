@@ -18,6 +18,7 @@ import { TransmissaoComponent } from './core/_modal/transmissao/transmissao.comp
 import { ControleRegistrosR1070Component } from './core/_modal/controle-registros/controle-registros-r1070/controle-registros-r1070.component';
 import { ControleRegistrosR2010Component } from './core/_modal/controle-registros/controle-registros-r2010/controle-registros-r2010.component';
 import { ControleRegistrosR2060Component } from './core/_modal/controle-registros/controle-registros-r2060/controle-registros-r2060.component';
+import { PainelConsultaComponent } from './painel-consulta/painel-consulta.component';
 
 export const ROUTES: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -45,7 +46,8 @@ export const ROUTES: Routes = [
         {path: 'controle-envio', component: ControleEnvioComponent, children:[
             {path: 'table-enviados', component: TableEnviosComponent}
         ]},
-        {path: 'solicitar-envio', component: SolicitarEnvioComponent}
+        {path: 'solicitar-envio', component: SolicitarEnvioComponent},
+        {path: 'painel-consulta', component: PainelConsultaComponent}
     ]},
     {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ]

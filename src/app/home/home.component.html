@@ -13,11 +13,16 @@
     <div class="col-12 santander-padding-top-1">
       <nav>
         <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+            <a 
+            class="nav-item nav-link" id="nav-consulta-tab" data-toggle="tab"
+            routerLinkActive="active show" [routerLink]="['painel-consulta']" 
+            role="tab" aria-controls="nav-consulta" 
+            aria-selected="true">Painel de Consulta</a>
           <a 
             class="nav-item nav-link" id="nav-home-tab" data-toggle="tab"
             routerLinkActive="active show" [routerLink]="['painel-de-controle']" 
             role="tab" aria-controls="nav-home" 
-            aria-selected="true">Painel de Controle</a>
+            aria-selected="false">Painel de Controle</a>
             <a 
             class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
             routerLinkActive="active show" [routerLink]="['controle-de-registros']" 
