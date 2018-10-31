@@ -69,8 +69,10 @@
   <div class="container-fluid">
     <form [formGroup]="r1070Form" novalidate>
       <div class="row santander-padding-top-1">
-        <div class="col-3">
+        <div class="col-6">
           <label for="TP_OPER">Tipo de Operação (1-I / 2-A / 3-E)</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -80,8 +82,12 @@
               placeholder="Tipo de Operação (1-I / 2-A / 3-E)"
               formControlName="TP_OPER"/>
           </app-input-container>
-          
+        </div>
+
+        <div class="col-6">
           <label for="NM_LAYOUT">Layout REINF</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -91,8 +97,12 @@
               placeholder="Layout REINF"
               formControlName="NM_LAYOUT"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="CD_SIS_ORIG">Sistema de Origem</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -104,8 +114,12 @@
               disabled
               formControlName="CD_SIS_ORIG"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="DT_MOVIMENT">Data Movimentação</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -116,8 +130,12 @@
               placeholder="Data Movimentação"
               formControlName="DT_MOVIMENT"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="TP_INSCRI">Tipo Inscrição (1-CNPJ / 2-CPF)</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -129,8 +147,11 @@
               formControlName="TP_INSCRI"/>
           </app-input-container>
         </div>
-        <div class="col-3">
+        
+        <div class="col-6">
           <label for="NR_INSCRI">Número Inscrição do Contribuinte</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -141,8 +162,12 @@
               placeholder="Número Inscrição do Contribuinte"
               formControlName="NR_INSCRI"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="TP_PROCES">Tipo de Processo (1-Adm / 2-Judicial)</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -153,8 +178,12 @@
               placeholder="Tipo de Processo (1-Adm / 2-Judicial)"
               formControlName="TP_PROCES"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="NR_PROCES">Número de Processo</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -165,8 +194,12 @@
               placeholder="Número de Processo"
               formControlName="NR_PROCES"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="DT_INI_VAL">Data Início de Validade</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -176,8 +209,12 @@
               placeholder="Data Início de Validade"
               formControlName="DT_INI_VAL"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="DT_FIM_VAL">Data Final de validade</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -188,8 +225,11 @@
               formControlName="DT_FIM_VAL"/>
           </app-input-container>
         </div>
-        <div class="col-3">
+
+        <div class="col-6">
           <label for="IN_AUTORIA">Ind. Autoria Judicial (1-Próprio / 2-Outra)</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -199,8 +239,12 @@
               placeholder="Ind. Autoria Judicial (1-Próprio / 2-Outra)"
               formControlName="IN_AUTORIA"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="CD_SUSPEN">Susp. Adicional - CodSup</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -211,8 +255,12 @@
               placeholder="Susp. Adicional - CodSup"
               formControlName="CD_SUSPEN"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="IN_SUSPEN">Ind.  Susp . exigibilidade - indSusp</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -222,8 +270,12 @@
               placeholder="Ind. Susp. exigibilidade - indSusp"
               formControlName="IN_SUSPEN"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="DT_DECISAO">Data da Decisão</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -234,8 +286,11 @@
               formControlName="DT_DECISAO"/>
           </app-input-container>
         </div>
-        <div class="col-3">
+
+        <div class="col-6">
           <label for="IN_DEPOSIT">Ind. Depósito (S-Sim / N-Não)</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -245,8 +300,12 @@
               placeholder="Ind. Depósito (S-Sim / N-Não)"
               formControlName="IN_DEPOSIT"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="CD_UF">UF da Vara</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -256,8 +315,12 @@
               placeholder="UF da Vara"
               formControlName="CD_UF"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="CD_MUNIC">Cód. do Município da Vara</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -267,8 +330,12 @@
               placeholder="Cód. do Município da Vara"
               formControlName="CD_MUNIC"/>
           </app-input-container>
+        </div>
 
+        <div class="col-6">
           <label for="CD_VARA">Cód. de Ident. da Vara</label>
+        </div>
+        <div class="col-6">
           <app-input-container>
             <input 
               type="text" 
@@ -289,6 +356,7 @@
     class="btn" 
     style="background-color: rgb(118, 113, 113); color: white;"
     data-dismiss="modal"
+    [disabled]="!r1070Form.valid"
     (click)="changeVar();"
     >FINALIZAR
   </button>

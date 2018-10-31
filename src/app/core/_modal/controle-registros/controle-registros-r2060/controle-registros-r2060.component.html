@@ -85,9 +85,11 @@
   <div class="container-fluid">
     <form [formGroup]="r2060Form" novalidate>
       <div class="row santander-padding-top-1">
-        <div class="col-3">
-          <div class="form-group">
-            <label for="TP_OPER">Tipo de Operação (1-I / 2-A / 3-E / 4-R)</label>
+        <div class="col-6">
+          <label for="TP_OPER">Tipo de Operação (1-I / 2-A / 3-E / 4-R)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -95,8 +97,14 @@
               mask="0"
               placeholder="Tipo de Operação (1-I / 2-A / 3-E / 4-R)"
               formControlName="TP_OPER"/>
+          </app-input-container>
+        </div>
 
-            <label for="NM_LAYOUT">Layout REINF</label>
+        <div class="col-6">
+          <label for="NM_LAYOUT">Layout REINF</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -104,8 +112,14 @@
               maxlength="5"
               placeholder="Layout REINF"
               formControlName="NM_LAYOUT"/>
+          </app-input-container>
+        </div>
 
-            <label for="CD_SIS_ORIG">Sistema de Origem</label>
+        <div class="col-6">
+          <label for="CD_SIS_ORIG">Sistema de Origem</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -114,8 +128,14 @@
               placeholder="Sistema de Origem"
               disabled
               formControlName="CD_SIS_ORIG"/>
+          </app-input-container>
+        </div>
 
-            <label for="CD_PRODUTO">Código Produto</label>
+        <div class="col-6">
+          <label for="CD_PRODUTO">Código Produto</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -124,8 +144,14 @@
               placeholder="Código Produto"
               disabled
               formControlName="CD_PRODUTO"/>
+          </app-input-container>
+        </div>
 
-            <label for="CD_RETENCAO">Código Retenção</label>
+        <div class="col-6">
+          <label for="CD_RETENCAO">Código Retenção</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -134,16 +160,28 @@
               placeholder="Código Retenção"
               disabled
               formControlName="CD_RETENCAO"/>
+          </app-input-container>
+        </div>
 
-            <label for="DT_MOVIMENT">Data Movimentação</label>
+        <div class="col-6">
+          <label for="DT_MOVIMENT">Data Movimentação</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control"
               mask="0000.00.00"
               placeholder="AAAA.MM.DD"
               formControlName="DT_MOVIMENT"/>
+          </app-input-container>
+        </div>
 
-            <label for="TP_INSCRI">Tipo Inscrição (1-CNPJ / 2-CPF)</label>
+        <div class="col-6">
+          <label for="TP_INSCRI">Tipo Inscrição (1-CNPJ / 2-CPF)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control"
@@ -151,8 +189,14 @@
               placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)"
               disabled
               formControlName="TP_INSCRI"/>
+          </app-input-container>
+        </div>
 
-            <label for="NR_INSCRI">Número Inscrição do Contribuinte</label>
+        <div class="col-6">
+          <label for="NR_INSCRI">Número Inscrição do Contribuinte</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -161,11 +205,14 @@
               placeholder="Número Inscrição do Contribuinte"
               disabled
               formControlName="NR_INSCRI"/>
-          </div>
+          </app-input-container>
         </div>
-        <div class="col-3">
-          <div class="form-group">
-            <label for="TP_INSC_EST">Tipo Inscrição Estadual (1-CNPJ / 4-CNO)</label>
+
+        <div class="col-6">
+          <label for="TP_INSC_EST">Tipo Inscrição Estadual (1-CNPJ / 4-CNO)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -173,8 +220,14 @@
               mask="0"
               placeholder="Tipo Inscrição Estadual (1-CNPJ / 4-CNO)"
               formControlName="TP_INSC_EST"/>
+          </app-input-container>
+        </div>
 
-            <label for="NR_INSC_EST">Número Inscrição Estadual Estabelecimento</label>
+        <div class="col-6">
+          <label for="NR_INSC_EST">Número Inscrição Estadual Estabelecimento</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -182,8 +235,14 @@
               mask="00.000.000/0000-00"
               placeholder="Número Inscrição Estadual Estabelecimento"
               formControlName="NR_INSC_EST"/>
+          </app-input-container>
+        </div>
 
-            <label for="VL_TOT_RECBRUTA">Valor da Receita Bruta Total do Estabelecimento</label>
+        <div class="col-6">
+          <label for="VL_TOT_RECBRUTA">Valor da Receita Bruta Total do Estabelecimento</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -192,8 +251,14 @@
               currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor da Receita Bruta Total do Estabelecimento"
               formControlName="VL_TOT_RECBRUTA"/>
+          </app-input-container>
+        </div>
 
-            <label for="VL_TOT_APUESTAB">Valor Total CPRB do Estabelecimento</label>
+        <div class="col-6">
+          <label for="VL_TOT_APUESTAB">Valor Total CPRB do Estabelecimento</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -202,8 +267,14 @@
               currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Total CPRB do Estabelecimento"
               formControlName="VL_TOT_APUESTAB"/>
+          </app-input-container>
+        </div>
 
-            <label for="VL_TOT_EXIGSUSP">Valor CPRB Susp. Total</label>
+        <div class="col-6">
+          <label for="VL_TOT_EXIGSUSP">Valor CPRB Susp. Total</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -212,8 +283,14 @@
               currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor CPRB Susp. Total"
               formControlName="VL_TOT_EXIGSUSP"/>
+          </app-input-container>
+        </div>
 
-            <label for="CD_ATI_ECON">Código Atividade Económica - tabela 9</label>
+        <div class="col-6">
+          <label for="CD_ATI_ECON">Código Atividade Económica - tabela 9</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -222,11 +299,14 @@
               placeholder="Código Atividade Económica - tabela 9"
               disabled
               formControlName="CD_ATI_ECON"/>
-          </div>
+          </app-input-container>
         </div>
-        <div class="col-3">
-          <div class="form-group">
-            <label for="VL_REC_ATIV">Valor Total da Receita Ativ.</label>
+        
+        <div class="col-6">
+          <label for="VL_REC_ATIV">Valor Total da Receita Ativ.</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -236,8 +316,14 @@
               disabled
               placeholder="Valor Total da Receita Ativ."
               formControlName="VL_REC_ATIV"/>
+          </app-input-container>
+        </div>
 
-            <label for="VL_EXC_REC">Valor Total das Exclusões Receita Bruta</label>
+        <div class="col-6">
+          <label for="VL_EXC_REC">Valor Total das Exclusões Receita Bruta</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -247,8 +333,14 @@
               disabled
               placeholder="Valor Total das Exclusões Receita Bruta"
               formControlName="VL_EXC_REC"/>
+          </app-input-container>
+        </div>
 
-            <label for="VL_ADI_REC">Valor Total das Adições Receita Bruta</label>
+        <div class="col-6">
+          <label for="VL_ADI_REC">Valor Total das Adições Receita Bruta</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -258,8 +350,14 @@
               disabled
               placeholder="Valor Total das Adições Receita Bruta"
               formControlName="VL_ADI_REC"/>
+          </app-input-container>
+        </div>
 
-            <label for="VL_BASE_CALC">Valor Base CPRB</label>
+        <div class="col-6">
+          <label for="VL_BASE_CALC">Valor Base CPRB</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -269,8 +367,14 @@
               disabled
               placeholder="Valor Base CPRB"
               formControlName="VL_BASE_CALC"/>
+          </app-input-container>
+        </div>
 
-            <label for="VL_PREV_REC">Valor CPRB Apur.</label>
+        <div class="col-6">
+          <label for="VL_PREV_REC">Valor CPRB Apur.</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -280,8 +384,14 @@
               disabled
               placeholder="Valor CPRB Apur."
               formControlName="VL_PREV_REC"/>
+          </app-input-container>
+        </div>
 
-            <label for="VL_PROC_SUSP">Valor CPRB Susp.</label>
+        <div class="col-6">
+          <label for="VL_PROC_SUSP">Valor CPRB Susp.</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -291,8 +401,14 @@
               disabled
               placeholder="Valor CPRB Susp."
               formControlName="VL_PROC_SUSP"/>
+          </app-input-container>
+        </div>
 
-            <label for="TP_PROCESSO">Tipo Processo (1-Administrativo / 2-Judicial)</label>
+        <div class="col-6">
+          <label for="TP_PROCESSO">Tipo Processo (1-Administrativo / 2-Judicial)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -301,11 +417,14 @@
               placeholder="Tipo Processo (1-Administrativo / 2-Judicial)"
               disabled
               formControlName="TP_PROCESSO"/>
-          </div>
+          </app-input-container>
         </div>
-        <div class="col-3">
-          <div class="form-group">
-            <label for="NR_PROCESSO">Número Processo</label>
+
+        <div class="col-6">
+          <label for="NR_PROCESSO">Número Processo</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -314,8 +433,14 @@
               placeholder="Número Processo"
               disabled
               formControlName="NR_PROCESSO"/>
+          </app-input-container>
+        </div>
 
-            <label for="CD_IND_SUSP">Código Ind Susp. - CodSup</label>
+        <div class="col-6">
+          <label for="CD_IND_SUSP">Código Ind Susp. - CodSup</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -323,8 +448,14 @@
               mask="00000000000000"
               placeholder="Código Ind Susp. - CodSup"
               formControlName="CD_IND_SUSP"/>
-
-            <label for="TP_AJUSTE">Tipo Ajuste (0-Redução / 1-Acréscimo)</label>
+          </app-input-container>
+        </div>
+        
+        <div class="col-6">
+          <label for="TP_AJUSTE">Tipo Ajuste (0-Redução / 1-Acréscimo)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -333,8 +464,14 @@
               placeholder="Tipo Ajuste (0-Redução / 1-Acréscimo)"
               disabled
               formControlName="TP_AJUSTE"/>
+          </app-input-container>
+        </div>
 
-            <label for="CD_AJUSTE">Código Ajuste</label>
+        <div class="col-6">
+          <label for="CD_AJUSTE">Código Ajuste</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -343,8 +480,14 @@
               placeholder="Código Ajuste"
               disabled
               formControlName="CD_AJUSTE"/>
+          </app-input-container>
+        </div>
 
-            <label for="VL_AJUSTE">Valor Ajuste</label>
+        <div class="col-6">
+          <label for="VL_AJUSTE">Valor Ajuste</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -353,8 +496,14 @@
               currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
               placeholder="Valor Ajuste"
               formControlName="VL_AJUSTE"/>
+          </app-input-container>
+        </div>
 
-            <label for="DESC_AJUSTE">Descrição Ajuste</label>
+        <div class="col-6">
+          <label for="DESC_AJUSTE">Descrição Ajuste</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
@@ -362,16 +511,22 @@
               maxlength="20"
               placeholder="Descrição Ajuste"
               formControlName="DESC_AJUSTE"/>
+          </app-input-container>
+        </div>
 
-            <label for="DT_AJUSTE">Data Ajuste</label>
+        <div class="col-6">
+          <label for="DT_AJUSTE">Data Ajuste</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
             <input 
               type="text" 
               class="form-control" 
               id=""
-              maxlength="0000.00"
+              mask="0000.00"
               placeholder="Data Ajuste"
               formControlName="DT_AJUSTE"/>
-          </div>
+          </app-input-container>
         </div>
       </div>
     </form>
@@ -383,6 +538,7 @@
     class="btn" 
     style="background-color: rgb(118, 113, 113); color: white;"
     data-dismiss="modal"
+    [disabled]="!r2060Form.valid"
     (click)="changeVar();"
     >FINALIZAR
   </button>
