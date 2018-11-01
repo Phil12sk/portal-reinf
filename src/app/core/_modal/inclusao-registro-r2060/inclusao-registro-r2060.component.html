@@ -1,0 +1,261 @@
+<div class="modal-header modal-header-pop-up">
+  <h5 class="modal-title" id="exampleModalLabel">Inclusão de Registro R2060</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+</div>
+<div class="modal-body">
+  <div class="container-fluid">
+    <form [formGroup]="r2060Form" novalidate>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo de Operação (1-I / 2-A / 3-E / 4-R):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="1" value="1" disabled formControlName="TP_OPER"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Sistema de Origem:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="3" placeholder="Sistema de Origem" formControlName="CD_SIS_ORIG"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Código Produto:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0000" placeholder="Código Produto" formControlName="CD_PRODUTO"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Código Retenção:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="00000" placeholder="Código Retenção" formControlName="CD_RETENCAO"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Data Movimentação:
+        </div>
+        <div class="col-6">
+            <input disabled type="text" class="form-control" id="" mask="0000.00.00" maxlength="60" placeholder="{{today | date: 'dd/MM/yyyy'}}"
+            formControlName="DT_MOVIMENT" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo Inscrição (1-CNPJ / 2-CPF):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" mask="0" placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)" formControlName="TP_INSCRI"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Número Inscrição do Contribuinte:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Número Inscrição do Contribuinte" 
+            formControlName="NR_INSCRI" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo Inscrição Estadual (1-CNPJ / 4-CNO):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="Tipo Inscrição Estadual (1-CNPJ / 4-CNO)" formControlName="TP_INSC_EST"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Número Inscrição Estadual Estabelecimento:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Número Inscrição Estadual Estabelecimento" formControlName="NR_INSC_EST"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor da Receita Bruta Total do Estabelecimento:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor da Receita Bruta Total do Estabelecimento"
+            formControlName="VL_TOT_RECBRUTA" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Total CPRB do Estabelecimento:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Total CPRB do Estabelecimento" formControlName="VL_TOT_APUESTAB"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor CPRB Susp. Total:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor CPRB Susp. Total" formControlName="VL_TOT_EXIGSUSP"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Código Atividade Económica - tabela 9:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="00000000" placeholder="Código Atividade Económica - tabela 9" 
+            formControlName="CD_ATI_ECON" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Total da Receita Ativ.:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Total da Receita Ativ."
+            formControlName="VL_REC_ATIV" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Total das Exclusões Receita Bruta:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Total das Exclusões Receita Bruta"
+            formControlName="VL_EXC_REC" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Total das Adições Receita Bruta:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Total das Adições Receita Bruta"
+            formControlName="VL_ADI_REC" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Base CPRB:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Base CPRB" formControlName="VL_BASE_CALC"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor CPRB Apur.:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor CPRB Apur." formControlName="VL_PREV_REC"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor CPRB Susp.:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor CPRB Susp." formControlName="VL_PROC_SUSP"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo Processo (1-Administrativo / 2-Judicial):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="Tipo Processo (1-Administrativo / 2-Judicial)" 
+            formControlName="TP_PROCESSO" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Número Processo
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="21" placeholder="Número Processo" formControlName="NR_PROCESSO"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Código Ind Susp. - CodSup:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="00000000000000" placeholder="Código Ind Susp. - CodSup" formControlName="CD_IND_SUSP"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo Ajuste (0-Redução / 1-Acréscimo):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="1" placeholder="Tipo Ajuste (0-Redução / 1-Acréscimo)" 
+            formControlName="TP_AJUSTE" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Código Ajuste:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="2" placeholder="Código Ajuste" formControlName="CD_AJUSTE"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Ajuste:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Ajuste" formControlName="VL_AJUSTE" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Descrição Ajuste:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="20" placeholder="Descrição Ajuste" formControlName="DESC_AJUSTE"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Data Ajuste:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="7" placeholder="Data Ajuste" formControlName="DT_AJUSTE" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn" style="background-color: rgb(118, 113, 113); color: white;" (click)="updateLayout($event);">FINALIZAR
+      </button>
+  <button type="button" class="btn" style="background-color: rgb(118, 113, 113); color: white;" data-dismiss="modal">CANCELAR
+      </button>
+  <button type="button" class="btn" style="background-color: rgb(118, 113, 113); color: white;" (click)="deleteLayout($event);">EXCLUIR
+      </button>
+</div>

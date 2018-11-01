@@ -2,32 +2,47 @@
   <div class="row santander-padding-top-1">
     <div class="col-12">
       <div class="col-4" style="display:inline-block;">
-        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" style="width:100px">
-          <option selected>2018</option>
-        </select>
+        <!-- <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" style="width:100px">
+          <option selected ><label style="color:red">2018<i class="far fa-exclamation-triangle"></i></label></option>
+        </select> -->
+        <select class="custom-select mb-2 mr-sm-2 mb-sm-0 selectpicker" id="inlineFormCustomSelect" style="font-family:'FontAwesome',Arial; width:100px">
+                        <option value="" selected>2017</option>  
+            <option value="" selected>2018&#xf071; </option>                      
+          </select>
         <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect2" style="width:205px;">
           <option selected>Todos os Contribuintes</option>
           <option *ngFor="let contr of prestadores">{{contr | mask: '00.000.000/0000-00'}}</option>
         </select>
       </div>
-      <div class="col-3" style="display:inline-block; float: right;">
-        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">      
-          <circle  cx="10" cy="10" r="10" fill="#F00000" />
-        </svg>
-        <div>Existe(m) Evento(s) para Retificação</div>
-      </div>
-      <div class="col-3" style="display:inline-block; float: right;">
-        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">      
-          <circle  cx="10" cy="10" r="10" fill="yellow" />
+
+
+      <div class="col-2" style="display:inline-block; float: right;">
+          <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
+            <circle cx="10" cy="10" r="10" fill="blue" />
+          </svg>
+          <div>Evento(s) Mês Atual</div>
+        </div>
+ 
+        <div class="col-2" style="display:inline-block; float: right;">
+            <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
+              <circle cx="10" cy="10" r="10" fill="green" />
+            </svg>
+            <div>Evento(s) Transmitidos com Sucesso</div>
+          </div>
+      <div class="col-2" style="display:inline-block; float: right;">
+        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important;    height: 100px;">
+          <circle cx="10" cy="10" r="10" fill="yellow" />
         </svg>
         <div>Mês de Envio Vigente com Evento(s) a Transmitir</div>
       </div>
+    
       <div class="col-2" style="display:inline-block; float: right;">
-        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
-          <circle  cx="10" cy="10" r="10" fill="green" />
-        </svg>
-        <div>Evento(s) Transmitidos com Sucesso</div>
-      </div>
+          <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important;    height: 100px;">
+            <circle cx="10" cy="10" r="10" fill="#F00000" />
+          </svg>
+          <div>Existe(m) Evento(s) para Retificação</div>
+        </div>
+   
     </div>
   </div>
   <div class="row santander-padding-top-1" style="    margin-bottom: 80px;">
@@ -38,6 +53,7 @@
             <h5 class="mb-0 text-center">
               <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
                 <circle *ngIf="contribuintePainelControle.periodo.status=='green'" cx="10" cy="10" r="10" fill="green" />
+                <circle *ngIf="contribuintePainelControle.periodo.status=='blue'" cx="10" cy="10" r="10" fill="blue" />
                 <circle *ngIf="contribuintePainelControle.periodo.status=='yellow'" cx="10" cy="10" r="10" fill="yellow" />
                 <circle *ngIf="contribuintePainelControle.periodo.status=='red'" cx="10" cy="10" r="10" fill="#F00000" />
               </svg>
@@ -45,14 +61,12 @@
                 aria-expanded="true" [attr.aria-controls]="contribuintePainelControle.periodo.label" style="font-weight: 700; font-size: 18px;">
                 {{contribuintePainelControle.periodo.label | uppercase}}
               </button>
-              <button 
-                *ngIf="contribuintePainelControle.periodo.status=='green'" 
-                class="btn" 
-                style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;" 
+              <button *ngIf="contribuintePainelControle.periodo.status=='green' || contribuintePainelControle.periodo.status=='blue'" class="btn" style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;"
                 disabled>
                   TRANSMITIR 
                   <i class="fas fa-share-square"></i>
               </button>
+<<<<<<< HEAD
               <button 
                 *ngIf="contribuintePainelControle.periodo.status!='green'" 
                 class="btn" 
@@ -63,12 +77,18 @@
                   TRANSMITIR 
                   <i class="fas fa-share-square"></i>
               </button>
+=======
+              <button *ngIf="contribuintePainelControle.periodo.status!='green' && contribuintePainelControle.periodo.status!='blue'" class="btn" style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;"
+                (click)="transmitir(contribuintePainelControle)" data-toggle="modal" data-target=".bd-example-modal-lg">
+                  TRANSMITIR 
+                  <i class="fas fa-share-square"></i>
+              </button>
+              <!-- <button (click)="transmitir(contribuintePainelControle)" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> -->
+
+>>>>>>> 40e1519ca27bc7c077f5a6b4fbd971d743f41a1c
             </h5>
           </div>
-          <div 
-            [id]="contribuintePainelControle.periodo.label" 
-            class="collapse" 
-            [attr.aria-labelledby]="'head' + contribuintePainelControle.periodo.label"
+          <div [id]="contribuintePainelControle.periodo.label" class="collapse" [attr.aria-labelledby]="'head' + contribuintePainelControle.periodo.label"
             data-parent="#accordion">
             <div class="card-body card-body-gray" style="background-color: rgba(0,0,0,.125);">
               <div class="col-6 text-left" style="display: inline-block;">
@@ -78,20 +98,15 @@
                 <p><strong>Evento layout</strong></p>
               </div>
             </div>
-            <div 
-              class="card-body card-body-gray" 
-              *ngFor="let contrib of contribuintePainelControle.infoContribuintes">
+            <div class="card-body card-body-gray" *ngFor="let contrib of contribuintePainelControle.infoContribuintes">
               <div class="row">
                 <div class="col-6 text-left">
                   <p>{{contrib.contribuinte | mask: '00.000.000/0000-00'}}</p>
                 </div>
                 <div class="col-6 text-right">
-                  <p *ngFor="let layout2 of contrib.layout" 
-                    style="display: inline;">
-                    <button 
-                      class="btn btn-link btn-text-white" 
-                      (click)="redirect(layout2.label,layout2.value,contrib.contribuinte,contribuintePainelControle.periodo.value)"
-                      [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray'}"
+                  <p *ngFor="let layout2 of contrib.layout" style="display: inline;">
+                    <button class="btn btn-link btn-text-white" (click)="redirect(layout2.label,layout2.value,contrib.contribuinte,contribuintePainelControle.periodo.value)"
+                      [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray', 'flag-blue': layout2.value=='blue'}"
                       data-toggle="modal" data-target=".bd-example-modal-lg">
                         {{layout2.label}} 
                         <i class="fas fa-flag"></i>
@@ -105,17 +120,33 @@
       </div>
     </div>
   </div>
-  
+
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-      <app-transmissao *ngIf="mod==1" [contribuintePainelControle]="contribuintePainelControle" style="    padding-bottom: 20px;"></app-transmissao>
-      <app-painel-de-controle-r1000 *ngIf="mod==2" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r1000>
-      <app-painel-de-controle-r1070 *ngIf="mod==3" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r1070>
-      <app-painel-de-controle *ngIf="mod==4" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle>
-      <app-painel-de-controle-r2060 *ngIf="mod==5" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r2060>
-    </div>
+        <app-transmissao *ngIf="mod==1" [contribuintePainelControle]="contribuintePainelControle" style="    padding-bottom: 20px;"></app-transmissao>
+        <app-painel-de-controle-r1000 *ngIf="mod==2" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r1000>
+        <app-painel-de-controle-r1070 *ngIf="mod==3" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r1070>
+        <app-painel-de-controle *ngIf="mod==4" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle>
+        <app-painel-de-controle-r2060 *ngIf="mod==5" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r2060>
+      </div>
     </div>
   </div>
+<<<<<<< HEAD
+=======
+
+
+  <!-- <div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <app-painel-de-controle-r1000 [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="    padding-bottom: 20px;"></app-painel-de-controle-r1000>
+        
+      </div>
+      </div>
+    </div> -->
+
+
+
+>>>>>>> 40e1519ca27bc7c077f5a6b4fbd971d743f41a1c
 </div>
 <router-outlet></router-outlet>

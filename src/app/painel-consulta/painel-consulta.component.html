@@ -1,5 +1,132 @@
-<div class="container" [formGroup]="consultForm" style="    padding-bottom: 50px;">
+<div class="container" [formGroup]="consultForm" style="    padding-bottom: 50px;    ">
+    <div class="row santander-padding-top-1" style="padding-top: 0px!important; margin-top: 50px;    margin-bottom: 50px;">
+    <div class="col-2" style="display: inline-block; vertical-align:top;">
+        <p>Incluir Novo Registro:</p>
+      </div>
+      <div class="col-2" style="display: inline-block; vertical-align:top;  ">
+          <p>
+              <select formControlName="document" class="form-control" id="exampleSelectLayout" [(ngModel)]="selectedOptionIclusion" (change)="onChange($event)">
+                  <option selected value="">Selecione</option>
+                  <option value="R1070">R1070</option>
+                  <option value="R2010">R2010</option>
+                  <option value="R2060">R2060</option>
+                         
+                </select>
+            </p>
+      </div>
+      <div class="col-2" style="display: inline-block; vertical-align:top;">
+          <button [disabled]="!btnIncluir" class="btn" style="background-color: rgb(118, 113, 113); color: white; display: block;" (click)="INCLUIR()"
+          data-toggle="modal" data-target=".bd-example-modal-lg">INCLUIR</button>
+        </div>
+    </div>      
 
+  <hr>
+  <div class="row santander-padding-top-1" style="padding-top: 0px!important; margin-top: 50px;margin-bottom: 20px;">
+    <div class="col-2" style="display: inline-block; vertical-align:top;">
+      <p>Fonte Pagadora:</p>
+    </div>
+    <div class="col-6" style="display: inline-block; vertical-align:top;    margin-left: -30px;">
+      <p>
+        <select formControlName="document" class="form-control" id="exampleSelect">
+            <option selected value="">       </option>       
+          </select>
+      </p>
+    </div>
+    <div class="col-1" style="display: inline-block; vertical-align:top;">
+      <p>Registros:</p>
+    </div>
+    <div class="col-2" style="display: inline-block; vertical-align:top;">
+      <p>
+        <select formControlName="document" class="form-control" id="exampleSelect">
+                            <option selected value="">       </option>       
+                          </select>
+      </p>
+    </div>
+  </div>
+  <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
+    <div class="col-1" style="display: inline-block; vertical-align:top;">
+      <p>Banco:</p>
+    </div>
+    <div class="col-2" style="display: inline-block; vertical-align:top;">
+      <p>
+        <select formControlName="document" class="form-control" id="exampleSelect">
+              <option selected value="">       </option>       
+            </select>
+      </p>
+    </div>
+    <div class="col-1" style="display: inline-block; vertical-align:top;">
+      <p>Produto:</p>
+    </div>
+    <div class="col-2" style="display: inline-block; vertical-align:top;">
+      <p>
+        <select formControlName="document" class="form-control" id="exampleSelect">
+                    <option selected value="">       </option>       
+                  </select>
+      </p>
+    </div>
+
+  </div>
+  <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
+    <div class="col-1" style="display: inline-block; vertical-align:top;">
+      <p>Sistema:</p>
+    </div>
+    <div class="col-2" style="display: inline-block; vertical-align:top;">
+      <p>
+        <select formControlName="document" class="form-control" id="exampleSelect">
+                <option selected value="">       </option>       
+              </select>
+      </p>
+    </div>
+    <div class="col-1" style="display: inline-block; vertical-align:top;">
+      <p>Retenção:</p>
+    </div>
+    <div class="col-2" style="display: inline-block; vertical-align:top;">
+      <p>
+        <select formControlName="document" class="form-control" id="exampleSelect">
+                        <option selected value="">       </option>       
+                      </select>
+      </p>
+    </div>
+    <!-- <div class="col-2" style="display: inline-block; vertical-align:top;"></div> -->
+    <div class="col-2" style="display: inline-block; vertical-align:top;">
+      <button class="btn" style="background-color: rgb(118, 113, 113); color: white; display: block;float: right;" (click)="pesquisar()"
+        data-toggle="modal" data-target=".bd-example-modal-lg">PESQUISAR</button>
+    </div>
+  </div>
+
+
+
+  <ag-grid-angular 
+  style="width: 500px; height: 500px;" 
+  class="ag-theme-balham"
+  [enableSorting]="true"
+  [enableFilter]="true"
+  [pagination]="true"
+  [rowData]="rowData" 
+  [columnDefs]="columnDefs"
+
+  >
+</ag-grid-angular>
+
+</div>
+
+<router-outlet></router-outlet>
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <app-inclusao-registro-r1070 *ngIf="inclusaoLayout=='R1070'"></app-inclusao-registro-r1070>
+          <app-inclusao-registro-r2010 *ngIf="inclusaoLayout=='R2010'"></app-inclusao-registro-r2010>
+          <app-inclusao-registro-r2060 *ngIf="inclusaoLayout=='R2060'"></app-inclusao-registro-r2060>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<!-- <div class="container" [formGroup]="consultForm" style="    padding-bottom: 50px;">
   <div class="row santander-padding-top-1" style="padding-top: 0px!important; margin-top: 50px;">
     <div class="col-2" style="display: inline-block; vertical-align:top;">
       <p>Fonte Pagadora:</p>
@@ -22,11 +149,11 @@
             <option selected value="">       </option>       
           </select>
       </p>
-    </div>    
+    </div>
     <div class="col-1" style="display: inline-block; vertical-align:top;"></div>
     <div class="col-1" style="display: inline-block; vertical-align:top;">Fato Gerador: </div>
     <div class="col-3" style="display: inline-block; vertical-align:top;">De: <input></div>
-    <div class="col-3" style="display: inline-block; vertical-align:top;">Até: <input></div>    
+    <div class="col-3" style="display: inline-block; vertical-align:top;">Até: <input></div>
   </div>
   <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
     <div class="col-2" style="display: inline-block; vertical-align:top;">
@@ -42,7 +169,7 @@
     <div class="col-1" style="display: inline-block; vertical-align:top;"></div>
     <div class="col-1" style="display: inline-block; vertical-align:top;">Contábil: </div>
     <div class="col-3" style="display: inline-block; vertical-align:top;">De: <input></div>
-    <div class="col-3" style="display: inline-block; vertical-align:top;">Até: <input></div>    
+    <div class="col-3" style="display: inline-block; vertical-align:top;">Até: <input></div>
   </div>
   <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
     <div class="col-2" style="display: inline-block; vertical-align:top;">
@@ -58,11 +185,10 @@
     <div class="col-1" style="display: inline-block; vertical-align:top;"></div>
     <div class="col-1" style="display: inline-block; vertical-align:top;">Tributação: </div>
     <div class="col-6" style="display: inline-block; vertical-align:top;">
-        <select formControlName="document" class="form-control" id="exampleSelect">
+      <select formControlName="document" class="form-control" id="exampleSelect">
             <option selected value="">       </option>       
           </select>
     </div>
-
   </div>
   <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
     <div class="col-2" style="display: inline-block; vertical-align:top;">
@@ -78,8 +204,7 @@
     <div class="col-1" style="display: inline-block; vertical-align:top;"></div>
     <div class="col-1" style="display: inline-block; vertical-align:top;">DARF: </div>
     <div class="col-4" style="display: inline-block; vertical-align:top;">
-        <input>           
-      
+      <input>
     </div>
   </div>
   <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
@@ -96,30 +221,20 @@
     <div class="col-1" style="display: inline-block; vertical-align:top;"></div>
     <div class="col-1" style="display: inline-block; vertical-align:top;">Tipo: </div>
     <div class="col-1" style="display: inline-block; vertical-align:top;">
-        CPF  
+      CPF
       <div class="form-check" style="    display: inline-block;
       vertical-align: top;
       margin-left: 10px;">
-            <!-- <label class="form-check-label" for="exampleRadios1">
-                CPF
-              </label>   -->
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-           
-          </div>
-        
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+      </div>
     </div>
     <div class="col-2" style="display: inline-block; vertical-align:top;">
-        / CNPJ
-        <div class="form-check" style="    display: inline-block;
+      / CNPJ
+      <div class="form-check" style="    display: inline-block;
         vertical-align: top;
         margin-left: 10px;">
-            <!-- <label class="form-check-label" for="exampleRadios1">
-                / CNPJ
-              </label>   -->
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-           
-          </div>
-        
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+      </div>
     </div>
   </div>
   <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
@@ -137,11 +252,7 @@
     <div class="col-1" style="display: inline-block; vertical-align:top;">Beneficiário: </div>
     <div class="col-6" style="display: inline-block; vertical-align:top;"><input style="width: 80%;"></div>
   </div>
- 
-
-  <button class="btn" style="background-color: rgb(118, 113, 113); color: white; display: block;margin-top: 7px;" 
-  (click)="pesquisar()" data-toggle="modal" data-target=".bd-example-modal-lg">PESQUISAR</button>
-
-
+  <button class="btn" style="background-color: rgb(118, 113, 113); color: white; display: block;margin-top: 7px;" (click)="pesquisar()"
+    data-toggle="modal" data-target=".bd-example-modal-lg">PESQUISAR</button>
 </div>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
