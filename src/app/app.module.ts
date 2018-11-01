@@ -23,7 +23,11 @@ import { PainelDeControleR2060Component } from './core/_modal/painel-de-controle
 import { PainelDeControleR1070Component } from './core/_modal/painel-de-controle-r1070/painel-de-controle-r1070.component';
 import { TransmissaoComponent } from './core/_modal/transmissao/transmissao.component';
 import { PainelConsultaComponent } from './painel-consulta/painel-consulta.component';
+import { InclusaoRegistroR1070Component } from './core/_modal/inclusao-registro-r1070/inclusao-registro-r1070.component';
+import { InclusaoRegistroR2010Component } from './core/_modal/inclusao-registro-r2010/inclusao-registro-r2010.component';
+import { InclusaoRegistroR2060Component } from './core/_modal/inclusao-registro-r2060/inclusao-registro-r2060.component';
 
+import { AgGridModule } from 'ag-grid-angular';
 
 registerLocaleData(localePtBr,'pt-BR');
 
@@ -51,7 +55,10 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     PainelDeControleR2060Component,
     PainelDeControleR1070Component,
     TransmissaoComponent,
-    PainelConsultaComponent
+    PainelConsultaComponent,
+    InclusaoRegistroR1070Component,
+    InclusaoRegistroR2010Component,
+    InclusaoRegistroR2060Component
   ],
   imports: [
     BrowserModule,
@@ -60,6 +67,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     SharedModule.forRoot(),
     NgxMaskModule.forRoot(),
     NgxCurrencyModule,
+    AgGridModule.withComponents(null),
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
   providers: [

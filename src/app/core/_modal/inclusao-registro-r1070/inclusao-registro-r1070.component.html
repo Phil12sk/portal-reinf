@@ -1,0 +1,171 @@
+<div class="modal-header modal-header-pop-up">
+  <h5 class="modal-title" id="exampleModalLabel">Inclusão de Registro R1070</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+</div>
+<div class="modal-body">
+  <div class="container-fluid">
+    <form [formGroup]="r1070Form" novalidate>
+
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo de Operação (1-I / 2-A / 3-E):
+        </div>
+        <div class="col-6">
+          <input disabled value="1" type="text" class="form-control" id="" mask="0" placeholder="1" formControlName="TP_OPER" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Sistema de Origem:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="" maxlength="3" placeholder="Sistema de Origem" formControlName="CD_SIS_ORIG"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Data Movimentação:
+        </div>
+        <div class="col-6">
+          <input disabled type="text" class="form-control" id="" mask="0000.00.00" maxlength="60" placeholder="{{today | date: 'dd/MM/yyyy'}}"
+            formControlName="DT_MOVIMENT" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo Inscrição (1-CNPJ / 2-CPF):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)" formControlName="TP_INSCRI"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Número Inscrição do Contribuinte:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="" maxlength="14" placeholder="Número Inscrição do Contribuinte" formControlName="NR_INSCRI"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo de Processo (1-Adm / 2-Judicial):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="Tipo de Processo (1-Adm / 2-Judicial)" formControlName="TP_PROCES"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Número de Processo:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="21" placeholder="Número de Processo" formControlName="NR_PROCES"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Data Início de Validade:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="7" placeholder="Data Início de Validade" formControlName="DT_INI_VAL"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Data Final de validade:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="7" placeholder="Data Final de validade" formControlName="DT_FIM_VAL"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Ind. Autoria Judicial (1-Próprio / 2-Outra):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="Ind. Autoria Judicial (1-Próprio / 2-Outra)" formControlName="IN_AUTORIA"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Susp. Adicional - CodSup:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="00000000000000" placeholder="Susp. Adicional - CodSup"
+            formControlName="CD_SUSPEN" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Ind. Susp . exigibilidade - indSusp:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="00" placeholder="Ind. Susp. exigibilidade - indSusp" formControlName="IN_SUSPEN"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Data da Decisão:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0000.00.00" placeholder="Data da Decisão" formControlName="DT_DECISAO"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Ind. Depósito (S-Sim / N-Não):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="1" placeholder="Ind. Depósito (S-Sim / N-Não)" formControlName="IN_DEPOSIT"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          UF da Vara:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="4" placeholder="UF da Vara" formControlName="CD_UF" />
+        </div>
+      </div>
+
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Cód. do Município da Vara:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0000000" placeholder="Cód. do Município da Vara" formControlName="CD_MUNIC"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Cód. de Ident. da Vara:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="2" placeholder="Cód. de Ident. da Vara" formControlName="CD_VARA"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn" style="background-color: rgb(118, 113, 113); color: white;" data-dismiss="modal">CANCELAR
+      </button>
+  <button type="button" class="btn" style="background-color: rgb(118, 113, 113); color: white;" (click)="deleteLayout($event);">INCLUIR
+      </button>
+</div>

@@ -32,7 +32,7 @@ periodo: any;
 flag: any;
 mod:any;
 
-    contribuintes: any[] = ['12345678000100',];
+    // contribuintes: any[] = ['12345678000100',];
   contribuintesPainelControle: ContribuintePainelControle[] = [
     {
       periodo: { label: 'MAIO', value: '2018-05', status: 'green' },
@@ -114,13 +114,27 @@ mod:any;
 
     },
     {
-      periodo: { label: 'OUTUBRO', value: '2018-02' ,status: 'yellow'},
+      periodo: { label: 'OUTUBRO', value: '2018-10' ,status: 'yellow'},
       infoContribuintes: [{
         contribuinte: '92345678000100',
         layout: [
           { label: 'R1000', value: 'gray' },
           { label: 'R1070', value: 'gray' },
           { label: 'R2010', value: 'yellow' },
+          { label: 'R2060', value: 'gray' },
+
+        ]
+      }]
+
+    }
+    {
+      periodo: { label: 'NOVEMBRO', value: '2018-11' ,status: 'blue'},
+      infoContribuintes: [{
+        contribuinte: '92345678000100',
+        layout: [
+          { label: 'R1000', value: 'gray' },
+          { label: 'R1070', value: 'gray' },
+          { label: 'R2010', value: 'blue' },
           { label: 'R2060', value: 'gray' },
 
         ]
@@ -135,6 +149,10 @@ mod:any;
     // this.flagColor = 'green';
 
     //  $('#xxx').click();
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
   }
 
   redirect(layout: any, flag: any, contribuinte: any, periodo: any) {
@@ -194,4 +212,9 @@ mod:any;
     // this.router.navigate(['/home/painel-de-controle/Transmissao'])
     this.contribuintePainelControle=contribuintePainelControle;
   }
+
+
+
+
+  
 }

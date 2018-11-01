@@ -1,0 +1,379 @@
+<div class="modal-header modal-header-pop-up">
+  <h5 class="modal-title" id="exampleModalLabel">Inclusão de Registro R2010</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+</div>
+<div class="modal-body">
+  <div class="container-fluid">
+    <form [formGroup]="r2010Form" novalidate>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo de Operação (1-I / 2-A / 3-E / 4-R):
+        </div>
+        <div class="col-6">
+          <input disabled value="1" type="text" class="form-control" id="" mask="0" placeholder="1" formControlName="TP_OPER" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Sistema de Origem:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="3" placeholder="Sistema de Origem" formControlName="CD_SIS_ORIG"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Código Produto:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0000" placeholder="Código Produto" formControlName="CD_PRODUTO" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Código Retenção:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="00000" placeholder="Código Retenção" formControlName="CD_RETENCAO" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Data Movimentação:
+        </div>
+        <div class="col-6">
+          <input disabled type="text" class="form-control" id="" mask="0000.00.00" maxlength="60" placeholder="{{today | date: 'dd/MM/yyyy'}}"
+            formControlName="DT_MOVIMENT" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo Inscrição (1-CNPJ / 2-CPF):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)" formControlName="TP_INSCRI"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Número Inscrição do Contribuinte:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="00.000.000/0000-00" placeholder="Número Inscrição do Contribuinte" formControlName="NR_INSCRI"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo de Inscrição Estabelecimento (1-CNPJ / 4-CNO):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="Tipo de Inscrição Estabelecimento (1-CNPJ / 4-CNO)" formControlName="TP_INSC_EST"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Número de Inscrição Estabelecimento:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="00.000.000/0000-00" placeholder="Número de Inscrição Estabelecimento"
+            formControlName="NR_INSC_EST" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Inscrição Obra (0-Não é obra de Construção Civil ou não está sujeita a matrícula):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="Inscrição Obra (0-Não é obra de Construção Civil ou não está sujeita a matrícula)"
+            formControlName="IN_OBRA" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          CNPJ Prestador:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="00.000.000/0000-00" placeholder="CNPJ Prestador" formControlName="NR_CNPJ_PRE"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Total Bruto NF(s):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Total Bruto NF(s)" formControlName="VL_TOT_BRUTO"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Soma Valor Total Base Ret. NF(s):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="" maxlength="14" placeholder="Soma Valor Total Base Ret. NF(s)" formControlName="VL_TOT_BASERET"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Total Principal Ret. NF(s):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="" maxlength="14" placeholder="Valor Total Principal Ret. NF(s)" formControlName="VL_TOT_RETPRINC"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Total Adicional Ret. NF(s):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="" maxlength="14" placeholder="Valor Total Adicional Ret. NF(s)" formControlName="VL_TOT_RETADIC"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Total Principal Não Ret. NF(s):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="" maxlength="14" placeholder="Valor Total Principal Não Ret. NF(s)" formControlName="VL_TOT_NRETPRI"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Total Adicional Não Ret. NF(s)
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="" maxlength="14" placeholder="Valor Total Adicional Não Ret. NF(s)" formControlName="VL_TOT_NRETADIC"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Indicativo CPRB (0-Não contribui: retenção 11% / 1-Contribui: retenção 3,5%):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="Indicativo CPRB (0-Não contribui: retenção 11% / 1-Contribui: retenção 3,5%)"
+            formControlName="IN_CPRB" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Série NF:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="5" placeholder="Série NF" formControlName="NR_SERIE" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Número da NF:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="15" placeholder="Número da NF" formControlName="NR_DOCTO" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Data Emissão NF:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0000.00.00" placeholder="AAAA.MM.DD" formControlName="DT_EMISSAONF" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Bruto da NF:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Bruto da NF" formControlName="VL_BRUTO" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Observação:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="250" placeholder="Observação" formControlName="NM_OBS" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo Serviço - Tabela 6:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="9" placeholder="Tipo Serviço - Tabela 6" formControlName="TP_SERVICO"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Base Retenção da NF:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Base Retenção da NF" formControlName="VL_BASERET"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Retenção da NF:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Retenção da NF" formControlName="VL_RETENCAO"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Retenção dos Serviços Subcontratados
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="" maxlength="14" placeholder="Valor Retenção dos Serviços Subcontratados"
+            formControlName="VL_RETSUB" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Principal Não Ret. NF(s):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="" maxlength="14" placeholder="Valor Principal Não Ret. NF(s)" formControlName="VL_NRETPRINC"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Serviços Prestados após 15 anos:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Serviços Prestados após 15 anos" formControlName="VL_SERVICOS15"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Serviços Prestados após 20 anos:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Serviços Prestados após 20 anos" formControlName="VL_SERVICOS20"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Serviços Prestados após 25 anos:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Serviços Prestados após 25 anos" formControlName="VL_SERVICOS25"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Adicional Serviços Prestados após 15, 20 ou 25 anos:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Adicional Serviços Prestados após 15, 20 ou 25 anos"
+            formControlName="VL_ADICIONAL" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Adicional Não Ret. NF(s):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Adicional Não Ret. NF(s)" formControlName="VL_NRETADIC"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo de Processo (1-Administrativo / 2-Judicial):
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="Tipo de Processo (1-Administrativo / 2-Judicial)" formControlName="TP_PROC_RET"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Número do Processo:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="21" placeholder="Número do Processo" formControlName="NR_PROC_RET"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Código Susp. Principal - codSuspPrinc:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Código Susp. Principal - codSuspPrinc" formControlName="CD_SUSP_PRIN"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Retenção Susp. Principal:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Retenção Susp. Principal" formControlName="VL_PRINC"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Tipo Processo Adicional (1-Administrativo / 2-Judicial) - tpProcRetAdic:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="0" placeholder="Tipo Processo Adicional (1-Administrativo / 2-Judicial) - tpProcRetAdic"
+            formControlName="TP_PROC_ADIC" />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Número do Processo Adicional - nrProcRetAdic:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="21" placeholder="Número do Processo Adicional - nrProcRetAdic" formControlName="NR_PROC_ADIC"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Código Susp. Adicional - codSuspAdic:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" mask="00000000000000" placeholder="Código Susp. Adicional - codSuspAdic" formControlName="CD_SUSP_ADIC"
+          />
+        </div>
+      </div>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          Valor Retenção Susp. Adicional:
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" id="" maxlength="14" placeholder="Valor Retenção Susp. Adicional" formControlName="VL_ADIC"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn" style="background-color: rgb(118, 113, 113); color: white;" data-dismiss="modal">CANCELAR
+        </button>
+  <button type="button" class="btn" style="background-color: rgb(118, 113, 113); color: white;" (click)="deleteLayout($event);">INCLUIR
+        </button>
+</div>
