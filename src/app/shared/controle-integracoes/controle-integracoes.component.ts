@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { LayoutModel } from '../../core/_model/layout.model';
 import { DocumentModel } from '../../core/_model/document.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -11,7 +12,16 @@ declare var $: any;
 @Component({
   selector: 'app-controle-integracoes',
   templateUrl: './controle-integracoes.component.html',
-  styleUrls: ['./controle-integracoes.component.css']
+  styleUrls: ['./controle-integracoes.component.css'],
+  animations: [
+    trigger('tableAppear', [
+      state('ready', style({opacity: 1})),
+      transition('void => ready', [
+        style({opacity: 0, transform: 'translate(-30px, -10px)'}),
+        animate('1000ms 0s ease-in-out')
+      ])
+    ])
+  ]
 })
 export class ControleIntegracoesComponent implements OnInit {
 
@@ -20,6 +30,7 @@ export class ControleIntegracoesComponent implements OnInit {
     private router: Router,
     private dadosService: DadosService) { }
   
+  tableState = 'ready'
   datePattern = /([12]\d{3}(0[1-9]|1[0-2]))/
   hasValue: boolean = false
   consultForm: FormGroup

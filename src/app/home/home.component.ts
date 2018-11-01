@@ -1,14 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [
+    trigger('homeAppear', [
+      state('ready', style({opacity: 1})),
+      transition('void => ready', [
+        style({opacity: 0, transform: 'translate(-30px, -10px)'}),
+        animate('1000ms 0s ease-in-out')
+      ])
+    ])
+  ]
 })
 export class HomeComponent implements OnInit {
 
   constructor(private router: Router) { }
+  homeState = 'ready'
   nextExpireDate: any
   lastExpireDate: any
   remainingDays: any
@@ -25,11 +36,29 @@ export class HomeComponent implements OnInit {
       expireDate.getMonth() == 9 ||
       expireDate.getMonth() == 11
     ){
-      this.remainingDays = 31 - expireDate.getDate() + 15
+      if(expireDate.getDate() > 15){
+        this.remainingDays = 31 - expireDate.getDate() + 15
+      }else if(expireDate.getDate() < 15){
+        this.remainingDays = 15 - expireDate.getDate()
+      }else{
+        this.remainingDays = '00'
+      }
     }else if(expireDate.getMonth() == 1){
-      this.remainingDays = 28 - expireDate.getDate() + 15
+      if(expireDate.getDate() > 15){
+        this.remainingDays = 28 - expireDate.getDate() + 15
+      }else if(expireDate.getDate() < 15){
+        this.remainingDays = 15 - expireDate.getDate()
+      }else{
+        this.remainingDays = '00'
+      }
     }else{
-      this.remainingDays = 30 - expireDate.getDate() + 15
+      if(expireDate.getDate() > 15){
+        this.remainingDays = 30 - expireDate.getDate() + 15
+      }else if(expireDate.getDate() < 15){
+        this.remainingDays = 15 - expireDate.getDate()
+      }else{
+        this.remainingDays = '00'
+      }
     }
 
     if(expireDate.getDate() > 15){
