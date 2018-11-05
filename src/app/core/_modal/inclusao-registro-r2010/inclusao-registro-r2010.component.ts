@@ -67,3 +67,4 @@ export class InclusaoRegistroR2010Component implements OnInit {
       FILLER: this.formBuilder.control("")
     });
   }
+}

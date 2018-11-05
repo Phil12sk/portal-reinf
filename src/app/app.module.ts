@@ -27,8 +27,8 @@ import { PainelConsultaComponent } from './painel-consulta/painel-consulta.compo
 import { InclusaoRegistroR1070Component } from './core/_modal/inclusao-registro-r1070/inclusao-registro-r1070.component';
 import { InclusaoRegistroR2010Component } from './core/_modal/inclusao-registro-r2010/inclusao-registro-r2010.component';
 import { InclusaoRegistroR2060Component } from './core/_modal/inclusao-registro-r2060/inclusao-registro-r2060.component';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { AgGridModule } from 'ag-grid-angular';
 
 registerLocaleData(localePtBr,'pt-BR');
 
@@ -68,11 +68,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     SharedModule.forRoot(),
     NgxMaskModule.forRoot(),
     NgxCurrencyModule,
-<<<<<<< HEAD
     BrowserAnimationsModule,
-=======
-    AgGridModule.withComponents(null),
->>>>>>> 40e1519ca27bc7c077f5a6b4fbd971d743f41a1c
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
   providers: [
@@ -81,6 +77,10 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig},
     {provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }

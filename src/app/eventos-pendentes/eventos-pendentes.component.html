@@ -66,18 +66,6 @@
                   TRANSMITIR 
                   <i class="fas fa-share-square"></i>
               </button>
-<<<<<<< HEAD
-              <button 
-                *ngIf="contribuintePainelControle.periodo.status!='green'" 
-                class="btn" 
-                style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;" 
-                (click)="transmitir(contribuintePainelControle)" 
-                data-toggle="modal" 
-                data-target=".bd-example-modal-lg">
-                  TRANSMITIR 
-                  <i class="fas fa-share-square"></i>
-              </button>
-=======
               <button *ngIf="contribuintePainelControle.periodo.status!='green' && contribuintePainelControle.periodo.status!='blue'" class="btn" style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;"
                 (click)="transmitir(contribuintePainelControle)" data-toggle="modal" data-target=".bd-example-modal-lg">
                   TRANSMITIR 
@@ -85,7 +73,6 @@
               </button>
               <!-- <button (click)="transmitir(contribuintePainelControle)" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> -->
 
->>>>>>> 40e1519ca27bc7c077f5a6b4fbd971d743f41a1c
             </h5>
           </div>
           <div [id]="contribuintePainelControle.periodo.label" class="collapse" [attr.aria-labelledby]="'head' + contribuintePainelControle.periodo.label"
@@ -132,8 +119,6 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
-=======
 
 
   <!-- <div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -147,6 +132,5 @@
 
 
 
->>>>>>> 40e1519ca27bc7c077f5a6b4fbd971d743f41a1c
 </div>
 <router-outlet></router-outlet>
