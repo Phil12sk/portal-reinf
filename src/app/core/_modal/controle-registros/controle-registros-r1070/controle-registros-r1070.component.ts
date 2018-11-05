@@ -70,7 +70,6 @@ export class ControleRegistrosR1070Component implements OnInit {
       CD_MUNIC: this.fb.control(this.r1070.CD_MUNIC),
       CD_VARA: this.fb.control(this.r1070.CD_VARA)
     })
-    $('#xxx').click();
     $('.pane-hScroll').scroll(function () {
       $('.pane-vScroll').width($('.pane-hScroll').width() + $('.pane-hScroll').scrollLeft());
     });

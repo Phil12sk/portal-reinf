@@ -16,15 +16,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td scope="col"></td>
+          <tr *ngFor="let contribuinte of contribuintes">
+            <td scope="col">{{contribuinte?.xmlName}}</td>
+            <td scope="col">{{contribuinte?.recibo}}</td>
             <td scope="col"></td>
             <td>
               <button 
                 class="btn" 
                 style="background-color: rgb(118, 113, 113); color: white; float: right;" 
                 type="button"
-                disabled="">EDITAR
+                (click)="checkInfos();">EDITAR
               </button>
             </td>
           </tr>

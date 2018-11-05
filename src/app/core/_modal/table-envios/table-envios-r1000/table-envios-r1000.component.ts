@@ -8,19 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TableEnviosR1000Component implements OnInit {
 
   constructor() { }
-  @Input() action: any
-  ableTab: boolean = true
   @Input() contribuintes: any[]
+  ableTab: boolean = true
 
-  getInfos(){
-    console.log(this.action)
-  }
-
-  ngAfterContentInit(){
-    this.getInfos()
+  checkInfos(){
+    this.ableTab = false
   }
 
   ngOnInit() {
-    
   }
 }

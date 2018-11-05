@@ -9,16 +9,16 @@
     <div class="col-12">
       <table class="table-bordered text-center">
         <thead class="santander-thead" style="background-color: gray;">
-          <tr>
+          <tr *ngFor="let contribuinte of contribuintes">
             <th scope="col">NOME DO ARQUIVO XML</th>
             <th scope="col">RECIBO</th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td scope="col"></td>
-            <td scope="col"></td>
+          <tr *ngFor="let contribuinte of contribuintes">
+            <td scope="col">{{contribuinte?.xmlName}}</td>
+            <td scope="col">{{contribuinte?.recibo}}</td>
             <td>
               <button 
                 class="btn" 

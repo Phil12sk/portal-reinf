@@ -17,13 +17,14 @@
         </thead>
         <tbody>
           <tr *ngFor="let contribuinte of contribuintes">
-            <td scope="col">{{contribuinte.xmlName}}</td>
-            <td scope="col">{{contribuinte.recibo}}</td>
+            <td scope="col">{{contribuinte?.xmlName}}</td>
+            <td scope="col">{{contribuinte?.recibo}}</td>
             <td>
               <button 
                 class="btn" 
                 style="background-color: rgb(118, 113, 113); color: white; float: right;" 
-                type="button">CONSULTAR
+                type="button"
+                (click)="checkInfos();">CONSULTAR
               </button>
             </td>
           </tr>

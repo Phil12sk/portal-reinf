@@ -57,7 +57,7 @@
                 <a 
                   style="color: white" 
                   class="btn btn-sm"
-                  (click)="buildAction('success')"
+                  (click)="buildAction('success', layout.label)"
                   data-toggle="modal" 
                   [attr.data-target]="'.modal-'+layout.label"><i class="fas fa-search"></i></a>
               </td>
@@ -71,6 +71,7 @@
                   class="btn btn-sm"
                   (click)="buildAction('error')"
                   data-toggle="modal" 
+                  (click)="buildAction('error', layout.label)"
                   [attr.data-target]="'.modal-'+layout.label"><i class="fas fa-search"></i></a>
               </td>
               <td *ngIf="layout.xml.totalXMLError === 0">{{layout.xml.totalXMLError}}</td>
@@ -86,7 +87,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r1000 [contribuintes]="contribuintes"></app-table-envios-r1000>
+            <app-table-envios-r1000 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r1000>
+            <app-table-envios-r1000 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r1000>
           </div>
         </div>
       </div>
@@ -99,7 +101,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r1070></app-table-envios-r1070>
+            <app-table-envios-r1070 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r1070>
+            <app-table-envios-r1070 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r1070>
           </div>
         </div>
       </div>
@@ -112,7 +115,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r2010></app-table-envios-r2010>
+            <app-table-envios-r2010 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r2010>
+            <app-table-envios-r2010 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r2010>
           </div>
         </div>
       </div>
@@ -125,7 +129,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r2060></app-table-envios-r2060>
+            <app-table-envios-r2060 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r2060>
+            <app-table-envios-r2060 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r2060>
           </div>
         </div>
       </div>
@@ -138,7 +143,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r2099></app-table-envios-r2099>
+            <app-table-envios-r2099 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r2099>
+            <app-table-envios-r2099 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r2099>
           </div>
         </div>
       </div>
@@ -151,7 +157,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r9000></app-table-envios-r9000>
+            <app-table-envios-r9000 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r9000>
+            <app-table-envios-r9000 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r9000>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 <div class="modal-header modal-header-pop-up">
-  <h5 class="modal-title" id="exampleModalLabel">Controle de Registro R1070</h5>
+  <h5 class="modal-title" id="exampleModalLabel">Controle de Registro R2010</h5>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -17,16 +17,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let contribuinte of contribuintes">
             <td scope="col"></td>
-            <td scope="col"></td>
-            <td scope="col"></td>
+            <td scope="col">{{contribuinte?.xmlName}}</td>
+            <td scope="col">{{contribuinte?.recibo}}</td>
             <td>
               <button 
                 class="btn" 
                 style="background-color: rgb(118, 113, 113); color: white; float: right;" 
                 type="button"
-                disabled="">EDITAR
+                (click)="checkInfos();">CONSULTAR
               </button>
             </td>
           </tr>
