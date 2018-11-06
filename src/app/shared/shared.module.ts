@@ -25,6 +25,7 @@ import { TableEnviosR1070Component } from '../core/_modal/table-envios/table-env
 import { TableEnviosR2010Component } from '../core/_modal/table-envios/table-envios-r2010/table-envios-r2010.component';
 import { TableEnviosR2060Component } from '../core/_modal/table-envios/table-envios-r2060/table-envios-r2060.component';
 import { TableEnviosR2099Component } from '../core/_modal/table-envios/table-envios-r2099/table-envios-r2099.component';
+import { TableEnviosR5011Component } from '../core/_modal/table-envios/table-envios-r5011/table-envios-r5011.component';
 import { TableEnviosR9000Component } from '../core/_modal/table-envios/table-envios-r9000/table-envios-r9000.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
@@ -46,7 +47,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
                    ControleRegistrosR1070Component, ControleRegistrosR2010Component,
                    ControleRegistrosR2060Component, InputComponent, 
                    TableEnviosR1000Component, TableEnviosR1070Component, TableEnviosR2010Component,
-                   TableEnviosR2060Component, TableEnviosR2099Component, TableEnviosR9000Component],
+                   TableEnviosR2060Component, TableEnviosR2099Component, TableEnviosR5011Component,
+                   TableEnviosR9000Component],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxMaskModule.forRoot(),
               RouterModule.forRoot(ROUTES), NgxCurrencyModule, 
               RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})],

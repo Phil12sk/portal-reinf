@@ -12,6 +12,7 @@
           <tr>
             <th scope="col">PRESTADOR</th>
             <th scope="col">NOME DO ARQUIVO XML</th>
+            <th scope="col">DATA DE TRANSMISSÃO</th>
             <th scope="col">RECIBO</th>
             <th scope="col"></th>
           </tr>
@@ -20,6 +21,7 @@
           <tr *ngFor="let contribuinte of contribuintes">
             <td scope="col"></td>
             <td scope="col">{{contribuinte?.xmlName}}</td>
+            <td scope="col">{{contribuinte?.dataTrans}}</td>
             <td scope="col">{{contribuinte?.recibo}}</td>
             <td>
               <button 

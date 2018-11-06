@@ -113,7 +113,4 @@ export class PainelDeControleComponent implements OnInit {
     this.prestador = prestador;
 
   }
-
-
-
 }

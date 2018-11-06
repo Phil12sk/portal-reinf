@@ -36,17 +36,43 @@ export class ControleEnvioComponent implements OnInit {
     {
       label: 'R1000',
       xml: {
+        dataTrans: '01.11.2018',
         totalXML: 5,
         totalXMLSuccess: 3,
         totalXMLError: 2,
         xmlSuccess: [
-          {xmlName: 'aaaa_01-10-2018', recibo: '000000-00-0000-0000-000000', status: 'success'},
-          {xmlName: 'aaaa_03-10-2018', recibo: '222222-22-2222-2222-222222', status: 'success'},
-          {xmlName: 'aaaa_05-10-2018', recibo: '444444-44-4444-4444-444444', status: 'success'}
+          {
+            dataTrans: '01.11.2018',
+            xmlName: 'aaaa_01-10-2018', 
+            recibo: '000000-00-0000-0000-000000', 
+            status: 'success'
+          },
+          {
+            dataTrans: '01.11.2018',
+            xmlName: 'aaaa_03-10-2018', 
+            recibo: '222222-22-2222-2222-222222', 
+            status: 'success'
+          },
+          {
+            dataTrans: '01.11.2018',
+            xmlName: 'aaaa_05-10-2018', 
+            recibo: '444444-44-4444-4444-444444', 
+            status: 'success'
+          }
         ],
         xmlError: [
-          {xmlName: 'aaaa_02-10-2018', recibo: '111111-11-1111-1111-111111', status: 'error'},
-          {xmlName: 'aaaa_04-10-2018', recibo: '333333-33-3333-3333-333333', status: 'error'}
+          {
+            dataTrans: '01.11.2018',
+            xmlName: 'aaaa_02-10-2018', 
+            recibo: '111111-11-1111-1111-111111', 
+            status: 'error'
+          },
+          {
+            dataTrans: '01.11.2018',
+            xmlName: 'aaaa_04-10-2018', 
+            recibo: '333333-33-3333-3333-333333', 
+            status: 'error'
+          }
         ]
       }
     },
@@ -63,6 +89,7 @@ export class ControleEnvioComponent implements OnInit {
     {
       label: 'R2010',
       xml: {
+        dataTrans: '01.11.2018',
         totalXML: 90,
         totalXMLSuccess: 60,
         totalXMLError: 30,
@@ -165,6 +192,7 @@ export class ControleEnvioComponent implements OnInit {
     {
       label: 'R2060',
       xml: {
+        dataTrans: '01.11.2018',
         totalXML: 0,
         totalXMLSuccess: 0,
         totalXMLError: 0
@@ -173,6 +201,7 @@ export class ControleEnvioComponent implements OnInit {
     {
       label: 'R2099',
       xml: {
+        dataTrans: '01.11.2018',
         totalXML: 1,
         totalXMLSuccess: 1,
         totalXMLError: 0,
