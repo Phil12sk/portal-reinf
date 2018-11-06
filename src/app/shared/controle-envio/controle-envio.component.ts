@@ -218,6 +218,19 @@ export class ControleEnvioComponent implements OnInit {
         totalXMLSuccess: 0,
         totalXMLError: 0
       }
+    },
+    {
+      label: 'R5011',
+      xml: {
+        dataTrans: '01.11.2018',
+        totalXML: 1,
+        totalXMLSuccess: 1,
+        totalXMLError: 0,
+        xmlSuccess: [
+          {xmlName: 'aaaa_1-10-2018', recibo: '111111-11-1111-1111-111111', status: 'success'}
+        ],
+        xmlError: []
+      }
     }
   ]
   contribuintes: any[]
