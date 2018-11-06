@@ -16,7 +16,7 @@ import { DadosService } from './core/_service/dados.service';
 import { NgxCurrencyModule } from "ngx-currency";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency/src/currency-mask.config";
 import { PainelDeControleComponent } from './core/_modal/painel-de-controle/painel-de-controle.component';
-
+import { ExcelService } from './core/_service/excel.service';
 
 import { PainelDeControleR1000Component } from './core/_modal/painel-de-controle-r1000/painel-de-controle-r1000.component';
 import { TabelaDinamicaComponent } from './core/_modal/tabela-dinamica/tabela-dinamica.component';
@@ -74,6 +74,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   providers: [
     NgxMaskModule,
     DadosService,
+    ExcelService,
     {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig},
     {provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
