@@ -79,14 +79,25 @@ export class ControleIntegracoesComponent implements OnInit {
     const newDate = new Date(this.today);
 
     newDate.setDate(newDate.getDate() - 5);
-    
-    var dd = newDate.getDate();
-    var mm = newDate.getMonth() + 1;
-    var y = newDate.getFullYear();
+    var dd = newDate.getDate().toString();
+    var mm = (newDate.getMonth() + 1).toString();
+    var y = newDate.getFullYear().toString();
+    if(
+      dd == "1" || dd == "2" || dd == "3" || dd == "4" || dd == "5" || 
+      dd == "6" || dd == "7" || dd == "8" || dd == "9" ){
+        dd = "0" + newDate.getDate();
+    }
 
+    if(
+      mm == "1" || mm == "2" || mm == "3" || mm == "4" || mm == "5" || 
+      mm == "6" || mm == "7" || mm == "8" || mm == "9"){
+        var mm = "0" + (newDate.getMonth() + 1).toString();
+      }
+    
     this.previousFiveDays = (dd + '/' + mm + '/' + + y);
     this.flagColor = 'red';
     this.router.navigate(['/home/controle-de-registros'])
+    console.log("date init: "+ this.previousFiveDays + " / date end: " + this.today)
     this.consultForm = this.formBuilder.group({
       dateInit: this.formBuilder.control(this.previousFiveDays.toLocaleString(), [
         Validators.required, Validators.minLength(8)
@@ -95,6 +106,5 @@ export class ControleIntegracoesComponent implements OnInit {
         Validators.required, Validators.minLength(8)
       ])
     })
-    console.log(this.consultForm)
   }
 }

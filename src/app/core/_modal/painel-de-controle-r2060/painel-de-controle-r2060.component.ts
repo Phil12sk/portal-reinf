@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { R2060Model } from '../../../core/_model/r2060.model';
+import { ExcelService } from '../../_service/excel.service';
 
 declare var $: any;
 
@@ -18,20 +19,51 @@ declare var $: any;
 })
 export class PainelDeControleR2060Component implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private dadosService: DadosService) { }
+  constructor(private excelService: ExcelService) { }
   
     r2060: R2060Model;
   
     @Input() contribuinte: any;
     @Input() periodo: any;
     @Input()  flag: any;
+
+    exportToExcel(){
+      const layout: R2060Model[] = [
+        {
+          TP_OPER:'XXXXXXXXXX',
+          NM_LAYOUT:'XXXXXXXXXX',
+          CD_SIS_ORIG:'XXXXXXXXXX',
+          CD_PRODUTO:'XXXXXXXXXX',
+          CD_RETENCAO:'XXXXXXXXXX',
+          DT_MOVIMENT:'XXXXXXXXXX',
+          TP_INSCRI:'XXXXXXXXXX',
+          NR_INSCRI:'XXXXXXXXXX',
+          TP_INSC_EST:'XXXXXXXXXX',
+          NR_INSC_EST:'XXXXXXXXXX',
+          VL_TOT_RECBRUTA:'XXXXXXXXXX',
+          VL_TOT_APUESTAB:'XXXXXXXXXX',
+          VL_TOT_EXIGSUSP:'XXXXXXXXXX',
+          CD_ATI_ECON:'XXXXXXXXXX',
+          VL_REC_ATIV:'XXXXXXXXXX',
+          VL_EXC_REC:'XXXXXXXXXX',
+          VL_ADI_REC:'XXXXXXXXXX',
+          VL_BASE_CALC:'XXXXXXXXXX',
+          VL_PREV_REC:'XXXXXXXXXX',
+          VL_PROC_SUSP:'XXXXXXXXXX',
+          TP_PROCESSO:'XXXXXXXXXX',
+          NR_PROCESSO:'XXXXXXXXXX',
+          CD_IND_SUSP:'XXXXXXXXXX',
+          TP_AJUSTE:'XXXXXXXXXX',
+          CD_AJUSTE:'XXXXXXXXXX',
+          VL_AJUSTE:'XXXXXXXXXX',
+          DESC_AJUSTE:'XXXXXXXXXX',
+          DT_AJUSTE:'XXXXXXXXXX' 
+        }
+      ]
+      this.excelService.exportAsExcelFile(layout, 'r2060_excel')
+    }
   
     ngOnInit() {
-  
-      // this.contribuinte = this.dadosService.objDados.contribuinte;
-      // this.periodo = this.dadosService.objDados.periodo;
-      // this.flag = this.dadosService.objDados.flag;
-  
   
       this.r2060 = {
         TP_OPER:'XXXXXXXXXX',
