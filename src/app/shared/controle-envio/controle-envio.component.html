@@ -42,8 +42,8 @@
             <tr>
               <th scope="col">Layout EFD-Reinf</th>
               <th scope="col">Total XMLs Enviados</th>
-              <th scope="col">Total XMLs Enviados com Sucesso</th>
-              <th scope="col">Total XMLs Enviados com Erro</th>
+              <th scope="col">Total XMLs Retornados com Sucesso</th>
+              <th scope="col">Total XMLs Retornados com Erro</th>
             </tr>
           </thead>
           <tbody>
@@ -145,6 +145,20 @@
           <div class="modal-content">
             <app-table-envios-r2099 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r2099>
             <app-table-envios-r2099 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r2099>
+          </div>
+        </div>
+      </div>
+
+      <div 
+        class="modal fade modal-R5011" 
+        tabindex="-1" 
+        role="dialog" 
+        aria-labelledby="myR9000ModalLabel" 
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <app-table-envios-r5011 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r5011>
+            <app-table-envios-r5011 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r5011>
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@
         <thead class="santander-thead" style="background-color: gray;">
           <tr *ngFor="let contribuinte of contribuintes">
             <th scope="col">NOME DO ARQUIVO XML</th>
+            <th scope="col">DATA DE TRANSMISSÃO</th>
             <th scope="col">RECIBO</th>
             <th scope="col"></th>
           </tr>
@@ -18,6 +19,7 @@
         <tbody>
           <tr *ngFor="let contribuinte of contribuintes">
             <td scope="col">{{contribuinte?.xmlName}}</td>
+            <td scope="col">{{contribuinte?.dataTrans}}</td>
             <td scope="col">{{contribuinte?.recibo}}</td>
             <td>
               <button 
