@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+declare var $: any
 @Component({
   selector: 'app-inclusao-registro-r1070',
   templateUrl: './inclusao-registro-r1070.component.html',
@@ -14,7 +15,6 @@ export class InclusaoRegistroR1070Component implements OnInit {
   today: number = Date.now();
 
   ngOnInit() {
-
     this.r1070Form = this.formBuilder.group({
       TP_OPER: this.formBuilder.control(""),
       NM_LAYOUT: this.formBuilder.control(""),
@@ -45,7 +45,5 @@ export class InclusaoRegistroR1070Component implements OnInit {
     });
 
     $('#xxx').click();
-
   }
-
 }

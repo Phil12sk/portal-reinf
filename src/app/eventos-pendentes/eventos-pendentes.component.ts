@@ -126,7 +126,7 @@ mod:any;
         ]
       }]
 
-    }
+    },
     {
       periodo: { label: 'NOVEMBRO', value: '2018-11' ,status: 'blue'},
       infoContribuintes: [{

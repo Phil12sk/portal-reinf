@@ -9,42 +9,111 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>R1000</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>R1070</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>R2010</td>
-        <td>210</td>
-        <td>209</td>
-        <td style="background-color: #F00000; color: white">1 <a style="color: white" class="btn btn-sm"><i class="fas fa-search"></i></a></td>
-      </tr>
-      <tr>
-        <td>R2060</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>R2099</td>
-        <td>1</td>
-        <td>1</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>R9000</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
+      <tr *ngFor="let layout of layouts">
+        <td>{{layout.label}}</td>
+        <td>{{layout.xml.totalXML}}</td>
+        <td 
+          *ngIf="layout.xml.totalXMLSuccess > 0" 
+          style="background-color: #00a65a; color: white">
+          {{layout.xml.totalXMLSuccess}}
+          <a 
+            style="color: white" 
+            class="btn btn-sm"
+            (click)="buildAction('success');"
+            data-toggle="modal" 
+            [attr.data-target]="'.modal-'+layout.label"><i class="fas fa-search"></i></a>
+        </td>
+        <td *ngIf="layout.xml.totalXMLSuccess === 0">{{layout.xml.totalXMLSuccess}}</td>
+        <td 
+          *ngIf="layout.xml.totalXMLError > 0" 
+          style="background-color: #F00000; color: white">
+          {{layout.xml.totalXMLError}} 
+          <a 
+            style="color: white" 
+            class="btn btn-sm"
+            (click)="buildAction('error')"
+            data-toggle="modal" 
+            [attr.data-target]="'.modal-'+layout.label"><i class="fas fa-search"></i></a>
+        </td>
+        <td *ngIf="layout.xml.totalXMLError === 0">{{layout.xml.totalXMLError}}</td>
       </tr>
     </tbody>
   </table>
+</div>
+<div 
+  class="modal fade modal-R1000" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="myR1000ModalLabel" 
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <app-table-envios-r1000 [contribuintes]="contribuintes"></app-table-envios-r1000>
+    </div>
+  </div>
+</div>
+
+<div 
+  class="modal fade modal-R1070" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="myR1070ModalLabel" 
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <app-table-envios-r1070></app-table-envios-r1070>
+    </div>
+  </div>
+</div>
+
+<div 
+  class="modal fade modal-R2010" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="myR2010ModalLabel" 
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <app-table-envios-r2010></app-table-envios-r2010>
+    </div>
+  </div>
+</div>
+
+<div 
+  class="modal fade modal-R2060" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="myR2060ModalLabel" 
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <app-table-envios-r2060></app-table-envios-r2060>
+    </div>
+  </div>
+</div>
+
+<div 
+  class="modal fade modal-R2099" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="myR2099ModalLabel" 
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <app-table-envios-r2099></app-table-envios-r2099>
+    </div>
+  </div>
+</div>
+
+<div 
+  class="modal fade modal-R9000" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="myR9000ModalLabel" 
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <app-table-envios-r9000></app-table-envios-r9000>
+    </div>
+  </div>
 </div>

@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePtBr from '@angular/common/locales/br';
-import { NgxMaskModule } from 'ngx-mask'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskModule } from 'ngx-mask'
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
@@ -26,8 +27,8 @@ import { PainelConsultaComponent } from './painel-consulta/painel-consulta.compo
 import { InclusaoRegistroR1070Component } from './core/_modal/inclusao-registro-r1070/inclusao-registro-r1070.component';
 import { InclusaoRegistroR2010Component } from './core/_modal/inclusao-registro-r2010/inclusao-registro-r2010.component';
 import { InclusaoRegistroR2060Component } from './core/_modal/inclusao-registro-r2060/inclusao-registro-r2060.component';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { AgGridModule } from 'ag-grid-angular';
 
 registerLocaleData(localePtBr,'pt-BR');
 
@@ -67,7 +68,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     SharedModule.forRoot(),
     NgxMaskModule.forRoot(),
     NgxCurrencyModule,
-    AgGridModule.withComponents(null),
+    BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
   providers: [
@@ -76,6 +77,10 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig},
     {provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }

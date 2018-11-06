@@ -29,14 +29,139 @@
           class="btn" 
           style="background-color: rgb(118, 113, 113); color: white;"
           [disabled]="!consultForm.valid"
-          (click)="teste($event);"
+          (click)="ableTable($event);"
           >CONSULTAR</button>
       </div>
     </div>
   </form>
-  <div class="row santander-padding-top-1">
+  <div class="row santander-padding-top-1" *ngIf="!ableTab" [@tableAppear]="tableState">
     <div class="col-12">
-      <router-outlet></router-outlet>
+      <div>
+        <table class="table table-bordered text-center">
+          <thead class="santander-thead">
+            <tr>
+              <th scope="col">Layout EFD-Reinf</th>
+              <th scope="col">Total XMLs Enviados</th>
+              <th scope="col">Total XMLs Enviados com Sucesso</th>
+              <th scope="col">Total XMLs Enviados com Erro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let layout of layouts">
+              <td>{{layout.label}}</td>
+              <td>{{layout.xml.totalXML}}</td>
+              <td 
+                *ngIf="layout.xml.totalXMLSuccess > 0" 
+                style="background-color: #00a65a; color: white">
+                {{layout.xml.totalXMLSuccess}}
+                <a 
+                  style="color: white" 
+                  class="btn btn-sm"
+                  (click)="buildAction('success', layout.label)"
+                  data-toggle="modal" 
+                  [attr.data-target]="'.modal-'+layout.label"><i class="fas fa-search"></i></a>
+              </td>
+              <td *ngIf="layout.xml.totalXMLSuccess === 0">{{layout.xml.totalXMLSuccess}}</td>
+              <td 
+                *ngIf="layout.xml.totalXMLError > 0" 
+                style="background-color: #F00000; color: white">
+                {{layout.xml.totalXMLError}} 
+                <a 
+                  style="color: white" 
+                  class="btn btn-sm"
+                  (click)="buildAction('error')"
+                  data-toggle="modal" 
+                  (click)="buildAction('error', layout.label)"
+                  [attr.data-target]="'.modal-'+layout.label"><i class="fas fa-search"></i></a>
+              </td>
+              <td *ngIf="layout.xml.totalXMLError === 0">{{layout.xml.totalXMLError}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div 
+        class="modal fade modal-R1000" 
+        tabindex="-1" 
+        role="dialog" 
+        aria-labelledby="myR1000ModalLabel" 
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <app-table-envios-r1000 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r1000>
+            <app-table-envios-r1000 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r1000>
+          </div>
+        </div>
+      </div>
+      
+      <div 
+        class="modal fade modal-R1070" 
+        tabindex="-1" 
+        role="dialog" 
+        aria-labelledby="myR1070ModalLabel" 
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <app-table-envios-r1070 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r1070>
+            <app-table-envios-r1070 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r1070>
+          </div>
+        </div>
+      </div>
+      
+      <div 
+        class="modal fade modal-R2010" 
+        tabindex="-1" 
+        role="dialog" 
+        aria-labelledby="myR2010ModalLabel" 
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <app-table-envios-r2010 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r2010>
+            <app-table-envios-r2010 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r2010>
+          </div>
+        </div>
+      </div>
+      
+      <div 
+        class="modal fade modal-R2060" 
+        tabindex="-1" 
+        role="dialog" 
+        aria-labelledby="myR2060ModalLabel" 
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <app-table-envios-r2060 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r2060>
+            <app-table-envios-r2060 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r2060>
+          </div>
+        </div>
+      </div>
+      
+      <div 
+        class="modal fade modal-R2099" 
+        tabindex="-1" 
+        role="dialog" 
+        aria-labelledby="myR2099ModalLabel" 
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <app-table-envios-r2099 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r2099>
+            <app-table-envios-r2099 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r2099>
+          </div>
+        </div>
+      </div>
+      
+      <div 
+        class="modal fade modal-R9000" 
+        tabindex="-1" 
+        role="dialog" 
+        aria-labelledby="myR9000ModalLabel" 
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <app-table-envios-r9000 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r9000>
+            <app-table-envios-r9000 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r9000>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
