@@ -28,6 +28,7 @@ import { InclusaoRegistroR1070Component } from './core/_modal/inclusao-registro-
 import { InclusaoRegistroR2010Component } from './core/_modal/inclusao-registro-r2010/inclusao-registro-r2010.component';
 import { InclusaoRegistroR2060Component } from './core/_modal/inclusao-registro-r2060/inclusao-registro-r2060.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ConsultaGeralComponent } from './core/_modal/consulta-geral/consulta-geral.component';
 
 
 registerLocaleData(localePtBr,'pt-BR');
@@ -59,7 +60,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     PainelConsultaComponent,
     InclusaoRegistroR1070Component,
     InclusaoRegistroR2010Component,
-    InclusaoRegistroR2060Component
+    InclusaoRegistroR2060Component,
+    ConsultaGeralComponent
   ],
   imports: [
     BrowserModule,

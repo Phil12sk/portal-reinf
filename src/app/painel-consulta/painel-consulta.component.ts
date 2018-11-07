@@ -20,6 +20,7 @@ export class PainelConsultaComponent implements OnInit {
   selectedYearConsult: any;
   selectedCnpjConsult: any;
   selectedLayoutConsult: any;
+  consultaLayout=false;
 
 columnDefs = [
   {headerName: 'Make', field: 'make'},
@@ -62,6 +63,7 @@ fontePagadora = [
     this.selectedLayoutConsult = "";
     this.btnIncluir = false;
     this.btnConsultar = false;
+    this.consultaLayout=false;
 
 
     this.consultForm = this.formBuilder.group({
@@ -125,4 +127,7 @@ fontePagadora = [
     }
   }
 
+  pesquisar(){
+    this.consultaLayout=true;
+  }
 }
