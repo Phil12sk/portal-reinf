@@ -1,5 +1,5 @@
 <div class="modal-header modal-header-pop-up">
-  <h5 class="modal-title" id="exampleModalLabel">Controle de Registro R1000</h5>
+  <h5 class="modal-title" id="exampleModalLabel">Controle de Registro R5011</h5>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -207,4 +207,22 @@
       </div>
     </div>
   </div>
+</div>
+<div class="modal-footer" *ngIf="ableTab">
+  <button 
+    (click)="exportToExcel();"
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;">
+    Exportar para Excel
+    <i class="fas fa-file-excel-o" aria-hidden="true"></i>
+  </button>
+</div>
+<div class="modal-footer" *ngIf="!ableTab">
+  <button 
+    (click)="checkInfos();"
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;">
+    Voltar
+    <i class="fas fa-arrow-left" aria-hidden="true"></i>
+  </button>
 </div>

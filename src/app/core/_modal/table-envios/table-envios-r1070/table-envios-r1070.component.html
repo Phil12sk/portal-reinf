@@ -4,7 +4,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body">
+<div class="modal-body" *ngIf="ableTab">
   <div class="row santander-padding-top-1">
     <div class="col-12">
       <table class="table-bordered text-center">
@@ -27,7 +27,7 @@
                 class="btn" 
                 style="background-color: rgb(118, 113, 113); color: white; float: right;" 
                 type="button"
-                (click)="checkInfos();">EDITAR
+                (click)="checkInfos();">CONSULTAR
               </button>
             </td>
           </tr>
@@ -35,4 +35,195 @@
       </table>
     </div>
   </div>
+</div>
+<div class="modal-body" *ngIf="!ableTab">
+  <div class="container-fluid">
+    <div class="row santander-padding-top-1">
+      <div class="col-6">
+        <label for="evtInfoContri">EVENTO DE INFORMAÇÕES DO CONTRIBUINTE</label>
+      </div>
+      <div class="col-6">
+        <label for="evtInfoContri">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="id">IDENTIFICAÇÃO ÚNICA DO EVENTO</label>
+      </div>
+      <div class="col-6">
+        <label for="id">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="tpAmb">IDENTIFICAÇÃO DO AMBIENTE</label>
+      </div>
+      <div class="col-6">
+        <label for="tpAmb">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="procEmi">PROCESSO DE EMISSÃO DO EVENTO</label>
+      </div>
+      <div class="col-6">
+        <label for="procEmi">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="verProc">VERSÃO DO PROCESSO DE EMISSÃO DO EVENTO</label>
+      </div>
+      <div class="col-6">
+        <label for="verProc">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="tpInsc">CÓDIGO DO TIPO DE INSCRIÇÃO</label>
+      </div>
+      <div class="col-6">
+        <label for="tpInsc">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="nrInsc">NÚMERO DE INSCRIÇÃO DO CONTRIBUINTE</label>
+      </div>
+      <div class="col-6">
+        <label for="nrInsc">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="iniValid">DATA DO ÍNICIO DA VALIDADE DAS INFORMAÇÕES</label>
+      </div>
+      <div class="col-6">
+        <label for="iniValid">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="fimValid">DATA FIM DA VALIDADE DAS INFORMAÇÕES</label>
+      </div>
+      <div class="col-6">
+        <label for="fimValid">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="classTrib">CÓDIGO DE TRIBUTAÇÃO DO CONTRIBUINTE</label>
+      </div>
+      <div class="col-6">
+        <label for="classTrib">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="indEscrituracao">INDICATIVO DE OBRIGATORIEDADE</label>
+      </div>
+      <div class="col-6">
+        <label for="indEscrituracao">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="indDesoneracao">INDICATIVO DE DESONERAÇÃO</label>
+      </div>
+      <div class="col-6">
+        <label for="indDesoneracao">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="indAcordoIsenMulta">INDICATIVO DE ACORDO INTERNACIONAL</label>
+      </div>
+      <div class="col-6">
+        <label for="indAcordoIsenMulta">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="indSitPJ">INDICATIVO SITUAÇÃO PESSOA JURÍDICA</label>
+      </div>
+      <div class="col-6">
+        <label for="indSitPJ">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="nmCtt">NOME DO CONTATO DO CONTRIBUINTE</label>
+      </div>
+      <div class="col-6">
+        <label for="nmCtt">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="cpfCtt">CPF DO CONTATO DO CONTRIBUINTE</label>
+      </div>
+      <div class="col-6">
+        <label for="cpfCtt">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="foneFixo">NÚMERO DE TELEFONE FIXO</label>
+      </div>
+      <div class="col-6">
+        <label for="foneFixo">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="foneCel">NÚMERO DE TELEFONE CELULAR</label>
+      </div>
+      <div class="col-6">
+        <label for="foneCel">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="email">ENDEREÇO ELETRÔNICO</label>
+      </div>
+      <div class="col-6">
+        <label for="email">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="cnpjSoftHouse">CNPJ DA EMPRESA DESENVOLVEDORA DE SOFTWARE</label>
+      </div>
+      <div class="col-6">
+        <label for="cnpjSoftHouse">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="nmRazao">RAZÃO SOCIAL</label>
+      </div>
+      <div class="col-6">
+        <label for="nmRazao">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="nmCont">NOME DO CONTATO NA EMPRESA</label>
+      </div>
+      <div class="col-6">
+        <label for="nmCont">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="telefone">NÚMERO DE TELEFONE</label>
+      </div>
+      <div class="col-6">
+        <label for="telefone">{{ableTab}}</label>
+      </div>
+
+      <div class="col-6">
+        <label for="email">ENDEREÇO ELETRÔNICO</label>
+      </div>
+      <div class="col-6">
+        <label for="email">{{ableTab}}</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer" *ngIf="ableTab">
+  <button 
+    (click)="exportToExcel();"
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;">
+    Exportar para Excel
+    <i class="fas fa-file-excel-o" aria-hidden="true"></i>
+  </button>
+</div>
+<div class="modal-footer" *ngIf="!ableTab">
+  <button 
+    (click)="checkInfos();"
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;">
+    Voltar
+    <i class="fas fa-arrow-left" aria-hidden="true"></i>
+  </button>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ExcelService } from '../../../_service/excel.service';
 
 @Component({
   selector: 'app-table-envios-r2010',
@@ -7,12 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TableEnviosR2010Component implements OnInit {
 
-  constructor() { }
+  constructor(private excelService: ExcelService) { }
   @Input() contribuintes: any[]
   ableTab: boolean = true
 
   checkInfos(){
-    this.ableTab = false
+    this.ableTab = !this.ableTab
+  }
+
+  exportToExcel(){
+    this.excelService.exportAsExcelFile(this.contribuintes, 'r1000_excel')
   }
 
   ngOnInit() {
