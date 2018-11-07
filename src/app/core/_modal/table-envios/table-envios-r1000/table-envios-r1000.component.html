@@ -5,6 +5,14 @@
   </button>
 </div>
 <div class="modal-body" *ngIf="ableTab">
+  <div class="row santander-padding-top-0">
+    <div class="col-6">
+      <p><strong>Contribuinte/Empresa: </strong>XX.XXX.XXX/XXXX-XX</p>
+    </div>
+    <div class="col-6">
+      <p><strong>Período:</strong> XX/XXXX</p>
+    </div>
+  </div>
   <div class="row santander-padding-top-1">
     <div class="col-12">
       <table class="table-bordered text-center">
@@ -207,4 +215,22 @@
       </div>
     </div>
   </div>
+</div>
+<div class="modal-footer" *ngIf="ableTab">
+  <button 
+    (click)="exportToExcel();"
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;">
+    Exportar para Excel
+    <i class="fas fa-file-excel-o" aria-hidden="true"></i>
+  </button>
+</div>
+<div class="modal-footer" *ngIf="!ableTab">
+  <button 
+    (click)="checkInfos();"
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;">
+    Voltar
+    <i class="fas fa-arrow-left" aria-hidden="true"></i>
+  </button>
 </div>

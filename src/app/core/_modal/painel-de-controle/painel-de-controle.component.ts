@@ -28,7 +28,17 @@ export class PainelDeControleComponent implements OnInit {
   @Input()  flag: any;
 
   exportToExcel(){
-    this.excelService.exportAsExcelFile(this.nfs, 'r2010_excel')
+    const test = [
+      {
+        'Identificação': '123',
+        'Tipo de Operação': '123'
+      },
+      {
+        'Identificação': '123',
+        'Tipo de Operação': '123'
+      }
+    ]
+    this.excelService.exportAsExcelFile(test, 'r2010_excel')
   }
 
   ngOnInit() {
