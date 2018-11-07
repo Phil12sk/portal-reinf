@@ -1,6 +1,40 @@
 <div class="container">
   <div class="row santander-padding-top-1">
     <div class="col-12">
+      <div class="col-2" style="display:inline-block; float: left;">
+        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important;    height: 100px;">
+          <circle cx="10" cy="10" r="10" fill="#F00000" />
+        </svg>
+        <div>Evento(s) para Retificação</div>
+      </div>
+      <div class="col-2" style="display:inline-block; float: left;">
+        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important;    height: 100px;">
+          <circle cx="10" cy="10" r="10" fill="yellow" />
+        </svg>
+        <div>Evento(s) a Transmitir Mês de Envio Vigente</div>
+      </div>
+      <div class="col-2" style="display:inline-block ; float: left;">
+        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
+          <circle cx="10" cy="10" r="10" fill="green" />
+        </svg>
+        <div>Evento(s) Transmitidos com Sucesso</div>
+      </div>
+    <div class="col-2" style="display:inline-block; float: left;">
+      <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
+        <circle cx="10" cy="10" r="10" fill="orange" />
+      </svg>
+      <div>Evento(s) Transmitidos com Erro</div>
+    </div>
+    <div class="col-2" style="display:inline-block; float: left;">
+      <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
+        <circle cx="10" cy="10" r="10" fill="blue" />
+      </svg>
+      <div>Evento(s) Mês Atual</div>
+    </div>
+  </div>
+  </div>
+  <div class="row santander-padding-top-1">
+    <div class="col-12">
       <div class="col-4" style="display:inline-block;">
         <!-- <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" style="width:100px">
           <option selected ><label style="color:red">2018<i class="far fa-exclamation-triangle"></i></label></option>
@@ -10,39 +44,11 @@
             <option value="" selected>2018&#xf071; </option>                      
           </select>
         <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect2" style="width:205px;">
-          <option selected>Todos os Contribuintes</option>
+          <option selected>Todos os Contribuintes/Empresas</option>
           <option *ngFor="let contr of prestadores">{{contr | mask: '00.000.000/0000-00'}}</option>
         </select>
       </div>
 
-
-      <div class="col-2" style="display:inline-block; float: right;">
-          <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
-            <circle cx="10" cy="10" r="10" fill="blue" />
-          </svg>
-          <div>Evento(s) Mês Atual</div>
-        </div>
- 
-        <div class="col-2" style="display:inline-block; float: right;">
-            <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
-              <circle cx="10" cy="10" r="10" fill="green" />
-            </svg>
-            <div>Evento(s) Transmitidos com Sucesso</div>
-          </div>
-      <div class="col-2" style="display:inline-block; float: right;">
-        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important;    height: 100px;">
-          <circle cx="10" cy="10" r="10" fill="yellow" />
-        </svg>
-        <div>Mês de Envio Vigente com Evento(s) a Transmitir</div>
-      </div>
-    
-      <div class="col-2" style="display:inline-block; float: right;">
-          <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important;    height: 100px;">
-            <circle cx="10" cy="10" r="10" fill="#F00000" />
-          </svg>
-          <div>Existe(m) Evento(s) para Retificação</div>
-        </div>
-   
     </div>
   </div>
   <div class="row santander-padding-top-1" style="    margin-bottom: 80px;">
@@ -61,18 +67,15 @@
                 aria-expanded="true" [attr.aria-controls]="contribuintePainelControle.periodo.label" style="font-weight: 700; font-size: 18px;">
                 {{contribuintePainelControle.periodo.label | uppercase}}
               </button>
-              <button *ngIf="contribuintePainelControle.periodo.status=='green' || contribuintePainelControle.periodo.status=='blue'" class="btn" style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;"
+              <button *ngIf="contribuintePainelControle.periodo.status=='green' || contribuintePainelControle.periodo.status=='blue'" class="btn"
+                style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;"
                 disabled>
                   TRANSMITIR 
                   <i class="fas fa-share-square"></i>
               </button>
-              <button 
-                *ngIf="contribuintePainelControle.periodo.status!='green' && contribuintePainelControle.periodo.status!='blue'" 
-                class="btn" 
+              <button *ngIf="contribuintePainelControle.periodo.status!='green' && contribuintePainelControle.periodo.status!='blue'" class="btn"
                 style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;"
-                (click)="transmitir(contribuintePainelControle)" 
-                data-toggle="modal" 
-                data-target=".bd-example-modal-lg">
+                (click)="transmitir(contribuintePainelControle)" data-toggle="modal" data-target=".bd-example-modal-lg">
                   TRANSMITIR 
                   <i class="fas fa-share-square"></i>
               </button>

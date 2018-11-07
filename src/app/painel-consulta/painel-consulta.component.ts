@@ -108,6 +108,7 @@ fontePagadora = [
     this.btnIncluir = false;
     if (this.selectedOptionIclusion != "") {
       this.btnIncluir = true;
+      this.consultaLayout = false;
     }
     // console.log("Opção selecionada: " + this.selectedOptionIclusion);
     // console.log("Opção btnIncluir: " + this.btnIncluir);
@@ -124,6 +125,7 @@ fontePagadora = [
   
     if(this.selectedYearConsult!="" && this.selectedCnpjConsult!="" && this.selectedLayoutConsult!=""){
       this.btnConsultar = true;
+      this.inclusaoLayout= "";
     }
   }
 
