@@ -35,27 +35,24 @@
   </div>
   <div class="row santander-padding-top-1">
     <div class="col-12">
-      <div class="col-4" style="display:inline-block;">
-        <!-- <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" style="width:100px">
-          <option selected ><label style="color:red">2018<i class="far fa-exclamation-triangle"></i></label></option>
-        </select> -->
+      <div class="col-5" style="display:inline-block;">
         <select class="custom-select mb-2 mr-sm-2 mb-sm-0 selectpicker" id="inlineFormCustomSelect" style="font-family:'FontAwesome',Arial; width:100px">
-                        <option value="" selected>2017</option>  
-            <option value="" selected>2018&#xf071; </option>                      
-          </select>
+          <option value="" selected>2017</option>  
+          <option value="" selected>2018&#xf071; </option>                      
+        </select>
         <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect2" style="width:205px;">
           <option selected>Todos os Contribuintes/Empresas</option>
-          <option *ngFor="let contr of prestadores">{{contr | mask: '00.000.000/0000-00'}}</option>
+          <option *ngFor="let contr of prestadores">{{contr}}</option>
         </select>
       </div>
 
     </div>
   </div>
-  <div class="row santander-padding-top-1" style="    margin-bottom: 80px;">
+  <div class="row santander-padding-top-1" style="margin-bottom: 80px;">
     <div class="col-12">
       <div id="accordion">
         <div class="card" *ngFor="let contribuintePainelControle of contribuintesPainelControle">
-          <div class="card-header" [id]="'head' + contribuintePainelControle.periodo.label" style=" background-color: rgb(175, 171, 171);    padding: 0rem 0.75rem;">
+          <div class="card-header" [id]="'head' + contribuintePainelControle.periodo.label" style=" background-color: rgb(175, 171, 171); padding: 0rem 0.75rem;">
             <h5 class="mb-0 text-center">
               <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
                 <circle *ngIf="contribuintePainelControle.periodo.status=='green'" cx="10" cy="10" r="10" fill="green" />
@@ -85,7 +82,7 @@
             data-parent="#accordion">
             <div class="card-body card-body-gray" style="background-color: rgba(0,0,0,.125);">
               <div class="col-6 text-left" style="display: inline-block;">
-                <p style="margin-top: 0.5rem; margin-bottom: 1rem; margin-left: -15px;"><strong>Contribuinte</strong></p>
+                <p style="margin-top: 0.5rem; margin-bottom: 1rem; margin-left: -15px;"><strong>Contribuinte/Empresa</strong></p>
               </div>
               <div class="col-6 text-center" style="display: inline-block; width: 40%;">
                 <p><strong>Evento layout</strong></p>
@@ -94,7 +91,7 @@
             <div class="card-body card-body-gray" *ngFor="let contrib of contribuintePainelControle.infoContribuintes">
               <div class="row">
                 <div class="col-6 text-left">
-                  <p>{{contrib.contribuinte | mask: '00.000.000/0000-00'}}</p>
+                  <p>{{contrib.contribuinte}}</p>
                 </div>
                 <div class="col-6 text-right">
                   <p *ngFor="let layout2 of contrib.layout" style="display: inline;">

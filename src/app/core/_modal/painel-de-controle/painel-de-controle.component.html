@@ -5,7 +5,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
   </div>
-  <div class="modal-body" *ngIf="ableNFTable==false">
+  <div class="modal-body" *ngIf="!ableNFTable">
     <p style="display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
     <p style="display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
     <div class="row santander-padding-top-1" style="    width: 100%;    margin: 0 auto;">
@@ -32,15 +32,13 @@
             </tr>
           </tbody>
         </table>
-          
         <router-outlet></router-outlet>
       </div>
     </div>
-    
-    <div class="row santander-padding-top-1" style="    width: 100%;    margin: 0 auto;">
-      <div class="col-12" style="    overflow: scroll;">
+    <div class="row santander-padding-top-1" style="width: 100%; margin: 0 auto;">
+      <div class="col-12" style="overflow: scroll;">
         <table class="table-bordered text-center">
-          <thead class="santander-thead" style="    background-color: gray;">
+          <thead class="santander-thead" style="background-color: gray;">
             <tr>
               <th scope="col">Prestador</th>
               <th scope="col">Valor Total Bruto NF(s)</th>
@@ -68,7 +66,6 @@
             </tr>
           </tbody>
         </table>
-        
         <router-outlet></router-outlet>
       </div>
     </div>
@@ -94,12 +91,11 @@
     </div>
   </div>
 
-
-  <div class="modal-body" *ngIf="ableNFTable==true">
+  <div class="modal-body" *ngIf="ableNFTable">
     <p style=" display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
     <p style=" display: inline;font-size: 18px;margin-left: 30px;"><strong>Prestador:</strong> {{prestador| mask: '00.000.000/0000-00'}}</p>
-    <p style=" display: inline;    float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
-    <div class="row santander-padding-top-1" style="    width: 100%;">
+    <p style=" display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
+    <div class="row santander-padding-top-1" style="width: 100%;">
       <div class="col-12" style="    overflow: scroll;">
         <table class="table-bordered text-center">
           <thead class="santander-thead" style="    background-color: gray;">
@@ -144,18 +140,33 @@
         <router-outlet></router-outlet>
       </div>
     </div>
-    <button 
-      *ngIf="flag!='green'" 
-      class="btn" 
-      style="background-color: rgb(118, 113, 113); color: white; display: block;margin-top: 20px;">
-        TRANSMITIR 
-        <i class="fas fa-share-square"></i>
-    </button>
-    <button 
-      (click)="exportToExcel();"
-      class="btn" 
-      style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;">
-      Exportar para Excel
-      <i class="fas fa-file-excel-o" aria-hidden="true"></i>
-    </button>
+    <div class="row santander-padding-top-1">
+      <div class="col-4">
+        <button 
+          *ngIf="flag!='green'" 
+          class="btn" 
+          style="background-color: rgb(118, 113, 113); color: white; display: block;">
+            TRANSMITIR 
+            <i class="fas fa-share-square"></i>
+        </button>
+      </div>
+      <div class="col-4">
+        <button 
+          (click)="exportToExcel();"
+          class="btn" 
+          style="background-color: rgb(118, 113, 113); color: white; display: block; float: right;">
+          Exportar para Excel
+          <i class="fas fa-file-excel-o" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="col-4">
+        <button 
+          (click)="checkInfos();"
+          class="btn" 
+          style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;">
+          VOLTAR
+          <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
   </div>

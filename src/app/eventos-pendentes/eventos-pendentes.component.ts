@@ -21,7 +21,11 @@ export class EventosPendentesComponent implements OnInit {
     private router: Router,
     private dadosService: DadosService) { }
 
-  prestadores: String[] = ['72345678000100', '62345678000100','87345678000100','92345678000100'];
+  prestadores: String[] = [
+    '72.345.678/0001-00 - Empresa Teste 1', 
+    '62.345.678/0001-00 - Empresa Teste 2',
+    '87.345.678/0001-00 - Empresa Teste 3',
+    '92.345.678/0001-00 - Empresa Teste 4'];
 
   // contribuintePainelControle='ssssss';
 teste='testeeeee';
@@ -37,7 +41,7 @@ mod:any;
     {
       periodo: { label: 'MAIO', value: '2018-05', status: 'green' },
       infoContribuintes: [{
-        contribuinte: '12345678000100',
+        contribuinte: '12.345.678/0001-00 - Empresa Teste 1',
         layout: [
           { label: 'R1000', value: 'green' },
           { label: 'R1070', value: 'green' },
@@ -47,7 +51,7 @@ mod:any;
         ]
       },
       {
-        contribuinte: '87345678000100',
+        contribuinte: '87.345.678/0001-00 - Empresa Teste 2',
         layout: [
           { label: 'R1000', value: 'green' },
           { label: 'R1070', value: 'green' },
@@ -60,7 +64,7 @@ mod:any;
     {
       periodo: { label: 'JUNHO', value: '2018-06' ,status: 'red'},
       infoContribuintes: [{
-        contribuinte: '92345678000100',
+        contribuinte: '92.345.678/0001-00 - Empresa Teste 2',
         layout: [
           { label: 'R1000', value: 'gray' },
           { label: 'R1070', value: 'gray' },
@@ -74,7 +78,7 @@ mod:any;
     {
       periodo: { label: 'JULHO', value: '2018-07' ,status: 'red'},
       infoContribuintes: [{
-        contribuinte: '92345678000100',
+        contribuinte: '92.345.678/0001-00 - Empresa Teste 3',
         layout: [
           { label: 'R1000', value: 'gray' },
           { label: 'R1070', value: 'gray' },
@@ -88,7 +92,7 @@ mod:any;
     {
       periodo: { label: 'AGOSTO', value: '2018-08' ,status: 'red'},
       infoContribuintes: [{
-        contribuinte: '92345678000100',
+        contribuinte: '92.345.678/0001-00 - Empresa Teste 4',
         layout: [
           { label: 'R1000', value: 'gray' },
           { label: 'R1070', value: 'gray' },
@@ -102,7 +106,7 @@ mod:any;
     {
       periodo: { label: 'SETEMBRO', value: '2018-09' ,status: 'red'},
       infoContribuintes: [{
-        contribuinte: '92345678000100',
+        contribuinte: '92.345.678/0001-00 - Empresa Teste 5',
         layout: [
           { label: 'R1000', value: 'gray' },
           { label: 'R1070', value: 'gray' },
@@ -116,7 +120,7 @@ mod:any;
     {
       periodo: { label: 'OUTUBRO', value: '2018-10' ,status: 'yellow'},
       infoContribuintes: [{
-        contribuinte: '92345678000100',
+        contribuinte: '92.345.678/0001-00 - Empresa Teste 6',
         layout: [
           { label: 'R1000', value: 'gray' },
           { label: 'R1070', value: 'gray' },
@@ -130,7 +134,7 @@ mod:any;
     {
       periodo: { label: 'NOVEMBRO', value: '2018-11' ,status: 'blue'},
       infoContribuintes: [{
-        contribuinte: '92345678000100',
+        contribuinte: '92.345.678/0001-00 - Empresa Teste 7',
         layout: [
           { label: 'R1000', value: 'gray' },
           { label: 'R1070', value: 'gray' },

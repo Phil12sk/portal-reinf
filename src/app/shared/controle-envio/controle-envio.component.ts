@@ -259,6 +259,7 @@ export class ControleEnvioComponent implements OnInit {
   openFilter(){
     this.isFilterAble = !this.isFilterAble
   }
+  
   buildAction(value, layout){
     for(let i = 0; i < this.layouts.length; i++){
       if(layout === this.layouts[i].label){

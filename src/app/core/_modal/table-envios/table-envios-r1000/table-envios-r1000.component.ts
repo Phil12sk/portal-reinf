@@ -11,6 +11,8 @@ export class TableEnviosR1000Component implements OnInit {
   constructor(private excelService: ExcelService) { }
   @Input() contribuintes: any[]
   ableTab: boolean = true
+  status: boolean
+  
 
   checkInfos(){
     this.ableTab = !this.ableTab

@@ -5,143 +5,71 @@
       </button>
     </div>
     <div class="modal-body">
-        <p style="display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
-        <p style="display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
-        <button *ngIf="flag!='green'" class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">TRANSMITIR<i class="fas fa-share-square"></i></button>
-        <div class="row santander-padding-top-1" style="    width: 100%;">
-          <div class="col-12" style="    overflow: scroll;">
-            <table class="table-bordered text-center">
-              <thead class="santander-thead" style="    background-color: gray;">
-                <tr>
-                  <th scope="col">Tipo de Operação (1-I / 2-A / 3-E)</th>
-                  <th scope="col">Layout REINF</th>
-                  <th scope="col">Sistema de Origem</th>
-                  <th scope="col">Data Movimentação</th>
-                  <!-- <th scope="col">Tipo Inscrição (1-CNPJ / 2-CPF)</th>
-                  <th scope="col">Número Inscrição do Contribuinte</th> -->
-                  <th scope="col">Data Início de Validade</th>
-                  <th scope="col">Data Fim de Validade</th>
-                  <th scope="col">Código Classificação Tributo - Tabela 8</th>
-                  <th scope="col">Inscrição escrituração ECD (0-Não faz / 1-Faz ECD)</th>
-                  <th scope="col">Inscrição Desoneração (0-Não Aplicável / 1-Aplicável)</th>
-                  <th scope="col">Ind. Acordo Intern. Isen. Multa (0-Sem acordo / 1-Com acordo)</th>
-                  <th scope="col">Ind. Sit. (0-Sit.Normal / 1-Extinção / 2-Fusão / 3-Cisão / 4-Incorporação)</th>
-                  <th scope="col">Nome Responsável Contato da Empresa</th>
-                  <th scope="col">Código CPF Contato da Empresa</th>
-                  <th scope="col">Código Telefone Contato da Empresa</th>
-                  <th scope="col">Código Celular Contato da Empresa</th>
-                  <th scope="col">Nome Email Contato da Empresa</th>
-                  <th scope="col">Código CNPJ Empresa de Software</th>
-                  <th scope="col">Nome Razão Social Empresa de Software</th>
-                  <th scope="col">Nome Contato Empresa de Software</th>
-                  <th scope="col">Código Telefone Empresa de Software</th>
-                  <th scope="col">Nome Email Empresa de Software</th>
-                  <th scope="col">Ident. EFR</th>
-                  <th scope="col">Código CNPJ EFR</th>
-         
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="col">{{r1000?.TP_OPER}}</td>
-                  <td scope="col">{{r1000?.NM_LAYOUT}}</td>
-                  <td scope="col">{{r1000?.CD_SIS_ORIG}}</td>
-                  <td scope="col">{{r1000?.DT_MOVIMENT}}</td>
-                  <td scope="col">{{r1000?.DT_INI_VAL}}</td>
-                  <td scope="col">{{r1000?.DT_FIM_VAL}}</td>
-                  <td scope="col">{{r1000?.CD_CLASSTRIB}}</td>
-                  <td scope="col">{{r1000?.IN_ESCRITUR}}</td>
-                  <td scope="col">{{r1000?.IN_DESONERA}}</td>
-                  <td scope="col">{{r1000?.IN_ACO_MULT}}</td>
-                  <td scope="col">{{r1000?.IN_SIT_PJ}}</td>
-                  <td scope="col">{{r1000?.NM_RESP_CON}}</td>
-                  <td scope="col">{{r1000?.CD_CPF_CON}}</td>
-                  <td scope="col">{{r1000?.CD_TEL_CON}}</td>
-                  <td scope="col">{{r1000?.CD_CEL_CON}}</td>
-                  <td scope="col">{{r1000?.NM_EMAIL_CON}}</td>
-                  <td scope="col">{{r1000?.CD_CNPJ_EMP}}</td>
-                  <td scope="col">{{r1000?.NM_RAZAO_EMP}}</td>
-                  <td scope="col">{{r1000?.NM_CON_EMP}}</td>
-                  <td scope="col">{{r1000?.CD_TEL_EMP}}</td>
-                  <td scope="col">{{r1000?.NM_EMAIL_EMP}}</td>
-                  <td scope="col">{{r1000?.ID_EFR}}</td>
-                  <td scope="col">{{r1000?.CD_CNPJ_EFR}}</td>
-                  
-                </tr>
-              </tbody>
-            </table>
-            <router-outlet></router-outlet>
-          </div>
+      <p style="display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
+      <p style="display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
+      <button *ngIf="flag!='green'" class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">TRANSMITIR<i class="fas fa-share-square"></i></button>
+      <div class="row santander-padding-top-1" style="    width: 100%;">
+        <div class="col-12" style="    overflow: scroll;">
+          <table class="table-bordered text-center">
+            <thead class="santander-thead" style="    background-color: gray;">
+              <tr>
+                <th scope="col">Tipo de Operação (1-I / 2-A / 3-E)</th>
+                <th scope="col">Layout REINF</th>
+                <th scope="col">Sistema de Origem</th>
+                <th scope="col">Data Movimentação</th>
+                <th scope="col">Data Início de Validade</th>
+                <th scope="col">Data Fim de Validade</th>
+                <th scope="col">Código Classificação Tributo - Tabela 8</th>
+                <th scope="col">Inscrição escrituração ECD (0-Não faz / 1-Faz ECD)</th>
+                <th scope="col">Inscrição Desoneração (0-Não Aplicável / 1-Aplicável)</th>
+                <th scope="col">Ind. Acordo Intern. Isen. Multa (0-Sem acordo / 1-Com acordo)</th>
+                <th scope="col">Ind. Sit. (0-Sit.Normal / 1-Extinção / 2-Fusão / 3-Cisão / 4-Incorporação)</th>
+                <th scope="col">Nome Responsável Contato da Empresa</th>
+                <th scope="col">Código CPF Contato da Empresa</th>
+                <th scope="col">Código Telefone Contato da Empresa</th>
+                <th scope="col">Código Celular Contato da Empresa</th>
+                <th scope="col">Nome Email Contato da Empresa</th>
+                <th scope="col">Código CNPJ Empresa de Software</th>
+                <th scope="col">Nome Razão Social Empresa de Software</th>
+                <th scope="col">Nome Contato Empresa de Software</th>
+                <th scope="col">Código Telefone Empresa de Software</th>
+                <th scope="col">Nome Email Empresa de Software</th>
+                <th scope="col">Ident. EFR</th>
+                <th scope="col">Código CNPJ EFR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="col">{{r1000?.TP_OPER}}</td>
+                <td scope="col">{{r1000?.NM_LAYOUT}}</td>
+                <td scope="col">{{r1000?.CD_SIS_ORIG}}</td>
+                <td scope="col">{{r1000?.DT_MOVIMENT}}</td>
+                <td scope="col">{{r1000?.DT_INI_VAL}}</td>
+                <td scope="col">{{r1000?.DT_FIM_VAL}}</td>
+                <td scope="col">{{r1000?.CD_CLASSTRIB}}</td>
+                <td scope="col">{{r1000?.IN_ESCRITUR}}</td>
+                <td scope="col">{{r1000?.IN_DESONERA}}</td>
+                <td scope="col">{{r1000?.IN_ACO_MULT}}</td>
+                <td scope="col">{{r1000?.IN_SIT_PJ}}</td>
+                <td scope="col">{{r1000?.NM_RESP_CON}}</td>
+                <td scope="col">{{r1000?.CD_CPF_CON}}</td>
+                <td scope="col">{{r1000?.CD_TEL_CON}}</td>
+                <td scope="col">{{r1000?.CD_CEL_CON}}</td>
+                <td scope="col">{{r1000?.NM_EMAIL_CON}}</td>
+                <td scope="col">{{r1000?.CD_CNPJ_EMP}}</td>
+                <td scope="col">{{r1000?.NM_RAZAO_EMP}}</td>
+                <td scope="col">{{r1000?.NM_CON_EMP}}</td>
+                <td scope="col">{{r1000?.CD_TEL_EMP}}</td>
+                <td scope="col">{{r1000?.NM_EMAIL_EMP}}</td>
+                <td scope="col">{{r1000?.ID_EFR}}</td>
+                <td scope="col">{{r1000?.CD_CNPJ_EFR}}</td>
+                
+              </tr>
+            </tbody>
+          </table>
+          <router-outlet></router-outlet>
         </div>
-
-        <!-- <div class="pane pane--table1">
-            <div class="pane-hScroll">
-          
-              <table>
-                <thead>
-                    <th>Tipo de Operação (1-I / 2-A / 3-E)</th>
-                    <th>Layout REINF</th>
-                    <th>Sistema de Origem</th>
-                    <th>Data Movimentação</th>
-                    <th>Tipo Inscrição (1-CNPJ / 2-CPF)</th>
-                    <th>Número Inscrição do Contribuinte</th>
-                    <th>Data Início de Validade</th>
-                    <th>Data Fim de Validade</th>
-                    <th>Código Classificação Tributo - Tabela 8</th>
-                    <th>Inscrição escrituração ECD (0-Não faz / 1-Faz ECD)</th>
-                    <th>Inscrição Desoneração (0-Não Aplicável / 1-Aplicável)</th>
-                    <th>Ind. Acordo Intern. Isen. Multa (0-Sem acordo / 1-Com acordo)</th>
-                    <th>Ind. Sit. (0-Sit.Normal / 1-Extinção / 2-Fusão / 3-Cisão / 4-Incorporação)</th>
-                    <th>Nome Responsável Contato da Empresa</th>
-                    <th>Código CPF Contato da Empresa</th>
-                    <th>Código Telefone Contato da Empresa</th>
-                    <th>Código Celular Contato da Empresa</th>
-                    <th>Nome Email Contato da Empresa</th>
-                    <th>Código CNPJ Empresa de Software</th>
-                    <th>Nome Razão Social Empresa de Software</th>
-                    <th>Nome Contato Empresa de Software</th>
-                    <th>Código Telefone Empresa de Software</th>
-                    <th>Nome Email Empresa de Software</th>
-                    <th>Ident. EFR</th>
-                    <th>Código CNPJ EFR</th>
-                </thead>
-              </table>
-          
-              <div class="pane-vScroll">
-                <table>
-                  <tbody>
-                    <tr>
-                        <td>{{r1000?.TP_OPER}}</td>
-                        <td>{{r1000?.NM_LAYOUT}}</td>
-                        <td>{{r1000?.CD_SIS_ORIG}}</td>
-                        <td>{{r1000?.DT_MOVIMENT}}</td>
-                        <td>{{r1000?.DT_INI_VAL}}</td>
-                        <td>{{r1000?.DT_FIM_VAL}}</td>
-                        <td>{{r1000?.CD_CLASSTRIB}}</td>
-                        <td>{{r1000?.IN_ESCRITUR}}</td>
-                        <td>{{r1000?.IN_DESONERA}}</td>
-                        <td>{{r1000?.IN_ACO_MULT}}</td>
-                        <td>{{r1000?.IN_SIT_PJ}}</td>
-                        <td>{{r1000?.NM_RESP_CON}}</td>
-                        <td>{{r1000?.CD_CPF_CON}}</td>
-                        <td>{{r1000?.CD_TEL_CON}}</td>
-                        <td>{{r1000?.CD_CEL_CON}}</td>
-                        <td>{{r1000?.NM_EMAIL_CON}}</td>
-                        <td>{{r1000?.CD_CNPJ_EMP}}</td>
-                        <td>{{r1000?.NM_RAZAO_EMP}}</td>
-                        <td>{{r1000?.NM_CON_EMP}}</td>
-                        <td>{{r1000?.CD_TEL_EMP}}</td>
-                        <td>{{r1000?.NM_EMAIL_EMP}}</td>
-                        <td>{{r1000?.ID_EFR}}</td>
-                        <td>{{r1000?.CD_CNPJ_EFR}}</td>
-                      </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div> -->
-
-
+      </div>
     </div>
     <div class="modal-footer">
       <button 

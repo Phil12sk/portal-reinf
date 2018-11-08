@@ -41,6 +41,10 @@ export class PainelDeControleComponent implements OnInit {
     this.excelService.exportAsExcelFile(test, 'r2010_excel')
   }
 
+  checkInfos(){
+    this.ableNFTable = !this.ableNFTable
+  }
+
   ngOnInit() {
     this.ableNFTable = false;
     if (this.flag == 'red') {
