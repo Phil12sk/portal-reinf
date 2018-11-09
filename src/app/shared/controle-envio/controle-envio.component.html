@@ -1,7 +1,7 @@
 <div class="container-fluid">
-  <form [formGroup]="consultForm" novalidate>
+  <form>
     <div class="row santander-padding-top-1">
-      <div class="col-2" *ngIf="!isFilterAble">
+      <div class="col-2">
         <div class="form-group">
           <label for="periodoCons">Digite o Período:</label>
           <input 
@@ -10,53 +10,51 @@
             id="periodoCons"
             mask="0000-00"
             placeholder="AAAA-MM"
-            formControlName="periodo">
+            (keypress)="ableTable($event)"
+            [disabled]="!isFilterAble">
         </div>
       </div>
       <div class="col-3">
         <div class="form-group">
           <label for="exampleSelect1">Selecione o Contribuinte/Empresa:</label>
-          <select formControlName="document" class="form-control" id="exampleSelect2">
+          <select class="form-control" id="exampleSelect2">
             <option selected value="">CNPJ Contribuinte/Empresa</option>
             <option *ngFor="let document of documents" value="{{document.value}}">{{document.label}}</option>
           </select>
         </div>
       </div>
-      <div class="col-1">&nbsp;</div>
-      <div class="col-2 santander-padding-top-1">
+      <div class="col-2">
+        <div class="form-group">
+          <label for="periodoInit">De:</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="periodoInit"
+            mask="00/00/0000"
+            placeholder="DD/MM/AAAA"
+            [disabled]="isFilterAble">
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-group">
+          <label for="periodoEnd">Até:</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="periodoEnd"
+            mask="00/00/0000"
+            placeholder="DD/MM/AAAA"
+            [disabled]="isFilterAble">
+        </div>
+      </div>
+      <div class="col-3 santander-padding-top-1">
         <button 
           type="button" 
           class="btn" 
           style="background-color: rgb(118, 113, 113); color: white;"
-          [disabled]="!consultForm.valid"
-          (click)="ableTable($event);"
-          >CONSULTAR</button>
-      </div>
-    </div>
-    <div class="row santander-padding-top-0" *ngIf="isFilterAble">
-      <div class="col-2">
-        <div class="form-group">
-          <label for="periodoCons">De:</label>
-          <input 
-            type="text" 
-            class="form-control" 
-            id="periodoCons"
-            mask="00/00/0000"
-            placeholder="DD/MM/AAAA"
-            formControlName="dateInit">
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="form-group">
-          <label for="periodoCons">Até:</label>
-          <input 
-            type="text" 
-            class="form-control" 
-            id="periodoCons"
-            mask="00/00/0000"
-            placeholder="DD/MM/AAAA"
-            formControlName="dateEnd">
-        </div>
+          
+          (click)="ableTable($event);">CONSULTAR
+        </button>
       </div>
     </div>
     <div class="row santander-padding-top-0">
@@ -67,7 +65,7 @@
             class="form-check-input" 
             id="openFilter" 
             (change)="openFilter();">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          <label class="form-check-label" for="exampleCheck1">Pesquisar por período específico</label>
         </div>
       </div>
     </div>
@@ -125,8 +123,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r1000 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r1000>
-            <app-table-envios-r1000 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r1000>
+            <app-controle-envio-r1000 *ngIf="opt" [contribuintes]="contribuintes"></app-controle-envio-r1000>
+            <app-controle-envio-r1000 *ngIf="!opt" [contribuintes]="contribuintes"></app-controle-envio-r1000>
           </div>
         </div>
       </div>
@@ -139,8 +137,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r1070 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r1070>
-            <app-table-envios-r1070 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r1070>
+            <app-controle-envio-r1070 *ngIf="opt" [contribuintes]="contribuintes"></app-controle-envio-r1070>
+            <app-controle-envio-r1070 *ngIf="!opt" [contribuintes]="contribuintes"></app-controle-envio-r1070>
           </div>
         </div>
       </div>
@@ -153,8 +151,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r2010 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r2010>
-            <app-table-envios-r2010 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r2010>
+            <app-controle-envio-r2010 *ngIf="opt" [contribuintes]="contribuintes"></app-controle-envio-r2010>
+            <app-controle-envio-r2010 *ngIf="!opt" [contribuintes]="contribuintes"></app-controle-envio-r2010>
           </div>
         </div>
       </div>
@@ -167,8 +165,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r2060 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r2060>
-            <app-table-envios-r2060 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r2060>
+            <app-controle-envio-r2060 *ngIf="opt" [contribuintes]="contribuintes"></app-controle-envio-r2060>
+            <app-controle-envio-r2060 *ngIf="!opt" [contribuintes]="contribuintes"></app-controle-envio-r2060>
           </div>
         </div>
       </div>
@@ -181,8 +179,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r2099 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r2099>
-            <app-table-envios-r2099 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r2099>
+            <app-controle-envio-r2099 *ngIf="opt" [contribuintes]="contribuintes"></app-controle-envio-r2099>
+            <app-controle-envio-r2099 *ngIf="!opt" [contribuintes]="contribuintes"></app-controle-envio-r2099>
           </div>
         </div>
       </div>
@@ -195,8 +193,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r5011 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r5011>
-            <app-table-envios-r5011 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r5011>
+            <app-controle-envio-r5011 *ngIf="opt" [contribuintes]="contribuintes"></app-controle-envio-r5011>
+            <app-controle-envio-r5011 *ngIf="!opt" [contribuintes]="contribuintes"></app-controle-envio-r5011>
           </div>
         </div>
       </div>
@@ -209,8 +207,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <app-table-envios-r9000 *ngIf="opt" [contribuintes]="contribuintes"></app-table-envios-r9000>
-            <app-table-envios-r9000 *ngIf="!opt" [contribuintes]="contribuintes"></app-table-envios-r9000>
+            <app-controle-envio-r9000 *ngIf="opt" [contribuintes]="contribuintes"></app-controle-envio-r9000>
+            <app-controle-envio-r9000 *ngIf="!opt" [contribuintes]="contribuintes"></app-controle-envio-r9000>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core'
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common'
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { NgxMaskModule } from 'ngx-mask'
@@ -7,7 +8,6 @@ import { ControleIntegracoesComponent } from './controle-integracoes/controle-in
 import { ListaEnvioComponent } from './lista-envio/lista-envio.component';
 import { SolicitarEnvioComponent } from './solicitar-envio/solicitar-envio.component';
 import { NoIntegrationComponent } from './no-integration/no-integration.component';
-import { TableEnviosComponent } from './table-envios/table-envios.component';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { ROUTES } from '../app.routes';
 import { R1000Component } from './layouts/r1000/r1000.component';
@@ -20,13 +20,19 @@ import { ControleRegistrosR2060Component } from '../core/_modal/controle-registr
 import { NgxCurrencyModule } from "ngx-currency";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency/src/currency-mask.config";
 import { InputComponent } from './input/input.component';
-import { TableEnviosR1000Component } from '../core/_modal/table-envios/table-envios-r1000/table-envios-r1000.component';
-import { TableEnviosR1070Component } from '../core/_modal/table-envios/table-envios-r1070/table-envios-r1070.component';
-import { TableEnviosR2010Component } from '../core/_modal/table-envios/table-envios-r2010/table-envios-r2010.component';
-import { TableEnviosR2060Component } from '../core/_modal/table-envios/table-envios-r2060/table-envios-r2060.component';
-import { TableEnviosR2099Component } from '../core/_modal/table-envios/table-envios-r2099/table-envios-r2099.component';
-import { TableEnviosR5011Component } from '../core/_modal/table-envios/table-envios-r5011/table-envios-r5011.component';
-import { TableEnviosR9000Component } from '../core/_modal/table-envios/table-envios-r9000/table-envios-r9000.component';
+import { ControleEnvioR1000Component } from '../core/_modal/controle-envio/controle-envio-r1000/controle-envio-r1000.component';
+import { ControleEnvioR1070Component } from '../core/_modal/controle-envio/controle-envio-r1070/controle-envio-r1070.component';
+import { ControleEnvioR2010Component } from '../core/_modal/controle-envio/controle-envio-r2010/controle-envio-r2010.component';
+import { ControleEnvioR2060Component } from '../core/_modal/controle-envio/controle-envio-r2060/controle-envio-r2060.component';
+import { ControleEnvioR2099Component } from '../core/_modal/controle-envio/controle-envio-r2099/controle-envio-r2099.component';
+import { ControleEnvioR5011Component } from '../core/_modal/controle-envio/controle-envio-r5011/controle-envio-r5011.component';
+import { ControleEnvioR9000Component } from '../core/_modal/controle-envio/controle-envio-r9000/controle-envio-r9000.component';
+import { PainelDeControleComponent } from './painel-de-controle/painel-de-controle.component';
+import { PainelDeControleR2060Component } from '../core/_modal/painel-de-controle/painel-de-controle-r2060/painel-de-controle-r2060.component';
+import { PainelDeControleR1070Component } from '../core/_modal/painel-de-controle/painel-de-controle-r1070/painel-de-controle-r1070.component';
+import { InclusaoRegistroR1070Component } from '../core/_modal/inclusao-registro/inclusao-registro-r1070/inclusao-registro-r1070.component';
+import { InclusaoRegistroR2010Component } from '../core/_modal/inclusao-registro/inclusao-registro-r2010/inclusao-registro-r2010.component';
+import { InclusaoRegistroR2060Component } from '../core/_modal/inclusao-registro/inclusao-registro-r2060/inclusao-registro-r2060.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -41,22 +47,65 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
 };
 
 @NgModule({
-    declarations: [ControleEnvioComponent, ControleIntegracoesComponent, ListaEnvioComponent, 
-                   SolicitarEnvioComponent, NoIntegrationComponent, TableEnviosComponent,
-                   R1000Component, R1070Component, R2010Component, R2060Component,
-                   ControleRegistrosR1070Component, ControleRegistrosR2010Component,
-                   ControleRegistrosR2060Component, InputComponent, 
-                   TableEnviosR1000Component, TableEnviosR1070Component, TableEnviosR2010Component,
-                   TableEnviosR2060Component, TableEnviosR2099Component, TableEnviosR5011Component,
-                   TableEnviosR9000Component],
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxMaskModule.forRoot(),
-              RouterModule.forRoot(ROUTES), NgxCurrencyModule, 
-              RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})],
-    exports: [ControleEnvioComponent, ControleIntegracoesComponent, ListaEnvioComponent, 
-            SolicitarEnvioComponent, NoIntegrationComponent, TableEnviosComponent,
-            R1000Component, R1070Component, R2010Component, R2060Component,
-            FormsModule, ReactiveFormsModule, InputComponent, TableEnviosR1000Component],
-    providers: [NgxMaskModule, {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig},]
+    declarations: [
+      ControleEnvioComponent, 
+      ControleIntegracoesComponent, 
+      ControleEnvioComponent,
+      ControleEnvioR1000Component,
+      ControleEnvioR1070Component,
+      ControleEnvioR2010Component,
+      ControleEnvioR2060Component,
+      ControleEnvioR2099Component,
+      ControleEnvioR5011Component,
+      ControleEnvioR9000Component,
+      ControleRegistrosR1070Component,
+      ControleRegistrosR2010Component,
+      ControleRegistrosR2060Component,
+      InclusaoRegistroR1070Component,
+      InclusaoRegistroR2010Component,
+      InclusaoRegistroR2060Component,
+      InputComponent,
+      ListaEnvioComponent, 
+      NoIntegrationComponent,
+      PainelDeControleComponent,
+      PainelDeControleR2060Component,
+      PainelDeControleR1070Component,
+      SolicitarEnvioComponent,
+      R1000Component, 
+      R1070Component, 
+      R2010Component, 
+      R2060Component],
+    imports: [
+      CommonModule,
+      FormsModule,
+      NgxCurrencyModule,
+      NgxMaskModule.forRoot(),
+      ReactiveFormsModule,
+      RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
+    ],
+    exports: [
+      ControleEnvioR1000Component,
+      ControleEnvioComponent,
+      ControleIntegracoesComponent,
+      FormsModule,
+      InputComponent,
+      ListaEnvioComponent,
+      NoIntegrationComponent,
+      PainelDeControleComponent,
+      SolicitarEnvioComponent,
+      R1000Component,
+      R1070Component,
+      R2010Component,
+      R2060Component,
+      ReactiveFormsModule],
+    providers: [
+      NgxMaskModule,
+      {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig}
+    ],
+    schemas: [
+      CUSTOM_ELEMENTS_SCHEMA,
+      NO_ERRORS_SCHEMA
+    ]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

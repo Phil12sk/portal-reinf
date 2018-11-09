@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="row santander-padding-top-1">
+    <div class="col-12">
+      <div class="col-2" style="display:inline-block; float: left;">
+        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important;    height: 100px;">
+          <circle cx="10" cy="10" r="10" fill="#F00000" />
+        </svg>
+        <div>Evento(s) para Retificação</div>
+      </div>
+      <div class="col-2" style="display:inline-block; float: left;">
+        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important;    height: 100px;">
+          <circle cx="10" cy="10" r="10" fill="yellow" />
+        </svg>
+        <div>Evento(s) a Transmitir Mês de Envio Vigente</div>
+      </div>
+      <div class="col-2" style="display:inline-block ; float: left;">
+        <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
+          <circle cx="10" cy="10" r="10" fill="green" />
+        </svg>
+        <div>Evento(s) Transmitidos com Sucesso</div>
+      </div>
+    <div class="col-2" style="display:inline-block; float: left;">
+      <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
+        <circle cx="10" cy="10" r="10" fill="orange" />
+      </svg>
+      <div>Evento(s) Transmitidos com Erro</div>
+    </div>
+    <div class="col-2" style="display:inline-block; float: left;">
+      <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
+        <circle cx="10" cy="10" r="10" fill="blue" />
+      </svg>
+      <div>Evento(s) Mês Atual</div>
+    </div>
+  </div>
+  </div>
+  <div class="row santander-padding-top-1">
+    <div class="col-12">
+      <div class="col-5" style="display:inline-block;">
+        <select class="custom-select mb-2 mr-sm-2 mb-sm-0 selectpicker" id="inlineFormCustomSelect" style="font-family:'FontAwesome',Arial; width:100px">
+          <option value="" selected>2017</option>  
+          <option value="" selected>2018&#xf071; </option>                      
+        </select>
+        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect2" style="width:205px;">
+          <option selected>Todos os Contribuintes/Empresas</option>
+          <option *ngFor="let contr of prestadores">{{contr}}</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+  <div class="row santander-padding-top-1" style="margin-bottom: 80px;">
+    <div class="col-12">
+      <div id="accordion">
+        <div class="card" *ngFor="let contribuintePainelControle of contribuintesPainelControle">
+          <div class="card-header" [id]="'head' + contribuintePainelControle.periodo.label" style=" background-color: rgb(175, 171, 171); padding: 0rem 0.75rem;">
+            <h5 class="mb-0 text-center">
+              <svg width="50" height="50" class="float-left" style="padding-top: 15px!important; padding-left: 0px!important">
+                <circle *ngIf="contribuintePainelControle.periodo.status=='green'" cx="10" cy="10" r="10" fill="green" />
+                <circle *ngIf="contribuintePainelControle.periodo.status=='blue'" cx="10" cy="10" r="10" fill="blue" />
+                <circle *ngIf="contribuintePainelControle.periodo.status=='yellow'" cx="10" cy="10" r="10" fill="yellow" />
+                <circle *ngIf="contribuintePainelControle.periodo.status=='red'" cx="10" cy="10" r="10" fill="#F00000" />
+              </svg>
+              <button class="btn btn-link btn-text-gray" data-toggle="collapse" [attr.data-target]="'#'+contribuintePainelControle.periodo.label"
+                aria-expanded="true" [attr.aria-controls]="contribuintePainelControle.periodo.label" style="font-weight: 700; font-size: 18px;">
+                {{contribuintePainelControle.periodo.label | uppercase}}
+              </button>
+              <button *ngIf="contribuintePainelControle.periodo.status=='green' || contribuintePainelControle.periodo.status=='blue'" class="btn"
+                style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;"
+                disabled>
+                  TRANSMITIR 
+                  <i class="fas fa-share-square"></i>
+              </button>
+              <button *ngIf="contribuintePainelControle.periodo.status!='green' && contribuintePainelControle.periodo.status!='blue'" class="btn"
+                style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;"
+                (click)="transmitir(contribuintePainelControle)" data-toggle="modal" data-target=".bd-example-modal-lg">
+                  TRANSMITIR 
+                  <i class="fas fa-share-square"></i>
+              </button>
+            </h5>
+          </div>
+          <div [id]="contribuintePainelControle.periodo.label" class="collapse" [attr.aria-labelledby]="'head' + contribuintePainelControle.periodo.label"
+            data-parent="#accordion">
+            <div class="card-body card-body-gray" style="background-color: rgba(0,0,0,.125);">
+              <div class="col-6 text-left" style="display: inline-block;">
+                <p style="margin-top: 0.5rem; margin-bottom: 1rem; margin-left: -15px;"><strong>Contribuinte/Empresa</strong></p>
+              </div>
+              <div class="col-6 text-center" style="display: inline-block; width: 40%;">
+                <p><strong>Evento layout</strong></p>
+              </div>
+            </div>
+            <div class="card-body card-body-gray" *ngFor="let contrib of contribuintePainelControle.infoContribuintes">
+              <div class="row">
+                <div class="col-6 text-left">
+                  <p>{{contrib.contribuinte}}</p>
+                </div>
+                <div class="col-6 text-right">
+                  <p *ngFor="let layout2 of contrib.layout" style="display: inline;">
+                    <button class="btn btn-link btn-text-white" (click)="redirect(layout2.label,layout2.value,contrib.contribuinte,contribuintePainelControle.periodo.value)"
+                      [ngClass]="{'flag-red': layout2.value=='red','flag-green': layout2.value=='green','flag-yellow': layout2.value=='yellow','flag-gray': layout2.value=='gray', 'flag-blue': layout2.value=='blue'}"
+                      data-toggle="modal" data-target=".bd-example-modal-lg">
+                        {{layout2.label}} 
+                        <i class="fas fa-flag"></i>
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <app-transmissao *ngIf="mod==1" [contribuintePainelControle]="contribuintePainelControle" style="padding-bottom: 20px;"></app-transmissao>
+        <app-painel-de-controle-r1000 *ngIf="mod==2" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="padding-bottom: 20px;"></app-painel-de-controle-r1000>
+        <app-painel-de-controle-r1070 *ngIf="mod==3" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="padding-bottom: 20px;"></app-painel-de-controle-r1070>
+        <app-painel-de-controle-r2010 *ngIf="mod==4" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="padding-bottom: 20px;"></app-painel-de-controle-r2010>
+        <app-painel-de-controle-r2060 *ngIf="mod==5" [contribuinte]="contribuinte" [periodo]="periodo" [flag]="flag" style="padding-bottom: 20px;"></app-painel-de-controle-r2060>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

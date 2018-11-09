@@ -3,6 +3,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DocumentModel } from '../../core/_model/document.model';
 import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 declare var $: any
 
 @Component({
@@ -52,7 +53,8 @@ export class ControleEnvioComponent implements OnInit {
   ableTab: boolean = true
   action: any
   opt: boolean
-  isFilterAble: boolean = false
+  ableBtn: boolean
+  isFilterAble: boolean = true
   layouts: any = [
     {
       label: 'R1000',
@@ -274,20 +276,36 @@ export class ControleEnvioComponent implements OnInit {
     }
   }
 
+  test(){
+
+  }
+
   ableTable($event){
     this.ableTab = false
+    const periodoCons = (<HTMLInputElement>document.getElementById('periodoCons')).value
+    const periodoInit = (<HTMLInputElement>document.getElementById('periodoInit')).value
+    const periodoEnd = (<HTMLInputElement>document.getElementById('periodoEnd')).value
+    if(periodoCons.length > 0){
+      
+    }else{
+      if( periodoInit.length > 0 || periodoEnd.length > 0){
+        console.log(1)
+      }else{
+        console.log(2)
+      }
+    }
   }
 
   ngOnInit() {
     this.router.navigate(['/home/controle-envio'])
-    this.consultForm = this.formBuilder.group({
-      document: this.formBuilder.control('', [Validators.required]),
-      periodo: this.formBuilder.control('', [
-        Validators.required, Validators.minLength(6),
-        Validators.pattern(this.datePattern)
-      ]),
-      dateInit: this.formBuilder.control(''),
-      dateEnd: this.formBuilder.control('')
-    })
+    // this.consultForm = this.formBuilder.group({
+    //   document: this.formBuilder.control('', [Validators.required]),
+    //   periodo: this.formBuilder.control('', [
+    //     Validators.required, Validators.minLength(6),
+    //     Validators.pattern(this.datePattern)
+    //   ]),
+    //   dateInit: this.formBuilder.control(''),
+    //   dateEnd: this.formBuilder.control('')
+    // })
   }
 }
