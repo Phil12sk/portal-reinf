@@ -13,12 +13,8 @@ import { SharedModule } from './shared/shared.module';
 import { DadosService } from './core/_service/dados.service';
 import { NgxCurrencyModule } from "ngx-currency";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency/src/currency-mask.config";
-import { PainelDeControleR2010Component } from './core/_modal/painel-de-controle/painel-de-controle-r2010/painel-de-controle-r2010.component';
 import { ExcelService } from './core/_service/excel.service';
-
-import { PainelDeControleR1000Component } from './core/_modal/painel-de-controle/painel-de-controle-r1000/painel-de-controle-r1000.component';
 import { TabelaDinamicaComponent } from './core/_modal/tabela-dinamica/tabela-dinamica.component';
-import { TransmissaoComponent } from './core/_modal/transmissao/transmissao.component';
 import { PainelDeConsultaComponent } from './painel-de-consulta/painel-de-consulta.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ConsultaGeralComponent } from './core/_modal/consulta-geral/consulta-geral.component';
@@ -40,14 +36,11 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    ConsultaGeralComponent,
     HomeComponent,
     HeaderComponent,
-    PainelDeControleR2010Component,
-    PainelDeControleR1000Component,
-    TabelaDinamicaComponent,
-    TransmissaoComponent,
     PainelDeConsultaComponent,
-    ConsultaGeralComponent
+    TabelaDinamicaComponent
   ],
   imports: [
     BrowserModule,

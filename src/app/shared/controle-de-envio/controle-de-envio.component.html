@@ -1,23 +1,26 @@
 <div class="container-fluid">
-  <form>
+  <form [formGroup]="controleEnvioForm" novalidate>
     <div class="row santander-padding-top-1">
       <div class="col-2">
         <div class="form-group">
-          <label for="periodoCons">Digite o Período:</label>
+          <label for="periodoCons"><strong *ngIf="!isFilterAble" style="color: red!important;">*</strong> Digite o Período:</label>
           <input 
             type="text" 
             class="form-control" 
             id="periodoCons"
             mask="0000-00"
-            placeholder="AAAA-MM"
-            (keypress)="ableTable($event)"
-            [disabled]="!isFilterAble">
+            formControlName="periodo"
+            placeholder="AAAA-MM">
         </div>
       </div>
       <div class="col-3">
         <div class="form-group">
           <label for="exampleSelect1">Selecione o Contribuinte/Empresa:</label>
-          <select class="form-control" id="exampleSelect2">
+          <select 
+            class="form-control" 
+            id="exampleSelect2"
+            formControlName="document"
+            (change)="print($event)">
             <option selected value="">CNPJ Contribuinte/Empresa</option>
             <option *ngFor="let document of documents" value="{{document.value}}">{{document.label}}</option>
           </select>
@@ -25,26 +28,28 @@
       </div>
       <div class="col-2">
         <div class="form-group">
-          <label for="periodoInit">De:</label>
+          <label for="periodoInit"><strong *ngIf="isFilterAble" style="color: red!important;">*</strong> De:</label>
           <input 
             type="text" 
             class="form-control" 
             id="periodoInit"
             mask="00/00/0000"
+            formControlName="dateInit"
             placeholder="DD/MM/AAAA"
-            [disabled]="isFilterAble">
+            (keyup)="print($event)">
         </div>
       </div>
       <div class="col-2">
         <div class="form-group">
-          <label for="periodoEnd">Até:</label>
+          <label for="periodoEnd"><strong *ngIf="isFilterAble" style="color: red!important;">*</strong> Até:</label>
           <input 
             type="text" 
             class="form-control" 
             id="periodoEnd"
             mask="00/00/0000"
+            formControlName="dateEnd"
             placeholder="DD/MM/AAAA"
-            [disabled]="isFilterAble">
+            (keyup)="print($event)">
         </div>
       </div>
       <div class="col-3 santander-padding-top-1">
@@ -52,7 +57,7 @@
           type="button" 
           class="btn" 
           style="background-color: rgb(118, 113, 113); color: white;"
-          
+          [disabled]="!controleEnvioForm.valid"
           (click)="ableTable($event);">CONSULTAR
         </button>
       </div>
@@ -64,7 +69,7 @@
             type="checkbox" 
             class="form-check-input" 
             id="openFilter" 
-            (change)="openFilter();">
+            (change)="openFilter($event);">
           <label class="form-check-label" for="exampleCheck1">Pesquisar por período específico</label>
         </div>
       </div>

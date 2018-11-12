@@ -20,17 +20,18 @@ export class PainelDeConsultaComponent implements OnInit {
   selectedYearConsult: any;
   selectedCnpjConsult: any;
   selectedLayoutConsult: any;
+  isFilterAble: boolean = true
   consultaLayout=false;
 
-columnDefs = [
-  {headerName: 'Make', field: 'make'},
-  {headerName: 'Model', field: 'model'},
-  {headerName: 'Price', field: 'price', editable: true}
-];
+  columnDefs = [
+    {headerName: 'Make', field: 'make'},
+    {headerName: 'Model', field: 'model'},
+    {headerName: 'Price', field: 'price', editable: true}
+  ];
 
-rowData = [];
+  rowData = [];
 
-fontePagadora = [
+  fontePagadora = [
   '03.080.047/0001-09	- Fundação Santander',
   '03.209.092/0001-02	- Santander Capitalização',
   '04.127.332/0001-92	- Universia',
@@ -55,8 +56,11 @@ fontePagadora = [
   '94.870.557/0001-27	- Produban Serviços de Informática'
 ];
 
+  openFilter(){
+    this.isFilterAble = !this.isFilterAble
+  }
+  
   ngOnInit() {
-
     this.selectedOptionIclusion = "";
     this.selectedYearConsult = "";
     this.selectedCnpjConsult = "";
@@ -75,7 +79,7 @@ fontePagadora = [
     })
 
 
-    fetch('https://api.myjson.com/bins/15psn9')
+  fetch('https://api.myjson.com/bins/15psn9')
     .then(result => result.json())
     .then(rowData => this.rowData = rowData);
   }
@@ -99,29 +103,21 @@ fontePagadora = [
   }
 
   INCLUIR() {
-    // console.log("Opção selecionada: " + this.selectedOptionIclusion);
     this.inclusaoLayout = this.selectedOptionIclusion;
   }
 
   onChange() {
-
     this.btnIncluir = false;
     if (this.selectedOptionIclusion != "") {
       this.btnIncluir = true;
       this.consultaLayout = false;
     }
-    // console.log("Opção selecionada: " + this.selectedOptionIclusion);
-    // console.log("Opção btnIncluir: " + this.btnIncluir);
 
   }
 
   consulta(){
   
     this.btnConsultar = false;
-
-    // console.log("this.selectedYearConsult:" + this.selectedYearConsult);
-    // console.log("this.selectedCnpjConsult: " + this.selectedCnpjConsult);
-    // console.log("this.selectedLayoutConsult: " + this.selectedLayoutConsult);
   
     if(this.selectedYearConsult!="" && this.selectedCnpjConsult!="" && this.selectedLayoutConsult!=""){
       this.btnConsultar = true;

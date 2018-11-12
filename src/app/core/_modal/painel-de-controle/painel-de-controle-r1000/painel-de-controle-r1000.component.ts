@@ -27,6 +27,7 @@ export class PainelDeControleR1000Component implements OnInit {
   @Input()  flag: any;
 
   exportToExcel(){
+    const builtExcelFile = []
     const layout: R1000Model[] = [
       {
         TP_OPER: '1',
@@ -56,7 +57,60 @@ export class PainelDeControleR1000Component implements OnInit {
         CD_CNPJ_EFR: '00123456000167'
       }
     ]
-    this.excelService.exportAsExcelFile(layout, 'r1000_excel')
+    for(let i = 0; i < layout.length; i++){
+      const file = 
+      {
+        'Tipo de Operação (1-I / 2-A / 3-E)': '',
+        'Layout REINF': '',
+        'Sistema de Origem': '',
+        'Data Movimentação': '',
+        'Data Início de Validade': '',
+        'Data Fim de Validade': '',
+        'Código Classificação Tributo - Tabela 8': '',
+        'Inscrição escrituração ECD (0-Não faz / 1-Faz ECD)': '',
+        'Inscrição Desoneração (0-Não Aplicável / 1-Aplicável)': '',
+        'Ind. Acordo Intern. Isen. Multa (0-Sem acordo / 1-Com acordo)': '',
+        'Ind. Sit. (0-Sit.Normal / 1-Extinção / 2-Fusão / 3-Cisão / 4-Incorporação)': '',
+        'Nome Responsável Contato da Empresa': '',
+        'Código CPF Contato da Empresa': '',
+        'Código Telefone Contato da Empresa': '',
+        'Código Celular Contato da Empresa': '',
+        'Nome Email Contato da Empresa': '',
+        'Código CNPJ Empresa de Software': '',
+        'Nome Razão Social Empresa de Software': '',
+        'Nome Contato Empresa de Software': '',
+        'Código Telefone Empresa de Software': '',
+        'Nome Email Empresa de Software': '',
+        'Ident. EFR': '',
+        'Código CNPJ EFR': ''
+      }
+      file['Tipo de Operação (1-I / 2-A / 3-E)'] = layout[i].TP_OPER
+      file['Layout REINF'] = layout[i].NM_LAYOUT
+      file['Sistema de Origem'] = layout[i].CD_SIS_ORIG
+      file['Data Movimentação'] = layout[i].DT_MOVIMENT
+      file['Data Início de Validade'] = layout[i].DT_INI_VAL
+      file['Data Fim de Validade'] = layout[i].DT_FIM_VAL
+      file['Código Classificação Tributo - Tabela 8'] = layout[i].CD_CLASSTRIB
+      file['Inscrição escrituração ECD (0-Não faz / 1-Faz ECD)'] = layout[i].IN_ESCRITUR
+      file['Inscrição Desoneração (0-Não Aplicável / 1-Aplicável)'] = layout[i].IN_DESONERA
+      file['Ind. Acordo Intern. Isen. Multa (0-Sem acordo / 1-Com acordo)'] = layout[i].IN_ACO_MULT
+      file['Ind. Sit. (0-Sit.Normal / 1-Extinção / 2-Fusão / 3-Cisão / 4-Incorporação)'] = layout[i].IN_SIT_PJ
+      file['Nome Responsável Contato da Empresa'] = layout[i].NM_RESP_CON
+      file['Código CPF Contato da Empresa'] = layout[i].CD_CPF_CON
+      file['Código Telefone Contato da Empresa'] = layout[i].CD_TEL_CON
+      file['Código Celular Contato da Empresa'] = layout[i].CD_CEL_CON
+      file['Nome Email Contato da Empresa'] = layout[i].NM_EMAIL_CON
+      file['Código CNPJ Empresa de Software'] = layout[i].CD_CNPJ_EMP
+      file['Nome Razão Social Empresa de Software'] = layout[i].NM_RAZAO_EMP
+      file['Nome Contato Empresa de Software'] = layout[i].NM_CON_EMP
+      file['Código Telefone Empresa de Software'] = layout[i].CD_TEL_EMP
+      file['Nome Email Empresa de Software'] = layout[i].NM_EMAIL_EMP
+      file['Ident. EFR'] = layout[i].ID_EFR
+      file['Código CNPJ EFR'] = layout[i].CD_CNPJ_EFR
+      builtExcelFile.push(file)
+    }
+    
+    this.excelService.exportAsExcelFile(builtExcelFile, 'r1000_excel')
   }
 
   ngOnInit() {
@@ -87,6 +141,7 @@ export class PainelDeControleR1000Component implements OnInit {
       ID_EFR: '1',
       CD_CNPJ_EFR: '00123456000167'     
     };
+    $('#xxx').click();
 
     $('.pane-hScroll').scroll(function() {
       $('.pane-vScroll').width($('.pane-hScroll').width() + $('.pane-hScroll').scrollLeft());

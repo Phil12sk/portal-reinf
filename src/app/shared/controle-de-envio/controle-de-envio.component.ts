@@ -4,12 +4,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DocumentModel } from '../../core/_model/document.model';
 import { Router } from '@angular/router';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { DISABLED } from '@angular/forms/src/model';
 declare var $: any
 
 @Component({
-  selector: 'app-controle-envio',
-  templateUrl: './controle-envio.component.html',
-  styleUrls: ['./controle-envio.component.css'],
+  selector: 'app-controle-de-envio',
+  templateUrl: './controle-de-envio.component.html',
+  styleUrls: ['./controle-de-envio.component.css'],
   animations: [
     trigger('tableAppear', [
       state('ready', style({opacity: 1})),
@@ -20,11 +21,11 @@ declare var $: any
     ])
   ]
 })
-export class ControleEnvioComponent implements OnInit {
+export class ControleDeEnvioComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router) { }
   tableState = 'ready'
-  consultForm: FormGroup
+  controleEnvioForm: FormGroup
   datePattern = /([12]\d{3}(0[1-9]|1[0-2]))/
   documents: DocumentModel[] = [
     {label: '03.080.047/0001-09 - Fundação Santander', value: '03080047000109'},
@@ -54,7 +55,7 @@ export class ControleEnvioComponent implements OnInit {
   action: any
   opt: boolean
   ableBtn: boolean
-  isFilterAble: boolean = true
+  isFilterAble: boolean = false
   layouts: any = [
     {
       label: 'R1000',
@@ -258,8 +259,35 @@ export class ControleEnvioComponent implements OnInit {
   ]
   contribuintes: any[]
 
-  openFilter(){
-    this.isFilterAble = !this.isFilterAble
+  openFilter($event){
+    if($event.target.checked){
+      this.isFilterAble = !this.isFilterAble
+      this.controleEnvioForm.get('periodo').reset()
+      this.controleEnvioForm.get('periodo').disable()
+      this.controleEnvioForm.get('dateInit').enable()
+      this.controleEnvioForm.get('dateEnd').enable()
+      this.controleEnvioForm.get('dateInit').setValidators([
+        Validators.required, Validators.minLength(8)
+      ])
+      this.controleEnvioForm.get('dateEnd').setValidators([
+        Validators.required, Validators.minLength(8)
+      ])
+    }else{
+      this.isFilterAble = !this.isFilterAble
+      this.controleEnvioForm.get('dateInit').reset()
+      this.controleEnvioForm.get('dateEnd').reset()
+      this.controleEnvioForm.get('periodo').enable()
+      this.controleEnvioForm.get('periodo').setValidators([
+        Validators.required, Validators.minLength(6)
+      ])
+      this.controleEnvioForm.get('dateInit').disable()
+      this.controleEnvioForm.get('dateEnd').disable()
+      this.controleEnvioForm.get('dateInit').setValidators([Validators.nullValidator])
+      this.controleEnvioForm.get('dateEnd').setValidators([Validators.nullValidator])
+    }
+    this.controleEnvioForm.get('periodo').updateValueAndValidity();
+    this.controleEnvioForm.get('dateInit').updateValueAndValidity();
+    this.controleEnvioForm.get('dateEnd').updateValueAndValidity();
   }
   
   buildAction(value, layout){
@@ -276,36 +304,24 @@ export class ControleEnvioComponent implements OnInit {
     }
   }
 
-  test(){
-
-  }
-
   ableTable($event){
     this.ableTab = false
-    const periodoCons = (<HTMLInputElement>document.getElementById('periodoCons')).value
-    const periodoInit = (<HTMLInputElement>document.getElementById('periodoInit')).value
-    const periodoEnd = (<HTMLInputElement>document.getElementById('periodoEnd')).value
-    if(periodoCons.length > 0){
-      
-    }else{
-      if( periodoInit.length > 0 || periodoEnd.length > 0){
-        console.log(1)
-      }else{
-        console.log(2)
-      }
-    }
   }
 
   ngOnInit() {
     this.router.navigate(['/home/controle-envio'])
-    // this.consultForm = this.formBuilder.group({
-    //   document: this.formBuilder.control('', [Validators.required]),
-    //   periodo: this.formBuilder.control('', [
-    //     Validators.required, Validators.minLength(6),
-    //     Validators.pattern(this.datePattern)
-    //   ]),
-    //   dateInit: this.formBuilder.control(''),
-    //   dateEnd: this.formBuilder.control('')
-    // })
+    this.controleEnvioForm = this.formBuilder.group({
+      document: this.formBuilder.control('', Validators.required),
+      periodo: this.formBuilder.control('', [
+        Validators.required, 
+        Validators.minLength(6),
+        Validators.pattern(this.datePattern),
+        
+      ]),
+      dateInit: this.formBuilder.control(''),
+      dateEnd: this.formBuilder.control('')
+    })
+    this.controleEnvioForm.get('dateInit').disable()
+    this.controleEnvioForm.get('dateEnd').disable()
   }
 }

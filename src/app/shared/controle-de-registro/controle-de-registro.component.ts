@@ -10,9 +10,9 @@ import { ContribuintePainelControle } from '../../core/_model/contribuintePainel
 declare var $: any;
 
 @Component({
-  selector: 'app-controle-integracoes',
-  templateUrl: './controle-integracoes.component.html',
-  styleUrls: ['./controle-integracoes.component.css'],
+  selector: 'app-controle-de-registro',
+  templateUrl: './controle-de-registro.component.html',
+  styleUrls: ['./controle-de-registro.component.css'],
   animations: [
     trigger('tableAppear', [
       state('ready', style({opacity: 1})),
@@ -23,7 +23,7 @@ declare var $: any;
     ])
   ]
 })
-export class ControleIntegracoesComponent implements OnInit {
+export class ControleDeRegistroComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -94,7 +94,7 @@ export class ControleIntegracoesComponent implements OnInit {
     this.today;
     const newDate = new Date(this.today);
 
-    newDate.setDate(newDate.getDate() - 5);
+    newDate.setDate(newDate.getDate() - 4);
     var dd = newDate.getDate().toString();
     var mm = (newDate.getMonth() + 1).toString();
     var y = newDate.getFullYear().toString();
@@ -120,8 +120,8 @@ export class ControleIntegracoesComponent implements OnInit {
       dateEnd: this.formBuilder.control(this.today.toLocaleString(), [
         Validators.required, Validators.minLength(8)
       ]),
-      system: this.formBuilder.control(''),
-      document: this.formBuilder.control('')
+      system: this.formBuilder.control('', Validators.required),
+      document: this.formBuilder.control('', Validators.required)
     })
   }
 }

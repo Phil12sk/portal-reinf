@@ -19,17 +19,22 @@
     </div>
   </div>
   <hr style="border-top: 2px solid rgba(0,0,0,.1);">
-  <div class="row santander-padding-top-1" style="padding-top: 0px!important; margin-top: 50px;margin-bottom: 20px;">
-    <div class="col-2">
-      <label for="periodoInit">Ano Fiscal:</label>
-      <select formControlName="document" class="form-control" id="selectedYearConsult" (change)="consulta($event)" [(ngModel)]="selectedYearConsult">
-        <option selected value="">Selecione ----</option>
-        <option selected value="2018">2018</option>
+  <div class="row santander-padding-top-1" style="margin-top: 50px;margin-bottom: 20px;">
+    <div class="col-3">
+      <label for="periodoInit"><strong *ngIf="isFilterAble" style="color: red!important;">*</strong>Ano Fiscal:</label>
+      <select 
+        [disabled]="!isFilterAble" 
+        class="form-control" 
+        id="selectedYearConsult" 
+        (change)="consulta($event)">
+        <option selected value="empty">Selecione ----</option>
+        <option value="2018">2018</option>
       </select>
     </div>
+    <div class="col-2">&nbsp;</div>
     <div class="col-2">
       <div class="form-group">
-        <label for="periodoInit">De:</label>
+        <label for="periodoInit"><strong *ngIf="!isFilterAble" style="color: red!important;">*</strong>De:</label>
         <input 
           type="text" 
           class="form-control" 
@@ -41,7 +46,7 @@
     </div>
     <div class="col-2">
       <div class="form-group">
-        <label for="periodoEnd">Até:</label>
+        <label for="periodoEnd"><strong *ngIf="!isFilterAble" style="color: red!important;">*</strong>Até:</label>
         <input 
           type="text" 
           class="form-control" 
@@ -52,83 +57,78 @@
       </div>
     </div>
   </div>
-  <div class="row santander-padding-top-1" style="padding-top: 0px!important; margin-bottom: 20px;">
-    <div class="col-2" style="display: inline-block; vertical-align:top;">
-      <p>Contribuinte/Empresa:</p>
+  <div class="row santander-padding-top-0">
+    <div class="col-12">
+      <div class="form-check">
+        <input 
+          type="checkbox" 
+          class="form-check-input" 
+          id="openFilter" 
+          (change)="openFilter();">
+        <label class="form-check-label" for="exampleCheck1">Pesquisar por período específico</label>
+      </div>
     </div>
-    <div class="col-6" style="display: inline-block; vertical-align:top;    margin-left: -30px;">
-      <p>
-        <select formControlName="document" class="form-control" id="selectedCnpjConsult" (change)="consulta($event)" [(ngModel)]="selectedCnpjConsult">
-          <option selected value="">Selecione ----</option>       
-          <option *ngFor="let cnpj of fontePagadora" value="cnpj">{{cnpj}}</option>       
-        </select>
-      </p>
+  </div>
+  <div class="row santander-padding-top-1" style="margin-bottom: 20px;">
+    <div class="col-6" style="display: inline-block; vertical-align:top;">
+      <label for="contrEmpr"><strong style="color: red!important;">*</strong>Contribuinte/Empresa:</label>
+      <select formControlName="document" class="form-control" id="selectedCnpjConsult" (change)="consulta($event)" [(ngModel)]="selectedCnpjConsult">
+        <option selected value="">Selecione ----</option>       
+        <option *ngFor="let cnpj of fontePagadora" value="cnpj">{{cnpj}}</option>       
+      </select>
     </div>
-    <div class="col-1" style="display: inline-block; vertical-align:top;">
-      <p>Registros:</p>
-    </div>
-    <div class="col-2" style="display: inline-block; vertical-align:top;">
-      <p>
-        <select formControlName="document" class="form-control" id="selectedLayoutConsult" [(ngModel)]="selectedLayoutConsult" (change)="consulta($event)">
-          <option selected value="">Selecione ----</option>
-          <option value="R1000">R1000</option>
-          <option value="R1070">R1070</option>
-          <option value="R2010">R2010</option>
-          <option value="R2060">R2060</option>
-        </select>
-      </p>
+    <div class="col-1">&nbsp;</div>
+    <div class="col-3" style="display: inline-block; vertical-align:top;">
+      <label for="registro"><strong style="color: red!important;">*</strong>Registros:</label>
+      <select formControlName="document" class="form-control" id="selectedLayoutConsult" [(ngModel)]="selectedLayoutConsult" (change)="consulta($event)">
+        <option selected value="">Selecione ----</option>
+        <option value="R1000">R1000</option>
+        <option value="R1070">R1070</option>
+        <option value="R2010">R2010</option>
+        <option value="R2060">R2060</option>
+      </select>
     </div>
   </div>
   <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
-    <div class="col-1" style="display: inline-block; vertical-align:top;">
-      <p>Banco:</p>
+    <div class="col-3" style="display: inline-block; vertical-align:top;">
+      <label for="banco"> Banco:</label>
+      <select formControlName="document" class="form-control" id="exampleSelect" disabled>
+        <option selected value="">       </option>       
+      </select>
     </div>
-    <div class="col-2" style="display: inline-block; vertical-align:top;">
-      <p>
-        <select formControlName="document" class="form-control" id="exampleSelect" disabled>
-          <option selected value="">       </option>       
-        </select>
-      </p>
+    <div class="col-3" style="display: inline-block; vertical-align:top;">
+      <label for="codProduto">Código de Produto:</label>
+      <select formControlName="document" class="form-control" id="exampleSelect" disabled>
+        <option selected value="">       </option>       
+      </select>
     </div>
-    <div class="col-1" style="display: inline-block; vertical-align:top;">
-      <p>Código de Produto:</p>
-    </div>
-    <div class="col-2" style="display: inline-block; vertical-align:top;">
-      <p>
-        <select formControlName="document" class="form-control" id="exampleSelect" disabled>
-          <option selected value="">       </option>       
-        </select>
-      </p>
+    <div class="col-1">&nbsp;</div>
+    <div class="col-2 santander-padding-top-1">
+      <button 
+        [disabled]="!btnConsultar" 
+        class="btn" 
+        style="background-color: rgb(118, 113, 113); color: white;" 
+        (click)="pesquisar()"
+        data-toggle="modal" 
+        data-target=".bd-example-modal-lg">PESQUISAR</button>
     </div>
   </div>
   <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
-    <div class="col-1" style="display: inline-block; vertical-align:top;">
-      <p>Sistema:</p>
+    <div class="col-3" style="display: inline-block; vertical-align:top;">
+      <label for="sistema">Sistema:</label>
+      <select formControlName="document" class="form-control" id="exampleSelect">
+        <option selected value="">Selecione ----</option>       
+        <option value="DZ">DZ</option>       
+        <option value="IC">IC</option>       
+        <option value="IR">IR</option>       
+        <option value="TJ">TJ</option>       
+      </select>
     </div>
-    <div class="col-2" style="display: inline-block; vertical-align:top;">
-      <p>
-        <select formControlName="document" class="form-control" id="exampleSelect">
-          <option selected value="">Selecione ----</option>       
-          <option value="DZ">DZ</option>       
-          <option value="IC">IC</option>       
-          <option value="IR">IR</option>       
-          <option value="TJ">TJ</option>       
-        </select>
-      </p>
-    </div>
-    <div class="col-1" style="display: inline-block; vertical-align:top;">
-      <p>Código de Retenção:</p>
-    </div>
-    <div class="col-2" style="display: inline-block; vertical-align:top;">
-      <p>
-        <select formControlName="document" class="form-control" id="exampleSelect" disabled>
-          <option selected value="">       </option>       
-        </select>
-      </p>
-    </div>
-    <div class="col-2" style="display: inline-block; vertical-align:top;">
-      <button [disabled]="!btnConsultar" class="btn" style="background-color: rgb(118, 113, 113); color: white; display: block;float: right;" (click)="pesquisar()"
-        data-toggle="modal" data-target=".bd-example-modal-lg">PESQUISAR</button>
+    <div class="col-3" style="display: inline-block; vertical-align:top;">
+      <label for="codRetencao">Código de Retenção:</label>
+      <select formControlName="document" class="form-control" id="exampleSelect" disabled>
+        <option selected value="">       </option>       
+      </select>
     </div>
   </div>
 </div>

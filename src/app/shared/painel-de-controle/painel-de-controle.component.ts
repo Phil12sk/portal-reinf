@@ -174,33 +174,19 @@ mod:any;
     this.mod='';
 
     if (flag != 'gray') {
-     
-    // this.contribuinte= contribuinte;
-    // this.periodo= periodo;
-    // this.flag= flag;
-   
-   
-
-      // console.log("contribuinteSelecionado - : " + JSON.stringify(this.contribuinteSelecionado));
-      
-
-    //   this.router.navigate([`/home/eventos-pendentes/${layout}`])
       if (layout == 'R1000') {
         this.mod=2;
-        // this.router.navigate(['/home/painel-de-controle/Painel-controle-R1000'])
       }
       if (layout == 'R1070') {
         this.mod=3;
-        // this.router.navigate(['/home/painel-de-controle/Painel-controle-R1070'])
       }
       if (layout == 'R2010') {
         this.mod=4;
-        // this.router.navigate(['/home/painel-de-controle/Painel-controle'])
       }
       if (layout == 'R2060') {
         this.mod=5;
-        // this.router.navigate(['/home/painel-de-controle/Painel-controle-R2060'])
       }
+      console.log(this.mod)
     }
   }
 
