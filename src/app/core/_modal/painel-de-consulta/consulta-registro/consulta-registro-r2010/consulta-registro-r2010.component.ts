@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class ConsultaRegistroR2010Component implements OnInit {
 
   constructor() { }
+  isHistoric: boolean = false
 
+  checkHistoric(){
+    this.isHistoric = ! this.isHistoric
+  }
+  
   ngOnInit() {
   }
-
 }

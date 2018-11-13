@@ -108,7 +108,7 @@ export class PainelDeConsultaComponent implements OnInit {
 
   pesquisar(){
     //const number = Math.floor((Math.random() * 4) + 1)
-    const number = 1
+    const number = 4
     this.layoutSelected = number
   }
 }

@@ -4,7 +4,9 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body">
+<div class="modal-body" *ngIf="!isHistoric">
+  <p style="display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
+  <p style="display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
   <div class="row santander-padding-top-1" style="    width: 100%;">
     <div class="col-12" style="    overflow: scroll;">
       <table class="table-bordered text-center">
@@ -75,13 +77,25 @@
             <td scope="col">{{r2060?.VL_AJUSTE}}</td>
             <td scope="col">{{r2060?.DESC_AJUSTE}}</td>
             <td scope="col">{{r2060?.DT_AJUSTE}}</td>
+            <td scope="col"></td>
+            <td scope="col"></td>
+            <td scope="col"></td>
+            <td scope="col"></td>
+            <td scope="col">
+              <button 
+                class="btn" 
+                style="background-color: rgb(118, 113, 113); color: white;"
+                (click)="checkHistoric();">
+                Ver Histórico
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
-<div class="modal-footer">
+<div class="modal-footer" *ngIf="!isHistoric">
   <button 
     type="button" 
     class="btn" 
@@ -98,6 +112,106 @@
     data-dismiss="modal"
     (click)="changeVar();"
     >Alterar
+  </button>
+  <button 
+    (click)="exportToExcel();"
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;">
+    Exportar para Excel
+    <i class="fas fa-file-excel-o" aria-hidden="true"></i>
+  </button>
+</div>
+<div class="modal-body" *ngIf="isHistoric">
+  <p style="display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
+  <p style="display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
+  <div class="row santander-padding-top-1" style="    width: 100%;">
+    <div class="col-12" style="    overflow: scroll;">
+      <table class="table-bordered text-center">
+        <thead class="santander-thead" style="background-color: gray;">
+          <tr>
+            <th scope="col">Tipo de Operação (1-I / 2-A / 3-E / 4-R)</th>
+            <th scope="col">Layout REINF</th>
+            <th scope="col">Sistema de Origem</th>
+            <th scope="col">Código Produto</th>
+            <th scope="col">Código Retenção</th>
+            <th scope="col">Data Movimentação</th>
+            <th scope="col">Tipo Inscrção (1-CNPJ / 2-CPF)</th>
+            <th scope="col">Número Inscrção do Contribuinte</th>
+            <th scope="col">Tipo Inscrção Estadual (1-CNPJ / 4-CNO)</th>
+            <th scope="col">Número Inscrção Estadual Estabelecimento</th>
+            <th scope="col">Valor da Receita Bruta Total do Estabelecimento</th>
+            <th scope="col">Valor Total CPRB do Estabelecimento</th>
+            <th scope="col">Valor CPRB Susp. Total</th>
+            <th scope="col">Código Atividade Econômica - tabela 9</th>
+            <th scope="col">Valor Total da Receita Ativ.</th>
+            <th scope="col">Valor Total das Exclusões Receita Bruta</th>
+            <th scope="col">Valor Total das Adições Receita Bruta</th>
+            <th scope="col">Valor Base CPRB</th>
+            <th scope="col">Valor CPRB Apur.</th>
+            <th scope="col">Valor CPRB Susp.</th>
+            <th scope="col">Tipo Processo (1-Administrativo / 2-Judicial)</th>
+            <th scope="col">Número Processo</th>
+            <th scope="col">Código Ind Susp. - CodSup</th>
+            <th scope="col">Tipo Ajuste (0-Redução / 1-Acréscimo)</th>
+            <th scope="col">Código Ajuste</th>
+            <th scope="col">Valor Ajuste</th>
+            <th scope="col">Descrição Ajuste</th>
+            <th scope="col">Data Ajuste</th>
+            <th scope="col">Data da Alteração</th>
+            <th scope="col">Usuário da Alteração</th>
+            <th scope="col">Data da Aprovação</th>
+            <th scope="col">Usuário da Aprovação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="col">{{r2060?.TP_OPER}}</td>
+            <td scope="col">{{r2060?.NM_LAYOUT}}</td>
+            <td scope="col">{{r2060?.CD_SIS_ORIG}}</td>
+            <td scope="col">{{r2060?.CD_PRODUTO}}</td>
+            <td scope="col">{{r2060?.CD_RETENCAO}}</td>
+            <td scope="col">{{r2060?.DT_MOVIMENT}}</td>
+            <td scope="col">{{r2060?.TP_INSCRI}}</td>
+            <td scope="col">{{r2060?.NR_INSCRI}}</td>
+            <td scope="col">{{r2060?.TP_INSC_EST}}</td>
+            <td scope="col">{{r2060?.NR_INSC_EST}}</td>
+            <td scope="col">{{r2060?.VL_TOT_RECBRUTA}}</td>
+            <td scope="col">{{r2060?.VL_TOT_APUESTAB}}</td>
+            <td scope="col">{{r2060?.VL_TOT_EXIGSUSP}}</td>
+            <td scope="col">{{r2060?.CD_ATI_ECON}}</td>
+            <td scope="col">{{r2060?.VL_REC_ATIV}}</td>
+            <td scope="col">{{r2060?.VL_EXC_REC}}</td>
+            <td scope="col">{{r2060?.VL_ADI_REC}}</td>
+            <td scope="col">{{r2060?.VL_BASE_CALC}}</td>
+            <td scope="col">{{r2060?.VL_PREV_REC}}</td>
+            <td scope="col">{{r2060?.VL_PROC_SUSP}}</td>
+            <td scope="col">{{r2060?.TP_PROCESSO}}</td>
+            <td scope="col">{{r2060?.NR_PROCESSO}}</td>
+            <td scope="col">{{r2060?.CD_IND_SUSP}}</td>
+            <td scope="col">{{r2060?.TP_AJUSTE}}</td>
+            <td scope="col">{{r2060?.CD_AJUSTE}}</td>
+            <td scope="col">{{r2060?.VL_AJUSTE}}</td>
+            <td scope="col">{{r2060?.DESC_AJUSTE}}</td>
+            <td scope="col">{{r2060?.DT_AJUSTE}}</td>
+            <td scope="col"></td>
+            <td scope="col"></td>
+            <td scope="col"></td>
+            <td scope="col"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="modal-footer" *ngIf="isHistoric">
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    [disabled]="!r2010Form.valid"
+    (click)="checkHistoric();"
+    >Voltar
   </button>
   <button 
     (click)="exportToExcel();"

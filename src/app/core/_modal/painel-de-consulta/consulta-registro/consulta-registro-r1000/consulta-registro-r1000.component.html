@@ -4,10 +4,9 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body">
+<div class="modal-body" *ngIf="!isHistoric">
   <p style="display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
   <p style="display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
-  <button *ngIf="flag!='green'" class="btn" style="background-color: rgb(118, 113, 113); color: white;    display: block;margin-top: 20px;">TRANSMITIR<i class="fas fa-share-square"></i></button>
   <div class="row santander-padding-top-1" style="width: 100%;">
     <div class="col-12" style="    overflow: scroll;">
       <table class="table-bordered text-center">
@@ -76,7 +75,7 @@
               <button 
                 class="btn" 
                 style="background-color: rgb(118, 113, 113); color: white;"
-                [disabled]="!ableBtn">
+                (click)="checkHistoric();">
                 Ver Histórico
               </button>
             </td>
@@ -87,11 +86,101 @@
     </div>
   </div>
 </div>
-<div class="modal-footer">
+<div class="modal-footer" *ngIf="!isHistoric">
   <button 
     (click)="exportToExcel();"
     class="btn" 
-    style="background-color: rgb(118, 113, 113); color: white; display: block; float: right; margin-top: 7px;">
+    style="background-color: rgb(118, 113, 113); color: white;">
+    Exportar para Excel
+    <i class="fas fa-file-excel-o" aria-hidden="true"></i>
+  </button>
+</div>
+<div class="modal-body" *ngIf="isHistoric">
+  <p style="display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
+  <p style="display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
+  <div class="row santander-padding-top-1" style="width: 100%;">
+    <div class="col-12" style="    overflow: scroll;">
+      <table class="table-bordered text-center">
+        <thead class="santander-thead" style="    background-color: gray;">
+          <tr>
+            <th scope="col">Tipo de Operação (1-I / 2-A / 3-E)</th>
+            <th scope="col">Layout REINF</th>
+            <th scope="col">Sistema de Origem</th>
+            <th scope="col">Data Movimentação</th>
+            <th scope="col">Data Início de Validade</th>
+            <th scope="col">Data Fim de Validade</th>
+            <th scope="col">Código Classificação Tributo - Tabela 8</th>
+            <th scope="col">Inscrição escrituração ECD (0-Não faz / 1-Faz ECD)</th>
+            <th scope="col">Inscrição Desoneração (0-Não Aplicável / 1-Aplicável)</th>
+            <th scope="col">Ind. Acordo Intern. Isen. Multa (0-Sem acordo / 1-Com acordo)</th>
+            <th scope="col">Ind. Sit. (0-Sit.Normal / 1-Extinção / 2-Fusão / 3-Cisão / 4-Incorporação)</th>
+            <th scope="col">Nome Responsável Contato da Empresa</th>
+            <th scope="col">Código CPF Contato da Empresa</th>
+            <th scope="col">Código Telefone Contato da Empresa</th>
+            <th scope="col">Código Celular Contato da Empresa</th>
+            <th scope="col">Nome Email Contato da Empresa</th>
+            <th scope="col">Código CNPJ Empresa de Software</th>
+            <th scope="col">Nome Razão Social Empresa de Software</th>
+            <th scope="col">Nome Contato Empresa de Software</th>
+            <th scope="col">Código Telefone Empresa de Software</th>
+            <th scope="col">Nome Email Empresa de Software</th>
+            <th scope="col">Ident. EFR</th>
+            <th scope="col">Código CNPJ EFR</th>
+            <th scope="col">Data da Alteração</th>
+            <th scope="col">Usuário da Alteração</th>
+            <th scope="col">Data da Aprovação</th>
+            <th scope="col">Usuário da Aprovação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="col">{{r1000?.TP_OPER}}</td>
+            <td scope="col">{{r1000?.NM_LAYOUT}}</td>
+            <td scope="col">{{r1000?.CD_SIS_ORIG}}</td>
+            <td scope="col">{{r1000?.DT_MOVIMENT}}</td>
+            <td scope="col">{{r1000?.DT_INI_VAL}}</td>
+            <td scope="col">{{r1000?.DT_FIM_VAL}}</td>
+            <td scope="col">{{r1000?.CD_CLASSTRIB}}</td>
+            <td scope="col">{{r1000?.IN_ESCRITUR}}</td>
+            <td scope="col">{{r1000?.IN_DESONERA}}</td>
+            <td scope="col">{{r1000?.IN_ACO_MULT}}</td>
+            <td scope="col">{{r1000?.IN_SIT_PJ}}</td>
+            <td scope="col">{{r1000?.NM_RESP_CON}}</td>
+            <td scope="col">{{r1000?.CD_CPF_CON}}</td>
+            <td scope="col">{{r1000?.CD_TEL_CON}}</td>
+            <td scope="col">{{r1000?.CD_CEL_CON}}</td>
+            <td scope="col">{{r1000?.NM_EMAIL_CON}}</td>
+            <td scope="col">{{r1000?.CD_CNPJ_EMP}}</td>
+            <td scope="col">{{r1000?.NM_RAZAO_EMP}}</td>
+            <td scope="col">{{r1000?.NM_CON_EMP}}</td>
+            <td scope="col">{{r1000?.CD_TEL_EMP}}</td>
+            <td scope="col">{{r1000?.NM_EMAIL_EMP}}</td>
+            <td scope="col">{{r1000?.ID_EFR}}</td>
+            <td scope="col">{{r1000?.CD_CNPJ_EFR}}</td>
+            <td scope="col"></td>
+            <td scope="col"></td>
+            <td scope="col"></td>
+            <td scope="col"></td>
+          </tr>
+        </tbody>
+      </table>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<div class="modal-footer" *ngIf="isHistoric">
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    [disabled]="!r2010Form.valid"
+    (click)="checkHistoric();">Voltar
+  </button>
+  <button 
+    (click)="exportToExcel();"
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;">
     Exportar para Excel
     <i class="fas fa-file-excel-o" aria-hidden="true"></i>
   </button>
