@@ -1,0 +1,137 @@
+<div class="modal-header modal-header-pop-up">
+  <h5 class="modal-title" id="exampleModalLabel">Controle de Registro R2010</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row santander-padding-top-1" style="width: 100%;">
+    <div class="col-12" style="    overflow: scroll;">
+      <table class="table-bordered text-center">
+        <thead class="santander-thead" style="background-color: gray;">
+          <tr>
+            <th scope="col">Tipo de Operação (1-I / 2-A / 3-E / 4-R)</th>
+            <th scope="col">Layout REINF</th>
+            <th scope="col">Sistema de Origem</th>
+            <th scope="col">Código Produto</th>
+            <th scope="col">Código Retenção</th>
+            <th scope="col">Data Movimentação</th>
+            <th scope="col">Tipo Inscrição (1-CNPJ / 2-CPF)</th>
+            <th scope="col">Número Inscrição do Contribuinte</th>
+            <th scope="col">Tipo de Inscrição Estabelecimento (1-CNPJ / 4-CNO)</th>
+            <th scope="col">Número de Inscrição Estabelecimento</th>
+            <th scope="col">Inscrição Obra (0-Não é obra de Construção Civil ou não está sujeita a matrícula)</th>
+            <th scope="col">CNPJ Prestador</th>
+            <th scope="col">Valor Total Bruto NF(s)</th>
+            <th scope="col">Soma Valor Total Base Ret. NF(s)</th>
+            <th scope="col">Valor Total Principal Ret. NF(s)</th>
+            <th scope="col">Valor Total Adicional Ret. NF(s)</th>
+            <th scope="col">Valor Total Principal Não Ret. NF(s)</th>
+            <th scope="col">Valor Total Adicional Não Ret. NF(s)</th>
+            <th scope="col">Indicativo CPRB (0-Não contribui: retenção 11% / 1-Contribui: retenção 3,5%)</th>
+            <th scope="col">Série NF</th>
+            <th scope="col">Número da NF</th>
+            <th scope="col">Data Emissão NF</th>
+            <th scope="col">Valor Bruto da NF</th>
+            <th scope="col">Observação</th>
+            <th scope="col">Tipo Serviço - Tabela 6</th>
+            <th scope="col">Valor Base Retenção da NF</th>
+            <th scope="col">Valor Retenção da NF</th>
+            <th scope="col">Valor Retenção dos Serviços Subcontratados</th>
+            <th scope="col">Valor Principal Não Ret. NF(s)</th>
+            <th scope="col">Valor Serviços Prestados após 15 anos</th>
+            <th scope="col">Valor Serviços Prestados após 20 anos</th>
+            <th scope="col">Valor Serviços Prestados após 25 anos</th>
+            <th scope="col">Valor Adicional Serviços Prestados após 15, 20 ou 25 anos</th>
+            <th scope="col">Valor Adicional Não Ret. NF(s)</th>
+            <th scope="col">Tipo de Processo (1-Administrativo / 2-Judicial)</th>
+            <th scope="col">Número do Processo</th>
+            <th scope="col">Código Susp. Principal - codSuspPrinc</th>
+            <th scope="col">Valor Retenção Susp. Principal</th>
+            <th scope="col">Tipo Processo Adicional (1-Administrativo / 2-Judicial) - tpProcRetAdic</th>
+            <th scope="col">Número do Processo Adicional - nrProcRetAdic</th>
+            <th scope="col">Código Susp. Adicional - codSuspAdic</th>
+            <th scope="col">Valor Retenção Susp. Adicional</th>
+            <th scope="col">Data da Alteração</th>
+            <th scope="col">Usuário da Alteração</th>
+            <th scope="col">Data da Aprovação</th>
+            <th scope="col">Usuário da Aprovação</th>
+            <th scope="col">Histórico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="col">{{r2010?.TP_OPER}}</td>
+            <td scope="col">{{r2010?.NM_LAYOUT}}</td>
+            <td scope="col">{{r2010?.CD_SIS_ORIG}}</td>
+            <td scope="col">{{r2010?.CD_PRODUTO}}</td>
+            <td scope="col">{{r2010?.CD_RETENCAO}}</td>
+            <td scope="col">{{r2010?.DT_MOVIMENT}}</td>
+            <td scope="col">{{r2010?.TP_INSCRI}}</td>
+            <td scope="col">{{r2010?.NR_INSCRI}}</td>
+            <td scope="col">{{r2010?.TP_INSC_EST}}</td>
+            <td scope="col">{{r2010?.NR_INSC_EST}}</td>
+            <td scope="col">{{r2010?.IN_OBRA}}</td>
+            <td scope="col">{{r2010?.NR_CNPJ_PRE}}</td>
+            <td scope="col">{{r2010?.VL_TOT_BRUTO}}</td>
+            <td scope="col">{{r2010?.VL_TOT_BASERET}}</td>
+            <td scope="col">{{r2010?.VL_TOT_RETPRINC}}</td>
+            <td scope="col">{{r2010?.VL_TOT_RETADIC}}</td>
+            <td scope="col">{{r2010?.VL_TOT_NRETPRI}}</td>
+            <td scope="col">{{r2010?.VL_TOT_NRETADIC}}</td>
+            <td scope="col">{{r2010?.IN_CPRB}}</td>
+            <td scope="col">{{r2010?.NR_SERIE}}</td>
+            <td scope="col">{{r2010?.NR_DOCTO}}</td>
+            <td scope="col">{{r2010?.DT_EMISSAONF}}</td>
+            <td scope="col">{{r2010?.VL_BRUTO}}</td>
+            <td scope="col">{{r2010?.NM_OBS}}</td>
+            <td scope="col">{{r2010?.TP_SERVICO}}</td>
+            <td scope="col">{{r2010?.VL_BASERET}}</td>
+            <td scope="col">{{r2010?.VL_RETENCAO}}</td>
+            <td scope="col">{{r2010?.VL_RETSUB}}</td>
+            <td scope="col">{{r2010?.VL_NRETPRINC}}</td>
+            <td scope="col">{{r2010?.VL_SERVICOS15}}</td>
+            <td scope="col">{{r2010?.VL_SERVICOS20}}</td>
+            <td scope="col">{{r2010?.VL_SERVICOS25}}</td>
+            <td scope="col">{{r2010?.VL_ADICIONAL}}</td>
+            <td scope="col">{{r2010?.VL_NRETADIC}}</td>
+            <td scope="col">{{r2010?.TP_PROC_RET}}</td>
+            <td scope="col">{{r2010?.NR_PROC_RET}}</td>
+            <td scope="col">{{r2010?.CD_SUSP_PRIN}}</td>
+            <td scope="col">{{r2010?.VL_PRINC}}</td>
+            <td scope="col">{{r2010?.TP_PROC_ADIC}}</td>
+            <td scope="col">{{r2010?.NR_PROC_ADIC}}</td>
+            <td scope="col">{{r2010?.CD_SUSP_ADIC}}</td>
+            <td scope="col">{{r2010?.VL_ADIC}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    [disabled]="!r2010Form.valid"
+    (click)="changeVar();"
+    >Excluir
+  </button>
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >Alterar
+  </button>
+  <button 
+    (click)="exportToExcel();"
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;">
+    Exportar para Excel
+    <i class="fas fa-file-excel-o" aria-hidden="true"></i>
+  </button>
+</div>

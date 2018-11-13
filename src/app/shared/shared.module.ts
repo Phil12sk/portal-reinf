@@ -26,9 +26,9 @@ import { ControleEnvioR9000Component } from '../core/_modal/controle-envio/contr
 import { PainelDeControleComponent } from './painel-de-controle/painel-de-controle.component';
 import { PainelDeControleR1070Component } from '../core/_modal/painel-de-controle/painel-de-controle-r1070/painel-de-controle-r1070.component';
 import { PainelDeControleR2060Component } from '../core/_modal/painel-de-controle/painel-de-controle-r2060/painel-de-controle-r2060.component';
-import { InclusaoRegistroR1070Component } from '../core/_modal/inclusao-registro/inclusao-registro-r1070/inclusao-registro-r1070.component';
-import { InclusaoRegistroR2010Component } from '../core/_modal/inclusao-registro/inclusao-registro-r2010/inclusao-registro-r2010.component';
-import { InclusaoRegistroR2060Component } from '../core/_modal/inclusao-registro/inclusao-registro-r2060/inclusao-registro-r2060.component';
+import { InclusaoRegistroR1070Component } from '../core/_modal/painel-de-consulta/inclusao-registro/inclusao-registro-r1070/inclusao-registro-r1070.component';
+import { InclusaoRegistroR2010Component } from '../core/_modal/painel-de-consulta/inclusao-registro/inclusao-registro-r2010/inclusao-registro-r2010.component';
+import { InclusaoRegistroR2060Component } from '../core/_modal/painel-de-consulta/inclusao-registro/inclusao-registro-r2060/inclusao-registro-r2060.component';
 import { PainelDeControleR1000Component } from '../core/_modal/painel-de-controle/painel-de-controle-r1000/painel-de-controle-r1000.component';
 import { PainelDeControleR2010Component } from '../core/_modal/painel-de-controle/painel-de-controle-r2010/painel-de-controle-r2010.component';
 import { TransmissaoComponent } from '../core/_modal/transmissao/transmissao.component';
