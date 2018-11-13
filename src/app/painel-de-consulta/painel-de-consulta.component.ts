@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PainelDeConsultaService } from '../core/_service/painel-de-consulta.service';
 
 @Component({
   selector: 'app-painel-de-consulta',
@@ -9,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class PainelDeConsultaComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private painelDeConsultaService: PainelDeConsultaService) { }
 
   datePattern = /([12]\d{3}(0[1-9]|1[0-2]))/
   consultForm: FormGroup
@@ -19,56 +22,41 @@ export class PainelDeConsultaComponent implements OnInit {
   btnConsultar: boolean;
   selectedYearConsult: any;
   selectedCnpjConsult: any;
+  selectedCnpjConsult1: any;
   selectedLayoutConsult: any;
   isFilterAble: boolean = true
   consultaLayout=false;
-
-  columnDefs = [
-    {headerName: 'Make', field: 'make'},
-    {headerName: 'Model', field: 'model'},
-    {headerName: 'Price', field: 'price', editable: true}
-  ];
-
-  rowData = [];
-
-  fontePagadora = [
-  '03.080.047/0001-09	- Fundação Santander',
-  '03.209.092/0001-02	- Santander Capitalização',
-  '04.127.332/0001-92	- Universia',
-  '04.270.778/0001-71	- Santander Participações',
-  '04.536.327/0001-33	- Santander Cultural',
-  '06.136.920/0001-18	- Zurich Santander Brasil Seguros',
-  '07.707.650/0001-10	- Santander Financiamentos',
-  '10.866.788/0001-77	- Banco Bandepe',
-  '10.977.742/0001-25	- Santander Brasil Asset Manegement DTVM',
-  '13.615.969/0001-19	- Evidence Previdencia',
-  '18.511.694/0001-97	- WebCasas S/A',
-  '47.193.149/0001-06	- Santander Leasing Arrendamento Mercantil',
-  '51.014.223/0001-49	- Santander Corretora',
-  '52.312.907/0001-90	- Santander Serviços Tecnicos',
-  '55.942.312/0001-06	- Santander Brasil Consorcios',
-  '62.318.407/0001-19	- S3 DTVM',
-  '62.307.848/0001-15	- Banco RCI',
-  '62.474.093/0001-43	- Fundaçao Sudameris',
-  '62.588.793/0001-69	- Isban Brasil S/A',
-  '87.373.109/0001-06	- Zurich Santander Brasil Seguros e Previdencia S/A',
-  '90.400.888/0001-42	- Banco Santnader Brasil S/A',
-  '94.870.557/0001-27	- Produban Serviços de Informática'
-];
-
+  layoutSelected: any
+  nRegistros: any[] = []
+  registros: any[] = []
+  fontePagadora: any = [];
+  systems: any = []
   openFilter(){
     this.isFilterAble = !this.isFilterAble
   }
   
   ngOnInit() {
+    this.painelDeConsultaService.getCompany()
+    .subscribe(resp => this.fontePagadora = resp)
+    this.painelDeConsultaService.getSystem()
+    .subscribe(resp => this.systems = resp)
+    this.painelDeConsultaService.getLayouts()
+    .subscribe(resp => {
+      for(let i = 0; i < resp.length; i++){
+        if(resp[i].label === '1070' || resp[i].label === '2010' || resp[i].label === '2060'){
+          this.nRegistros.push(resp[i])
+        }
+      }
+      this.registros = resp
+    })
     this.selectedOptionIclusion = "";
     this.selectedYearConsult = "";
     this.selectedCnpjConsult = "";
+    this.selectedCnpjConsult1 = "";
     this.selectedLayoutConsult = "";
     this.btnIncluir = false;
     this.btnConsultar = false;
     this.consultaLayout=false;
-
 
     this.consultForm = this.formBuilder.group({
       document: this.formBuilder.control('', [Validators.required]),
@@ -77,11 +65,6 @@ export class PainelDeConsultaComponent implements OnInit {
         Validators.pattern(this.datePattern)
       ])
     })
-
-
-  fetch('https://api.myjson.com/bins/15psn9')
-    .then(result => result.json())
-    .then(rowData => this.rowData = rowData);
   }
 
   ngAfterViewInit(){
@@ -90,16 +73,17 @@ export class PainelDeConsultaComponent implements OnInit {
     this.btnConsultar = false;
     this.selectedYearConsult = "";
     this.selectedCnpjConsult = "";
+    this.selectedCnpjConsult1 = "";
     this.selectedLayoutConsult = "";
 
     this.consultForm = this.formBuilder.group({
       document: this.formBuilder.control('', [Validators.required]),
+      documentPrest: this.formBuilder.control('', [Validators.required]),
       periodo: this.formBuilder.control('', [
         Validators.required, Validators.minLength(6),
         Validators.pattern(this.datePattern)
       ])
     })
-
   }
 
   INCLUIR() {
@@ -112,13 +96,10 @@ export class PainelDeConsultaComponent implements OnInit {
       this.btnIncluir = true;
       this.consultaLayout = false;
     }
-
   }
 
   consulta(){
-  
     this.btnConsultar = false;
-  
     if(this.selectedYearConsult!="" && this.selectedCnpjConsult!="" && this.selectedLayoutConsult!=""){
       this.btnConsultar = true;
       this.inclusaoLayout= "";
@@ -126,6 +107,8 @@ export class PainelDeConsultaComponent implements OnInit {
   }
 
   pesquisar(){
-    this.consultaLayout=true;
+    //const number = Math.floor((Math.random() * 4) + 1)
+    const number = 1
+    this.layoutSelected = number
   }
 }

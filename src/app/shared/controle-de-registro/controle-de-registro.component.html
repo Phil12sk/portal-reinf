@@ -30,7 +30,7 @@
           <label for="exampleSelect1"><strong style="color: red!important;">*</strong>Sistema de Origem:</label>
           <select formControlName="system" class="form-control" id="exampleSelect2">
             <option selected value="">Selecione ----</option>
-            <option *ngFor="let sistema of sistemas" value="{{sistema.value}}">{{sistema.label}}</option>
+            <option *ngFor="let system of systems" [value]="system.label">{{system?.name}}</option>
           </select>
         </div>
       </div>
@@ -39,7 +39,7 @@
           <label for="exampleSelect1"><strong style="color: red!important;">*</strong>CNPJ Contribuinte/Empresa:</label>
           <select formControlName="document" class="form-control" id="exampleSelect2">
             <option selected value="">Selecione ----</option>
-            <option *ngFor="let document of documents" value="{{document.value}}">{{document.label}}</option>
+            <option *ngFor="let document of documents" value="{{document.label}}">{{document.name}}</option>
           </select>
         </div>
       </div>

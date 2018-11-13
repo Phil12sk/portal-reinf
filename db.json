@@ -1,0 +1,133 @@
+{
+    "companies": [
+        {"id": "1", "name": "03.080.047/0001-09 - Fundação Santander", "label": "03080047000109"},
+        {"id": "2", "name": "03.209.092/0001-02 - Santander Capitalização", "label": "03209092000102"},
+        {"id": "3", "name": "04.127.332/0001-92 - Universia", "label":"04127332000192"},
+        {"id": "4", "name": "04.270.778/0001-71 - Santander Participações", "label":"04270778000171"},
+        {"id": "5", "name": "04.536.327/0001-33 - Santander Cultural", "label":"04536327000133"},
+        {"id": "6", "name": "06.136.920/0001-18 - Zurich Santander Brasil Seguros", "label":"06136920000118"},
+        {"id": "7", "name": "07.707.650/0001-10 - Santander Financiamentos", "label":"07707650000110"},
+        {"id": "8", "name": "10.866.788/0001-77 - Banco Bandepe", "label":"10866788000177"},
+        {"id": "9", "name": "10.977.742/0001-25 - Santander Brasil Asset Manegement DTVM", "label":"10977742000125"},
+        {"id": "10", "name": "13.615.969/0001-19 - Evidence Previdencia", "label":"13615969000119"},
+        {"id": "11", "name": "18.511.694/0001-97 - WebCasas S/A", "label":"18511694000197"},
+        {"id": "12", "name": "47.193.149/0001-06 - Santander Leasing Arrendamento Mercantil", "label":"47193149000106"},
+        {"id": "13", "name": "51.014.223/0001-49 - Santander Corretora", "label":"51014223000149"},
+        {"id": "14", "name": "52.312.907/0001-90 - Santander Serviços Tecnicos", "label":"52312907000190"},
+        {"id": "15", "name": "55.942.312/0001-06 - Santander Brasil Consorcios", "label":"55942312000106"},
+        {"id": "16", "name": "62.318.407/0001-19 - S3 DTVM", "label":"62318407000119"},
+        {"id": "17", "name": "62.307.848/0001-15 - Banco RCI", "label":"62307848000115"},
+        {"id": "18", "name": "62.474.093/0001-43 - Fundaçao Sudameris", "label":"62474093000143"},
+        {"id": "19", "name": "62.588.793/0001-69 - Isban Brasil S/A", "label":"62588793000169"},
+        {"id": "20", "name": "87.373.109/0001-06 - Zurich Santander Brasil Seguros e Previdencia S/A", "label":"87373109000106"},
+        {"id": "21", "name": "90.400.888/0001-42 - Banco Santnader Brasil S/A", "label":"90400888000142"},
+        {"id": "22", "name": "94.870.557/0001-27 - Produban Serviços de Informática", "label":"94870557000127"}
+
+    ],
+    "sistemas": [
+        {"id": "1", "name": "DZ"},
+        {"id": "2", "name": "IC"},
+        {"id": "3", "name": "IR"},
+        {"id": "4", "name": "TJ"}
+    ],
+    "layouts": [
+        {"id": "1", "name": "R1000"},
+        {"id": "2", "name": "R1070"},
+        {"id": "3", "name": "R2010"},
+        {"id": "4", "name": "R2060"},
+        {"id": "5", "name": "R2099"},
+        {"id": "6", "name": "R5000"},
+        {"id": "7", "name": "R9000"}
+    ],
+    "xmls": [
+        {
+            "companyId": "1",
+            "xmlsEnviados": [
+                {
+                    "layoutId": "1",
+                    "xmlSuccess": [
+                        {
+                            "id": "1",
+                            "dataTrans": "01.11.2018",
+                            "xmlName": "aaaa_01-10-2018", 
+                            "recibo": "000000-00-0000-0000-000000", 
+                            "status": "success"
+                        },
+                        {
+                            "id": "2",
+                            "dataTrans": "01.11.2018",
+                            "xmlName": "aaaa_03-10-2018", 
+                            "recibo": "222222-22-2222-2222-222222", 
+                            "status": "success"
+                        },
+                        {
+                            "id": "3",
+                            "dataTrans": "01.11.2018",
+                            "xmlName": "aaaa_05-10-2018", 
+                            "recibo": "444444-44-4444-4444-444444", 
+                            "status": "success"
+                        },
+                        {
+                            "id": "6",
+                            "dataTrans": "01.11.2018",
+                            "xmlName": "aaaa_01-10-2018", 
+                            "recibo": "000000-00-0000-0000-000000", 
+                            "status": "success"
+                        },
+                        {
+                            "id": "7",
+                            "dataTrans": "01.11.2018",
+                            "xmlName": "aaaa_03-10-2018", 
+                            "recibo": "222222-22-2222-2222-222222", 
+                            "status": "success"
+                        },
+                        {
+                            "id": "8",
+                            "dataTrans": "01.11.2018",
+                            "xmlName": "aaaa_05-10-2018", 
+                            "recibo": "444444-44-4444-4444-444444", 
+                            "status": "success"
+                        },
+                        {
+                            "id": "9",
+                            "dataTrans": "01.11.2018",
+                            "xmlName": "aaaa_10-10-2018", 
+                            "recibo": "101010-10-1010-1010-101010", 
+                            "status": "success"
+                        }
+                    ],
+                    "xmlError": [
+                        {   
+                            "id": "4",
+                            "dataTrans": "01.11.2018",
+                            "xmlName": "aaaa_02-10-2018",
+                            "recibo": "111111-11-1111-1111-111111",
+                            "status": "error"
+                        },
+                        {
+                            "id": "5",
+                            "dataTrans": "01.11.2018",
+                            "xmlName": "aaaa_04-10-2018",
+                            "recibo": "333333-33-3333-3333-333333",
+                            "status": "error"
+                        },
+                        {
+                            "id": "10",
+                            "dataTrans": "01.11.2018",
+                            "xmlName": "aaaa_02-10-2018",
+                            "recibo": "111111-11-1111-1111-111111",
+                            "status": "error"
+                        },
+                        {
+                            "id": "11",
+                            "dataTrans": "01.11.2018",
+                            "xmlName": "aaaa_04-10-2018",
+                            "recibo": "333333-33-3333-3333-333333",
+                            "status": "error"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

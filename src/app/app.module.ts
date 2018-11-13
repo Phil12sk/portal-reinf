@@ -4,6 +4,7 @@ import { registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaskModule } from 'ngx-mask'
+import { Http, RequestOptions, Headers, HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,6 +20,11 @@ import { PainelDeConsultaComponent } from './painel-de-consulta/painel-de-consul
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ConsultaGeralComponent } from './core/_modal/consulta-geral/consulta-geral.component';
 import localePtBr from '@angular/common/locales/br';
+import { ConsultaRegistroR1000Component } from './core/_modal/painel-de-consulta/consulta-registro/consulta-registro-r1000/consulta-registro-r1000.component';
+import { ConsultaRegistroR1070Component } from './core/_modal/painel-de-consulta/consulta-registro/consulta-registro-r1070/consulta-registro-r1070.component';
+import { ConsultaRegistroR2010Component } from './core/_modal/painel-de-consulta/consulta-registro/consulta-registro-r2010/consulta-registro-r2010.component';
+import { ConsultaRegistroR2060Component } from './core/_modal/painel-de-consulta/consulta-registro/consulta-registro-r2060/consulta-registro-r2060.component';
+import { PainelDeConsultaService } from './core/_service/painel-de-consulta.service';
 
 registerLocaleData(localePtBr,'pt-BR');
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
@@ -40,11 +46,16 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     HomeComponent,
     HeaderComponent,
     PainelDeConsultaComponent,
-    TabelaDinamicaComponent
+    TabelaDinamicaComponent,
+    ConsultaRegistroR1000Component,
+    ConsultaRegistroR1070Component,
+    ConsultaRegistroR2010Component,
+    ConsultaRegistroR2060Component
   ],
   imports: [
     BrowserModule,
-    FormsModule, 
+    FormsModule,
+    HttpModule,
     ReactiveFormsModule,
     SharedModule.forRoot(),
     NgxMaskModule.forRoot(),
@@ -56,6 +67,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     NgxMaskModule,
     DadosService,
     ExcelService,
+    PainelDeConsultaService,
     {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig},
     {provide: LOCALE_ID, useValue: 'pt-BR'}
   ],

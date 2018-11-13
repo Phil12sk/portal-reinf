@@ -7,15 +7,18 @@
       <p>
         <select formControlName="document" class="form-control" id="selectedOptionIclusion" [(ngModel)]="selectedOptionIclusion" (change)="onChange()">
           <option selected value="">Selecione ----</option>
-          <option value="R1070">R1070</option>
-          <option value="R2010">R2010</option>
-          <option value="R2060">R2060</option> 
+          <option *ngFor="let nRegistro of nRegistros" [value]="nRegistro.label">{{nRegistro?.name}}</option>
         </select>
       </p>
     </div>
     <div class="col-2" style="display: inline-block; vertical-align:top;">
-      <button [disabled]="!btnIncluir" class="btn" style="background-color: rgb(118, 113, 113); color: white; display: block;"
-        (click)="INCLUIR()" data-toggle="modal" data-target=".bd-example-modal-lg">INCLUIR</button>
+      <button 
+        [disabled]="!btnIncluir" 
+        class="btn" 
+        style="background-color: rgb(118, 113, 113); color: white; display: block;"
+        (click)="INCLUIR()" 
+        data-toggle="modal" 
+        data-target=".bd-inclusao-modal-lg">INCLUIR</button>
     </div>
   </div>
   <hr style="border-top: 2px solid rgba(0,0,0,.1);">
@@ -70,11 +73,21 @@
     </div>
   </div>
   <div class="row santander-padding-top-1" style="margin-bottom: 20px;">
-    <div class="col-6" style="display: inline-block; vertical-align:top;">
+    <div class="col-6">
       <label for="contrEmpr"><strong style="color: red!important;">*</strong>Contribuinte/Empresa:</label>
       <select formControlName="document" class="form-control" id="selectedCnpjConsult" (change)="consulta($event)" [(ngModel)]="selectedCnpjConsult">
         <option selected value="">Selecione ----</option>       
-        <option *ngFor="let cnpj of fontePagadora" value="cnpj">{{cnpj}}</option>       
+        <option *ngFor="let fonte of fontePagadora" [value]="fonte.label">{{fonte?.name}}</option>       
+      </select><br>
+      <label for="prestador"><strong style="color: red!important;">*</strong>Prestador:</label>
+      <select 
+        formControlName="document" 
+        class="form-control" 
+        id="selectedCnpjConsult1" 
+        (change)="consulta($event)" 
+        [(ngModel)]="selectedCnpjConsult1">
+        <option selected value="">Selecione ----</option>       
+        <option *ngFor="let fonte of fontePagadora" [value]="fonte.label">{{fonte?.name}}</option>       
       </select>
     </div>
     <div class="col-1">&nbsp;</div>
@@ -82,11 +95,15 @@
       <label for="registro"><strong style="color: red!important;">*</strong>Registros:</label>
       <select formControlName="document" class="form-control" id="selectedLayoutConsult" [(ngModel)]="selectedLayoutConsult" (change)="consulta($event)">
         <option selected value="">Selecione ----</option>
-        <option value="R1000">R1000</option>
-        <option value="R1070">R1070</option>
-        <option value="R2010">R2010</option>
-        <option value="R2060">R2060</option>
-      </select>
+        <option *ngFor="let registro of registros" [value]="registro.label">{{registro.name}}</option>
+      </select><br>
+      <div class="form-group">
+        <label for="periodoInit"><strong *ngIf="!isFilterAble" style="color: red!important;">*</strong>Nota Fiscal:</label>
+        <input 
+          type="text" 
+          class="form-control"
+          placeholder="Nota Fiscal">
+      </div>
     </div>
   </div>
   <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
@@ -105,23 +122,19 @@
     <div class="col-1">&nbsp;</div>
     <div class="col-2 santander-padding-top-1">
       <button 
-        [disabled]="!btnConsultar" 
         class="btn" 
         style="background-color: rgb(118, 113, 113); color: white;" 
         (click)="pesquisar()"
         data-toggle="modal" 
-        data-target=".bd-example-modal-lg">PESQUISAR</button>
+        data-target=".bd-consultar-modal-lg">PESQUISAR</button>
     </div>
   </div>
   <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
     <div class="col-3" style="display: inline-block; vertical-align:top;">
       <label for="sistema">Sistema:</label>
       <select formControlName="document" class="form-control" id="exampleSelect">
-        <option selected value="">Selecione ----</option>       
-        <option value="DZ">DZ</option>       
-        <option value="IC">IC</option>       
-        <option value="IR">IR</option>       
-        <option value="TJ">TJ</option>       
+        <option selected value="">Selecione ----</option>
+        <option *ngFor="let system of systems" [value]="system.label">{{system?.name}}</option>
       </select>
     </div>
     <div class="col-3" style="display: inline-block; vertical-align:top;">
@@ -133,13 +146,34 @@
   </div>
 </div>
 <router-outlet></router-outlet>
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div 
+  class="modal fade bd-inclusao-modal-lg" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="myLargeModalLabel" 
+  aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <app-inclusao-registro-r1070 *ngIf="inclusaoLayout=='R1070'"></app-inclusao-registro-r1070>
       <app-inclusao-registro-r2010 *ngIf="inclusaoLayout=='R2010'"></app-inclusao-registro-r2010>
       <app-inclusao-registro-r2060 *ngIf="inclusaoLayout=='R2060'"></app-inclusao-registro-r2060>
       <app-consulta-geral *ngIf="consultaLayout"></app-consulta-geral>
+    </div>
+  </div>
+</div>
+
+<div 
+  class="modal fade bd-consultar-modal-lg" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="myLargeModalLabel" 
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <app-consulta-registro-r1000 *ngIf="layoutSelected=='1'"></app-consulta-registro-r1000>
+      <app-consulta-registro-r1070 *ngIf="layoutSelected=='2'"></app-consulta-registro-r1070>
+      <app-consulta-registro-r2010 *ngIf="layoutSelected=='3'"></app-consulta-registro-r2010>
+      <app-consulta-registro-r2060 *ngIf="layoutSelected=='4'"></app-consulta-registro-r2060>
     </div>
   </div>
 </div>

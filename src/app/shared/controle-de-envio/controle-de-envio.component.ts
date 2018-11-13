@@ -5,6 +5,7 @@ import { DocumentModel } from '../../core/_model/document.model';
 import { Router } from '@angular/router';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { DISABLED } from '@angular/forms/src/model';
+import { PainelDeConsultaService } from '../../core/_service/painel-de-consulta.service';
 declare var $: any
 
 @Component({
@@ -23,34 +24,14 @@ declare var $: any
 })
 export class ControleDeEnvioComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private router: Router,
+    private painelDeConsultaService: PainelDeConsultaService) { }
   tableState = 'ready'
   controleEnvioForm: FormGroup
   datePattern = /([12]\d{3}(0[1-9]|1[0-2]))/
-  documents: DocumentModel[] = [
-    {label: '03.080.047/0001-09 - Fundação Santander', value: '03080047000109'},
-    {label: '03.209.092/0001-02 - Santander Capitalização', value: '03209092000102'},
-    {label: '04.127.332/0001-92 - Universia', value: '04127332000192'},
-    {label: '04.270.778/0001-71 - Santander Participações', value: '04270778000171'},
-    {label: '04.536.327/0001-33 - Santander Cultural', value: '04536327000133'},
-    {label: '06.136.920/0001-18 - Zurich Santander Brasil Seguros', value: '06136920000118'},
-    {label: '07.707.650/0001-10 - Santander Financiamentos', value: '07707650000110'},
-    {label: '10.866.788/0001-77 - Banco Bandepe', value: '10866788000177'},
-    {label: '10.977.742/0001-25 - Santander Brasil Asset Manegement DTVM', value: '10977742000125'},
-    {label: '13.615.969/0001-19 - Evidence Previdencia', value: '13615969000119'},
-    {label: '18.511.694/0001-97 - WebCasas S/A', value: '18511694000197'},
-    {label: '47.193.149/0001-06 - Santander Leasing Arrendamento Mercantil', value: '47193149000106'},
-    {label: '51.014.223/0001-49 - Santander Corretora', value: '51014223000149'},
-    {label: '52.312.907/0001-90 - Santander Serviços Tecnicos', value: '52312907000190'},
-    {label: '55.942.312/0001-06 - Santander Brasil Consorcios', value: '55942312000106'},
-    {label: '62.318.407/0001-19 - S3 DTVM', value: '62318407000119'},
-    {label: '62.307.848/0001-15 - Banco RCI', value: '62307848000115'},
-    {label: '62.474.093/0001-43 - Fundaçao Sudameris', value: '62474093000143'},
-    {label: '62.588.793/0001-69 - Isban Brasil S/A', value: '62588793000169'},
-    {label: '87.373.109/0001-06 - Zurich Santander Brasil Seguros e Previdencia S/A', value: '87373109000106'},
-    {label: '90.400.888/0001-42 - Banco Santnader Brasil S/A', value: '90400888000142'},
-    {label: '94.870.557/0001-27 - Produban Serviços de Informática', value: '94870557000127'},
-  ]
+  documents: any[] = []
   ableTab: boolean = true
   action: any
   opt: boolean
@@ -257,7 +238,10 @@ export class ControleDeEnvioComponent implements OnInit {
       }
     }
   ]
+  //layouts: any[] = []
+  test: any[] = []
   contribuintes: any[]
+  companySelected: any
 
   openFilter($event){
     if($event.target.checked){
@@ -306,10 +290,23 @@ export class ControleDeEnvioComponent implements OnInit {
 
   ableTable($event){
     this.ableTab = false
+    this.painelDeConsultaService.getXmls(this.companySelected)
+    .subscribe(resp => {
+      this.test = resp[0]
+      console.log(this.test)
+    })
+  }
+
+  print($event){
+    this.companySelected = $event.target.value
   }
 
   ngOnInit() {
     this.router.navigate(['/home/controle-envio'])
+    this.painelDeConsultaService.getCompany()
+    .subscribe(resp => this.documents = resp)
+    // this.painelDeConsultaService.getLayouts()
+    // .subscribe(resp => this.layouts = resp)
     this.controleEnvioForm = this.formBuilder.group({
       document: this.formBuilder.control('', Validators.required),
       periodo: this.formBuilder.control('', [

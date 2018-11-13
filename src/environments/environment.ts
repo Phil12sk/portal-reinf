@@ -5,17 +5,12 @@
 
 export const environment = {
   production: false,
-  basePath: '',
-  evtPend: {
+  basePath: 'http://localhost:3000',
+  companies: '/companies',
+  sistemas: '/sistemas',
+  layouts: '/layouts',
 
-  },
-  controleEnvio: {
-
-  },
-  controleIntegracao: {
-
-  },
-  solicitarEnvio: {
-    
+  xmlEnviados: {
+    getAllXml: companyId => `/xmls?companyId=${companyId}`
   }
 };
