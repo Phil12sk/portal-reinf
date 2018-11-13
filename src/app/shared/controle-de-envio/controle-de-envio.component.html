@@ -13,19 +13,7 @@
             placeholder="AAAA-MM">
         </div>
       </div>
-      <div class="col-3">
-        <div class="form-group">
-          <label for="exampleSelect1">Selecione o Contribuinte/Empresa:</label>
-          <select 
-            class="form-control" 
-            id="exampleSelect2"
-            formControlName="document"
-            (change)="print($event)">
-            <option selected value="">CNPJ Contribuinte/Empresa</option>
-            <option *ngFor="let document of documents" value="{{document.id}}">{{document.name}}</option>
-          </select>
-        </div>
-      </div>
+ 
       <div class="col-2">
         <div class="form-group">
           <label for="periodoInit"><strong *ngIf="isFilterAble" style="color: red!important;">*</strong> De:</label>
@@ -50,6 +38,19 @@
             formControlName="dateEnd"
             placeholder="DD/MM/AAAA"
             (keyup)="print($event)">
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="exampleSelect1">Contribuinte/Empresa:</label>
+          <select 
+            class="form-control" 
+            id="exampleSelect2"
+            formControlName="document"
+            (change)="print($event)">
+            <option selected value="">Selecione ----</option>
+            <option *ngFor="let document of documents" value="{{document.id}}">{{document.name}}</option>
+          </select>
         </div>
       </div>
       <div class="col-3 santander-padding-top-1">
