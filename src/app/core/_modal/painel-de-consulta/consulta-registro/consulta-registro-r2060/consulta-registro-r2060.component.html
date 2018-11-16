@@ -4,14 +4,15 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body" *ngIf="!isHistoric">
+<div class="modal-body" *ngIf="isConsult">
   <p style="display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
   <p style="display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
   <div class="row santander-padding-top-1" style="    width: 100%;">
-    <div class="col-12" style="    overflow: scroll;">
+    <div class="col-12" style="overflow: scroll;">
       <table class="table-bordered text-center">
         <thead class="santander-thead" style="background-color: gray;">
           <tr>
+            <th scope="col">Editar</th>
             <th scope="col">Tipo de Operação (1-I / 2-A / 3-E / 4-R)</th>
             <th scope="col">Layout REINF</th>
             <th scope="col">Sistema de Origem</th>
@@ -40,52 +41,54 @@
             <th scope="col">Valor Ajuste</th>
             <th scope="col">Descrição Ajuste</th>
             <th scope="col">Data Ajuste</th>
-            <th scope="col">Data da Alteração</th>
-            <th scope="col">Usuário da Alteração</th>
-            <th scope="col">Data da Aprovação</th>
-            <th scope="col">Usuário da Aprovação</th>
             <th scope="col">Histórico</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td scope="col">{{r2060?.TP_OPER}}</td>
-            <td scope="col">{{r2060?.NM_LAYOUT}}</td>
-            <td scope="col">{{r2060?.CD_SIS_ORIG}}</td>
-            <td scope="col">{{r2060?.CD_PRODUTO}}</td>
-            <td scope="col">{{r2060?.CD_RETENCAO}}</td>
-            <td scope="col">{{r2060?.DT_MOVIMENT}}</td>
-            <td scope="col">{{r2060?.TP_INSCRI}}</td>
-            <td scope="col">{{r2060?.NR_INSCRI}}</td>
-            <td scope="col">{{r2060?.TP_INSC_EST}}</td>
-            <td scope="col">{{r2060?.NR_INSC_EST}}</td>
-            <td scope="col">{{r2060?.VL_TOT_RECBRUTA}}</td>
-            <td scope="col">{{r2060?.VL_TOT_APUESTAB}}</td>
-            <td scope="col">{{r2060?.VL_TOT_EXIGSUSP}}</td>
-            <td scope="col">{{r2060?.CD_ATI_ECON}}</td>
-            <td scope="col">{{r2060?.VL_REC_ATIV}}</td>
-            <td scope="col">{{r2060?.VL_EXC_REC}}</td>
-            <td scope="col">{{r2060?.VL_ADI_REC}}</td>
-            <td scope="col">{{r2060?.VL_BASE_CALC}}</td>
-            <td scope="col">{{r2060?.VL_PREV_REC}}</td>
-            <td scope="col">{{r2060?.VL_PROC_SUSP}}</td>
-            <td scope="col">{{r2060?.TP_PROCESSO}}</td>
-            <td scope="col">{{r2060?.NR_PROCESSO}}</td>
-            <td scope="col">{{r2060?.CD_IND_SUSP}}</td>
-            <td scope="col">{{r2060?.TP_AJUSTE}}</td>
-            <td scope="col">{{r2060?.CD_AJUSTE}}</td>
-            <td scope="col">{{r2060?.VL_AJUSTE}}</td>
-            <td scope="col">{{r2060?.DESC_AJUSTE}}</td>
-            <td scope="col">{{r2060?.DT_AJUSTE}}</td>
-            <td scope="col"></td>
-            <td scope="col"></td>
-            <td scope="col"></td>
-            <td scope="col"></td>
+          <tr *ngFor="let x of r2060">
+            <td scope="col">
+              <div class="form-check">
+                <input 
+                  type="radio" 
+                  (change)="editFile($event);" 
+                  class="form-check-input" 
+                  name="optradio"
+                  [id]="x.TP_OPER">
+              </div>
+            </td>
+            <td scope="col">{{x.TP_OPER}}</td>
+            <td scope="col">{{x.NM_LAYOUT}}</td>
+            <td scope="col">{{x.CD_SIS_ORIG}}</td>
+            <td scope="col">{{x.CD_PRODUTO}}</td>
+            <td scope="col">{{x.CD_RETENCAO}}</td>
+            <td scope="col">{{x.DT_MOVIMENT}}</td>
+            <td scope="col">{{x.TP_INSCRI}}</td>
+            <td scope="col">{{x.NR_INSCRI}}</td>
+            <td scope="col">{{x.TP_INSC_EST}}</td>
+            <td scope="col">{{x.NR_INSC_EST}}</td>
+            <td scope="col">{{x.VL_TOT_RECBRUTA}}</td>
+            <td scope="col">{{x.VL_TOT_APUESTAB}}</td>
+            <td scope="col">{{x.VL_TOT_EXIGSUSP}}</td>
+            <td scope="col">{{x.CD_ATI_ECON}}</td>
+            <td scope="col">{{x.VL_REC_ATIV}}</td>
+            <td scope="col">{{x.VL_EXC_REC}}</td>
+            <td scope="col">{{x.VL_ADI_REC}}</td>
+            <td scope="col">{{x.VL_BASE_CALC}}</td>
+            <td scope="col">{{x.VL_PREV_REC}}</td>
+            <td scope="col">{{x.VL_PROC_SUSP}}</td>
+            <td scope="col">{{x.TP_PROCESSO}}</td>
+            <td scope="col">{{x.NR_PROCESSO}}</td>
+            <td scope="col">{{x.CD_IND_SUSP}}</td>
+            <td scope="col">{{x.TP_AJUSTE}}</td>
+            <td scope="col">{{x.CD_AJUSTE}}</td>
+            <td scope="col">{{x.VL_AJUSTE}}</td>
+            <td scope="col">{{x.DESC_AJUSTE}}</td>
+            <td scope="col">{{x.DT_AJUSTE}}</td>
             <td scope="col">
               <button 
                 class="btn" 
                 style="background-color: rgb(118, 113, 113); color: white;"
-                (click)="checkHistoric();">
+                (click)="checkHistoric(1);">
                 Ver Histórico
               </button>
             </td>
@@ -95,13 +98,13 @@
     </div>
   </div>
 </div>
-<div class="modal-footer" *ngIf="!isHistoric">
+<div class="modal-footer" *ngIf="isConsult">
   <button 
     type="button" 
     class="btn" 
     style="background-color: rgb(118, 113, 113); color: white;"
     data-dismiss="modal"
-    [disabled]="!r2010Form.valid"
+    [hidden]="!isAllowedToEdit"
     (click)="changeVar();"
     >Excluir
   </button>
@@ -110,7 +113,18 @@
     class="btn" 
     style="background-color: rgb(118, 113, 113); color: white;"
     data-dismiss="modal"
+    [hidden]="!isNotAllowedToEdit"
     (click)="changeVar();"
+    >Solicitar Abertura de Grade
+  </button>
+  <button 
+    type="button"
+    data-toggle="modal" 
+    data-target=".modal-R2060"
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    [hidden]="!isAllowedToEdit"
+    (click)="editInfos(1);"
     >Alterar
   </button>
   <button 
@@ -208,9 +222,7 @@
     type="button" 
     class="btn" 
     style="background-color: rgb(118, 113, 113); color: white;"
-    data-dismiss="modal"
-    [disabled]="!r2010Form.valid"
-    (click)="checkHistoric();"
+    (click)="checkHistoric(2);"
     >Voltar
   </button>
   <button 
@@ -221,3 +233,482 @@
     <i class="fas fa-file-excel-o" aria-hidden="true"></i>
   </button>
 </div>
+
+<div class="modal-body" *ngIf="ableEdit2060">
+  <div class="container-fluid">
+    <form [formGroup]="r2060Form" novalidate>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          <label for="TP_OPER">Tipo de Operação (1-I / 2-A / 3-E / 4-R)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Tipo de Operação (1-I / 2-A / 3-E / 4-R)"
+              formControlName="TP_OPER"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NM_LAYOUT">Layout REINF</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="5"
+              placeholder="Layout REINF"
+              formControlName="NM_LAYOUT"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_SIS_ORIG">Sistema de Origem</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="3"
+              placeholder="Sistema de Origem"
+              disabled
+              formControlName="CD_SIS_ORIG"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_PRODUTO">Código Produto</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000"
+              placeholder="Código Produto"
+              disabled
+              formControlName="CD_PRODUTO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_RETENCAO">Código Retenção</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00000"
+              placeholder="Código Retenção"
+              disabled
+              formControlName="CD_RETENCAO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="DT_MOVIMENT">Data Movimentação</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control"
+              mask="0000.00.00"
+              placeholder="AAAA.MM.DD"
+              formControlName="DT_MOVIMENT"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="TP_INSCRI">Tipo Inscrição (1-CNPJ / 2-CPF)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control"
+              mask="0"
+              placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)"
+              disabled
+              formControlName="TP_INSCRI"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NR_INSCRI">Número Inscrição do Contribuinte</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00.000.000/0000-00"
+              placeholder="Número Inscrição do Contribuinte"
+              disabled
+              formControlName="NR_INSCRI"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="TP_INSC_EST">Tipo Inscrição Estadual (1-CNPJ / 4-CNO)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Tipo Inscrição Estadual (1-CNPJ / 4-CNO)"
+              formControlName="TP_INSC_EST"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NR_INSC_EST">Número Inscrição Estadual Estabelecimento</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00.000.000/0000-00"
+              placeholder="Número Inscrição Estadual Estabelecimento"
+              formControlName="NR_INSC_EST"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_TOT_RECBRUTA">Valor da Receita Bruta Total do Estabelecimento</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor da Receita Bruta Total do Estabelecimento"
+              formControlName="VL_TOT_RECBRUTA"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_TOT_APUESTAB">Valor Total CPRB do Estabelecimento</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Total CPRB do Estabelecimento"
+              formControlName="VL_TOT_APUESTAB"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_TOT_EXIGSUSP">Valor CPRB Susp. Total</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor CPRB Susp. Total"
+              formControlName="VL_TOT_EXIGSUSP"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_ATI_ECON">Código Atividade Económica - tabela 9</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00000000"
+              placeholder="Código Atividade Económica - tabela 9"
+              disabled
+              formControlName="CD_ATI_ECON"/>
+          </app-input-container>
+        </div>
+        
+        <div class="col-6">
+          <label for="VL_REC_ATIV">Valor Total da Receita Ativ.</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              disabled
+              placeholder="Valor Total da Receita Ativ."
+              formControlName="VL_REC_ATIV"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_EXC_REC">Valor Total das Exclusões Receita Bruta</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              disabled
+              placeholder="Valor Total das Exclusões Receita Bruta"
+              formControlName="VL_EXC_REC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_ADI_REC">Valor Total das Adições Receita Bruta</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              disabled
+              placeholder="Valor Total das Adições Receita Bruta"
+              formControlName="VL_ADI_REC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_BASE_CALC">Valor Base CPRB</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              disabled
+              placeholder="Valor Base CPRB"
+              formControlName="VL_BASE_CALC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_PREV_REC">Valor CPRB Apur.</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              disabled
+              placeholder="Valor CPRB Apur."
+              formControlName="VL_PREV_REC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_PROC_SUSP">Valor CPRB Susp.</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              disabled
+              placeholder="Valor CPRB Susp."
+              formControlName="VL_PROC_SUSP"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="TP_PROCESSO">Tipo Processo (1-Administrativo / 2-Judicial)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Tipo Processo (1-Administrativo / 2-Judicial)"
+              disabled
+              formControlName="TP_PROCESSO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NR_PROCESSO">Número Processo</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="21"
+              placeholder="Número Processo"
+              disabled
+              formControlName="NR_PROCESSO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_IND_SUSP">Código Ind Susp. - CodSup</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00000000000000"
+              placeholder="Código Ind Susp. - CodSup"
+              formControlName="CD_IND_SUSP"/>
+          </app-input-container>
+        </div>
+        
+        <div class="col-6">
+          <label for="TP_AJUSTE">Tipo Ajuste (0-Redução / 1-Acréscimo)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="1"
+              placeholder="Tipo Ajuste (0-Redução / 1-Acréscimo)"
+              disabled
+              formControlName="TP_AJUSTE"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_AJUSTE">Código Ajuste</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="2"
+              placeholder="Código Ajuste"
+              disabled
+              formControlName="CD_AJUSTE"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_AJUSTE">Valor Ajuste</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Ajuste"
+              formControlName="VL_AJUSTE"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="DESC_AJUSTE">Descrição Ajuste</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="20"
+              placeholder="Descrição Ajuste"
+              formControlName="DESC_AJUSTE"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="DT_AJUSTE">Data Ajuste</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000.00"
+              placeholder="Data Ajuste"
+              formControlName="DT_AJUSTE"/>
+          </app-input-container>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal-footer" *ngIf="ableEdit2060">
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    [disabled]="!r2060Form.valid"
+    (click)="changeVar();"
+    >FINALIZAR
+  </button>
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    (click)="editInfos(2);"
+    >CANCELAR
+  </button>
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >EXCLUIR
+  </button>
+</div>
+

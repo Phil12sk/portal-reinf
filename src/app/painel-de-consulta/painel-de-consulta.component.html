@@ -5,7 +5,11 @@
     </div>
     <div class="col-2" style="display: inline-block; vertical-align:top;  ">
       <p>
-        <select formControlName="document" class="form-control" id="selectedOptionIclusion" [(ngModel)]="selectedOptionIclusion" (change)="onChange()">
+        <select 
+          formControlName="document" 
+          class="form-control" id="selectedOptionIclusion" 
+          [(ngModel)]="selectedOptionIclusion" 
+          (change)="layoutSelectedOption($event)">
           <option selected value="">Selecione ----</option>
           <option *ngFor="let nRegistro of nRegistros" [value]="nRegistro.label">{{nRegistro?.name}}</option>
         </select>
@@ -93,7 +97,12 @@
     <div class="col-1">&nbsp;</div>
     <div class="col-3" style="display: inline-block; vertical-align:top;">
       <label for="registro"><strong style="color: red!important;">*</strong>Registros:</label>
-      <select formControlName="document" class="form-control" id="selectedLayoutConsult" [(ngModel)]="selectedLayoutConsult" (change)="consulta($event)">
+      <select 
+        formControlName="document" 
+        class="form-control" 
+        id="selectedLayoutConsult" 
+        [(ngModel)]="selectedLayoutConsult" 
+        (change)="layoutSelectedOption($event)">
         <option selected value="">Selecione ----</option>
         <option *ngFor="let registro of registros" [value]="registro.label">{{registro.name}}</option>
       </select><br>
@@ -170,10 +179,10 @@
   aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <app-consulta-registro-r1000 *ngIf="layoutSelected=='1'"></app-consulta-registro-r1000>
-      <app-consulta-registro-r1070 *ngIf="layoutSelected=='2'"></app-consulta-registro-r1070>
-      <app-consulta-registro-r2010 *ngIf="layoutSelected=='3'"></app-consulta-registro-r2010>
-      <app-consulta-registro-r2060 *ngIf="layoutSelected=='4'"></app-consulta-registro-r2060>
+      <app-consulta-registro-r1000 *ngIf="layoutSelected=='R1000'"></app-consulta-registro-r1000>
+      <app-consulta-registro-r1070 *ngIf="layoutSelected=='R1070'"></app-consulta-registro-r1070>
+      <app-consulta-registro-r2010 *ngIf="layoutSelected=='R2010'"></app-consulta-registro-r2010>
+      <app-consulta-registro-r2060 *ngIf="layoutSelected=='R2060'"></app-consulta-registro-r2060>
     </div>
   </div>
 </div>

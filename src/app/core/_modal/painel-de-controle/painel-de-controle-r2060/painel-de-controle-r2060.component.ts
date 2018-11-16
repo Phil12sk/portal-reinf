@@ -126,7 +126,6 @@ export class PainelDeControleR2060Component implements OnInit {
     }
   
     ngOnInit() {
-  
       this.r2060 = {
         TP_OPER:'XXXXXXXXXX',
         NM_LAYOUT:'XXXXXXXXXX',

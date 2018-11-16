@@ -32,6 +32,7 @@ import { InclusaoRegistroR2060Component } from '../core/_modal/painel-de-consult
 import { PainelDeControleR1000Component } from '../core/_modal/painel-de-controle/painel-de-controle-r1000/painel-de-controle-r1000.component';
 import { PainelDeControleR2010Component } from '../core/_modal/painel-de-controle/painel-de-controle-r2010/painel-de-controle-r2010.component';
 import { TransmissaoComponent } from '../core/_modal/transmissao/transmissao.component';
+import { AberturaDeGradeComponent } from './abertura-de-grade/abertura-de-grade.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -71,7 +72,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
       PainelDeControleR2010Component,
       PainelDeControleR2060Component,
       SolicitarEnvioComponent,
-      TransmissaoComponent
+      TransmissaoComponent,
+      AberturaDeGradeComponent
     ],
     imports: [
       CommonModule,

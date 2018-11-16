@@ -4,7 +4,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body" *ngIf="!isHistoric">
+<div class="modal-body" *ngIf="isConsult">
   <p style="display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
   <p style="display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
   <div class="row santander-padding-top-1" style="width: 100%;">
@@ -30,10 +30,6 @@
             <th scope="col">UF da Vara</th>	
             <th scope="col">Cód. do Município da Vara</th>	
             <th scope="col">Cód. de Ident. da Vara</th>
-            <th scope="col">Data da Alteração</th>
-            <th scope="col">Usuário da Alteração</th>
-            <th scope="col">Data da Aprovação</th>
-            <th scope="col">Usuário da Aprovação</th>
             <th scope="col">Histórico</th>
           </tr>
         </thead>
@@ -56,11 +52,7 @@
             <td scope="col">{{r1070.IN_DEPOSIT}}</td>
             <td scope="col">{{r1070.CD_UF}}</td>
             <td scope="col">{{r1070.CD_MUNIC}}</td>
-            <td scope="col">{{r1070.CD_VARA}}</td>               
-            <td scope="col"></td>
-            <td scope="col"></td>
-            <td scope="col"></td>
-            <td scope="col"></td>
+            <td scope="col">{{r1070.CD_VARA}}</td>
             <td scope="col">
               <button 
                 class="btn" 
@@ -76,7 +68,7 @@
     </div>
   </div>
 </div>
-<div class="modal-footer" *ngIf="!isHistoric">
+<div class="modal-footer" *ngIf="isConsult">
   <button 
     type="button" 
     class="btn" 
@@ -181,5 +173,318 @@
     style="background-color: rgb(118, 113, 113); color: white;">
     Exportar para Excel
     <i class="fas fa-file-excel-o" aria-hidden="true"></i>
+  </button>
+</div>
+
+<div class="modal-body" *ngIf="ableEdit1070">
+  <div class="container-fluid">
+    <form [formGroup]="r1070Form" novalidate>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          <label for="TP_OPER">Tipo de Operação (1-I / 2-A / 3-E)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control"
+              id=""
+              mask="0"
+              placeholder="Tipo de Operação (1-I / 2-A / 3-E)"
+              formControlName="TP_OPER"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NM_LAYOUT">Layout REINF</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="5"
+              placeholder="Layout REINF"
+              formControlName="NM_LAYOUT"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_SIS_ORIG">Sistema de Origem</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask=""
+              maxlength="3"
+              placeholder="Sistema de Origem"
+              disabled
+              formControlName="CD_SIS_ORIG"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="DT_MOVIMENT">Data Movimentação</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000.00.00"
+              maxlength="60"
+              placeholder="Data Movimentação"
+              formControlName="DT_MOVIMENT"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="TP_INSCRI">Tipo Inscrição (1-CNPJ / 2-CPF)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              disabled
+              placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)"
+              formControlName="TP_INSCRI"/>
+          </app-input-container>
+        </div>
+        
+        <div class="col-6">
+          <label for="NR_INSCRI">Número Inscrição do Contribuinte</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00.000.000/0000-00"
+              disabled
+              placeholder="Número Inscrição do Contribuinte"
+              formControlName="NR_INSCRI"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="TP_PROCES">Tipo de Processo (1-Adm / 2-Judicial)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              disabled
+              placeholder="Tipo de Processo (1-Adm / 2-Judicial)"
+              formControlName="TP_PROCES"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NR_PROCES">Número de Processo</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              disabled
+              maxlength="21"
+              placeholder="Número de Processo"
+              formControlName="NR_PROCES"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="DT_INI_VAL">Data Início de Validade</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000-00"
+              placeholder="Data Início de Validade"
+              formControlName="DT_INI_VAL"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="DT_FIM_VAL">Data Final de validade</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000-00"
+              placeholder="Data Final de validade"
+              formControlName="DT_FIM_VAL"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="IN_AUTORIA">Ind. Autoria Judicial (1-Próprio / 2-Outra)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Ind. Autoria Judicial (1-Próprio / 2-Outra)"
+              formControlName="IN_AUTORIA"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_SUSPEN">Susp. Adicional - CodSup</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00000000000000"
+              disabled
+              placeholder="Susp. Adicional - CodSup"
+              formControlName="CD_SUSPEN"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="IN_SUSPEN">Ind.  Susp . exigibilidade - indSusp</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00"
+              placeholder="Ind. Susp. exigibilidade - indSusp"
+              formControlName="IN_SUSPEN"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="DT_DECISAO">Data da Decisão</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000.00.00"
+              placeholder="Data da Decisão"
+              formControlName="DT_DECISAO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="IN_DEPOSIT">Ind. Depósito (S-Sim / N-Não)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="1"
+              placeholder="Ind. Depósito (S-Sim / N-Não)"
+              formControlName="IN_DEPOSIT"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_UF">UF da Vara</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="2"
+              placeholder="UF da Vara"
+              formControlName="CD_UF"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_MUNIC">Cód. do Município da Vara</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="000"
+              placeholder="Cód. do Município da Vara"
+              formControlName="CD_MUNIC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_VARA">Cód. de Ident. da Vara</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="2"
+              placeholder="Cód. de Ident. da Vara"
+              formControlName="CD_VARA"/>
+          </app-input-container>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal-footer" *ngIf="ableEdit1070">
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    [disabled]="!r1070Form.valid"
+    (click)="changeVar();"
+    >FINALIZAR
+  </button>
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >CANCELAR
+  </button>
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >EXCLUIR
   </button>
 </div>

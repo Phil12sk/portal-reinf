@@ -8,10 +8,30 @@ import { Component, OnInit } from '@angular/core';
 export class ConsultaRegistroR1070Component implements OnInit {
 
   constructor() { }
+  isConsult: boolean = true
   isHistoric: boolean = false
+  ableEdit1070: boolean = false
+  isAllowedToEdit: boolean = false
+  isNotAllowedToEdit: boolean = false
 
-  checkHistoric(){
-    this.isHistoric = ! this.isHistoric
+  checkHistoric(value){
+    if(value === 1){
+      this.isHistoric = true
+      this.isConsult = false
+    }else{
+      this.isHistoric = false
+      this.isConsult = true
+    }
+  }
+
+  editInfos(value){
+    if(value === 1){
+      this.isConsult = false
+      this.ableEdit1070 = true
+    }else{
+      this.isConsult = true
+      this.ableEdit1070 = false
+    }
   }
   
   ngOnInit() {

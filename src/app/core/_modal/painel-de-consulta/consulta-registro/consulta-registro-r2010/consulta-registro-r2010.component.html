@@ -4,7 +4,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body" *ngIf="!isHistoric">
+<div class="modal-body" *ngIf="isConsult">
   <p style="display: inline;font-size: 18px;"><strong>Contribuinte:</strong> {{contribuinte| mask: '00.000.000/0000-00'}}</p>
   <p style="display: inline;float: right;font-size: 18px;"><strong>Período:</strong> {{periodo}}</p>
   <div class="row santander-padding-top-1" style="width: 100%;">
@@ -54,10 +54,6 @@
             <th scope="col">Número do Processo Adicional - nrProcRetAdic</th>
             <th scope="col">Código Susp. Adicional - codSuspAdic</th>
             <th scope="col">Valor Retenção Susp. Adicional</th>
-            <th scope="col">Data da Alteração</th>
-            <th scope="col">Usuário da Alteração</th>
-            <th scope="col">Data da Aprovação</th>
-            <th scope="col">Usuário da Aprovação</th>
             <th scope="col">Histórico</th>
           </tr>
         </thead>
@@ -105,10 +101,6 @@
             <td scope="col">{{r2010?.NR_PROC_ADIC}}</td>
             <td scope="col">{{r2010?.CD_SUSP_ADIC}}</td>
             <td scope="col">{{r2010?.VL_ADIC}}</td>
-            <td scope="col"></td>
-            <td scope="col"></td>
-            <td scope="col"></td>
-            <td scope="col"></td>
             <td scope="col">
               <button 
                 class="btn" 
@@ -123,7 +115,7 @@
     </div>
   </div>
 </div>
-<div class="modal-footer" *ngIf="!isHistoric">
+<div class="modal-footer" *ngIf="isConsult">
   <button 
     type="button" 
     class="btn" 
@@ -275,5 +267,683 @@
     style="background-color: rgb(118, 113, 113); color: white;">
     Exportar para Excel
     <i class="fas fa-file-excel-o" aria-hidden="true"></i>
+  </button>
+</div>
+
+<div class="modal-body" *ngIf="ableEdit2010">
+  <div class="container-fluid">
+    <form [formGroup]="r2010Form" novalidate>
+      <div class="row santander-padding-top-1">
+        <div class="col-6">
+          <label for="TP_OPER">Tipo de Operação (1-I / 2-A / 3-E / 4-R)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Tipo de Operação (1-I / 2-A / 3-E / 4-R)"
+              formControlName="TP_OPER"/>
+          </app-input-container>
+        </div>
+              
+        <div class="col-6">
+          <label for="NM_LAYOUT">Layout REINF</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="5"
+              placeholder="Layout REINF"
+              formControlName="NM_LAYOUT"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_SIS_ORIG">Sistema de Origem</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="000"
+              placeholder="Sistema de Origem"
+              disabled
+              formControlName="CD_SIS_ORIG"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_PRODUTO">Código Produto</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000"
+              disabled
+              placeholder="Código Produto"
+              formControlName="CD_PRODUTO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_RETENCAO">Código Retenção</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00000"
+              placeholder="Código Retenção"
+              disabled
+              formControlName="CD_RETENCAO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="DT_MOVIMENT">Data Movimentaçaõ</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000.00.00"
+              placeholder="AAAA.MM.DD"
+              formControlName="DT_MOVIMENT"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="TP_INSCRI">Tipo Inscrição (1-CNPJ / 2-CPF)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Tipo Inscrição (1-CNPJ / 2-CPF)"
+              disabled
+              formControlName="TP_INSCRI"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NR_INSCRI">Número Inscrição do Contribuinte</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00.000.000/0000-00"
+              placeholder="Número Inscrição do Contribuinte"
+              formControlName="NR_INSCRI"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="TP_INSC_EST">Tipo de Inscrição Estabelecimento (1-CNPJ / 4-CNO)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              disabled
+              placeholder="Tipo de Inscrição Estabelecimento (1-CNPJ / 4-CNO)"
+              formControlName="TP_INSC_EST"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NR_INSC_EST">Número de Inscrição Estabelecimento</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00.000.000/0000-00"
+              disabled
+              placeholder="Número de Inscrição Estabelecimento"
+              formControlName="NR_INSC_EST"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="IN_OBRA">Inscrição Obra (0-Não é obra de Construção Civil ou não está sujeita a matrícula</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Inscrição Obra (0-Não é obra de Construção Civil ou não está sujeita a matrícula)"
+              formControlName="IN_OBRA"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NR_CNPJ_PRE">CNPJ Prestador</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00.000.000/0000-00"
+              disabled
+              placeholder="CNPJ Prestador"
+              formControlName="NR_CNPJ_PRE"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_TOT_BRUTO">Valor Total Bruto NF(s)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Total Bruto NF(s)"
+              formControlName="VL_TOT_BRUTO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_TOT_BASERET">Soma Valor Total Base Ret. NF(s)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Soma Valor Total Base Ret. NF(s)"
+              formControlName="VL_TOT_BASERET"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_TOT_RETPRINC">Valor Total Principal Ret. NF(s)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Total Principal Ret. NF(s)"
+              formControlName="VL_TOT_RETPRINC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_TOT_RETADIC">Valor Total Adicional Ret. NF(s)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Total Adicional Ret. NF(s)"
+              formControlName="VL_TOT_RETADIC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_TOT_NRETPRI">Valor Total Principal Não Ret. NF(s)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Total Principal Não Ret. NF(s)"
+              formControlName="VL_TOT_NRETPRI"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_TOT_NRETADIC">Valor Total Adicional Não Ret. NF(s)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Total Adicional Não Ret. NF(s)"
+              formControlName="VL_TOT_NRETADIC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="IN_CPRB">Indicativo CPRB (0-Não contribui: retenção 11% / 1-Contribui: retenção 3,5%)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Indicativo CPRB (0-Não contribui: retenção 11% / 1-Contribui: retenção 3,5%)"
+              formControlName="IN_CPRB"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NR_SERIE">Série NF</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="5"
+              disabled
+              placeholder="Série NF"
+              formControlName="NR_SERIE"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NR_DOCTO">Número da NF</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="15"
+              placeholder="Número da NF"
+              formControlName="NR_DOCTO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="DT_EMISSAONF">Data Emissão NF</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0000.00.00"
+              placeholder="AAAA.MM.DD"
+              formControlName="DT_EMISSAONF"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_BRUTO">Valor Bruto da NF</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Bruto da NF"
+              formControlName="VL_BRUTO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NM_OBS">Observação</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="250"
+              placeholder="Observação"
+              formControlName="NM_OBS"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="TP_SERVICO">Tipo Serviço - Tabela 6</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="9"
+              disabled
+              placeholder="Tipo Serviço - Tabela 6"
+              formControlName="TP_SERVICO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_BASERET">Valor Base Retenção da NF</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Base Retenção da NF"
+              formControlName="VL_BASERET"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_RETENCAO">Valor Retenção da NF</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Retenção da NF"
+              formControlName="VL_RETENCAO"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_RETSUB">Valor Retenção dos Serviços Subcontratados</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Retenção dos Serviços Subcontratados"
+              formControlName="VL_RETSUB"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_NRETPRINC">Valor Principal Não Ret. NF(s)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Principal Não Ret. NF(s)"
+              formControlName="VL_NRETPRINC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_SERVICOS15">Valor Serviços Prestados após 15 anos</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Serviços Prestados após 15 anos"
+              formControlName="VL_SERVICOS15"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_SERVICOS20">Valor Serviços Prestados após 20 anos</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Serviços Prestados após 20 anos"
+              formControlName="VL_SERVICOS20"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_SERVICOS25">Valor Serviços Prestados após 25 anos</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Serviços Prestados após 25 anos"
+              formControlName="VL_SERVICOS25"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_ADICIONAL">Valor Adicional Serviços Prestados após 15, 20 ou 25 anos</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Adicional Serviços Prestados após 15, 20 ou 25 anos"
+              formControlName="VL_ADICIONAL"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_NRETADIC">Valor Adicional Não Ret. NF(s)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Adicional Não Ret. NF(s)"
+              formControlName="VL_NRETADIC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="TP_PROC_RET">Tipo de Processo (1-Administrativo / 2-Judicial)</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              disabled
+              placeholder="Tipo de Processo (1-Administrativo / 2-Judicial)"
+              formControlName="TP_PROC_RET"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NR_PROC_RET">Número do Processo</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="21"
+              disabled
+              placeholder="Número do Processo"
+              formControlName="NR_PROC_RET"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_SUSP_PRIN">Código Susp. Principal - codSuspPrinc</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="14"
+              disabled
+              placeholder="Código Susp. Principal - codSuspPrinc"
+              formControlName="CD_SUSP_PRIN"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_PRINC">Valor Retenção Susp. Principal</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Retenção Susp. Principal"
+              formControlName="VL_PRINC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="TP_PROC_ADIC">Tipo Processo Adicional (1-Administrativo / 2-Judicial) - tpProcRetAdic</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="0"
+              placeholder="Tipo Processo Adicional (1-Administrativo / 2-Judicial) - tpProcRetAdic"
+              disabled
+              formControlName="TP_PROC_ADIC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="NR_PROC_ADIC">Número do Processo Adicional - nrProcRetAdic</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              maxlength="21"
+              placeholder="Número do Processo Adicional - nrProcRetAdic"
+              disabled
+              formControlName="NR_PROC_ADIC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="CD_SUSP_ADIC">Código Susp. Adicional - codSuspAdic</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              mask="00000000000000"
+              placeholder="Código Susp. Adicional - codSuspAdic"
+              disabled
+              formControlName="CD_SUSP_ADIC"/>
+          </app-input-container>
+        </div>
+
+        <div class="col-6">
+          <label for="VL_ADIC">Valor Retenção Susp. Adicional</label>
+        </div>
+        <div class="col-6">
+          <app-input-container>
+            <input 
+              type="text" 
+              class="form-control" 
+              id=""
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              placeholder="Valor Retenção Susp. Adicional"
+              formControlName="VL_ADIC"/>
+          </app-input-container>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal-footer" *ngIf="ableEdit2010">
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    [disabled]="!r2010Form.valid"
+    (click)="changeVar();"
+    >FINALIZAR
+  </button>
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >CANCELAR
+  </button>
+  <button 
+    type="button" 
+    class="btn" 
+    style="background-color: rgb(118, 113, 113); color: white;"
+    data-dismiss="modal"
+    (click)="changeVar();"
+    >EXCLUIR
   </button>
 </div>

@@ -31,6 +31,7 @@ export class PainelDeConsultaComponent implements OnInit {
   registros: any[] = []
   fontePagadora: any = [];
   systems: any = []
+  selectedOption: any
   openFilter(){
     this.isFilterAble = !this.isFilterAble
   }
@@ -90,7 +91,8 @@ export class PainelDeConsultaComponent implements OnInit {
     this.inclusaoLayout = this.selectedOptionIclusion;
   }
 
-  onChange() {
+  layoutSelectedOption(filter: any) {
+    this.selectedOption = filter.target.selectedOptions[0].label
     this.btnIncluir = false;
     if (this.selectedOptionIclusion != "") {
       this.btnIncluir = true;
@@ -107,8 +109,6 @@ export class PainelDeConsultaComponent implements OnInit {
   }
 
   pesquisar(){
-    //const number = Math.floor((Math.random() * 4) + 1)
-    const number = 4
-    this.layoutSelected = number
+    this.layoutSelected = this.selectedOption
   }
 }

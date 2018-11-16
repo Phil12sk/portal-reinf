@@ -9,10 +9,12 @@ import { ControleRegistrosR1070Component } from './core/_modal/controle-registro
 import { ControleRegistrosR2010Component } from './core/_modal/controle-registros/controle-registros-r2010/controle-registros-r2010.component';
 import { ControleRegistrosR2060Component } from './core/_modal/controle-registros/controle-registros-r2060/controle-registros-r2060.component';
 import { PainelDeConsultaComponent } from './painel-de-consulta/painel-de-consulta.component';
+import { AberturaDeGradeComponent } from './shared/abertura-de-grade/abertura-de-grade.component';
 
 export const ROUTES: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent, children: [
+        {path: 'painel-consulta', component: PainelDeConsultaComponent},
         {path: 'painel-de-controle', component: PainelDeControleComponent},
         {path: 'controle-de-registros', component: ControleDeRegistroComponent, children: [
             {path: 'controle-de-registros-R1070', component: ControleRegistrosR1070Component},
@@ -21,8 +23,8 @@ export const ROUTES: Routes = [
             {path: 'no-integration', component: NoIntegrationComponent}
         ]},
         {path: 'controle-envio', component: ControleDeEnvioComponent},
-        {path: 'solicitar-envio', component: SolicitarEnvioComponent},
-        {path: 'painel-consulta', component: PainelDeConsultaComponent}
+        {path: 'abertura-de-grade', component: AberturaDeGradeComponent},
+        
     ]},
     {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ]
