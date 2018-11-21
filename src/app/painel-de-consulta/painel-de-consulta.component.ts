@@ -32,6 +32,7 @@ export class PainelDeConsultaComponent implements OnInit {
   fontePagadora: any = [];
   systems: any = []
   selectedOption: any
+  isAble: boolean = false
   openFilter(){
     this.isFilterAble = !this.isFilterAble
   }
@@ -92,11 +93,16 @@ export class PainelDeConsultaComponent implements OnInit {
   }
 
   layoutSelectedOption(filter: any) {
-    this.selectedOption = filter.target.selectedOptions[0].label
-    this.btnIncluir = false;
-    if (this.selectedOptionIclusion != "") {
-      this.btnIncluir = true;
-      this.consultaLayout = false;
+    if(filter.target.value === ""){
+      this.isAble = false;
+    }else{
+      this.isAble = true
+      this.selectedOption = filter.target.selectedOptions[0].label
+      this.btnIncluir = false;
+      if (this.selectedOptionIclusion != "") {
+        this.btnIncluir = true;
+        this.consultaLayout = false;
+      }
     }
   }
 
