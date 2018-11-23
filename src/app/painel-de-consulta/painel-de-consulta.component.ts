@@ -33,6 +33,9 @@ export class PainelDeConsultaComponent implements OnInit {
   systems: any = []
   selectedOption: any
   isAble: boolean = false
+  validation: number
+  ableFields: boolean = false
+  
   openFilter(){
     this.isFilterAble = !this.isFilterAble
   }
@@ -61,47 +64,48 @@ export class PainelDeConsultaComponent implements OnInit {
     this.consultaLayout=false;
 
     this.consultForm = this.formBuilder.group({
-      document: this.formBuilder.control('', [Validators.required]),
-      periodo: this.formBuilder.control('', [
-        Validators.required, Validators.minLength(6),
-        Validators.pattern(this.datePattern)
-      ])
-    })
-  }
-
-  ngAfterViewInit(){
-    this.selectedOptionIclusion = "";
-    this.btnIncluir = false;
-    this.btnConsultar = false;
-    this.selectedYearConsult = "";
-    this.selectedCnpjConsult = "";
-    this.selectedCnpjConsult1 = "";
-    this.selectedLayoutConsult = "";
-
-    this.consultForm = this.formBuilder.group({
-      document: this.formBuilder.control('', [Validators.required]),
+      documentContr: this.formBuilder.control('', [Validators.required]),
       documentPrest: this.formBuilder.control('', [Validators.required]),
       periodo: this.formBuilder.control('', [
         Validators.required, Validators.minLength(6),
         Validators.pattern(this.datePattern)
-      ])
+      ]),
+      notaFiscal: this.formBuilder.control(''),
+      bank: this.formBuilder.control(''),
+      codProduct: this.formBuilder.control(''),
+      system: this.formBuilder.control(''),
+      codRetention: this.formBuilder.control(''),
+      layouts: this.formBuilder.control('')
     })
+    this.consultForm.get('bank').disable()
   }
 
   INCLUIR() {
     this.inclusaoLayout = this.selectedOptionIclusion;
   }
 
-  layoutSelectedOption(filter: any) {
-    if(filter.target.value === ""){
-      this.isAble = false;
-    }else{
-      this.isAble = true
-      this.selectedOption = filter.target.selectedOptions[0].label
-      this.btnIncluir = false;
-      if (this.selectedOptionIclusion != "") {
-        this.btnIncluir = true;
-        this.consultaLayout = false;
+  checkValidation(){
+    
+  }
+
+  ableSearch(filter: any, validation: any) {
+    this.validation = validation
+    if(validation == 1){
+      this.consultForm.get('bank').enable()
+      this.consultForm.get('codProduct').enable()
+      this.consultForm.get('system').enable()
+      this.consultForm.get('codRetention').enable()
+    }else if(validation == 3){
+      if(filter.target.value === ""){
+        this.isAble = false;
+      }else{
+        this.isAble = true
+        this.selectedOption = filter.target.selectedOptions[0].label
+        this.btnIncluir = false;
+        if (this.selectedOptionIclusion != "") {
+          this.btnIncluir = true;
+          this.consultaLayout = false;
+        }
       }
     }
   }

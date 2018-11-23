@@ -6,10 +6,10 @@
     <div class="col-2" style="display: inline-block; vertical-align:top;  ">
       <p>
         <select 
-          formControlName="document" 
+          formControlName="layouts" 
           class="form-control" id="selectedOptionIclusion" 
           [(ngModel)]="selectedOptionIclusion" 
-          (change)="layoutSelectedOption($event)">
+          (change)="layoutSelectedOption($event, 1)">
           <option selected value="">Selecione ----</option>
           <option *ngFor="let nRegistro of nRegistros" [value]="nRegistro.id">{{nRegistro?.name}}</option>
         </select>
@@ -79,16 +79,21 @@
   <div class="row santander-padding-top-1" style="margin-bottom: 20px;">
     <div class="col-6">
       <label for="contrEmpr"><strong style="color: red!important;">*</strong>Contribuinte/Empresa:</label>
-      <select formControlName="document" class="form-control" id="selectedCnpjConsult" (change)="consulta($event)" [(ngModel)]="selectedCnpjConsult">
+      <select 
+        formControlName="documentContr"
+        class="form-control" 
+        id="selectedCnpjConsult" 
+        (change)="ableSearch($event, 1)"
+        [(ngModel)]="selectedCnpjConsult">
         <option selected value="">Selecione ----</option>       
         <option *ngFor="let fonte of fontePagadora" [value]="fonte.label">{{fonte?.name}}</option>       
       </select><br>
       <label for="prestador"><strong style="color: red!important;">*</strong>Prestador:</label>
       <select 
-        formControlName="document" 
+        formControlName="documentPrest" 
         class="form-control" 
         id="selectedCnpjConsult1" 
-        (change)="consulta($event)" 
+        (change)="ableSearch($event, 2)" 
         [(ngModel)]="selectedCnpjConsult1">
         <option selected value="">Selecione ----</option>       
         <option *ngFor="let fonte of fontePagadora" [value]="fonte.label">{{fonte?.name}}</option>       
@@ -98,11 +103,9 @@
     <div class="col-3" style="display: inline-block; vertical-align:top;">
       <label for="registro"><strong style="color: red!important;">*</strong>Registros:</label>
       <select 
-        formControlName="document" 
-        class="form-control" 
-        id="selectedLayoutConsult" 
-        [(ngModel)]="selectedLayoutConsult" 
-        (change)="layoutSelectedOption($event)">
+        formControlName="layouts" 
+        class="form-control"
+        (change)="ableSearch($event, 3)">
         <option selected value="">Selecione ----</option>
         <option *ngFor="let registro of registros" [value]="registro.id">{{registro.name}}</option>
       </select><br>
@@ -111,21 +114,37 @@
         <input 
           type="text" 
           class="form-control"
-          placeholder="Nota Fiscal">
+          placeholder="Nota Fiscal"
+          formControlName="notaFiscal"/>
       </div>
     </div>
   </div>
   <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
     <div class="col-3" style="display: inline-block; vertical-align:top;">
-      <label for="banco"> Banco:</label>
-      <select formControlName="document" class="form-control" id="exampleSelect" disabled>
-        <option selected value="">       </option>       
+      <label for="banco">Banco:</label>
+      <select 
+        formControlName="bank" 
+        class="form-control" 
+        id="selectedLayoutConsult" 
+        (change)="ableSearch($event, 3)"
+        [attr.disabled]="true">
+        <option selected value="">Selecione ----</option>
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
       </select>
     </div>
     <div class="col-3" style="display: inline-block; vertical-align:top;">
       <label for="codProduto">Código de Produto:</label>
-      <select formControlName="document" class="form-control" id="exampleSelect" disabled>
-        <option selected value="">       </option>       
+      <select 
+        formControlName="codProduct"
+        class="form-control" 
+        (change)="ableSearch($event, 3)"
+        [attr.disabled]="true">
+        <option selected value="">Selecione ----</option>
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
       </select>
     </div>
     <div class="col-1">&nbsp;</div>
@@ -142,15 +161,26 @@
   <div class="row santander-padding-top-1" style="padding-top: 0px!important;">
     <div class="col-3" style="display: inline-block; vertical-align:top;">
       <label for="sistema">Sistema:</label>
-      <select formControlName="document" class="form-control" id="exampleSelect">
+      <select 
+        formControlName="system" 
+        class="form-control"
+        (change)="ableSearch($event, 3)"
+        [attr.disabled]="true">
         <option selected value="">Selecione ----</option>
         <option *ngFor="let system of systems" [value]="system.label">{{system?.name}}</option>
       </select>
     </div>
     <div class="col-3" style="display: inline-block; vertical-align:top;">
       <label for="codRetencao">Código de Retenção:</label>
-      <select formControlName="document" class="form-control" id="exampleSelect" disabled>
-        <option selected value="">       </option>       
+      <select 
+        formControlName="codRetention" 
+        class="form-control"
+        (change)="ableSearch($event, 3)"
+        [attr.disabled]="true">
+        <option selected value="">Selecione ----</option>
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
       </select>
     </div>
   </div>

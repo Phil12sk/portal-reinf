@@ -26,7 +26,6 @@ import { ConsultaRegistroR1070Component } from './core/_modal/painel-de-consulta
 import { ConsultaRegistroR2010Component } from './core/_modal/painel-de-consulta/consulta-registro/consulta-registro-r2010/consulta-registro-r2010.component';
 import { ConsultaRegistroR2060Component } from './core/_modal/painel-de-consulta/consulta-registro/consulta-registro-r2060/consulta-registro-r2060.component';
 import { PainelDeConsultaService } from './core/_service/painel-de-consulta.service';
-// import { AprovacaoDeGradeComponent } from './core/_modal/aprovacao-de-grade/aprovacao-de-grade.component';
 
 registerLocaleData(localePtBr,'pt-BR');
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {

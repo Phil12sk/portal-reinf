@@ -82,7 +82,7 @@
     type="button" 
     class="btn" 
     style="background-color: rgb(118, 113, 113); color: white;"
-    data-dismiss="modal"
+    [disabled]="!r1070Form.valid"
     (click)="changeVar();"
     >Alterar
   </button>
