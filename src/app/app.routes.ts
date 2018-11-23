@@ -10,6 +10,7 @@ import { ControleRegistrosR2010Component } from './core/_modal/controle-registro
 import { ControleRegistrosR2060Component } from './core/_modal/controle-registros/controle-registros-r2060/controle-registros-r2060.component';
 import { PainelDeConsultaComponent } from './painel-de-consulta/painel-de-consulta.component';
 import { AberturaDeGradeComponent } from './shared/abertura-de-grade/abertura-de-grade.component';
+// import { AprovacaoDeGradeComponent } from './core/_modal/aprovacao-de-grade/aprovacao-de-grade.component';
 
 export const ROUTES: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},

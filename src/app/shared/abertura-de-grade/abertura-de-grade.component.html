@@ -1,3 +1,52 @@
-<p>
-  abertura-de-grade works!
-</p>
+<div class="container-fluid">
+  <div class="row santander-padding-top-1" style="width: 100%;">
+    <div class="col-12">
+      <table class="table-bordered text-center">
+        <thead class="santander-thead" style="    background-color: gray;">
+          <tr>
+            <th scope="col">Layout REINF</th>
+            <th scope="col">Período Apuração</th>
+            <th>Contribuinte/Empresa</th>
+            <th style=" padding-left: 40px;padding-right: 40px;">Prestador</th>
+            <th>Nota Fiscal</th>
+            <th scope="col">Usuário Solicitante</th>
+            <th scope="col">Data de Solicitação</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let registro of registroAprovacaoGradeModel">
+          <tr>
+            <td scope="col">{{registro.layout}}</td>
+            <td scope="col">{{registro.periodo}}</td>
+            <td scope="col">{{registro.contribuinte}}</td>
+            <td scope="col">{{registro.prestador}}</td>
+            <td scope="col">{{registro.nf}}</td>
+            <td scope="col">{{registro.usuarioSolicitacao}}</td>
+            <td scope="col">{{registro.dataSolicitacao}}</td>
+            <td scope="col" style="padding: 5px;">
+              <button class="btn" style="background-color: rgb(118, 113, 113); color: white; display: block;" (click)="verificar()" data-toggle="modal" data-target=".bd-example-modal-lg">VERIFICAR</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+       <!-- <app-aprovacao-de-grade></app-aprovacao-de-grade> -->
+       <app-aprovacao-de-grade></app-aprovacao-de-grade>
+       <!-- <div class="modal-body" >
+          TESTEEEEEEEEEE
+        </div> -->
+      </div>
+    </div>
+  </div>
